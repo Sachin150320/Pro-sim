@@ -94,10 +94,10 @@ export default function Hero() {
           </p>
 
           <div className="hero-buttons">
-            <Link href="/industries" className="btn-primary">
+            {/* <Link href="/industries" className="btn-primary">
               Explore Industries
               <span className="arrow">→</span>
-            </Link>
+            </Link> */}
 
             {/* <Link href="#unveiling-prosim" className="btn-secondary">
               <span className="play-icon">▶</span>

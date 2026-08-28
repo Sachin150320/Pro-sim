@@ -156,7 +156,7 @@ export default function Header() {
 
             <Link href="/contact-us" className="btn-primary">
               <PhoneCall size={15} />
-              <span>Get In Touch</span>
+              <span>Reach Us</span>
               <ArrowRight size={15} />
             </Link>
 
@@ -247,7 +247,7 @@ export default function Header() {
 
         <Link href="/contact-us" className="btn-primary" onClick={closeMenu}>
           <PhoneCall size={16} />
-          <span>Get In Touch</span>
+          <span>Reach Us</span>
           <ArrowRight size={16} />
         </Link>
       </div>
