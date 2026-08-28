@@ -182,11 +182,15 @@ export default function Header() {
       <div className={`mobile-menu ${menuOpen ? "active" : ""}`}>
         <div className="mobile-menu-header">
           <div className="mobile-logo">
-            <Link href="/" onClick={closeMenu}>
-              <div className="text-[22px] font-extrabold text-slate-900">
-                Pro<span className="text-[#39c994]">SIM</span>
-              </div>
+             <div className="logo">
+            <Link href="/">
+              <img
+                src={scrolled ? "/assets/images/logo/logo-dark.webp" : "/assets/images/logo/logo.webp"}
+                alt="ProSIM Logo"
+                className="logo-image"
+              />
             </Link>
+          </div>
           </div>
           <button
             type="button"
