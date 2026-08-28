@@ -134,7 +134,7 @@ export default function IndustriesSection() {
             <ScrollAnimation delay={100}>
 
               <Link href="" className="btn-primary" onClick={() => setShowPopup(true)}>
-                Discuss your application
+                Discuss application
                 <span className="arrow">→</span>
               </Link>
 

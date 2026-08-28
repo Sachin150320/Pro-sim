@@ -99,16 +99,16 @@ export default function Hero() {
               <span className="arrow">→</span>
             </Link>
 
-            <Link href="#unveiling-prosim" className="btn-secondary">
+            {/* <Link href="#unveiling-prosim" className="btn-secondary">
               <span className="play-icon">▶</span>
               Unveiling ProSIM
-            </Link>
+            </Link> */}
           </div>
 
-          <div className="badge-pill">
+          {/* <div className="badge-pill">
             <span className="shield-icon">✦</span>
             Detailed engineering & analysis specialists
-          </div>
+          </div> */}
         </div>
  </ScrollAnimation>
         <div className="stats-section">

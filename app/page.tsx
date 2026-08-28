@@ -21,7 +21,7 @@ export default function Home() {
       <EngineeringSection />
       <IndustriesSection />
 
-      <WhyChooseUs />
+      {/* <WhyChooseUs /> */}
       <Offerings />
       <ContactSection />
       <EventsSection />

@@ -11,10 +11,7 @@ const clients = [
   { name: "Powerica", logo: "/assets/images/clients/8.png" },
   { name: "Engage", logo: "/assets/images/clients/9.png" },
   { name: "Kirloskar", logo: "/assets/images/clients/10.png" },
-  { name: "Veolia", logo: "/assets/images/clients/11.png" },
-  { name: "LG Electronics", logo: "/assets/images/clients/12.png" },
-  { name: "Quest Global", logo: "/assets/images/clients/13.png" },
-  { name: "Atlas Copco", logo: "/assets/images/clients/14.png" },
+ 
 ];
 
 export default function Clients() {
@@ -30,7 +27,7 @@ export default function Clients() {
 
           
           <h2>
-            Trusted by <span className="highlight">800+ customers</span> worldwide
+            Trusted by <span className="highlight">1000+ customers</span> worldwide
           </h2>
           <div className="title-underline" />
           <p className="clients-description">
