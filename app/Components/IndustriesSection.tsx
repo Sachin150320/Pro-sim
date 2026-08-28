@@ -7,7 +7,7 @@ import Link from "next/link";
 const industries = [
   {
     title: "Nuclear Energy",
-    type: "POWER GENERATION",
+    type: " NUCLEAR ENERGY",
     href: "/nuclear-energy",
     image: "/assets/images/industries/ind-nuclear.jpg",
 
@@ -15,7 +15,7 @@ const industries = [
 
   {
     title: "Thermal Energy",
-    type: "POWER GENERATION",
+    type: "THERMAL ENERGY",
     href: "/thermal-energy",
     image: "/assets/images/industries/ind-thermal.jpg",
 
