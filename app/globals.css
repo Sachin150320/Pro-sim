@@ -8,6 +8,10 @@ html {
   width: 100%;
 }
 
+
+body {
+  font-family: var(--font-dm-sans), sans-serif;
+}
 body {
   padding: 0px;
   margin: 0px;
@@ -80,19 +84,19 @@ body {
 }
 
 .nav__item-link {
-  letter-spacing: 0.5px;
-  color: #fff;
-  cursor: pointer;
-  background: none;
-  border: 0;
-  align-items: center;
-  gap: 7px;
-  padding: 12px 0;
-  font-size: 15px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all .3s;
-  display: inline-flex;
+    letter-spacing: 0.5px;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    background: none;
+    border: 0px;
+    align-items: center;
+    gap: 7px;
+    padding: 12px 0px;
+    font-size: 14px;
+    font-weight: 400;
+    text-decoration: none;
+    transition: 0.3s;
+    display: inline-flex;
 }
 
 .site-header.scrolled .nav__item-link {
@@ -474,9 +478,9 @@ body {
 
 .hero-content h1 {
   margin: 0;
-  font-size: clamp(42px, 5vw, 76px);
+  font-size: clamp(42px, 5vw, 72px);
   line-height: 1.05;
-  font-weight: 700;
+  font-weight: 400;
   letter-spacing: -2px;
   color: #ffffff;
 }
@@ -496,7 +500,7 @@ body {
 .hero-description {
   max-width: 690px;
   margin-top: 24px;
-  font-size: 17px;
+  font-size: 14px;
   line-height: 1.7;
   color: rgb(255, 255, 255);
 }
@@ -508,49 +512,47 @@ body {
   margin-top: 32px;
   flex-wrap: wrap;
 }
-
-.btn-primary,
-.btn-secondary {
-  border-radius: 25px;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  min-height: 42px;
-  padding: 0 10px;
-  font-size: 12px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all .3s;
-  display: inline-flex;
+.btn-primary {
+    border-radius: 25px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    min-height: 42px;
+    padding: 0 20px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #ffffff;
+    text-decoration: none;
+    display: inline-flex;
+    position: relative;
+    background: #0f0c1b; /* Inner background color */
+    border: 1px solid transparent;
+    background-clip: padding-box;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.btn-primary {
-  color: #ffffff;
-  /* Matches the blue -> green -> teal-blue gradient from image_885781.png */
-  background: linear-gradient(90deg, #2365a7 0%, #2d9953 45%, #21759b 100%);
-  background-size: 200% auto;
-  /* Enlarged background for smooth hover animation */
-  box-shadow: 0 4px 12px rgba(45, 153, 83, 0.25);
-  border: none;
-  cursor: pointer;
+/* Creating the smooth gradient border effect */
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: 25px;
+    background: linear-gradient(90deg, #d946ef, #8b5cf6, #3b82f6);
+    z-index: -1;
+    transition: opacity 0.3s ease;
 }
 
 .btn-primary:hover {
-  /* Dynamic gradient shift animation */
-  background-position: right center;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(45, 153, 83, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(139, 92, 246, 0.3);
 }
 
-.arrow {
-  font-size: 16px;
-  transition: transform 0.3s ease;
+.btn-primary svg,
+.btn-primary img {
+    width: 18px;
+    height: 18px;
 }
-
-.btn-primary:hover .arrow {
-  transform: translateX(4px);
-}
-
 .btn-secondary {
   color: #ffffff;
   border: 1px solid rgba(255, 255, 255, 0.3);
@@ -586,7 +588,7 @@ body {
   background: rgba(255, 255, 255, 0.07);
   backdrop-filter: blur(10px);
   color: rgb(255, 255, 255);
-  font-size: 15px;
+  font-size: 14px;
 }
 
 
@@ -639,7 +641,7 @@ body {
 
 .stat-card p {
   margin: 9px 0 0;
-  font-size: 15px;
+  font-size: 14px;
   color: rgba(255, 255, 255, 0.65);
 }
 
@@ -794,9 +796,9 @@ body {
 
 .clients-header h2 {
   margin: 0;
-  font-size: clamp(34px, 4vw, 50px);
+  font-size: clamp(34px, 4vw, 48px);
   line-height: 1.1;
-  font-weight: 700;
+  font-weight: 400;
   color: #172033;
   /* Dark heading for white background */
 }
@@ -807,7 +809,7 @@ body {
 
 .clients-description {
   margin-top: 22px;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.7;
   color: #5c6472;
   /* Muted dark text for description */
@@ -947,12 +949,12 @@ body {
 }
 
 .engineering-title {
-  margin: 0;
-  font-size: clamp(32px, 4vw, 50px);
-  line-height: 1.1;
-  font-weight: 800;
-  color: #172033;
-  letter-spacing: -1px;
+    color: #0a2d56;
+    letter-spacing: -1px;
+    margin: 0;
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 400;
+    line-height: 1.1;
 }
 
 /* Main Split Layout */
@@ -1029,7 +1031,7 @@ body {
 
 .large-card-text p {
   margin: 0 0 15px 0;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 1.7;
   color: #5c6472;
 }
@@ -1123,7 +1125,7 @@ body {
 
 .feature-card-content p {
   margin: 0;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.5;
   color: #5c6472;
 }
@@ -1284,7 +1286,7 @@ body {
   font-size: 15px;
   font-weight: 700;
   letter-spacing: 0.5px;
-  color: #1752a1;
+  color: #2772ba;
   text-transform: uppercase;
   margin-bottom: 10px;
 }
@@ -1299,7 +1301,7 @@ body {
 }
 
 .industries-description {
-  font-size: 15px;
+  font-size: 14px;
   line-height: 1.6;
   color: #5c6472;
   margin: 0;
@@ -3875,10 +3877,10 @@ span.sub-link a {
 .industries-subtitle {
   display: inline-block;
   margin-bottom: 12px;
-  color: #c2002f;
+  color: #2772ba;
   font-size: 15px;
   font-weight: 700;
-  letter-spacing: 3px;
+  letter-spacing: 0.5px;
   text-transform: uppercase;
 }
 
@@ -3901,10 +3903,10 @@ span.sub-link a {
 }
 
 .industries-description {
-  margin: 0;
   color: #6d7880;
-  font-size: 15px;
-  line-height: 1.85;
+    font-size: 14px;
+    line-height: 1.85;
+    margin: 0px;
 }
 
 /* Grid Layout */
@@ -4206,7 +4208,7 @@ span.sub-link a {
 .contact-section-subtitle {
   display: inline-block;
   margin-bottom: 12px;
-  color: #c2002f;
+  color: #2772ba;
   font-size: 15px;
   font-weight: 700;
   letter-spacing: 0.5px;
@@ -4581,7 +4583,7 @@ span.sub-link a {
 .events-subtitle {
   display: inline-block;
   margin-bottom: 10px;
-  color: #c2002f;
+  color: #2772ba;
   font-size: 14px;
   font-weight: 700;
   letter-spacing: 2.5px;
@@ -5024,7 +5026,7 @@ span.sub-link a {
 .eng-card-body p {
   margin: 0;
   max-width: 330px;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 1.75;
   color: #707b84;
 }
@@ -5510,6 +5512,6 @@ span.sub-link a {
 }
 
 .engineering-header p {
-  font-size: 15px;
+  font-size: 14px;
   color: #6e7880;
 }

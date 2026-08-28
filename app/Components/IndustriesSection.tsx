@@ -47,7 +47,7 @@ const industries = [
 
   {
     title: "Power & Utilities",
-    type: "POWER & UTILITIES",
+    type: "DEFENCE",
     href: "/power-utilities",
     image: "/assets/images/industries/ind-power-utilities.jpg",
 
