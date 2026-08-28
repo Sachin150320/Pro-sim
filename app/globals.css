@@ -517,7 +517,7 @@ body {
   min-height: 50px;
   padding: 0 22px;
   border-radius: 8px;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 600;
   text-decoration: none;
   transition: all 0.3s ease;
@@ -4003,7 +4003,7 @@ color: #b0b6bb;
 .engineering-service-desc {
   margin: 0 0 16px;
   color: rgba(255, 255, 255, 0.8);
-  font-size: 13px;
+  font-size: 15px;
   line-height: 1.6;
   opacity: 0;
   max-height: 0;
@@ -4686,7 +4686,7 @@ color: #b0b6bb;
   align-items: center;
   gap: 6px;
   color: #16a34a;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 700;
   text-decoration: none;
   transition: gap 0.2s ease;
@@ -5109,7 +5109,7 @@ color: #b0b6bb;
 
   text-decoration: none;
 
-  font-size: 12px;
+  font-size: 15px;
   font-weight: 700;
 
   color: #273640;
