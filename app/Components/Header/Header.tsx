@@ -185,7 +185,7 @@ export default function Header() {
              <div className="logo">
             <Link href="/">
               <img
-                src={scrolled ? "/assets/images/logo/logo-dark.webp" }
+                src={scrolled ? "/assets/images/logo/logo-dark.webp" : "/assets/images/logo/logo.webp"}
                 alt="ProSIM Logo"
                 className="logo-image"
               />

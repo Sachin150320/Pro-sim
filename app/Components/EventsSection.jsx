@@ -48,7 +48,7 @@ export default function EventsSection() {
             <span className="events-subtitle">Resource Library</span>
 
             
-<h2 className="engineering-title">Latest Events</h2>
+<h2 className="engineering-title">Projects</h2>
 
             <div className="events-underline" />
           </div>
