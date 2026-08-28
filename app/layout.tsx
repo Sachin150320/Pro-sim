@@ -33,6 +33,14 @@ export default function RootLayout({
       lang="en"
       className={`${dmSans.variable} ${geistSans.variable} ${geistMono.variable}`}
     >
+ <head>
+        <link
+          rel="icon"
+          href="/assets/images/favicon/favicon.webp"
+          type="image/png"
+        />
+      </head>
+
       <body>{children}</body>
     </html>
   );
