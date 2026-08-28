@@ -80,18 +80,19 @@ body {
 }
 
 .nav__item-link {
-  border: 0;
-  background: transparent;
-  text-decoration: none;
-  color: #ffffff;
-  font-size: 14px;
-  font-weight: 600;
-  padding: 12px 0;
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  cursor: pointer;
-  transition: 0.3s ease;
+    letter-spacing: 0.5px;
+    color: #fff;
+    cursor: pointer;
+    background: none;
+    border: 0;
+    align-items: center;
+    gap: 7px;
+    padding: 12px 0;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all .3s;
+    display: inline-flex;
 }
 
 .site-header.scrolled .nav__item-link {
@@ -496,7 +497,7 @@ body {
   margin-top: 24px;
   font-size: 17px;
   line-height: 1.7;
-  color: rgba(255, 255, 255, 0.78);
+  color: rgb(255, 255, 255);
 }
 
 .hero-buttons {
@@ -578,7 +579,7 @@ body {
   background: rgba(255, 255, 255, 0.07);
   backdrop-filter: blur(10px);
   color: rgb(255, 255, 255);
-  font-size: 12px;
+  font-size: 15px;
 }
 
 
@@ -786,7 +787,7 @@ body {
 
 .clients-header h2 {
   margin: 0;
-  font-size: clamp(34px, 4vw, 52px);
+  font-size: clamp(34px, 4vw, 50px);
   line-height: 1.1;
   font-weight: 700;
   color: #172033;
@@ -828,7 +829,7 @@ body {
   gap: 20px;
   width: max-content;
   will-change: transform;
-  animation: scrollMarquee 35s linear infinite;
+  animation: scrollMarquee 30s linear infinite;
 }
 
 .clients-marquee:hover .clients-track {
@@ -841,7 +842,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 80px;
-    padding: 15px;
+  
     transition: border-color .3s, transform .3s, box-shadow .3s;
     display: flex;
 }
@@ -852,6 +853,7 @@ body {
 }
 
 .client-logo-inner {
+   border-radius: 15px !important;
   width: 100%;
   height: 100%;
   display: flex;
@@ -859,7 +861,11 @@ body {
   justify-content: center;
 }
 
+.client-logo-inner img {
+    border-radius: 10px;
+}
 .client-text-logo {
+  border-radius: 15px !important;
   font-size: 15px;
   font-weight: 700;
   color: #334155;
@@ -933,7 +939,7 @@ body {
 
 .engineering-title {
   margin: 0;
-  font-size: clamp(32px, 4vw, 48px);
+  font-size: clamp(32px, 4vw, 50px);
   line-height: 1.1;
   font-weight: 800;
   color: #172033;
@@ -1262,9 +1268,9 @@ body {
 
 .industries-subtitle {
   display: inline-block;
-  font-size: 11px;
+  font-size: 15px;
   font-weight: 700;
-  letter-spacing: 2px;
+  letter-spacing: 0.5px;
   color: #1752a1;
   text-transform: uppercase;
   margin-bottom: 10px;
@@ -3320,13 +3326,11 @@ span.sub-link a {
 
   color: #ffffff;
 
-  font-size: clamp(42px, 5vw, 68px);
-
-  line-height: 1.02;
-
-  font-weight: 500;
-
-  letter-spacing: -2px;
+ letter-spacing: -1px;
+    margin: 0;
+    font-size: clamp(32px, 4vw, 50px);
+    font-weight: 800;
+    line-height: 1.1;
 }
 
 
@@ -3340,7 +3344,7 @@ span.sub-link a {
 
   margin: 25px 0 0;
 
-  color: #aab8c2;
+color: #b0b6bb;
 
   font-size: 15px;
 
@@ -3442,36 +3446,21 @@ span.sub-link a {
 ========================================================= */
 
 .prosim-card-icon {
-  width: 48px;
-  height: 48px;
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  margin-bottom: 3px;
-
-  border:
-    1px solid rgba(255, 255, 255, 0.2);
-
-  color: #ffffff;
-
-  background:
-    rgba(255, 255, 255, 0.04);
-
-  transition:
-    background 0.4s ease,
-    color 0.4s ease,
-    border-color 0.4s ease,
-    transform 0.4s ease;
+    color: #fff;
+    background: #ffffff0a;
+    border: 1px solid #fff3;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    margin-bottom: 3px;
+    transition: background .4s, color .4s, border-color .4s, transform .4s;
+    display: flex;
 }
 
-
 .prosim-card-icon svg {
-  width: 23px;
-  height: 23px;
+  width: 30px;
+  height: 30px;
 
   stroke: currentColor;
 
@@ -3524,7 +3513,7 @@ span.sub-link a {
 
   color: #9eafb9;
 
-  font-size: 11.5px;
+  font-size: 15px;
 
   line-height: 1.75;
 
@@ -3874,7 +3863,7 @@ span.sub-link a {
   display: inline-block;
   margin-bottom: 12px;
   color: #c2002f;
-  font-size: 10px;
+  font-size: 15px;
   font-weight: 700;
   letter-spacing: 3px;
   text-transform: uppercase;
@@ -4205,9 +4194,9 @@ span.sub-link a {
   display: inline-block;
   margin-bottom: 12px;
   color: #c2002f;
-  font-size: 10px;
+  font-size: 15px;
   font-weight: 700;
-  letter-spacing: 3px;
+  letter-spacing: 0.5px;
   text-transform: uppercase;
 }
 
@@ -4335,7 +4324,7 @@ span.sub-link a {
 .hq-card-text {
   margin: 0;
   color: #64748b;
-  font-size: 12px;
+  font-size: 15px;
   line-height: 1.6;
 }
 
@@ -4425,7 +4414,7 @@ span.sub-link a {
 .rfp-field label {
   margin-bottom: 6px;
   color: #334155;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.5px;
 }
@@ -4580,7 +4569,7 @@ span.sub-link a {
   display: inline-block;
   margin-bottom: 10px;
   color: #c2002f;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 700;
   letter-spacing: 2.5px;
   text-transform: uppercase;
@@ -4778,7 +4767,7 @@ span.sub-link a {
 .event-text-short {
   margin: 0 0 12px 0;
   color: #64748b;
-  font-size: 12px;
+  font-size: 15px;
   line-height: 1.5;
 }
 
@@ -5024,7 +5013,7 @@ span.sub-link a {
 }
 
 .eng-card-number {
-  font-size: 13px;
+  font-size: 25px;
   font-weight: 700;
   letter-spacing: 1px;
 
@@ -5074,7 +5063,7 @@ span.sub-link a {
 .eng-card-body h3 {
   margin: 0 0 15px;
 
-  max-width: 270px;
+
 
   font-size: 24px;
   line-height: 1.2;

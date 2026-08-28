@@ -65,7 +65,7 @@ const menuItems: MenuItem[] = [
     ],
   },
   
-  { name: "Project", href: "#" },
+  { name: "Projects", href: "#" },
   
   { name: "Careers", href: "#" },
   { name: "Contact Us", href: "/contact-us" },

@@ -71,7 +71,10 @@ export default function ContactSection() {
                                 <div className="hq-card-content">
                                     <h4 className="hq-card-label">Corporate & Technical Center</h4>
                                     <p className="hq-card-text">
-                                        B-378/1, Ring Rd, near TVS Cross, Peenya 1st Stage, Netaji Nagar, Peenya, Bengaluru, Karnataka 560058
+                                        B-378/1, Ring Rd, near TVS Cross, Peenya 1st Stage, Netaji Nagar, 
+                                    </p>
+                                    <p className="hq-card-text">
+                                      Peenya, Bengaluru, Karnataka 560058
                                     </p>
                                     <a
                                         href="https://maps.google.com"
