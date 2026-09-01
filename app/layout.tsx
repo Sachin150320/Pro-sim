@@ -23,8 +23,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Your Website",
-  description: "Your website description",
+  title: " Detailed Engineering, CAE, Pipeline, FEA, CFD Simulations & Research and Development-ProSIM",
+  description: "Discover ProSIM Bangalore's home for CAE, FEA and engineering outsourcing services, including piping design, seismic qualification and structural integrity assessment for global clients.",
 };
 
 export default function RootLayout({
