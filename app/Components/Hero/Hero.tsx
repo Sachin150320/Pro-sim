@@ -75,9 +75,9 @@ export default function Hero() {
 <div className="hero-container">
    <ScrollAnimation>
         <div className="hero-content">
-          <span className="hero-subtitle">
+          {/* <span className="hero-subtitle">
             PROSIM / DETAILED ENGINEERING & ANALYSIS
-          </span>
+          </span> */}
 
           <h1>
             Engineering through

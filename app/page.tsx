@@ -15,7 +15,7 @@ import "@/app/globals.css";
 export default function Home() {
   return (
     <main className="min-h-screen bg-[#07101d]">
-      <Header />
+      {/* <Header /> */}
       <Hero />
 
       <About />
@@ -25,10 +25,11 @@ export default function Home() {
       {/* <WhyChooseUs /> */}
       {/* <Offerings /> */}
       <Clients />
-      <ContactSection />
+   
       <EventsSection />
          <LatestEvents />
-      <Footer />
+            <ContactSection />
+      {/* <Footer /> */}
 
     </main>
   );

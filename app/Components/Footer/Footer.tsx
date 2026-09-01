@@ -149,106 +149,117 @@ export default function Footer() {
                     {/* =====================================
               INDUSTRIES
           ===================================== */}
-                    <div className="footer-column">
-
-                        <h3>Industries We Serve</h3>
-
-                        <ul>
-
-                            <li>
-                                <Link href="/industries/nuclear-power-island">
-                                    <span className="footer-arrow">→</span>
-                                    Nuclear Power Island
-                                </Link>
-                            </li>
-
-                            <li>
-                                <Link href="/industries/thermal-supercritical-energy">
-                                    <span className="footer-arrow">→</span>
-                                    Thermal &amp; Supercritical Energy
-                                </Link>
-                            </li>
-
-                            <li>
-                                <Link href="/industries/oil-gas-production">
-                                    <span className="footer-arrow">→</span>
-                                    Oil &amp; Gas Production
-                                </Link>
-                            </li>
-
-                            <li>
-                                <Link href="/industries/petrochemical-plants">
-                                    <span className="footer-arrow">→</span>
-                                    Petrochemical Plants
-                                </Link>
-                            </li>
-
-                            <li>
-                                <Link href="/industries/industrial-heavy-engineering">
-                                    <span className="footer-arrow">→</span>
-                                    Industrial &amp; Heavy Engineering
-                                </Link>
-                            </li>
-
-                            <li>
-                                <Link href="/industries/power-grid-utilities">
-                                    <span className="footer-arrow">→</span>
-                                    Power &amp; Grid Utilities
-                                </Link>
-                            </li>
-
-                        </ul>
-
-                    </div>
-
+                    
                     {/* =====================================
               ENGINEERING
           ===================================== */}
                     <div className="footer-column">
 
-                        <h3>Engineering Disciplines</h3>
+                        <h3>Offerings</h3>
 
                         <ul>
 
+
+
+
+
+
+
+
                             <li>
                                 <Link href="/engineering/fea">
-                                    <span className="footer-arrow">→</span>
-                                    Finite Element Analysis (FEA)
+                                    <span className="footer-arrow">→</span>Detailed Engineering
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/engineering/fea">
+                                    <span className="footer-arrow">→</span> Seismic Analysis & Qualification
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/engineering/fea">
+                                    <span className="footer-arrow">→</span>Piping & Pipeline Engineering
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/engineering/fea">
+                                    <span className="footer-arrow">→</span> 3D Plant Modelling
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/engineering/fea">
+                                    <span className="footer-arrow">→</span> Finite Element Analysis (FEA)
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/engineering/fea">
+                                    <span className="footer-arrow">→</span> CFD & Multiphysics Simulations
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/engineering/fea">
+                                    <span className="footer-arrow">→</span> RLA/RLE & Fitness-for-Service (FFS)
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/engineering/fea">
+                                    <span className="footer-arrow">→</span> Engineering Automation & Digital Twin
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/engineering/fea">
+                                    <span className="footer-arrow">→</span> Pre-Bid & Owner’s Engineering
                                 </Link>
                             </li>
 
-                            <li>
-                                <Link href="/engineering/cfd">
-                                    <span className="footer-arrow">→</span>
-                                    Computational Fluid Dynamics (CFD)
-                                </Link>
-                            </li>
+
+
+
+
+
+
+
+
+
+                        </ul>
+
+                    </div>
+
+<div className="footer-column">
+
+                        <h3>Industries</h3>
+
+                        <ul>
+
 
                             <li>
-                                <Link href="/engineering/piping-stress">
-                                    <span className="footer-arrow">→</span>
-                                    Piping Stress &amp; Surge Simulation
+                                <Link href="/industries/power-grid-utilities">
+                                    <span className="footer-arrow">→</span>Nuclear Power
                                 </Link>
                             </li>
-
                             <li>
-                                <Link href="/engineering/plant-engineering">
-                                    <span className="footer-arrow">→</span>
-                                    Plant Engineering &amp; 3D Modeling
+                                <Link href="/industries/power-grid-utilities">
+                                    <span className="footer-arrow">→</span>Thermal Power
                                 </Link>
                             </li>
-
                             <li>
-                                <Link href="/engineering/fitness-for-service">
-                                    <span className="footer-arrow">→</span>
-                                    Fitness-For-Service (API 579)
+                                <Link href="/industries/power-grid-utilities">
+                                    <span className="footer-arrow">→</span>Oil & Gas, Off Shore
                                 </Link>
                             </li>
-
                             <li>
-                                <Link href="/engineering/digital-twin">
-                                    <span className="footer-arrow">→</span>
-                                    Digital Twin &amp; RLA Studies
+                                <Link href="/industries/power-grid-utilities">
+                                    <span className="footer-arrow">→</span>Defence
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/industries/power-grid-utilities">
+                                    <span className="footer-arrow">→</span>Heavy Engineering Equipment / General Engineering
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/industries/power-grid-utilities">
+                                    <span className="footer-arrow">→</span>Renewable & Green Energy
                                 </Link>
                             </li>
 
@@ -358,6 +369,17 @@ export default function Footer() {
                                 <strong>
                                     ProSIM R&amp;B-378/1, Ring Rd, near TVS Cross, Peenya 1st Stage, Netaji Nagar, Peenya, Bengaluru, Karnataka 560058
                                 </strong>
+                                <a
+                                    href="https://www.google.com/maps/search/?api=1&query=ProSIM+R%26D+Center%2C+%2339%2C+1st+Main%2C+Industrial+Suburb%2C+Yeshwanthpur%2C+Bengaluru+560022%2C+Karnataka%2C+India"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="hq-direction-btn"
+                                >
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                                        <path d="M5 12h14M12 5l7 7-7 7" />
+                                    </svg>
+                                    Get Directions
+                                </a>
                             </div>
                         </a>
 
@@ -461,7 +483,7 @@ export default function Footer() {
 
 
                 {/* Call */}
-                <a
+                {/* <a
                     href="tel:+918068160000"
                     className="float-call"
                     aria-label="Call Simplixity Technologies"
@@ -483,7 +505,7 @@ export default function Footer() {
                     </svg>
 
                     <span className="floating-text">Call Us</span>
-                </a>
+                </a> */}
 
             </div>
 

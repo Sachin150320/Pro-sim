@@ -55,96 +55,14 @@ export default function ContactSection() {
           ========================================= */}
                     <ScrollAnimation>
                         <div className="hq-info-column">
-                            <div className="hq-header">
-                                <h3 className="hq-main-title">Global Engineering Headquarters</h3>
-                                <p className="hq-sub-title">ProSIM R&D Center & Delivery Campus</p>
+                            <div className="hq-image-section">
+                                <img
+                                    src="/assets/images/industries/contact.jpg"
+                                    alt="ProSIM R&D Center"
+                                    className="hq-image"
+                                />
                             </div>
-
-                            {/* Card 1: Address */}
-                            <div className="hq-card">
-                                <div className="hq-icon-box">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                                        <path d="M12 21c4.97-4.97 8-9.03 8-13a8 8 0 10-16 0c0 3.97 3.03 8.03 8 13z" />
-                                        <circle cx="12" cy="8" r="3" />
-                                    </svg>
-                                </div>
-                                <div className="hq-card-content">
-                                    <h4 className="hq-card-label">Corporate & Technical Center</h4>
-                                    <p className="hq-card-text">
-                                        B-378/1, Ring Rd, near TVS Cross, Peenya 1st Stage, Netaji Nagar,
-                                    </p>
-                                    <p className="hq-card-text">
-                                        Peenya, Bengaluru, Karnataka 560058
-                                    </p>
-                                    <a
-                                        href="https://maps.google.com"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="hq-direction-btn"
-                                    >
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                                            <path d="M5 12h14M12 5l7 7-7 7" />
-                                        </svg>
-                                        Get Directions
-                                    </a>
-                                </div>
-                            </div>
-
-                            {/* Card 2: Phone */}
-                            <div className="hq-card">
-                                <div className="hq-icon-box">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                                        <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
-                                    </svg>
-                                </div>
-                                <div className="hq-card-content">
-                                    <h4 className="hq-card-label">Direct Engineering Desk</h4>
-                                    <p className="hq-card-text highlight-text">+91 (080) 2347-7000 / 7001</p>
-                                </div>
-                            </div>
-
-                            {/* Card 3: Email */}
-                            <div className="hq-card">
-                                <div className="hq-icon-box">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                                        <path d="M22 6l-10 7L2 6" />
-                                    </svg>
-                                </div>
-                                <div className="hq-card-content">
-                                    <h4 className="hq-card-label">Technical Inquiries</h4>
-                                    <p className="hq-card-text highlight-text">info@prosim.co.in</p>
-                                </div>
-                            </div>
-
-                            {/* Card 4: Hours */}
-                            <div className="hq-card">
-                                <div className="hq-icon-box">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                                        <circle cx="12" cy="12" r="10" />
-                                        <path d="M12 6v6l4 2" />
-                                    </svg>
-                                </div>
-                                <div className="hq-card-content">
-                                    <h4 className="hq-card-label">Operational Hours</h4>
-                                    <p className="hq-card-text">Monday – Friday: 09:00 AM – 06:30 PM (IST)</p>
-                                </div>
-                            </div>
-
-                            {/* Card 5: NDA Assurance */}
-                            <div className="hq-card hq-nda-card">
-                                <div className="hq-icon-box nda-icon">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                                    </svg>
-                                </div>
-                                <div className="hq-card-content">
-                                    <h4 className="hq-card-label">Strict Confidentiality & NDA Assurance</h4>
-                                    <p className="hq-card-text nda-desc">
-                                        All proprietary CAD models, stress reports, and client data are protected under bilateral NDAs with ISO-27001 encrypted infrastructure.
-                                    </p>
-                                </div>
-                            </div>
+                            
 
                         </div>
                     </ScrollAnimation>
@@ -265,7 +183,7 @@ export default function ContactSection() {
                                             id="technicalScope"
                                             name="technicalScope"
                                             rows="4"
-                                            placeholder="Briefly describe geometry, operating temperature/pressure, applicable codes (ASME, RCC-M, etc.), and simulation goals..."
+                                            placeholder="Message"
                                             value={formData.technicalScope}
                                             onChange={handleChange}
                                         ></textarea>

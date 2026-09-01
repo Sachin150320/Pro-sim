@@ -30,10 +30,10 @@ const menuItems: MenuItem[] = [
       { name: "Promoter", href: "/Promoter" },
       { name: "Vision and Mission", href: "/vision-mission" },
       { name: "Unique Value Proposition", href: "/Unique-Value-Proposition" },
-      { name: "Customer Visits", href: "/Customer-Visits" },
+      // { name: "Customer Visits", href: "/Customer-Visits" },
       { name: "Team", href: "/Team" },
-      { name: "Gallery", href: "/careers" },
-      { name: "Our Customer Benefits", href: "#" },
+      { name: "Gallery", href: "/Gallery" },
+      // { name: "Our Customer Benefits", href: "Customer-Benefits" },
     ],
   },
   {
@@ -54,10 +54,10 @@ const menuItems: MenuItem[] = [
 
 
 
- { name: "Detailed Engineering", href: "#" },
- { name: "Seismic Analysis & Qualification", href: "#" },
- { name: "Piping & Pipeline Engineering", href: "#" },
- { name: "3D Plant Modelling", href: "#" },
+ { name: "Detailed Engineering", href: "Detailed-Engineering-services" },
+ { name: "Seismic Analysis & Qualification", href: "Seismic-analysis-and-qualification" },
+ { name: "Piping & Pipeline Engineering", href: "Piping-&-pipeline-engineering-services" },
+ { name: "3D Plant Modelling", href: "Three-D-plant-modelling-services" },
  { name: "Finite Element Analysis (FEA)", href: "#" },
  { name: "CFD & Multiphysics Simulations", href: "#" },
  { name: "RLA/RLE & Fitness-for-Service (FFS)", href: "#" },
