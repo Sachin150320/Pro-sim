@@ -949,12 +949,11 @@ body {
 }
 
 .engineering-title {
-    color: #0a2d56;
-    letter-spacing: -1px;
-    margin: 0;
-    font-size: clamp(32px, 4vw, 48px);
+    color: #172033;
+    margin: 0 0 12px;
+    font-size: 48px;
     font-weight: 400;
-    line-height: 1.1;
+    line-height: 1.2;
 }
 
 /* Main Split Layout */
@@ -5593,13 +5592,11 @@ span.sub-link a {
 }
 
 .engineering-title {
-  margin: 0 0 12px;
-
-  color: #172033;
-
-  font-size: 38px;
-  font-weight: 700;
-  line-height: 1.2;
+    color: #172033;
+    margin: 0 0 12px;
+    font-size: 48px;
+    font-weight: 400;
+    line-height: 1.2;
 }
 
 .events-underline {
