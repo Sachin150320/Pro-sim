@@ -1,0 +1,383 @@
+
+.vm-page {
+  width: 100%;
+  overflow: hidden;
+  background: #ffffff;
+  color: #172b3a;
+}
+
+.vm-container {
+  width: min(1180px, 90%);
+  margin: 0 auto;
+}
+
+
+/* =====================================================
+   MAIN SECTION
+===================================================== */
+
+.vm-section {
+  padding: 90px 0 100px;
+  background: #ffffff;
+}
+
+.vm-heading {
+  margin-bottom: 45px;
+}
+
+.vm-heading span {
+  display: block;
+  margin-bottom: 12px;
+
+  color: #1769aa;
+
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+}
+
+.vm-heading h2 {
+  margin: 0;
+
+  color: #172b3a;
+
+  font-size: 42px;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+
+/* =====================================================
+   TWO BOX GRID
+===================================================== */
+
+.vm-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+
+
+/* =====================================================
+   BOX
+===================================================== */
+
+.vm-box {
+  position: relative;
+
+  min-height: 315px;
+
+  padding: 38px;
+
+  background: #f5f8fb;
+
+  border: 1px solid #dce6ee;
+
+  opacity: 0;
+  transform: translateY(50px);
+
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease,
+    background 0.4s ease,
+    border-color 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+.vm-box.vm-show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.vm-box-2 {
+  transition-delay: 150ms;
+}
+
+.vm-box:hover {
+  background: #ffffff;
+
+  border-color: #1769aa;
+
+  box-shadow: 0 20px 50px rgba(23, 105, 170, 0.12);
+
+  transform: translateY(-8px);
+}
+
+
+/* =====================================================
+   BOX TOP
+===================================================== */
+
+.vm-box-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+/* =====================================================
+   ICON
+===================================================== */
+
+.vm-icon {
+  width: 64px;
+  height: 64px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #1769aa;
+  color: #ffffff;
+
+  font-size: 30px;
+
+  transition:
+    transform 0.4s ease,
+    border-radius 0.4s ease,
+    background 0.4s ease;
+}
+
+.vm-box:hover .vm-icon {
+  transform: rotate(8deg) scale(1.08);
+
+  border-radius: 50%;
+
+  background: #125788;
+}
+
+
+/* =====================================================
+   NUMBER
+===================================================== */
+
+.vm-number {
+  color: #8da2b2;
+
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+
+/* =====================================================
+   CONTENT
+===================================================== */
+.vm-heading strong {
+    color: #0071bc;
+}
+.vm-box-content {
+  margin-top: 50px;
+}
+
+.vm-box-content h3 {
+  margin: 0 0 15px;
+
+  color: #172b3a;
+
+  font-size: 28px;
+  line-height: 1.25;
+  font-weight: 700;
+
+  transition: color 0.3s ease;
+}
+
+.vm-box:hover .vm-box-content h3 {
+  color: #1769aa;
+}
+
+.vm-box-content p {
+  max-width: 510px;
+
+  margin: 0;
+
+  color: #637582;
+
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.vm-box-footer {
+  position: absolute;
+
+  left: 38px;
+  right: 38px;
+  bottom: 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+/* Line */
+
+.vm-box-footer > span {
+  width: 40px;
+  height: 2px;
+
+  background: #1769aa;
+
+  transition: width 0.4s ease;
+}
+
+.vm-box:hover .vm-box-footer > span {
+  width: 80px;
+}
+
+
+/* Arrow */
+
+.vm-arrow {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #d3dfe7;
+
+  color: #5f7382;
+
+  font-size: 20px;
+
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.vm-box:hover .vm-arrow {
+  background: #1769aa;
+  border-color: #1769aa;
+  color: #ffffff;
+
+  transform: translate(4px, -4px);
+}
+
+
+/* =====================================================
+   BOTTOM
+===================================================== */
+
+.vm-bottom {
+  padding: 80px 0;
+
+  background: #102c43;
+}
+
+.vm-bottom-content {
+  max-width: 750px;
+}
+
+.vm-bottom-content > span {
+  display: block;
+
+  margin-bottom: 14px;
+
+  color: #6fb1df;
+
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+}
+
+.vm-bottom-content h2 {
+  margin: 0 0 15px;
+
+  color: #ffffff;
+
+  font-size: 38px;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.vm-bottom-content p {
+  max-width: 650px;
+
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.68);
+
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 850px) {
+
+  .vm-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .vm-box {
+    min-height: 330px;
+  }
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+  .vm-container {
+    width: 90%;
+  }
+
+  .vm-section {
+    padding: 60px 0 70px;
+  }
+
+  .vm-heading {
+    margin-bottom: 30px;
+  }
+
+  .vm-heading h2 {
+    font-size: 31px;
+  }
+
+  .vm-box {
+    min-height: 350px;
+    padding: 28px;
+  }
+
+  .vm-box-content {
+    margin-top: 40px;
+  }
+
+  .vm-box-content h3 {
+    font-size: 24px;
+  }
+
+  .vm-box-content p {
+    font-size: 14px;
+  }
+
+  .vm-box-footer {
+    left: 28px;
+    right: 28px;
+    bottom: 22px;
+  }
+
+  .vm-bottom {
+    padding: 60px 0;
+  }
+
+  .vm-bottom-content h2 {
+    font-size: 29px;
+  }
+}
+

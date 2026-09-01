@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, DM_Sans } from "next/font/google";
 import "./globals.css";
+import Header from "@/app/Components/Header/Header";
+import Footer from "@/app/Components/Footer/Footer";
+
+
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -41,7 +45,13 @@ export default function RootLayout({
         />
       </head>
 
-      <body>{children}</body>
+      <body>
+        <Header />
+
+        {children}
+
+        <Footer />
+      </body>
     </html>
   );
 }

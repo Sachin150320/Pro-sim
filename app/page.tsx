@@ -9,6 +9,7 @@ import ContactSection from "./Components/ContactSection";
 import EngineeringSection from "./Components/EngineeringSection";
 import IndustriesSection from "./Components/IndustriesSection";
 import EventsSection from "./Components/EventsSection";
+import LatestEvents from "./Components/LatestEvents";
 import "@/app/globals.css";
 
 export default function Home() {
@@ -22,10 +23,11 @@ export default function Home() {
       <IndustriesSection />
 
       {/* <WhyChooseUs /> */}
-      <Offerings />
+      {/* <Offerings /> */}
       <Clients />
       <ContactSection />
       <EventsSection />
+         <LatestEvents />
       <Footer />
 
     </main>

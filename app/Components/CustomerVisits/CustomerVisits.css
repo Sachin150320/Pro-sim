@@ -1,0 +1,623 @@
+
+/* =====================================================
+   CUSTOMER VISITS
+===================================================== */
+
+.customer-visits-page {
+  width: 100%;
+  overflow: hidden;
+  background: #ffffff;
+  color: #172b3a;
+}
+
+.visits-container {
+  width: min(1180px, 90%);
+  margin: 0 auto;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.visits-hero {
+  position: relative;
+  padding: 90px 0;
+
+  background: #f4f7fa;
+
+  overflow: hidden;
+}
+
+.visits-hero::before {
+  content: "";
+
+  position: absolute;
+
+  width: 500px;
+  height: 500px;
+
+  right: -240px;
+  top: -250px;
+
+  border: 1px solid #dce6ee;
+  border-radius: 50%;
+}
+
+.visits-hero::after {
+  content: "";
+
+  position: absolute;
+
+  width: 300px;
+  height: 300px;
+
+  right: -100px;
+  top: -100px;
+
+  border: 1px solid #e1e9ef;
+  border-radius: 50%;
+}
+
+.visits-hero-content {
+  position: relative;
+  z-index: 2;
+
+}
+
+.visits-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  margin-bottom: 20px;
+
+  color: #1769aa;
+
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+}
+
+
+
+.visits-hero-content h1 {
+    color: #172b3a;
+    letter-spacing: -1.5px;
+    margin: 0;
+    font-size: clamp(42px, 5vw, 50px);
+    font-weight: 700;
+    line-height: 1.08;
+}
+.visits-hero-content h1 strong {
+    color: #1769aa;
+}
+
+
+.visits-hero h1 {
+  margin: 0;
+
+  color: #172b3a;
+
+  font-size: clamp(42px, 5vw, 50px);
+  line-height: 1.08;
+  letter-spacing: -1.5px;
+  font-weight: 700;
+}
+
+.visits-hero h1 strong {
+  color: #1769aa;
+}
+
+.visits-hero p {
+  max-width: 700px;
+
+  margin: 25px 0 0;
+
+  color: #657783;
+
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+
+/* =====================================================
+   VISITS SECTION
+===================================================== */
+
+.visits-section {
+  padding: 100px 0;
+
+  background: #ffffff;
+}
+
+.visits-heading {
+  max-width: 760px;
+
+  margin-bottom: 60px;
+}
+
+.visits-heading span,
+.team-heading span {
+  display: block;
+
+  margin-bottom: 12px;
+
+  color: #1769aa;
+
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+}
+
+.visits-heading h2,
+.team-heading h2 {
+  margin: 0 0 15px;
+
+  color: #172b3a;
+
+  font-size: 40px;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.visits-heading p {
+  margin: 0;
+
+  color: #687985;
+
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+
+/* =====================================================
+   VISIT LIST
+===================================================== */
+
+.visits-list {
+  display: flex;
+  flex-direction: column;
+
+  gap: 70px;
+}
+
+
+/* =====================================================
+   VISIT CARD
+===================================================== */
+
+.visit-card {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  min-height: 450px;
+
+  background: #f5f8fa;
+
+  opacity: 0;
+  transform: translateY(60px);
+
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease,
+    box-shadow 0.4s ease;
+}
+
+.visit-card.visit-show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.visit-card:hover {
+  box-shadow: 0 25px 60px rgba(23, 105, 170, 0.10);
+}
+
+
+/* Reverse */
+
+.visit-reverse .visit-image {
+  order: 2;
+}
+
+.visit-reverse .visit-content {
+  order: 1;
+}
+
+
+/* =====================================================
+   IMAGE
+===================================================== */
+
+.visit-image {
+  position: relative;
+
+  min-height: 450px;
+
+  overflow: hidden;
+
+  background: #172b3a;
+}
+
+.visit-image img {
+  object-fit: cover;
+
+  transition:
+    transform 0.8s ease;
+}
+
+.visit-card:hover .visit-image img {
+  transform: scale(1.06);
+}
+
+.visit-image-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(16, 44, 67, 0.45),
+      transparent 65%
+    );
+}
+
+
+/* Number */
+
+.visit-number {
+  position: absolute;
+
+  top: 25px;
+  left: 25px;
+
+  z-index: 2;
+
+  width: 55px;
+  height: 55px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #1769aa;
+
+  color: #ffffff;
+
+  font-size: 13px;
+  font-weight: 700;
+}
+
+
+/* =====================================================
+   CONTENT
+===================================================== */
+
+.visit-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 55px;
+}
+
+.visit-small-title {
+  margin-bottom: 14px;
+
+  color: #1769aa;
+
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.visit-content h3 {
+  max-width: 450px;
+
+  margin: 0;
+
+  color: #172b3a;
+
+  font-size: 30px;
+  line-height: 1.25;
+  font-weight: 700;
+
+  transition: color 0.3s ease;
+}
+
+.visit-card:hover .visit-content h3 {
+  color: #1769aa;
+}
+
+
+/* Line */
+
+.visit-line {
+  width: 45px;
+  height: 2px;
+
+  margin: 22px 0;
+
+  background: #1769aa;
+
+  transition: width 0.4s ease;
+}
+
+.visit-card:hover .visit-line {
+  width: 80px;
+}
+
+.visit-content p {
+  max-width: 500px;
+
+  margin: 0;
+
+  color: #687985;
+
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+
+/* =====================================================
+   ACTION
+===================================================== */
+
+.visit-action {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  margin-top: 30px;
+
+  color: #1769aa;
+
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.visit-arrow {
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #d4e0e8;
+
+  font-size: 18px;
+
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.visit-card:hover .visit-arrow {
+  background: #1769aa;
+
+  border-color: #1769aa;
+
+  color: #ffffff;
+
+  transform: translate(5px, -5px);
+}
+
+
+/* =====================================================
+   TEAM SECTION
+===================================================== */
+
+.team-section {
+  padding: 90px 0;
+
+  background: #f5f8fa;
+}
+
+.team-heading {
+  margin-bottom: 40px;
+}
+
+.team-gallery {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 20px;
+}
+
+.team-image {
+  position: relative;
+
+  height: 300px;
+
+  overflow: hidden;
+
+  background: #172b3a;
+}
+
+.team-image img {
+  object-fit: cover;
+
+  transition:
+    transform 0.7s ease;
+}
+
+.team-image:hover img {
+  transform: scale(1.07);
+}
+
+.team-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+
+  padding: 20px;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(16, 44, 67, 0.6),
+      transparent 50%
+    );
+}
+
+.team-overlay span {
+  color: #ffffff;
+
+  font-size: 12px;
+  font-weight: 700;
+}
+
+
+/* =====================================================
+   BOTTOM
+===================================================== */
+
+.visits-bottom {
+  padding: 85px 0;
+
+  background: #102c43;
+}
+
+.visits-bottom-content {
+  max-width: 750px;
+}
+
+.visits-bottom-content > span {
+  display: block;
+
+  margin-bottom: 15px;
+
+  color: #79b9df;
+
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+}
+
+.visits-bottom-content h2 {
+  margin: 0 0 18px;
+
+  color: #ffffff;
+
+  font-size: 40px;
+  line-height: 1.2;
+}
+
+.visits-bottom-content p {
+  max-width: 650px;
+
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.68);
+
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 900px) {
+
+  .visit-card {
+    grid-template-columns: 1fr;
+  }
+
+  .visit-reverse .visit-image,
+  .visit-reverse .visit-content {
+    order: initial;
+  }
+
+  .visit-image {
+    min-height: 400px;
+  }
+
+  .team-gallery {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+  .visits-container {
+    width: 90%;
+  }
+
+  .visits-hero {
+    padding: 65px 0;
+  }
+
+  .visits-hero h1 {
+    font-size: 36px;
+  }
+
+  .visits-hero p {
+    font-size: 14px;
+  }
+
+  .visits-section {
+    padding: 65px 0;
+  }
+
+  .visits-heading {
+    margin-bottom: 40px;
+  }
+
+  .visits-heading h2,
+  .team-heading h2 {
+    font-size: 31px;
+  }
+
+  .visits-list {
+    gap: 40px;
+  }
+
+  .visit-image {
+    min-height: 300px;
+  }
+
+  .visit-content {
+    padding: 30px 25px 35px;
+  }
+
+  .visit-content h3 {
+    font-size: 24px;
+  }
+
+  .visit-content p {
+    font-size: 14px;
+  }
+
+  .team-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .team-image {
+    height: 280px;
+  }
+
+  .visits-bottom {
+    padding: 60px 0;
+  }
+
+  .visits-bottom-content h2 {
+    font-size: 30px;
+  }
+}

@@ -27,11 +27,11 @@ const menuItems: MenuItem[] = [
     href: "#",
     children: [
       { name: "About Company", href: "/about-us" },
-      { name: "Promoter", href: "/why-us" },
-      { name: "Vision and Mission", href: "/leadership-team" },
-      { name: "Unique Value Proposition", href: "/awards" },
-      { name: "Customer Visits", href: "/pricing" },
-      { name: "Team", href: "/faqs" },
+      { name: "Promoter", href: "/Promoter" },
+      { name: "Vision and Mission", href: "/vision-mission" },
+      { name: "Unique Value Proposition", href: "/Unique-Value-Proposition" },
+      { name: "Customer Visits", href: "/Customer-Visits" },
+      { name: "Team", href: "/Team" },
       { name: "Gallery", href: "/careers" },
       { name: "Our Customer Benefits", href: "#" },
     ],
@@ -40,16 +40,32 @@ const menuItems: MenuItem[] = [
     name: "Offerings",
     href: "#",
     children: [
-      { name: "Detailed Engineering", href: "#" },
-      { name: "Seismic Analysis and Qualification", href: "#" },
-      { name: "Piping and Pipeline Engineering", href: "#" },
-      { name: "3D Plant Modelling", href: "#" },
-      { name: "FEA", href: "#" },
-      { name: "CFD", href: "#" },
-      { name: "Structural Integrity Assessment", href: "#" },
-      { name: "Engineering Process Automation", href: "#" },
-      { name: "Digital Twin", href: "#" },
-      { name: "Owner's Engineering, Advisory", href: "#" },
+      // { name: "Detailed Engineering", href: "#" },
+      // { name: "Seismic Analysis and Qualification", href: "#" },
+      // { name: "Piping and Pipeline Engineering", href: "#" },
+      // { name: "3D Plant Modelling", href: "#" },
+      // { name: "FEA", href: "#" },
+      // { name: "CFD", href: "#" },
+      // { name: "Structural Integrity Assessment", href: "#" },
+      // { name: "Engineering Process Automation", href: "#" },
+      // { name: "Digital Twin", href: "#" },
+      // { name: "Owner's Engineering, Advisory", href: "#" },
+
+
+
+
+ { name: "Detailed Engineering", href: "#" },
+ { name: "Seismic Analysis & Qualification", href: "#" },
+ { name: "Piping & Pipeline Engineering", href: "#" },
+ { name: "3D Plant Modelling", href: "#" },
+ { name: "Finite Element Analysis (FEA)", href: "#" },
+ { name: "CFD & Multiphysics Simulations", href: "#" },
+ { name: "RLA/RLE & Fitness-for-Service (FFS)", href: "#" },
+ { name: "Engineering Automation & Digital Twin", href: "#" },
+ { name: "Pre-Bid & Owner’s Engineering", href: "#" },
+
+
+
     ],
   },
   {
@@ -66,7 +82,7 @@ const menuItems: MenuItem[] = [
   },
   
   { name: "Projects", href: "#" },
-  
+    { name: "Events", href: "#" },
   { name: "Careers", href: "#" },
   { name: "Contact Us", href: "/contact-us" },
 ];

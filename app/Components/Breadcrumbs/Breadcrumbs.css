@@ -1,0 +1,247 @@
+
+
+.breadcrumb-section {
+    background-image:
+        linear-gradient(90deg, #07192bd1, #07192b94),
+        url("/assets/images/breadcrum/1.jpg");
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    border-bottom: 1px solid #e2e8f0;
+
+    width: 100%;
+
+    padding-top: 160px;
+
+    position: relative;
+}
+
+
+/* =========================================
+   CONTAINER
+========================================= */
+
+.breadcrumb-container {
+    width: 100%;
+    max-width: 1280px;
+
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+
+/* =========================================
+   CONTENT
+========================================= */
+
+.breadcrumb-content {
+    min-height: 170px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    position: relative;
+    z-index: 2;
+}
+
+
+/* =========================================
+   PAGE TITLE
+========================================= */
+
+.breadcrumb-title {
+    margin: 0 0 18px;
+
+    color: #ffffff;
+
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 600;
+    line-height: 1.1;
+
+    letter-spacing: -0.8px;
+}
+
+
+/* =========================================
+   BREADCRUMB NAVIGATION
+========================================= */
+
+.breadcrumb-navigation {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 10px;
+}
+
+
+/* =========================================
+   HOME
+========================================= */
+
+.breadcrumb-home {
+    display: inline-flex;
+    align-items: center;
+
+    color: rgba(255, 255, 255, 0.75);
+
+    font-size: 13px;
+    font-weight: 500;
+
+    text-decoration: none;
+
+    transition: color 0.25s ease;
+}
+
+.breadcrumb-home:hover {
+    color: #ffffff;
+}
+
+
+/* =========================================
+   ARROW
+========================================= */
+
+.breadcrumb-arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    color: rgba(255, 255, 255, 0.5);
+
+    font-size: 18px;
+    font-weight: 300;
+
+    line-height: 1;
+}
+
+
+/* =========================================
+   LINK
+========================================= */
+
+.breadcrumb-link {
+    color: rgba(255, 255, 255, 0.75);
+
+    font-size: 13px;
+    font-weight: 500;
+
+    text-decoration: none;
+
+    transition: color 0.25s ease;
+}
+
+.breadcrumb-link:hover {
+    color: #ffffff;
+}
+
+
+/* =========================================
+   CURRENT PAGE
+========================================= */
+
+.breadcrumb-current {
+    display: inline-flex;
+    align-items: center;
+
+    padding: 8px 14px;
+
+    color: #ffffff;
+
+    background: rgba(255, 255, 255, 0.12);
+
+    border: 1px solid rgba(255, 255, 255, 0.22);
+
+    border-radius: 5px;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    backdrop-filter: blur(5px);
+}
+
+
+/* =========================================
+   GROUP
+========================================= */
+
+.breadcrumb-group {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 10px;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 767px) {
+
+    .breadcrumb-section {
+        padding-top: 70px;
+
+        background-position: center;
+    }
+
+    .breadcrumb-container {
+        padding: 0 18px;
+    }
+
+    .breadcrumb-content {
+        min-height: 145px;
+    }
+
+    .breadcrumb-title {
+        margin-bottom: 14px;
+        font-size: 32px;
+    }
+
+    .breadcrumb-navigation {
+        gap: 7px;
+    }
+
+    .breadcrumb-home,
+    .breadcrumb-link {
+        font-size: 12px;
+    }
+
+    .breadcrumb-current {
+        padding: 7px 11px;
+        font-size: 12px;
+    }
+
+    .breadcrumb-arrow {
+        font-size: 16px;
+    }
+
+    .breadcrumb-group {
+        gap: 7px;
+    }
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+
+    .breadcrumb-section {
+        padding-top: 70px;
+    }
+
+    .breadcrumb-content {
+        min-height: 130px;
+    }
+
+    .breadcrumb-title {
+        font-size: 28px;
+    }
+}
+

@@ -1,0 +1,532 @@
+
+
+.promoter-container {
+    width: 100%;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+.promoter-section-label {
+    display: inline-block;
+    margin-bottom: 15px;
+    color: #0071bc;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.promoter-section-label::before {
+    content: "";
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    margin-right: 9px;
+    border-radius: 50%;
+    background: #00a878;
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.promoter-hero {
+    position: relative;
+    min-height: 330px;
+    display: flex;
+    align-items: center;
+
+    background:
+        linear-gradient(90deg, #07192be8, #07192b9c),
+        url("/images/breadcrumb-bg.jpg");
+
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.promoter-hero-content {
+    color: #ffffff;
+    max-width: 760px;
+}
+
+.promoter-eyebrow {
+    display: inline-block;
+    margin-bottom: 15px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #58c8a0;
+}
+
+.promoter-hero h1 {
+    margin: 0 0 15px;
+    font-size: clamp(42px, 5vw, 68px);
+    line-height: 1.05;
+    font-weight: 700;
+    letter-spacing: -2px;
+}
+
+.promoter-hero p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   PROFILE
+========================================= */
+
+.promoter-profile {
+    padding: 60px 0;
+    background: #ffffff;
+}
+
+.promoter-profile-grid {
+    display: grid;
+        grid-template-columns: 6fr 4fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.promoter-image-wrap {
+    position: relative;
+}
+
+.promoter-image {
+ border-radius: 10px;
+    background: #f1f5f8;
+    position: relative;
+    overflow: hidden;
+}
+
+.promoter-image img {
+    width: 100%;
+    height: 520px;
+    display: block;
+    object-fit: cover;
+}
+
+.promoter-image-caption {
+        border-radius: 10px;
+    position: absolute;
+    left: 25px;
+    right: 25px;
+    bottom: 25px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    padding: 17px 20px;
+
+    color: #ffffff;
+    background: rgba(7, 25, 43, 0.88);
+    backdrop-filter: blur(8px);
+}
+
+.promoter-image-caption span {
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #9fc9df;
+}
+
+.promoter-image-caption strong {
+    font-size: 17px;
+}
+
+.promoter-intro h2,
+.promoter-section-heading h2,
+.promoter-leadership h2,
+.promoter-academic h2,
+.promoter-interests h2 {
+    margin: 0;
+    color: #17232d;
+    font-size: clamp(32px, 4vw, 48px);
+    line-height: 1.12;
+    letter-spacing: -1.5px;
+}
+
+.promoter-intro h2 span,
+.promoter-section-heading h2 span,
+.promoter-leadership h2 span,
+.promoter-academic h2 span {
+    color: #0071bc;
+}
+
+.promoter-line {
+    width: 55px;
+    height: 3px;
+    margin: 25px 0;
+    background: linear-gradient(90deg, #0071bc, #00a878);
+}
+
+.promoter-intro p {
+    margin: 0 0 18px;
+    color: #66737d;
+    font-size: 15px;
+    line-height: 1.85;
+}
+
+
+/* =========================================
+   EXPERIENCE
+========================================= */
+
+.promoter-experience {
+    padding: 60px 0;
+    background: #f7fafc;
+    border-top: 1px solid #e5ebef;
+    border-bottom: 1px solid #e5ebef;
+}
+
+.promoter-section-heading {
+    max-width: 760px;
+    margin-bottom: 50px;
+}
+
+.promoter-section-heading > p {
+    max-width: 650px;
+    margin: 18px 0 0;
+    color: #68747e;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.promoter-experience-grid {
+    
+    grid-template-columns: 1.4fr 0.6fr;
+    gap: 25px;
+}
+
+.promoter-experience-card,
+.promoter-highlight-card {
+    padding: 35px;
+    background: #ffffff;
+    border: 1px solid #e1e7eb;
+}
+
+.promoter-card-icon {
+    width: 58px;
+    height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+
+    color: #0071bc;
+    background: #edf6fb;
+    border: 1px solid #dcecf5;
+}
+
+.promoter-experience-card h3 {
+    margin: 0 0 28px;
+    color: #1c2a34;
+    font-size: 24px;
+}
+
+.promoter-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.promoter-list-item {
+    display: flex;
+    gap: 13px;
+    align-items: flex-start;
+
+    color: #68747e;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.promoter-list-item svg {
+    flex: 0 0 auto;
+    margin-top: 2px;
+    color: #00a878;
+}
+
+.promoter-highlight-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    color: #68747e;
+}
+
+.promoter-highlight-card > svg {
+    color: #0071bc;
+    margin-bottom: 15px;
+}
+
+.promoter-highlight-card strong {
+    display: block;
+    color: #17232d;
+    font-size: 58px;
+    line-height: 1;
+}
+
+.promoter-highlight-card span {
+    margin-top: 12px;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.promoter-highlight-divider {
+    width: 100%;
+    height: 1px;
+    margin: 30px 0;
+    background: #e3e8ec;
+}
+
+.promoter-highlight-card p {
+    margin: 10px 0 0;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   CONTRIBUTIONS
+========================================= */
+
+.promoter-contributions {
+    padding: 90px 0;
+    background: #ffffff;
+}
+
+.promoter-contributions-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.promoter-contribution-card {
+    padding: 35px;
+    border: 1px solid #e1e7eb;
+    background: #ffffff;
+    transition: 0.35s ease;
+}
+
+.promoter-contribution-card:hover {
+    transform: translateY(-7px);
+    border-color: rgba(0, 113, 188, 0.25);
+    box-shadow: 0 20px 45px rgba(25, 45, 65, 0.09);
+}
+
+.promoter-contribution-card > svg {
+    margin-bottom: 25px;
+    color: #0071bc;
+}
+
+.promoter-contribution-card h3 {
+    margin: 0 0 14px;
+    color: #1c2a34;
+    font-size: 21px;
+}
+
+.promoter-contribution-card p {
+    margin: 0;
+    color: #707b84;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+
+/* =========================================
+   LEADERSHIP
+========================================= */
+
+.promoter-leadership {
+    padding: 90px 0;
+    background: #f7fafc;
+}
+
+.promoter-leadership-box {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 70px;
+
+    padding: 55px;
+    background: #ffffff;
+    border: 1px solid #e1e7eb;
+}
+
+.promoter-leadership-content p {
+    margin: 0 0 20px;
+    color: #68747e;
+    font-size: 15px;
+    line-height: 1.85;
+}
+
+
+/* =========================================
+   ACADEMIC
+========================================= */
+
+.promoter-academic {
+    padding: 60px 0;
+    background: #ffffff;
+}
+
+.promoter-academic-grid {
+
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 80px;
+    align-items: start;
+}
+
+.promoter-academic-grid p {
+    margin: 0 0 20px;
+    color: #68747e;
+    font-size: 15px;
+    line-height: 1.85;
+}
+
+
+/* =========================================
+   CURRENT INTERESTS
+========================================= */
+
+.promoter-interests {
+    padding: 70px 0;
+    background: #07192b;
+}
+
+.promoter-interests-box {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 30px;
+    align-items: center;
+}
+
+.promoter-interest-icon {
+    width: 70px;
+    height: 70px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #ffffff;
+    background: rgba(0, 113, 188, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.promoter-interests h2 {
+    color: #ffffff;
+    font-size: clamp(28px, 3.5vw, 42px);
+}
+
+.promoter-interests p {
+    max-width: 800px;
+    margin: 18px 0 0;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.promoter-interests .promoter-section-label {
+    color: #58c8a0;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+
+    .promoter-profile-grid,
+    .promoter-experience-grid,
+    .promoter-leadership-box,
+    .promoter-academic-grid {
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
+
+    .promoter-contributions-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .promoter-image img {
+        height: 480px;
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .promoter-container {
+        padding: 0 18px;
+    }
+
+    .promoter-hero {
+        min-height: 270px;
+    }
+
+    .promoter-hero h1 {
+        font-size: 42px;
+        letter-spacing: -1.5px;
+    }
+
+    .promoter-hero p {
+        font-size: 14px;
+    }
+
+    .promoter-profile,
+    .promoter-experience,
+    .promoter-contributions,
+    .promoter-leadership,
+    .promoter-academic {
+        padding: 60px 0;
+    }
+
+    .promoter-image img {
+        height: 400px;
+    }
+
+    .promoter-intro h2,
+    .promoter-section-heading h2,
+    .promoter-leadership h2,
+    .promoter-academic h2 {
+        font-size: 32px;
+    }
+
+    .promoter-experience-card,
+    .promoter-highlight-card,
+    .promoter-contribution-card {
+        padding: 25px;
+    }
+
+    .promoter-contributions-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .promoter-leadership-box {
+        padding: 30px 25px;
+    }
+
+    .promoter-interests {
+        padding: 55px 0;
+    }
+
+    .promoter-interests-box {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .promoter-interest-icon {
+        width: 58px;
+        height: 58px;
+    }
+}

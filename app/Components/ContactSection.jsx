@@ -37,10 +37,10 @@ export default function ContactSection() {
                     <div className="contact-section-intro">
                         <span className="contact-section-subtitle">Talk to Our Engineers</span>
 
-<h2 className="engineering-title">Looking for a  Engineering Partner?</h2>
+                        <h2 className="engineering-title">Looking for a  Engineering Partner?</h2>
 
 
-                        
+
                         <div className="title-underline-center" />
                         <p className="contact-section-desc">
                             We're ready to collaborate. Tell us what you're building and we'll come back with scope, deliverables and a realistic timeline.
@@ -71,10 +71,10 @@ export default function ContactSection() {
                                 <div className="hq-card-content">
                                     <h4 className="hq-card-label">Corporate & Technical Center</h4>
                                     <p className="hq-card-text">
-                                        B-378/1, Ring Rd, near TVS Cross, Peenya 1st Stage, Netaji Nagar, 
+                                        B-378/1, Ring Rd, near TVS Cross, Peenya 1st Stage, Netaji Nagar,
                                     </p>
                                     <p className="hq-card-text">
-                                      Peenya, Bengaluru, Karnataka 560058
+                                        Peenya, Bengaluru, Karnataka 560058
                                     </p>
                                     <a
                                         href="https://maps.google.com"

@@ -1,0 +1,709 @@
+
+/* =====================================================
+   TEAM PAGE
+===================================================== */
+
+.team-page {
+  width: 100%;
+  overflow: hidden;
+  background: #ffffff;
+  color: #172b3a;
+}
+
+.team-container {
+  width: min(1180px, 90%);
+  margin: 0 auto;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.team-hero {
+  position: relative;
+
+  padding: 90px 0;
+
+  background: #f4f7fa;
+
+  overflow: hidden;
+}
+
+.team-hero::before {
+  content: "";
+
+  position: absolute;
+
+  width: 520px;
+  height: 520px;
+
+  right: -260px;
+  top: -260px;
+
+  border: 1px solid #dce6ee;
+
+  border-radius: 50%;
+}
+
+.team-hero::after {
+  content: "";
+
+  position: absolute;
+
+  width: 320px;
+  height: 320px;
+
+  right: -110px;
+  top: -110px;
+
+  border: 1px solid #e1e9ef;
+
+  border-radius: 50%;
+}
+
+.team-hero-content {
+  position: relative;
+  z-index: 2;
+
+  max-width: 800px;
+}
+
+.team-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  margin-bottom: 20px;
+
+  color: #1769aa;
+
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+}
+
+.team-label::before {
+  content: "";
+
+  width: 30px;
+  height: 2px;
+
+  background: #1769aa;
+}
+
+.team-hero h1 {
+  margin: 0;
+
+  color: #172b3a;
+
+  font-size: clamp(42px, 5vw, 64px);
+
+  line-height: 1.08;
+
+  letter-spacing: -1.5px;
+
+  font-weight: 700;
+}
+
+.team-hero h1 strong {
+  color: #1769aa;
+}
+
+.team-hero p {
+  max-width: 680px;
+
+  margin: 25px 0 0;
+
+  color: #657783;
+
+  font-size: 16px;
+
+  line-height: 1.8;
+}
+
+
+/* =====================================================
+   ORGANISATION SECTION
+===================================================== */
+
+.org-section {
+  padding: 100px 0;
+
+  background: #ffffff;
+}
+
+.org-heading {
+
+  margin-bottom: 45px;
+}
+
+.org-heading span {
+  display: block;
+
+  margin-bottom: 12px;
+
+  color: #1769aa;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  letter-spacing: 2.5px;
+}
+
+.org-heading h2 {
+  margin: 0 0 15px;
+
+  color: #172b3a;
+
+  font-size: 50px;
+
+  line-height: 1.2;
+
+  font-weight: 700;
+}
+
+.org-heading p {
+  margin: 0;
+
+  color: #687985;
+
+  font-size: 15px;
+
+  line-height: 1.8;
+}
+
+.org-heading h2 strong {
+    color: #1769aa;
+}
+
+/* =====================================================
+   LEADERSHIP
+===================================================== */
+
+.leadership {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 0;
+}
+
+.leader-card {
+  width: 310px;
+
+  min-height: 125px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 20px;
+
+  padding: 18px;
+
+  background: #f5f8fa;
+
+  border: 1px solid #dce5eb;
+
+  transition:
+    transform 0.4s ease,
+    border-color 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+.leader-card:hover {
+  transform: translateY(-6px);
+
+  border-color: #1769aa;
+
+  box-shadow:
+    0 15px 35px rgba(23, 105, 170, 0.1);
+}
+
+
+/* Leader Image */
+
+.leader-image {
+  position: relative;
+
+  width: 85px;
+  height: 85px;
+
+  flex-shrink: 0;
+
+  overflow: hidden;
+
+  background: #dfe7ec;
+}
+
+.leader-image img {
+  object-fit: cover;
+
+  transition: transform 0.5s ease;
+}
+
+.leader-card:hover .leader-image img {
+  transform: scale(1.08);
+}
+
+
+/* Leader info */
+
+.leader-info {
+  min-width: 0;
+}
+
+.leader-number {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #1769aa;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  letter-spacing: 1px;
+}
+
+.leader-info h3 {
+  margin: 0 0 5px;
+
+  color: #172b3a;
+
+  font-size: 17px;
+
+  font-weight: 700;
+}
+
+.leader-info p {
+  margin: 0;
+
+  color: #71818c;
+
+  font-size: 12px;
+
+  line-height: 1.5;
+}
+
+
+/* =====================================================
+   CONNECTORS
+===================================================== */
+
+.org-connector {
+  width: 45px;
+
+  height: 2px;
+
+  background: #cbd9e2;
+}
+
+.main-connector {
+  width: 100%;
+
+  height: 65px;
+
+  position: relative;
+}
+
+.main-connector::before {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+
+  top: 0;
+
+  width: 2px;
+
+  height: 65px;
+
+  background: #cbd9e2;
+}
+
+.main-connector span {
+  position: absolute;
+
+  left: 8%;
+
+  right: 8%;
+
+  top: 64px;
+
+  height: 2px;
+
+  background: #cbd9e2;
+}
+
+
+/* =====================================================
+   TEAM GRID
+===================================================== */
+
+.team-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 25px;
+
+  margin-top: 0;
+}
+
+
+/* =====================================================
+   TEAM CARD
+===================================================== */
+
+.team-card {
+  position: relative;
+
+  background: #f5f8fa;
+
+  border: 1px solid #dce5eb;
+
+  overflow: hidden;
+
+  opacity: 0;
+
+  transform: translateY(45px);
+
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.team-card.team-show {
+  opacity: 1;
+
+  transform: translateY(0);
+}
+
+.team-card:hover {
+  border-color: #1769aa;
+
+  box-shadow:
+    0 20px 45px rgba(23, 105, 170, 0.1);
+
+  transform: translateY(-7px);
+}
+
+
+/* =====================================================
+   TEAM IMAGE
+===================================================== */
+
+.team-card-image {
+  position: relative;
+
+  height: 280px;
+
+  overflow: hidden;
+
+  background: #e7edf1;
+}
+
+.team-card-image img {
+  object-fit: cover;
+
+  transition: transform 0.7s ease;
+}
+
+.team-card:hover .team-card-image img {
+  transform: scale(1.06);
+}
+
+.team-card-number {
+  position: absolute;
+
+  left: 18px;
+
+  top: 18px;
+
+  width: 42px;
+
+  height: 42px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  background: #1769aa;
+
+  color: #ffffff;
+
+  font-size: 11px;
+
+  font-weight: 700;
+}
+
+
+/* =====================================================
+   CARD CONTENT
+===================================================== */
+
+.team-card-content {
+  padding: 25px;
+}
+
+.team-card-content > span {
+  color: #1769aa;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  letter-spacing: 2px;
+}
+
+.team-card-content h3 {
+  margin: 9px 0 5px;
+
+  color: #172b3a;
+
+  font-size: 20px;
+
+  line-height: 1.3;
+
+  font-weight: 700;
+
+  transition: color 0.3s ease;
+}
+
+.team-card:hover .team-card-content h3 {
+  color: #1769aa;
+}
+
+.team-card-content p {
+  margin: 0;
+
+  color: #71818c;
+
+  font-size: 13px;
+
+  line-height: 1.6;
+}
+
+
+/* =====================================================
+   ACTION
+===================================================== */
+
+.team-action {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  margin-top: 22px;
+
+  padding-top: 17px;
+
+  border-top: 1px solid #dce5eb;
+
+  color: #1769aa;
+
+  font-size: 12px;
+
+  font-weight: 700;
+}
+
+.team-arrow {
+  width: 36px;
+
+  height: 36px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border: 1px solid #d2dee6;
+
+  color: #687985;
+
+  font-size: 17px;
+
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.team-card:hover .team-arrow {
+  background: #1769aa;
+
+  border-color: #1769aa;
+
+  color: #ffffff;
+
+  transform: translate(4px, -4px);
+}
+
+
+/* =====================================================
+   BOTTOM
+===================================================== */
+
+.team-bottom {
+  padding: 85px 0;
+
+  background: #102c43;
+}
+
+.team-bottom-content {
+  max-width: 750px;
+}
+
+.team-bottom-content > span {
+  display: block;
+
+  margin-bottom: 14px;
+
+  color: #79b9df;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  letter-spacing: 2.5px;
+}
+
+.team-bottom-content h2 {
+  margin: 0 0 18px;
+
+  color: #ffffff;
+
+  font-size: 40px;
+
+  line-height: 1.2;
+
+  font-weight: 700;
+}
+
+.team-bottom-content p {
+  max-width: 650px;
+
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.68);
+
+  font-size: 15px;
+
+  line-height: 1.8;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 1000px) {
+
+  .leadership {
+    flex-wrap: wrap;
+
+    gap: 15px;
+  }
+
+  .org-connector {
+    display: none;
+  }
+
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 650px) {
+
+  .team-container {
+    width: 90%;
+  }
+
+  .team-hero {
+    padding: 65px 0;
+  }
+
+  .team-hero h1 {
+    font-size: 36px;
+  }
+
+  .team-hero p {
+    font-size: 14px;
+  }
+
+  .org-section {
+    padding: 65px 0;
+  }
+
+  .org-heading {
+    margin-bottom: 40px;
+  }
+
+  .org-heading h2 {
+    font-size: 31px;
+  }
+
+
+  /* Leadership */
+
+  .leadership {
+    flex-direction: column;
+  }
+
+  .leader-card {
+    width: 100%;
+
+    max-width: 400px;
+  }
+
+  .main-connector {
+    display: none;
+  }
+
+
+  /* Team */
+
+  .team-grid {
+    grid-template-columns: 1fr;
+
+    gap: 20px;
+  }
+
+  .team-card-image {
+    height: 320px;
+  }
+
+
+  /* Bottom */
+
+  .team-bottom {
+    padding: 60px 0;
+  }
+
+  .team-bottom-content h2 {
+    font-size: 30px;
+  }
+
+}
