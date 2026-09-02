@@ -215,7 +215,7 @@ export default function DetailedEngineering() {
       {/* HERO */}
       <section className="sa-hero">
         <div className="sa-container">
-          <span className="sa-label">ENGINEERING SERVICES</span>
+          {/* <span className="sa-label">ENGINEERING SERVICES</span> */}
 
           <h1>Detailed Engineering Services</h1>
 
@@ -256,9 +256,9 @@ export default function DetailedEngineering() {
 
                       <h3>{item.title}</h3>
 
-                      <span>
+                      {/* <span>
                         <ArrowUpRight size={20} strokeWidth={1.8} />
-                      </span>
+                      </span> */}
                     </div>
                   </a>
                 );
@@ -269,7 +269,7 @@ export default function DetailedEngineering() {
       </section>
 
       {/* MAIN IMAGE */}
-     <section className="sa-image-section">
+     {/* <section className="sa-image-section">
   <div className="sa-container">
     <div className="sa-main-image">
       <img
@@ -278,7 +278,7 @@ export default function DetailedEngineering() {
       />
     </div>
   </div>
-</section>
+</section> */}
 
       {/* INTRO */}
       <section className="sa-intro">

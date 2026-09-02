@@ -1,102 +1,143 @@
-
 "use client";
 
-import { usePathname } from "next/navigation";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { menuItems } from "../Header/Header";
 import "./Breadcrumbs.css";
+
+type BreadcrumbItem = {
+    name: string;
+    href: string;
+};
+
+function normalizePath(path: string) {
+    try {
+        return decodeURIComponent(path)
+            .replace(/\/+$/, "")
+            .toLowerCase();
+    } catch {
+        return path.replace(/\/+$/, "").toLowerCase();
+    }
+}
+
+function findBreadcrumb(
+    items: typeof menuItems,
+    pathname: string
+): BreadcrumbItem[] | null {
+    const currentPath = normalizePath(pathname);
+
+    for (const item of items) {
+        // Check dropdown items
+        if (item.children) {
+            for (const child of item.children) {
+                if (
+                    child.href !== "#" &&
+                    normalizePath(child.href) === currentPath
+                ) {
+                    return [
+                        {
+                            name: item.name,
+                            href: item.href,
+                        },
+                        {
+                            name: child.name,
+                            href: child.href,
+                        },
+                    ];
+                }
+            }
+        }
+
+        // Check normal menu item
+        if (
+            item.href !== "#" &&
+            normalizePath(item.href) === currentPath
+        ) {
+            return [
+                {
+                    name: item.name,
+                    href: item.href,
+                },
+            ];
+        }
+    }
+
+    return null;
+}
+
+function getPageName(pathname: string) {
+    const lastPart = pathname
+        .split("/")
+        .filter(Boolean)
+        .pop();
+
+    if (!lastPart) {
+        return "Home";
+    }
+
+    return decodeURIComponent(lastPart)
+        .replace(/-/g, " ")
+        .replace(/\b\w/g, (char) => char.toUpperCase());
+}
 
 export default function Breadcrumbs() {
     const pathname = usePathname();
 
-    const pathSegments = pathname
-        .split("/")
-        .filter((segment) => segment);
+    if (pathname === "/") {
+        return null;
+    }
 
-    // Get current page name
-    const currentPage =
-        pathSegments.length > 0
-            ? pathSegments[pathSegments.length - 1]
-                  .replace(/-/g, " ")
-                  .replace(/\b\w/g, (char) => char.toUpperCase())
-            : "Home";
+    const hierarchy = findBreadcrumb(menuItems, pathname);
 
     return (
         <section className="breadcrumb-section">
             <div className="breadcrumb-container">
+                <nav
+                    className="breadcrumb-navigation"
+                    aria-label="Breadcrumb"
+                >
+                    {/* HOME */}
+                    <Link
+                        href="/"
+                        className="breadcrumb-link"
+                    >
+                        Home
+                    </Link>
 
-                <div className="breadcrumb-content">
-
-                    {/* Page Heading */}
-                    <h2 className="breadcrumb-title">
-                        {currentPage}
-                    </h2>
-
-                    {/* Breadcrumb */}
-                    <div className="breadcrumb-navigation">
-
-                        <Link href="/" className="breadcrumb-home">
-                            Home
-                        </Link>
-
-                        {pathSegments.length > 0 && (
-                            <>
-                                <span className="breadcrumb-arrow">
-                                    ›
+                    {hierarchy ? (
+                        hierarchy.map((item, index) => (
+                            <span
+                                key={`${item.href}-${index}`}
+                                className="breadcrumb-group"
+                            >
+                                <span className="breadcrumb-separator">
+                                    /
                                 </span>
 
-                                {pathSegments.map((segment, index) => {
-                                    const href =
-                                        "/" +
-                                        pathSegments
-                                            .slice(0, index + 1)
-                                            .join("/");
+                                {index === hierarchy.length - 1 ? (
+                                    <span className="breadcrumb-current">
+                                        {item.name}
+                                    </span>
+                                ) : (
+                                    <span className="breadcrumb-parent">
+                                        {item.name}
+                                    </span>
+                                )}
+                            </span>
+                        ))
+                    ) : (
+                        <>
+                            <span className="breadcrumb-separator">
+                                /
+                            </span>
 
-                                    const isLast =
-                                        index === pathSegments.length - 1;
-
-                                    const formattedName = segment
-                                        .replace(/-/g, " ")
-                                        .replace(/\b\w/g, (char) =>
-                                            char.toUpperCase()
-                                        );
-
-                                    return (
-                                        <span
-                                            key={href}
-                                            className="breadcrumb-group"
-                                        >
-                                            {isLast ? (
-                                                <span
-                                                    className="breadcrumb-current"
-                                                    aria-current="page"
-                                                >
-                                                    {formattedName}
-                                                </span>
-                                            ) : (
-                                                <>
-                                                    <Link
-                                                        href={href}
-                                                        className="breadcrumb-link"
-                                                    >
-                                                        {formattedName}
-                                                    </Link>
-
-                                                    <span className="breadcrumb-arrow">
-                                                        ›
-                                                    </span>
-                                                </>
-                                            )}
-                                        </span>
-                                    );
-                                })}
-                            </>
-                        )}
-
-                    </div>
-                </div>
-
+                            <span className="breadcrumb-current">
+                                {getPageName(pathname)}
+                            </span>
+                        </>
+                    )}
+                </nav>
             </div>
         </section>
     );
 }
-

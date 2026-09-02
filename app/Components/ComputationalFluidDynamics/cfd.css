@@ -34,16 +34,15 @@
 }
 
 .sa-hero h1 {
- 
   margin: 0 0 28px;
-  font-size: 48px;
+  font-size: clamp(38px, 5vw, 48px);
   line-height: 1.08;
   font-weight: 400;
   letter-spacing: -2px;
 }
 
 .sa-hero p {
-
+  max-width: 1000px;
   margin: 0 0 18px;
   color: var(--sa-text);
   font-size: 17px;
@@ -64,8 +63,7 @@
 
 .sa-navigation-card h2 {
   margin: 0 0 30px;
-  font-size: 48px;
-  font-weight: 400;
+  font-size: 30px;
   line-height: 1.2;
 }
 
@@ -115,7 +113,7 @@
 
 .sa-navigation-item h3 {
   margin: 25px 0 15px;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.45;
   font-weight: 600;
 }
@@ -133,23 +131,6 @@
   color: #fff;
 }
 
-/* MAIN IMAGE */
-
-.sa-image-section {
-  padding: 0 0 90px;
-}
-
-.sa-main-image {
-  overflow: hidden;
-  border: 1px solid var(--sa-border);
-}
-
-.sa-main-image img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
 /* INTRO */
 
 .sa-intro {
@@ -158,15 +139,13 @@
 }
 
 .sa-intro h2 {
-
-  margin: 0 0 20px;
-  font-size: 48px;
   font-weight: 400;
+  margin: 0 0 20px;
+  font-size: clamp(34px, 4vw, 48px);
   line-height: 1.15;
 }
 
 .sa-intro p {
-
   margin: 0;
   color: var(--sa-text);
   font-size: 17px;
@@ -203,7 +182,7 @@
 .sa-service-number {
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: 15px;
 }
 
 .sa-service-number > span {
@@ -214,14 +193,14 @@
 }
 
 .sa-service-icon {
-  width: 52px;
-  height: 52px;
+  width: 42px;
+  height: 42px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--sa-red);
-  background: rgba(194, 0, 47, 0.06);
-  border: 1px solid rgba(194, 0, 47, 0.15);
+  border: 1px solid var(--sa-border);
+  background: #fff;
 }
 
 .sa-service-arrow {
@@ -229,17 +208,14 @@
 }
 
 .sa-service-box h2 {
- 
-  
+  max-width: 900px;
   margin: 0 0 20px;
-  font-size: 48px;
-  font-weight: 400;
+  font-size: 32px;
   line-height: 1.2;
 }
 
 .sa-service-box > p {
-  
-  
+  max-width: 1000px;
   margin: 0 0 25px;
   color: var(--sa-text);
   font-size: 16px;
@@ -273,6 +249,10 @@
   margin-top: 40px;
 }
 
+.sa-gallery.single {
+  grid-template-columns: 1fr;
+}
+
 .sa-gallery-card {
   overflow: hidden;
   border: 1px solid var(--sa-border);
@@ -290,78 +270,26 @@
   transform: scale(1.03);
 }
 
-/* SSC */
-
-.sa-ssc {
-  padding: 100px 0;
-  background: #fff;
-  scroll-margin-top: 80px;
-}
-
-.sa-ssc h2,
-.sa-advantage h2,
-.sa-clients h2 {
- 
-  
-  margin: 0 0 20px;
-  font-size: 48px;
-  font-weight: 400;
-  line-height: 1.15;
-}
-
-.sa-section-intro {
- 
-  
-  margin: 0 0 40px;
-  color: var(--sa-text);
-  font-size: 17px;
-  line-height: 1.8;
-}
-
-.sa-table-wrapper {
-  width: 100%;
-  overflow-x: auto;
-  border: 1px solid var(--sa-border);
-}
-
-.sa-ssc-table {
-  width: 100%;
-  border-collapse: collapse;
-  min-width: 850px;
-}
-
-.sa-ssc-table th {
-  padding: 20px;
-  color: #fff;
-  background: var(--sa-dark);
-  text-align: left;
-  font-size: 15px;
-  font-weight: 700;
-}
-
-.sa-ssc-table td {
-  padding: 22px 20px;
-  border-top: 1px solid var(--sa-border);
-  color: var(--sa-text);
-  font-size: 15px;
-  line-height: 1.7;
-  vertical-align: top;
-}
-
-.sa-ssc-table td:first-child {
-  width: 28%;
-  color: var(--sa-dark);
-}
-
-.sa-ssc-table tr:hover td {
-  background: #fafafa;
-}
-
 /* ADVANTAGE */
 
 .sa-advantage {
   padding: 100px 0;
-  background: var(--sa-light);
+  background: #fff;
+}
+
+.sa-advantage h2 {
+  font-weight: 400;
+  margin: 0 0 20px;
+  font-size: clamp(34px, 4vw, 48px);
+  line-height: 1.15;
+}
+
+.sa-section-intro {
+  max-width: 900px;
+  margin: 0 0 40px;
+  color: var(--sa-text);
+  font-size: 17px;
+  line-height: 1.8;
 }
 
 .sa-advantage-list {
@@ -413,61 +341,6 @@
   color: var(--sa-red);
 }
 
-/* CLIENTS */
-
-.sa-clients {
-  padding: 100px 0;
-  background: #fff;
-  scroll-margin-top: 80px;
-}
-
-.sa-clients > .sa-container > p {
-  max-width: 900px;
-  margin: 0 0 40px;
-  color: var(--sa-text);
-  font-size: 17px;
-  line-height: 1.8;
-}
-
-.sa-client-list {
-  border-top: 1px solid var(--sa-border);
-}
-
-.sa-client-item {
-  display: grid;
-  grid-template-columns: 55px 55px 1fr 30px;
-  align-items: center;
-  gap: 20px;
-  padding: 25px 0;
-  border-bottom: 1px solid var(--sa-border);
-}
-
-.sa-client-item > span {
-  color: var(--sa-red);
-  font-size: 13px;
-  font-weight: 700;
-}
-
-.sa-client-icon {
-  width: 48px;
-  height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--sa-red);
-  background: rgba(194, 0, 47, 0.06);
-}
-
-.sa-client-item strong {
-  color: var(--sa-dark);
-  font-size: 15px;
-  line-height: 1.6;
-}
-
-.sa-client-item > svg {
-  color: var(--sa-red);
-}
-
 /* FAQ */
 
 .sa-faq {
@@ -483,9 +356,9 @@
 }
 
 .sa-faq-heading h2 {
-  margin: 0 0 18px;
-  font-size: 48px;
   font-weight: 400;
+  margin: 0 0 18px;
+  font-size: clamp(34px, 4vw, 48px);
   line-height: 1.15;
 }
 
@@ -512,7 +385,7 @@
 }
 
 .sa-faq-item.active {
-  border-color: rgba(194, 0, 47, 0.3);
+  border-color: rgba(0, 113, 188, 0.3);
 }
 
 .sa-faq-question {
@@ -580,22 +453,6 @@
   line-height: 1.8;
 }
 
-.sa-faq-answer ul {
-  margin: 0;
-  padding-left: 20px;
-}
-
-.sa-faq-answer li {
-  margin-bottom: 10px;
-  color: var(--sa-text);
-  font-size: 15px;
-  line-height: 1.7;
-}
-
-.sa-faq-answer li::marker {
-  color: var(--sa-red);
-}
-
 /* RESPONSIVE */
 
 @media (max-width: 1100px) {
@@ -642,14 +499,9 @@
     min-height: 160px;
   }
 
-  .sa-image-section {
-    padding-bottom: 55px;
-  }
-
   .sa-intro,
-  .sa-ssc,
   .sa-advantage,
-  .sa-clients,
+  .sa-services,
   .sa-faq {
     padding: 65px 0;
   }
@@ -662,6 +514,10 @@
     font-size: 27px;
   }
 
+  .sa-faq-list {
+    grid-template-columns: 1fr;
+  }
+
   .sa-gallery {
     grid-template-columns: 1fr;
   }
@@ -672,15 +528,6 @@
   }
 
   .sa-advantage-box > svg {
-    display: none;
-  }
-
-  .sa-client-item {
-    grid-template-columns: 40px 45px 1fr;
-    gap: 12px;
-  }
-
-  .sa-client-item > svg {
     display: none;
   }
 
@@ -727,14 +574,6 @@
   }
 
   .sa-advantage-icon {
-    display: none;
-  }
-
-  .sa-client-item {
-    grid-template-columns: 35px 1fr;
-  }
-
-  .sa-client-icon {
     display: none;
   }
 

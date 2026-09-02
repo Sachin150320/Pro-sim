@@ -45,19 +45,17 @@
 }
 
 .plant-hero h1 {
-  max-width: 950px;
   margin: 0 0 28px;
 
   font-size: 48px;
   line-height: 1.12;
-  font-weight: 700;
+  font-weight: 400;
   letter-spacing: -1.5px;
 
   color: var(--plant-dark);
 }
 
 .plant-hero p {
-  max-width: 1000px;
   margin: 0 0 18px;
 
   color: var(--plant-text);
@@ -200,18 +198,16 @@
 }
 
 .plant-intro h2 {
-  max-width: 850px;
   margin: 0 0 20px;
 
   font-size: 48px;
   line-height: 1.15;
-  font-weight: 700;
+  font-weight: 400;
 
   color: var(--plant-dark);
 }
 
 .plant-intro p {
-  max-width: 850px;
   margin: 0;
 
   color: var(--plant-text);
@@ -264,7 +260,6 @@
 }
 
 .plant-service-box h3 {
-  max-width: 900px;
   margin: 0 0 20px;
 
   font-size: 32px;
@@ -275,7 +270,6 @@
 }
 
 .plant-service-box > p {
-  max-width: 1000px;
   margin: 0 0 25px;
 
   color: var(--plant-text);
@@ -284,8 +278,6 @@
 }
 
 .plant-service-box ul {
-  max-width: 1050px;
-
   margin: 0;
   padding-left: 22px;
 }
@@ -349,18 +341,16 @@
 }
 
 .plant-advantage h2 {
-  max-width: 900px;
   margin: 0 0 20px;
 
   font-size: 48px;
   line-height: 1.15;
-  font-weight: 700;
+  font-weight: 400;
 
   color: var(--plant-dark);
 }
 
 .plant-advantage-title {
-  max-width: 900px;
   margin: 0 0 18px;
 
   font-size: 24px;
@@ -371,8 +361,6 @@
 }
 
 .plant-advantage > .plant-container > p {
-  max-width: 900px;
-
   color: var(--plant-text);
   font-size: 17px;
   line-height: 1.8;
@@ -431,7 +419,6 @@
 }
 
 .plant-advantage-box p {
-  max-width: 850px;
   margin: 0;
 
   color: var(--plant-text);
@@ -471,14 +458,17 @@
 
   font-size: 48px;
   line-height: 1.15;
-  font-weight: 700;
+  font-weight: 400;
 
   color: var(--plant-dark);
 }
 
 .plant-faq-list {
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
 }
 
 .plant-faq-item {
@@ -700,6 +690,10 @@
 
   .plant-faq-heading h2 {
     font-size: 38px;
+  }
+
+  .plant-faq-list {
+    grid-template-columns: 1fr;
   }
 
   .plant-faq-question {

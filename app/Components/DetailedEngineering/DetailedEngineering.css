@@ -81,16 +81,15 @@
 }
 
 .sa-navigation-item {
-  min-height: 180px;
-  padding: 24px 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  border: 1px solid var(--sa-border);
-  background: #fff;
-  transition: 0.3s ease;
+    border: 1px solid var(--sa-border);
+    background: #fff;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: -webkit-fill-available;
+    padding: 10px 20px;
+    transition: all .3s;
+    display: flex;
 }
-
 .sa-navigation-item:hover {
   color: #fff;
   background: var(--sa-dark);
@@ -114,7 +113,7 @@
 }
 
 .sa-navigation-item h3 {
-  margin: 25px 0 15px;
+  margin: 15px 0 15px;
   font-size: 16px;
   line-height: 1.45;
 }

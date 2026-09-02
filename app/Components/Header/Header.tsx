@@ -20,7 +20,7 @@ type MenuItem = {
   }[];
 };
 
-const menuItems: MenuItem[] = [
+export const menuItems: MenuItem[] = [
   { name: "Home", href: "/" },
   {
     name: "About Us",
@@ -36,43 +36,53 @@ const menuItems: MenuItem[] = [
       // { name: "Our Customer Benefits", href: "Customer-Benefits" },
     ],
   },
-  {
+ {
     name: "Offerings",
     href: "#",
     children: [
-      // { name: "Detailed Engineering", href: "#" },
-      // { name: "Seismic Analysis and Qualification", href: "#" },
-      // { name: "Piping and Pipeline Engineering", href: "#" },
-      // { name: "3D Plant Modelling", href: "#" },
-      // { name: "FEA", href: "#" },
-      // { name: "CFD", href: "#" },
-      // { name: "Structural Integrity Assessment", href: "#" },
-      // { name: "Engineering Process Automation", href: "#" },
-      // { name: "Digital Twin", href: "#" },
-      // { name: "Owner's Engineering, Advisory", href: "#" },
-
-
-
-
- { name: "Detailed Engineering", href: "Detailed-Engineering-services" },
- { name: "Seismic Analysis & Qualification", href: "Seismic-analysis-and-qualification" },
- { name: "Piping & Pipeline Engineering", href: "Piping-&-pipeline-engineering-services" },
- { name: "3D Plant Modelling", href: "Three-D-plant-modelling-services" },
- { name: "Finite Element Analysis (FEA)", href: "finite-element-analysis-services" },
- { name: "CFD & Multiphysics Simulations", href: "#" },
- { name: "RLA/RLE & Fitness-for-Service (FFS)", href: "#" },
- { name: "Engineering Automation & Digital Twin", href: "#" },
- { name: "Pre-Bid & Owner’s Engineering", href: "#" },
-
-
-
+        {
+            name: "Detailed Engineering",
+            href: "/Detailed-Engineering-services",
+        },
+        {
+            name: "Seismic Analysis & Qualification",
+            href: "/Seismic-analysis-and-qualification",
+        },
+        {
+            name: "Piping & Pipeline Engineering",
+            href: "/Piping-&-pipeline-engineering-services",
+        },
+        {
+            name: "3D Plant Modelling",
+            href: "/Three-D-plant-modelling-services",
+        },
+        {
+            name: "Finite Element Analysis (FEA)",
+            href: "/finite-element-analysis-services",
+        },
+        {
+            name: "CFD & Multiphysics Simulations",
+            href: "/Computational-fluid-dynamics-services",
+        },
+        {
+            name: "RLA/RLE & Fitness-for-Service (FFS)",
+            href: "#",
+        },
+        {
+            name: "Engineering Automation & Digital Twin",
+            href: "/Engineering-Automation-&-Digital-Twin",
+        },
+        {
+            name: "Pre-Bid & Owner’s Engineering",
+            href: "/Pre-Bid-&-Owners-Engineering",
+        },
     ],
-  },
+},
   {
     name: "Industries",
     href: "#",
     children: [
-      { name: "Nuclear Power", href: "#" },
+      { name: "Nuclear Power", href: "/nuclear-power" },
       { name: "Thermal Power", href: "#" },
       { name: "Oil & Gas, Off Shore", href: "#" },
       { name: "Defence", href: "#" },
