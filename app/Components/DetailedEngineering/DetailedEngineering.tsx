@@ -160,6 +160,51 @@ const disciplineItems = [
   },
 ];
 
+// Add this array alongside your other data arrays
+const latestUpdates = [
+  {
+    tag: "INSIGHT",
+    date: "Jan 30, 2026",
+    title: "Advanced Piping Stress Analysis Techniques",
+    description: "Exploring thermal expansion, seismic considerations, and dynamic loads.",
+    image: "/assets/images/portfolio/modern/2.webp",
+  },
+  {
+    tag: "WEBINAR",
+    date: "Feb 12, 2026",
+    title: "Optimizing Plant CAPEX with 3D Modelling",
+    description: "How clash-free multi-disciplinary models eliminate costly field reworks.",
+    image: "/assets/images/portfolio/modern/1.webp",
+  },
+  {
+    tag: "CASE STUDY",
+    date: "Feb 28, 2026",
+    title: "Refinery P&ID and Hydraulic Validation",
+    description: "A comprehensive review of fluid system safety and flow assurance.",
+    image: "/assets/images/portfolio/modern/3.webp",
+  },
+  {
+    tag: "WHITEPAPER",
+    date: "Mar 10, 2026",
+    title: "ASME & API Codes in Pressure Vessel Design",
+    description: "Ensuring compliance and structural integrity in static equipment.",
+    image: "/assets/images/portfolio/modern/1.webp",
+  },
+  {
+    tag: "ARTICLE",
+    date: "Mar 22, 2026",
+    title: "Electrical Load Pooling & Safety Systems",
+    description: "Designing robust power distribution architectures for process plants.",
+    image: "/assets/images/portfolio/modern/2.webp",
+  },
+  {
+    tag: "CONFERENCE",
+    date: "May 29, 2026",
+    title: "India Nuclear Energy Forum 2026",
+    description: "29–30 May 2026, IIT-Bombay, Mumbai 2026",
+    image: "/assets/images/portfolio/modern/3.webp",
+  },
+];
 export default function DetailedEngineering() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
@@ -224,16 +269,16 @@ export default function DetailedEngineering() {
       </section>
 
       {/* MAIN IMAGE */}
-      <section className="sa-image-section">
-        <div className="sa-container">
-          <div className="sa-main-image">
-            <img
-              src="/img/detailed-engineering-service-01.png"
-              alt="Detailed Engineering Services"
-            />
-          </div>
-        </div>
-      </section>
+     <section className="sa-image-section">
+  <div className="sa-container">
+    <div className="sa-main-image">
+      <img
+        src="https://www.pro-sim.com/img/detailed-engineering-service-01.png"
+        alt="Detailed Engineering Services"
+      />
+    </div>
+  </div>
+</section>
 
       {/* INTRO */}
       <section className="sa-intro">
@@ -293,14 +338,14 @@ export default function DetailedEngineering() {
                   <div className="sa-gallery">
                     <div className="sa-gallery-card">
                       <img
-                        src="/new-img/offerings/Detailed-engineering/1.png"
+                        src="https://www.pro-sim.com/new-img/offerings/Detailed-engineering/1.png"
                         alt="Mechanical Engineering"
                       />
                     </div>
 
                     <div className="sa-gallery-card">
                       <img
-                        src="/new-img/offerings/Detailed-engineering/2.png"
+                        src="https://www.pro-sim.com/new-img/offerings/Detailed-engineering/2.png"
                         alt="Mechanical Design"
                       />
                     </div>
@@ -311,14 +356,14 @@ export default function DetailedEngineering() {
                   <div className="sa-gallery">
                     <div className="sa-gallery-card">
                       <img
-                        src="/new-img/offerings/Detailed-engineering/3.png"
+                        src="https://www.pro-sim.com/new-img/offerings/Detailed-engineering/3.png"
                         alt="3D Plant Modelling"
                       />
                     </div>
 
                     <div className="sa-gallery-card">
                       <img
-                        src="/new-img/offerings/Detailed-engineering/4.png"
+                        src="https://www.pro-sim.com/new-img/offerings/Detailed-engineering/4.png"
                         alt="Piping Engineering"
                       />
                     </div>
@@ -329,7 +374,7 @@ export default function DetailedEngineering() {
                   <div className="sa-gallery">
                     <div className="sa-gallery-card">
                       <img
-                        src="/new-img/offerings/Detailed-engineering/5.png"
+                        src="https://www.pro-sim.com/new-img/offerings/Detailed-engineering/5.png"
                         alt="Electrical Instrumentation"
                       />
                     </div>
@@ -380,7 +425,7 @@ export default function DetailedEngineering() {
         <div className="sa-container">
           <span className="sa-label">WHY PROSIM</span>
 
-          <h2>The ProSIM Advantage: Why Partner with Us?</h2>
+          <h2>The ProSIM Advantage : Why Partner with Us ?</h2>
 
           <p className="sa-section-intro">
             Enhanced constructability, reduced rework, and accelerated
@@ -441,11 +486,40 @@ export default function DetailedEngineering() {
         </div>
       </section>
 
+{/* LATEST UPDATES SECTION (2 Rows, 3 Columns, Horizontal Card Layout) */}
+      <section className="sa-updates">
+        <div className="sa-container">
+          <span className="sa-label">Projects</span>
+          <h2>Our Successful Projects</h2>
+       
+
+          <div className="sa-updates-grid">
+            {latestUpdates.map((item) => (
+              <div className="sa-update-card" key={item.title}>
+                <div className="sa-update-image">
+                  <span className="sa-update-tag">{item.tag}</span>
+                  <img src={item.image} alt={item.title} />
+                </div>
+                <div className="sa-update-content">
+                  <span className="sa-update-date">{item.date}</span>
+                  <h3>{item.title}</h3>
+                  <p>{item.description}</p>
+                  <a href="#faq" className="sa-update-link">
+                    Read More &rarr;
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+
       {/* FAQ */}
       <section className="sa-faq" id="faq">
         <div className="sa-container">
           <div className="sa-faq-heading">
-            <span className="sa-label">FAQ</span>
+            <span className="sa-label">FAQ's</span>
 
             <h2>Frequently Asked Questions</h2>
           </div>

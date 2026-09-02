@@ -2122,16 +2122,16 @@ span.sub-link a {
 }
 
 .contact-item {
-    padding: 10px;
-   
-    border-color: 1px #d0e1f9 !important;
-    margin-bottom: 0;
+    border-radius: 10px;
+    background-color: #d5d5d5ad;
     color: inherit;
     align-items: center;
     gap: 12px;
     margin-bottom: 18px;
+    padding: 10px;
     text-decoration: none;
     display: flex;
+    border-color: 1px #d0e1f9 !important;
 }
 
 .contact-icon {
@@ -2147,7 +2147,7 @@ span.sub-link a {
   border: 1px solid #dbe4ee;
   border-radius: 6px;
 
-  background: #ffffff;
+  background: #e9ebed;
 
   color: #1752a1;
 
@@ -2165,7 +2165,7 @@ span.sub-link a {
 
   margin-bottom: 3px;
 
-  color: #94a3b8;
+  color: #08101d;
 
   font-size: 10px;
   font-weight: 600;
@@ -2177,7 +2177,7 @@ span.sub-link a {
 .contact-item strong {
   display: block;
 
-  color: #07101d94;
+      color: #07101d61;
 
   font-size: 13px;
   font-weight: 700;

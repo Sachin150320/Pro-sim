@@ -34,8 +34,8 @@ const services = [
     description:
       "We evaluate structural durability under cyclic loading environments to prevent premature cracking, component degradation, and catastrophic fatigue failure.",
     points: [
-      "High-Cycle & Low-Cycle Fatigue (HCF/LCF): S-N and $\\varepsilon$-N curve implementations to determine operational lifespans under fluctuating thermal and mechanical loads.",
-      "Crack Propagation Studies: Linear Elastic Fracture Mechanics (LEFM) and Elastic-Plastic Fracture Mechanics (EPFM) evaluations using Stress Intensity Factors ($K$) and J-Integrals.",
+      "High-Cycle & Low-Cycle Fatigue (HCF/LCF): S-N and \\varepsilon-N curve implementations to determine operational lifespans under fluctuating thermal and mechanical loads.",
+      "Crack Propagation Studies: Linear Elastic Fracture Mechanics (LEFM) and Elastic-Plastic Fracture Mechanics (EPFM) evaluations using Stress Intensity Factors (K) and J-Integrals.",
       "Vibration Fatigue: Dynamic stress cycle assessment resulting from flow-induced turbulence, acoustic resonance, and machinery operational harmonics.",
       "Welded Joint Assessment: Hot spot stress and effective notch stress methods to evaluate fatigue strength in complex welded structures.",
     ],
@@ -158,17 +158,19 @@ const disciplineItems = [
   { title: "Vibration & Seismic", id: "vibration-dynamics" },
 ];
 
+
+
 export default function FeaServices() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
-    <main className="seismic-page">
+    <main className="fea-page">
       <Breadcrumbs />
 
       {/* HERO */}
-      <section className="sa-hero">
-        <div className="sa-container">
-          <span className="sa-label">SIMULATION SERVICES</span>
+      <section className="fea-hero">
+        <div className="fea-container">
+          <span className="fea-label">SIMULATION SERVICES</span>
 
           <h1>Advanced FEA & Simulation Services</h1>
 
@@ -187,31 +189,31 @@ export default function FeaServices() {
       </section>
 
       {/* NAVIGATION */}
-      <section className="sa-navigation">
-        <div className="sa-container">
-          <div className="sa-navigation-card">
+      <section className="fea-capabilities">
+        <div className="fea-container">
+          <div className="fea-about-card">
             <h2>Simulation Disciplines</h2>
 
-            <div className="sa-navigation-grid">
+            <div className="fea-capability-grid">
               {disciplineItems.map((item, index) => {
                 const Icon = disciplineIcons[index];
 
                 return (
                   <a
                     href={`#${item.id}`}
-                    className="sa-navigation-link"
+                    className="fea-capability-link"
                     key={item.id}
                   >
-                    <div className="sa-navigation-item">
-                      <div className="sa-navigation-icon">
+                    <div className="fea-capability-card">
+                      <div className="fea-icon-box">
                         <Icon size={25} strokeWidth={1.8} />
                       </div>
 
-                      <h3>{item.title}</h3>
+                      <h5>{item.title}</h5>
 
-                      <span>
+                      <div className="fea-card-arrow">
                         <ArrowUpRight size={20} strokeWidth={1.8} />
-                      </span>
+                      </div>
                     </div>
                   </a>
                 );
@@ -222,9 +224,9 @@ export default function FeaServices() {
       </section>
 
       {/* MAIN IMAGE */}
-      <section className="sa-image-section">
-        <div className="sa-container">
-          <div className="sa-main-image">
+      <section className="fea-image-section">
+        <div className="fea-container">
+          <div className="fea-image-card">
             <img
               src="/img/fea-services-service-01.png"
               alt="Advanced FEA Services"
@@ -234,9 +236,9 @@ export default function FeaServices() {
       </section>
 
       {/* INTRO */}
-      <section className="sa-intro">
-        <div className="sa-container">
-          <span className="sa-label">OUR EXPERTISE</span>
+      <section className="fea-intro">
+        <div className="fea-container">
+          <span className="fea-label">OUR EXPERTISE</span>
 
           <h2>Our Core Simulation Capabilities</h2>
 
@@ -248,101 +250,101 @@ export default function FeaServices() {
       </section>
 
       {/* SERVICES */}
-      <section className="sa-services">
-        <div className="sa-container">
-          <div className="sa-service-list">
-            {services.map((service, index) => (
-              <article
-                className="sa-service-box"
-                id={service.id}
-                key={service.id}
-              >
-                <div className="sa-service-top">
-                  <div className="sa-service-number">
-                    <span>{String(index + 1).padStart(2, "0")}</span>
+      <section className="fea-services">
+        <div className="fea-container">
+          <div className="fea-service-list">
+            {services.map((service, index) => {
+              const ServiceIcon = disciplineIcons[index];
 
-                    <div className="sa-service-icon">
-                      {React.createElement(disciplineIcons[index], {
-                        size: 25,
-                        strokeWidth: 1.8,
-                      })}
+              return (
+                <article
+                  className="fea-service-box"
+                  id={service.id}
+                  key={service.id}
+                >
+                  <div className="fea-service-top">
+                    <div className="fea-service-number-group">
+                      <span>{String(index + 1).padStart(2, "0")}</span>
+                      <div className="fea-service-inline-icon">
+                        <ServiceIcon size={22} strokeWidth={1.8} />
+                      </div>
                     </div>
+
+                    <ArrowUpRight
+                      className="fea-service-arrow"
+                      size={25}
+                      strokeWidth={1.8}
+                    />
                   </div>
 
-                  <ArrowUpRight
-                    className="sa-service-arrow"
-                    size={25}
-                    strokeWidth={1.8}
-                  />
-                </div>
+                  <h3>{service.title}</h3>
 
-                <h2>{service.title}</h2>
+                  <p>{service.description}</p>
 
-                <p>{service.description}</p>
+                  <ul>
+                    {service.points.map((point) => (
+                      <li key={point}>{point}</li>
+                    ))}
+                  </ul>
 
-                <ul>
-                  {service.points.map((point) => (
-                    <li key={point}>{point}</li>
-                  ))}
-                </ul>
+                  {/* GALLERY */}
+                  {index === 1 && (
+                    <div className="fea-gallery">
+                      <div className="fea-gallery-card">
+                        <img
+                          src="/new-img/offerings/fea-services/1.png"
+                          alt="Fatigue Analysis"
+                        />
+                      </div>
 
-                {/* GALLERY */}
-                {index === 1 && (
-                  <div className="sa-gallery">
-                    <div className="sa-gallery-card">
-                      <img
-                        src="/new-img/offerings/fea-services/1.png"
-                        alt="Fatigue Analysis"
-                      />
+                      <div className="fea-gallery-card">
+                        <img
+                          src="/new-img/offerings/fea-services/2.png"
+                          alt="Fracture Mechanics"
+                        />
+                      </div>
                     </div>
+                  )}
 
-                    <div className="sa-gallery-card">
-                      <img
-                        src="/new-img/offerings/fea-services/2.png"
-                        alt="Fracture Mechanics"
-                      />
-                    </div>
-                  </div>
-                )}
+                  {index === 2 && (
+                    <div className="fea-gallery">
+                      <div className="fea-gallery-card">
+                        <img
+                          src="/new-img/offerings/fea-services/3.png"
+                          alt="Thermal Stress Simulation"
+                        />
+                      </div>
 
-                {index === 2 && (
-                  <div className="sa-gallery">
-                    <div className="sa-gallery-card">
-                      <img
-                        src="/new-img/offerings/fea-services/3.png"
-                        alt="Thermal Stress Simulation"
-                      />
+                      <div className="fea-gallery-card">
+                        <img
+                          src="/new-img/offerings/fea-services/4.png"
+                          alt="Coupled Field Analysis"
+                        />
+                      </div>
                     </div>
+                  )}
 
-                    <div className="sa-gallery-card">
-                      <img
-                        src="/new-img/offerings/fea-services/4.png"
-                        alt="Coupled Field Analysis"
-                      />
+                  {index === 4 && (
+                    <div className="fea-gallery single">
+                      <div className="fea-gallery-card">
+                        <img
+                          src="/new-img/offerings/fea-services/5.png"
+                          alt="Vibration & Seismic"
+                        />
+                      </div>
                     </div>
-                  </div>
-                )}
-
-                {index === 4 && (
-                  <div className="sa-gallery">
-                    <div className="sa-gallery-card">
-                      <img
-                        src="/new-img/offerings/fea-services/5.png"
-                        alt="Vibration & Seismic"
-                      />
-                    </div>
-                  </div>
-                )}
-              </article>
-            ))}
+                  )}
+                </article>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* INDUSTRIES */}
-      <section className="sa-clients">
-        <div className="sa-container">
-          <span className="sa-label">INDUSTRIES WE SERVE</span>
+      <section className="fea-advantage">
+        <div className="fea-container">
+          <span className="fea-label">INDUSTRIES WE SERVE</span>
 
           <h2>Industries We Serve</h2>
 
@@ -351,21 +353,23 @@ export default function FeaServices() {
             highly regulated, mission-critical sectors.
           </p>
 
-          <div className="sa-client-list">
+          <div className="fea-advantage-list">
             {industries.map((industry, index) => {
-              const Icon = disciplineIcons[index];
+              const Icon = disciplineIcons[index % disciplineIcons.length];
 
               return (
-                <div className="sa-client-item" key={industry}>
+                <div className="fea-advantage-box" key={industry}>
                   <span>{String(index + 1).padStart(2, "0")}</span>
 
-                  <div className="sa-client-icon">
-                    <Icon size={21} strokeWidth={1.8} />
+                  <div className="fea-advantage-icon">
+                    <Icon size={22} strokeWidth={1.8} />
                   </div>
 
-                  <strong>{industry}</strong>
+                  <div className="fea-advantage-content">
+                    <h3>{industry}</h3>
+                  </div>
 
-                  <ArrowUpRight size={22} strokeWidth={1.8} />
+                  <ArrowUpRight size={23} strokeWidth={1.8} />
                 </div>
               );
             })}
@@ -374,18 +378,18 @@ export default function FeaServices() {
       </section>
 
       {/* ADVANTAGE */}
-      <section className="sa-advantage">
-        <div className="sa-container">
-          <span className="sa-label">WHY PROSIM</span>
+      <section className="fea-advantage">
+        <div className="fea-container">
+          <span className="fea-label">WHY PROSIM</span>
 
           <h2>The ProSIM Advantage: Why Partner with Us?</h2>
 
-          <p className="sa-section-intro">
+          <p>
             Mitigate technical risk, optimize product performance, and accelerate
             time-to-market through expert computational simulation.
           </p>
 
-          <div className="sa-advantage-list">
+          <div className="fea-advantage-list">
             {[
               {
                 number: "01",
@@ -411,16 +415,14 @@ export default function FeaServices() {
               const Icon = disciplineIcons[index];
 
               return (
-                <div className="sa-advantage-box" key={item.number}>
-                  <span className="sa-advantage-number">
-                    {item.number}
-                  </span>
+                <div className="fea-advantage-box" key={item.number}>
+                  <span>{item.number}</span>
 
-                  <div className="sa-advantage-icon">
+                  <div className="fea-advantage-icon">
                     <Icon size={22} strokeWidth={1.8} />
                   </div>
 
-                  <div className="sa-advantage-content">
+                  <div className="fea-advantage-content">
                     <h3>{item.title}</h3>
                     <p>{item.text}</p>
                   </div>
@@ -431,7 +433,7 @@ export default function FeaServices() {
             })}
           </div>
 
-          <p className="sa-section-intro" style={{ marginTop: "40px" }}>
+          <p className="fea-final-text">
             Choose ProSIM as your trusted FEA simulation partner for
             world-class engineering insight, reliable structural validation, and
             operational safety.
@@ -440,38 +442,38 @@ export default function FeaServices() {
       </section>
 
       {/* FAQ */}
-      <section className="sa-faq" id="faq">
-        <div className="sa-container">
-          <div className="sa-faq-heading">
-            <span className="sa-label">FAQ</span>
+      <section className="fea-faq" id="faq">
+        <div className="fea-container">
+          <div className="fea-faq-heading">
+            <span className="fea-label">FAQ</span>
 
             <h2>Frequently Asked Questions</h2>
           </div>
 
-          <div className="sa-faq-list">
+          <div className="fea-faq-list">
             {faqs.map((faq, index) => {
               const isOpen = openFaq === index;
 
               return (
                 <div
-                  className={`sa-faq-item ${isOpen ? "active" : ""}`}
+                  className={`fea-faq-item ${isOpen ? "active" : ""}`}
                   key={faq.question}
                 >
                   <button
                     type="button"
-                    className="sa-faq-question"
+                    className="fea-faq-question"
                     onClick={() =>
                       setOpenFaq(isOpen ? null : index)
                     }
                     aria-expanded={isOpen}
                   >
-                    <span className="sa-faq-number">
+                    <span className="fea-faq-number">
                       {String(index + 1).padStart(2, "0")}
                     </span>
 
                     <strong>{faq.question}</strong>
 
-                    <span className="sa-faq-icon">
+                    <span className="fea-faq-icon">
                       {isOpen ? (
                         <Minus size={19} strokeWidth={1.8} />
                       ) : (
@@ -481,7 +483,7 @@ export default function FeaServices() {
                   </button>
 
                   <div
-                    className={`sa-faq-answer ${
+                    className={`fea-faq-answer ${
                       isOpen ? "show" : ""
                     }`}
                   >

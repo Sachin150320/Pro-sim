@@ -346,9 +346,9 @@ export default function Footer() {
                             <div>
                                 <small>Address</small>
 
-                                <strong>  ProSIM R & D Pvt.
+                                <strong>  ProSIM R & D Pvt Ltd.
                                 </strong>
-<strong>   B-378/1, Ring Road, 1st Stage, Peenya, Bangalore 560058.
+<strong>   B-378/1, Ring Road,</strong><strong>  1st Stage, Peenya, Bangalore 560058.
                                 </strong>
                                 <a
                                     href={mapUrl}
