@@ -11,6 +11,10 @@ import {
   Zap,
   Plus,
   Minus,
+  Fuel,
+  FlaskConical,
+  Leaf,
+  Factory,
 } from "lucide-react";
 import "./DetailedEngineering.css";
 
@@ -19,60 +23,120 @@ const services = [
     id: "process-eng",
     title: "Process Engineering Support & Validation",
     description:
-      "We provide specialized process design, drafting, and safety validation services, ensuring that fluid systems are optimized for flow assurance, operational safety, and process integrity.",
+      "We provide specialized process design, drafting, and safety validation services, ensuring that fluid systems are optimized for flow assurance, operational safety, and process integrity. This level of precision demonstrates the caliber of our engineering consultancy services.",
     points: [
-      "Process & Instrumentation Drafting: Professional drafting and engineering review of Process Flow Diagrams (PFDs) and complex Piping and Instrumentation Diagrams (P&IDs).",
-      "Flow Assurance & Hydraulic Calculations: Comprehensive hydraulic analysis and system sizing for critical utility and process lines, including polypropylene (PP) lines, fuel oil systems, and integrated metering skids.",
-      "Dynamic Fluid Analysis: Advanced surge analysis and water hammer studies to identify transient pressure spikes and safeguard the physical piping network.",
-      "Safety & Thermal Optimization: High-precision sizing of Pressure Safety Valves (PSVs) and calculated insulation thickness optimization for thermal efficiency and personnel protection.",
-      "Technical Data Sheet Review: Independent, cross-disciplinary engineering review of mechanical equipment and Electrical, Instrumentation & Control (E&I) data sheets to guarantee vendor compliance.",
+      {
+        head: "Process & Instrumentation Drafting",
+        body: "Professional drafting and engineering review of Process Flow Diagrams (PFDs) and complex Piping and Instrumentation Diagrams (P&IDs).",
+      },
+      {
+        head: "Flow Assurance & Hydraulic Calculations",
+        body: "Comprehensive hydraulic analysis and system sizing for critical utility and process lines, including polypropylene (PP) lines, fuel oil systems, and integrated metering skids.",
+      },
+      {
+        head: "Dynamic Fluid Analysis",
+        body: "Advanced surge analysis and water hammer studies to identify transient pressure spikes and safeguard the physical piping network.",
+      },
+      {
+        head: "Safety & Thermal Optimization",
+        body: "High-precision sizing of Pressure Safety Valves (PSVs) and calculated insulation thickness optimization for thermal efficiency and personnel protection.",
+      },
+      {
+        head: "Technical Data Sheet Review",
+        body: "Independent, cross-disciplinary engineering review of mechanical equipment and Electrical, Instrumentation & Control (E&I) data sheets to guarantee vendor compliance.",
+      },
     ],
   },
   {
     id: "mechanical-design",
     title: "Mechanical Engineering Design (Static & Rotary)",
     description:
-      "We deliver comprehensive design and analytical solutions for static and rotating equipment, ensuring structural integrity and long-term operational efficiency.",
+      "We deliver comprehensive design and analytical solutions for static and rotating equipment, ensuring structural integrity and long-term operational efficiency, which is a hallmark of our engineering design services. As experienced detailed engineering consultants, we ensure the highest standards of mechanical reliability.",
     points: [
-      "Equipment Sizing & Design: Thermal and hydraulic optimization tailored to specific process data sheets.",
-      "Static Equipment Engineering: Detailed design for pressure vessels, heat exchangers, storage tanks, and distillation columns compliant with ASME, API, and TEMA codes.",
-      "Rotary Equipment Specifications: Engineering specifications and procurement-ready data sheets for pumps, compressors, turbines, and fans.",
-      "Deliverables: Preparation of General Arrangement Drawings (GADs), manufacturing-ready fabrication drawings, and thorough vendor document reviews.",
+      {
+        head: "Equipment Sizing & Design",
+        body: "Thermal and hydraulic optimization tailored to specific process data sheets.",
+      },
+      {
+        head: "Static Equipment Engineering",
+        body: "Detailed design for pressure vessels, heat exchangers, storage tanks, and distillation columns compliant with ASME, API, and TEMA codes.",
+      },
+      {
+        head: "Rotary Equipment Specifications",
+        body: "Engineering specifications and procurement-ready data sheets for pumps, compressors, turbines, and fans.",
+      },
+      {
+        head: "Deliverables",
+        body: "Preparation of General Arrangement Drawings (GADs), manufacturing-ready fabrication drawings, and thorough vendor document reviews.",
+      },
     ],
   },
   {
     id: "plant-piping",
     title: "3D Plant Modelling & Piping Engineering",
     description:
-      "We design intelligent, clash-free piping networks engineered for optimal routing, stress tolerance, and ease of site construction.",
+      "We design highly intelligent, clash-free piping networks engineered for optimal routing, stress tolerance, and ease of site construction. Our world-class plant engineering services guarantee accurate spatial planning, while the expert engineering design consultants on our team utilize industry-leading tools.",
     points: [
-      "Intelligent 3D Plant Modelling: Development of data-driven 3D plant environments encompassing equipment, piping, structures, and electrical raceways.",
-      "Piping Layout Optimization: Strategic routing for complex plant layouts to balance space limitations, minimize pressure drops, and ensure clear maintenance access.",
-      "Piping Stress Analysis: Comprehensive static and dynamic stress analysis covering thermal expansion, seismic, wind, and structural vibrations.",
-      "Construction Deliverables: Automated extraction of high-precision Material Take-Offs (MTO/BoQ), piping isometric drawings, and support detailed drawings.",
-      "As-Built Documentation: Conversion of laser scan data or red-marked drawings into intelligent as-built models.",
+      {
+        head: "Intelligent 3D Plant Modelling",
+        body: "Development of data-driven 3D plant environments encompassing equipment, piping, structures, and electrical raceways using leading industry software platforms.",
+      },
+      {
+        head: "Piping Layout Optimization",
+        body: "Strategic routing for complex plant layouts to balance space limitations, minimize pressure drops, and ensure clear maintenance access.",
+      },
+      {
+        head: "Piping Stress Analysis",
+        body: "Comprehensive static and dynamic stress analysis (thermal expansion, seismic, wind, and structural vibrations) to ensure full compliance with ASME B31.1 and B31.3 codes.",
+      },
+      {
+        head: "Construction Deliverables",
+        body: "Automated extraction of high-precision Material Take-Offs (MTO/BoQ), piping isometric drawings, and support detailed drawings.",
+      },
+      {
+        head: "As-Built Documentation",
+        body: "Seamless conversion of greenfield/brownfield laser scan data or red-marked drawings into intelligent as-built models.",
+      },
     ],
   },
   {
     id: "civil-structural",
     title: "Civil and Structural Engineering",
     description:
-      "We provide robust structural engineering solutions designed to support heavy process payloads and withstand demanding environmental conditions.",
+      "We provide robust structural engineering solutions designed to support heavy process payloads and withstand extreme environmental conditions. Clients leveraging our engineering outsourcing services gain access to a dedicated detailed engineering consultancy framework.",
     points: [
-      "Structural Analysis & Design: Multi-floor technological structures, heavy-duty pipe racks, equipment platforms, and modular process skids using advanced FEA modeling.",
-      "Foundation Design: Deep, shallow, and dynamic machine foundation designs for heavy rotating equipment and high-load static towers.",
-      "Deliverables: Connection detailing, steel fabrication drawings (BOM), and concrete reinforcement construction drawings.",
+      {
+        head: "Structural Analysis & Design",
+        body: "Multi-floor technological structures, heavy-duty pipe racks, equipment platforms, and modular process skids using advanced FEA modeling.",
+      },
+      {
+        head: "Foundation Design",
+        body: "Deep, shallow, and dynamic machine foundation designs for heavy rotating equipment and high-load static towers.",
+      },
+      {
+        head: "Deliverables",
+        body: "Connection detailing, steel fabrication drawings (BOM), and concrete reinforcement construction drawings.",
+      },
     ],
   },
   {
     id: "electrical-instrumentation",
     title: "Electrical, Instrumentation & Control (E&I) Engineering",
     description:
-      "Our E&I team designs intelligent power distribution and automation architectures to ensure plant safety and asset connectivity.",
+      "Our E&I team designs intelligent power distribution and automation architectures to ensure uncompromised plant safety and asset connectivity. This multidisciplinary integration highlights the full depth of our detailed engineering services and broader engineering consultancy services.",
     points: [
-      "Electrical Systems Design: Single Line Diagrams (SLDs), electrical load pooling, equipment selection, and detailed cable tray/routing layouts.",
-      "Instrumentation & Control: Development of comprehensive I/O lists, instrument data sheets, control philosophies, and cause-and-effect safety matrices.",
-      "Plant Safety Systems: Interlocking logic, hazardous area classification maps, and grounding/lightning protection system designs.",
+      {
+        head: "Electrical Systems Design",
+        body: "Single Line Diagrams (SLDs), electrical load pooling, equipment selection (transformers, switchgear, MCCs), and detailed cable tray/routing layouts.",
+      },
+      {
+        head: "Instrumentation & Control",
+        body: "Development of comprehensive I/O lists, instrument data sheets, control philosophies, and cause-and-effect safety matrices.",
+      },
+      {
+        head: "Plant Safety Systems",
+        body: "Interlocking logic, hazardous area classification maps, and grounding/lightning protection system designs.",
+      },
     ],
   },
 ];
@@ -83,6 +147,29 @@ const industries = [
   "Power Generation (Thermal, Hydro, and Nuclear)",
   "Renewable Energy (Solar, Wind, and Green Hydrogen)",
   "Heavy Manufacturing & Process Industries",
+];
+
+const advantages = [
+  {
+    number: "01",
+    title: "Clash-Free Designs",
+    text: "Advanced multi-disciplinary 3D model coordination completely eliminates spatial conflicts before materials arrive on-site, cutting down field rework exponentially.",
+  },
+  {
+    number: "02",
+    title: "Global Compliance",
+    text: "Every deliverable within our engineering design services is cross-verified against international codes (ASME, API, BS, DIN, IS, Eurocodes) and localized environmental frameworks.",
+  },
+  {
+    number: "03",
+    title: "CAPEX Optimization",
+    text: "Through smart material selection, hydraulic line optimization, and precision bulk estimation, we effectively lower your procurement costs, a key benefit of our engineering consultancy services.",
+  },
+  {
+    number: "04",
+    title: "Transparent Collaboration",
+    text: "Our engineering team acts as an agile extension of your technical department, offering transparent milestone updates and fast design changes. As specialists in EPC detailed engineering services, we keep projects moving seamlessly.",
+  },
 ];
 
 const faqs = [
@@ -148,6 +235,8 @@ const faqs = [
 ];
 
 const disciplineIcons = [Cog, Wrench, Boxes, Building2, Zap];
+
+const industryIcons = [Fuel, FlaskConical, Zap, Leaf, Factory];
 
 const disciplineItems = [
   { title: "Process Engineering", id: "process-eng" },
@@ -296,16 +385,21 @@ export default function DetailedEngineering() {
             <span className="sa-hero-eyebrow">Detailed Engineering</span>
 
             <h1>
-              End-to-End <span>Detailed Engineering</span> Services.
+              <span>Detailed Engineering</span> Services.
             </h1>
 
             <p>
-              ProSIM converts engineering concepts, front-end designs and process
-              requirements into precise, construction-ready deliverables across the
-              complete project lifecycle for major energy and industrial sectors.
+              ProSIM offers end-to-end detailed engineering services designed to
+              support the complete project lifecycle across major energy and
+              industrial sectors. As leading detailed engineering consultants, our
+              multidisciplinary approach integrates advanced simulation technologies
+              with a strict focus on safety, reliability, cost optimization, and
+              compliance with global standards &mdash; ensuring seamless execution
+              from blueprint to commissioning.
             </p>
 
-           
+          
+          
           </div>
 
           <div className="sa-hero-media">
@@ -378,9 +472,13 @@ export default function DetailedEngineering() {
 </section> */}
 
       {/* INTRO */}
-      <section className="sa-intro">
+     
+
+      {/* SERVICES */}
+      <section className="sa-services">
         <div className="sa-container">
-          <span className="sa-label">OUR EXPERTISE</span>
+           <section className="sa-intro">
+         <span className="sa-label">OUR EXPERTISE</span>
 
           <h2>Our Core Engineering Disciplines</h2>
 
@@ -388,12 +486,8 @@ export default function DetailedEngineering() {
             As a specialized detailed engineering company, our expertise
             covers a broad spectrum of technical requirements.
           </p>
-        </div>
       </section>
-
-      {/* SERVICES */}
-      <section className="sa-services">
-        <div className="sa-container">
+         
           <div className="sa-service-list">
             {services.map((service, index) => (
               <article
@@ -414,11 +508,19 @@ export default function DetailedEngineering() {
 
                 <p>{service.description}</p>
 
-                <ul>
-                  {service.points.map((point) => (
-                    <li key={point}>{point}</li>
+                <div className="sa-point-grid">
+                  {service.points.map((point, i) => (
+                    <div className="sa-point-box" key={point.head}>
+                      <span className="sa-point-num">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <div className="sa-point-body">
+                        <h4>{point.head}</h4>
+                        <p>{point.body}</p>
+                      </div>
+                    </div>
                   ))}
-                </ul>
+                </div>
 
                 {/* GALLERY */}
                 {index === 1 && (
@@ -481,29 +583,31 @@ export default function DetailedEngineering() {
           <h2>Industries We Serve</h2>
 
           <p>
-            Our engineering team delivers tailored detailed engineering
-            packages across highly regulated and capital-intensive sectors.
+            Our engineering team delivers tailored detailed engineering packages
+            across highly regulated, capital-intensive sectors. As top-tier detailed
+            engineering consultants, we proudly cater to:
           </p>
 
-          <div className="sa-client-list">
+          <div className="sa-ind-grid">
             {industries.map((industry, index) => {
-              const Icon = disciplineIcons[index];
+              const Icon = industryIcons[index];
 
               return (
-                <div className="sa-client-item" key={industry}>
-                  <span></span>
-
-                  <div className="sa-client-icon">
-                    <Icon size={21} strokeWidth={1.8} />
-                  </div>
-
+                <div className="sa-ind-box" key={industry}>
+                  <span className="sa-ind-icon">
+                    <Icon size={20} strokeWidth={1.8} />
+                  </span>
+             
                   <strong>{industry}</strong>
-
-
                 </div>
               );
             })}
           </div>
+
+          <p className="sa-section-intro" style={{ marginTop: "40px" }}>
+            In every sector we serve, our engineering design consultants provide
+            unmatched technical oversight and innovation.
+          </p>
         </div>
       </section>
 
@@ -515,60 +619,30 @@ export default function DetailedEngineering() {
           <h2>The ProSIM Advantage : Why Partner with Us ?</h2>
 
           <p className="sa-section-intro">
-            Enhanced constructability, reduced rework, and accelerated
-            commissioning through reliable detailed engineering solutions.
+            Enhanced constructability, reduced rework, and accelerated commissioning.
+            Partnering with a premier detailed engineering consultancy ensures project
+            success from the ground up. For businesses seeking reliable engineering
+            services in India, ProSIM delivers unparalleled value.
           </p>
 
-          <div className="sa-advantage-list">
-            {[
-              {
-                number: "01",
-                title: "Clash-Free Designs",
-                text: "Advanced multi-disciplinary 3D model coordination identifies spatial conflicts before materials arrive on-site, reducing field rework.",
-              },
-              {
-                number: "02",
-                title: "Global Compliance",
-                text: "Every deliverable is cross-verified against international engineering codes and standards.",
-              },
-              {
-                number: "03",
-                title: "CAPEX Optimization",
-                text: "Smart material selection, hydraulic optimization and accurate bulk estimation help reduce procurement costs.",
-              },
-              {
-                number: "04",
-                title: "Transparent Collaboration",
-                text: "Our engineering team works as an extension of your technical department with transparent milestone updates and fast design changes.",
-              },
-            ].map((item, index) => {
-              const Icon = disciplineIcons[index];
-
-              return (
-                <div className="sa-advantage-box" key={item.number}>
-                  <span className="sa-advantage-number">
-
-                  </span>
-
-                  <div className="sa-advantage-icon">
-                    <Icon size={22} strokeWidth={1.8} />
-                  </div>
-
-                  <div className="sa-advantage-content">
-                    <h3>{item.title}</h3>
-                    <p>{item.text}</p>
-                  </div>
-
-
+          <div className="sa-adv-grid">
+            {advantages.map((item) => (
+              <div className="sa-adv-box" key={item.number}>
+                <span className="sa-adv-number">{item.number}</span>
+                <div className="sa-adv-body">
+                  <h3>{item.title}</h3>
+                  <p>{item.text}</p>
                 </div>
-              );
-            })}
+              </div>
+            ))}
           </div>
 
           <p className="sa-section-intro" style={{ marginTop: "40px" }}>
-            Choose ProSIM as your trusted detailed engineering partner for
-            world-class engineering design, reliable technical delivery and
-            operational excellence.
+            Choose ProSIM as your trusted detailed engineering consultants to access
+            world-class detailed engineering services, highly advanced engineering
+            design services, and the most competitive engineering services India has
+            to offer. Working with our detailed engineering consultancy guarantees
+            operational excellence and peace of mind on every project.
           </p>
         </div>
       </section>
