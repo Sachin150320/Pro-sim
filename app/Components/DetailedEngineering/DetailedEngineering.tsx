@@ -578,30 +578,47 @@ export default function DetailedEngineering() {
       {/* INDUSTRIES */}
       <section className="sa-clients">
         <div className="sa-container">
-          <span className="sa-label">INDUSTRIES WE SERVE</span>
+          <div className="sa-ind-head">
+            <span className="sa-label">INDUSTRIES WE SERVE</span>
 
-          <h2>Industries We Serve</h2>
+            <h2>Industries We Serve</h2>
 
-          <p>
-            Our engineering team delivers tailored detailed engineering packages
-            across highly regulated, capital-intensive sectors. As top-tier detailed
-            engineering consultants, we proudly cater to:
-          </p>
+            <p>
+              Our engineering team delivers tailored detailed engineering packages
+              across highly regulated, capital-intensive sectors. As top-tier
+              detailed engineering consultants, we proudly cater to:
+            </p>
+          </div>
 
-          <div className="sa-ind-grid">
-            {industries.map((industry, index) => {
-              const Icon = industryIcons[index];
+          <div className="sa-ind-layout">
+            <div className="sa-ind-main">
+              <div className="sa-ind-grid">
+                {industries.map((industry, index) => {
+                  const Icon = industryIcons[index];
 
-              return (
-                <div className="sa-ind-box" key={industry}>
-                  <span className="sa-ind-icon">
-                    <Icon size={20} strokeWidth={1.8} />
-                  </span>
-             
-                  <strong>{industry}</strong>
-                </div>
-              );
-            })}
+                  return (
+                    <div className="sa-ind-box" key={industry}>
+                      <span className="sa-ind-icon">
+                        <Icon size={20} strokeWidth={1.8} />
+                      </span>
+
+                      <strong>{industry}</strong>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            <div className="sa-ind-media">
+              <figure className="sa-ind-photo">
+                <img
+                  src="/assets/images/industries/detail-indutsries.jpg"
+                  alt="Oil &amp; gas processing facility at dusk"
+                  loading="lazy"
+                />
+              </figure>
+              
+            </div>
           </div>
 
           <p className="sa-section-intro" style={{ marginTop: "40px" }}>
