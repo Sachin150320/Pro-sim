@@ -4,13 +4,11 @@ import React, { useState } from "react";
 import Breadcrumbs from "@/app/Components/Breadcrumbs/Breadcrumbs";
 import {
   ArrowUpRight,
+  Activity,
+  ShieldAlert,
+  Layers,
   Cpu,
-  ShieldCheck,
-  Settings,
-  Building2,
-  Database,
-  ScanLine,
-  Box,
+  Zap,
   Plus,
   Minus,
 } from "lucide-react";
@@ -18,279 +16,267 @@ import "./FiniteElementAnalysis.css";
 
 const services = [
   {
-    id: "technical-capabilities",
-    title: "Core Technical Capabilities",
+    id: "linear-nonlinear",
+    title: "Linear & Non-Linear Stress Analysis",
     description:
-      "ProSIM combines leading commercial platforms and open-source programs to perform advanced finite element analysis, computer-aided engineering, and multi-physics simulations across demanding engineering applications.",
+      "We provide rigorous structural evaluations under static and dynamic loading conditions to predict material yielding, deformation, and ultimate failure thresholds.",
     points: [
-      "Linear Static Analysis: Verifying design adequacy and confirming that stress levels remain within allowable limits.",
-      "Dynamic Analysis: Investigating transient, harmonic, and modal dynamic behaviors.",
-      "Frequency & Time Domain Analysis: Executing response spectra, frequency response, and time-series evaluations.",
-      "Non-Linear Analysis: Addressing contact mechanics, significant geometric deformation, and material non-linearities.",
-      "Coupled Multi-Physics: Modeling complex phenomena such as fluid-structure interactions and thermo-mechanical effects.",
-      "Software Expertise: Code_Aster, Radioss, OptiStruct, Nastran, Abaqus, and ANSYS.",
+      "Static & Dynamic Loading: Comprehensive linear elastic assessments alongside complex non-linear material, geometric, and boundary condition evaluations.",
+      "Plasticity & Creep Modeling: Advanced material modeling to evaluate permanent deformation, cyclic hardening, and high-temperature material degradation.",
+      "Contact & Boundary Nonlinearities: Accurate simulation of surface-to-surface interactions, friction, bolt pre-tensioning, and large displacements.",
+      "Failure Prediction: Utilization of advanced yield criteria (Von Mises, Tresca, Mohr-Coulomb) to identify structural safety margins.",
+      "Design Optimization: Weight and thickness reduction studies without compromising structural integrity or regulatory compliance.",
     ],
   },
   {
-    id: "code-compliance",
-    title: "Industry Codes & Standards Compliance",
+    id: "fatigue-fracture",
+    title: "Fatigue & Fracture Mechanics Analysis",
     description:
-      "We validate engineering designs against rigorous sector-specific regulations and international engineering standards. Our analysis process helps clients demonstrate structural reliability and regulatory compliance.",
+      "We evaluate structural durability under cyclic loading environments to prevent premature cracking, component degradation, and catastrophic fatigue failure.",
     points: [
-      "ASME: Boiler & Pressure Vessel Code (B&PV).",
-      "API: American Petroleum Institute standards.",
-      "EN / ISO: European and International Standards.",
-      "IEEE: Institute of Electrical and Electronics Engineers standards.",
-      "DNVGL: Maritime and Offshore engineering standards.",
-      "Seismic evaluation and qualification against applicable industry requirements.",
+      "High-Cycle & Low-Cycle Fatigue (HCF/LCF): S-N and $\\varepsilon$-N curve implementations to determine operational lifespans under fluctuating thermal and mechanical loads.",
+      "Crack Propagation Studies: Linear Elastic Fracture Mechanics (LEFM) and Elastic-Plastic Fracture Mechanics (EPFM) evaluations using Stress Intensity Factors ($K$) and J-Integrals.",
+      "Vibration Fatigue: Dynamic stress cycle assessment resulting from flow-induced turbulence, acoustic resonance, and machinery operational harmonics.",
+      "Welded Joint Assessment: Hot spot stress and effective notch stress methods to evaluate fatigue strength in complex welded structures.",
     ],
   },
   {
-    id: "offshore-cae",
-    title: "Offshore CAE Services",
+    id: "thermal-coupled",
+    title: "Thermal & Coupled-Field Analysis",
     description:
-      "Our Bangalore-based engineering delivery center provides scalable offshore CAE support for clients around the world. We manage complete simulation workflows from pre-processing and analysis setup through solver execution and post-processing.",
+      "We simulate steady-state and transient heat transfer phenomena to evaluate thermal stresses, expansions, and fluid-structure interactions.",
     points: [
-      "Pre-Processing: Finite element modelling, meshing, and geometric cleanup using AutoCAD, CATIA, Solidworks, and Hypermesh.",
-      "Quality Assurance: Verification of mesh density, element sizing, and quality metrics for each analysis.",
-      "Analysis Setup: Definition of boundary conditions, mass balances, and appropriate solver deck settings.",
-      "Solver Execution: Running analysis solvers and managing simulation workflows.",
-      "Post-Processing: Interpreting simulation results and providing practical engineering recommendations.",
+      "Conduction, Convection & Radiation: Detailed thermal distribution mapping across multi-component industrial assemblies.",
+      "Thermo-Mechanical Fatigue (TMF): Coupled thermal-stress simulations to analyze cyclic thermal shock and localized temperature gradients.",
+      "Phase Change & Solidification: Specialized modeling for casting, welding, and high-temperature processing units.",
+      "Fluid-Structure Interaction (FSI): Two-way coupling to analyze thermal-hydraulic forces acting on structural boundaries.",
     ],
   },
   {
-    id: "onsite-cae",
-    title: "Onsite CAE Consulting & Placement",
+    id: "explicit-dynamics",
+    title: "Explicit Dynamics & Impact Simulation",
     description:
-      "ProSIM can deploy experienced engineering professionals directly to your facility. Our resident consultants and application engineers integrate with your existing teams and provide targeted CAE and engineering support.",
+      "We capture high-strain-rate phenomena, shock physics, and sudden transient events where inertial forces dominate structural response.",
     points: [
-      "FEA/CAE Solvers: Onsite expertise covering ANSYS, Radioss, and OptiStruct.",
-      "CAD Tools: AutoCAD, CATIA, and Solidworks support.",
-      "Piping Engineering: CAESAR II and PePs capabilities.",
-      "Application Support: Engineers trained to work within client-specific engineering environments.",
-      "Resident Consulting: Direct collaboration with engineering teams and customers.",
+      "Drop Test & Impact Simulations: Regulatory compliance testing for shipping casks, electronics, and heavy containment units.",
+      "Blast & Explosion Modeling: High-explosive detonation modeling, air-blast propagation, and blast-resistant structural design.",
+      "Collision & Crashworthiness: Automotive, aerospace, and heavy machinery collision safety verification.",
+      "High-Velocity Penetration: Ballistic impact, fragmentation, and material tearing analyses.",
     ],
   },
   {
-    id: "sectors-served",
-    title: "Industry Sectors Served",
+    id: "vibration-dynamics",
+    title: "Vibration, Modal & Seismic Analysis",
     description:
-      "Our simulation services support critical industries where structural integrity, reliability, safety, and performance are essential. We combine simulation expertise with sector-specific engineering knowledge.",
+      "Our dynamic simulation solutions characterize natural frequencies, resonance risks, and seismic vulnerability for mission-critical infrastructure.",
     points: [
-      "Energy: Nuclear, wind, offshore, oil and gas, and thermal power.",
-      "Aerospace & Defence: Impact testing, dynamic qualification, and structural weight minimization.",
-      "Automotive: NVH, crash safety, durability, and component weight optimization.",
-      "Electrical & Electronics: Structural reliability, drop simulations, and thermal management.",
+      "Modal & Harmonic Analysis: Identification of natural frequencies and mode shapes to avoid destructive resonance conditions.",
+      "Response Spectrum & Time-History: Seismic qualification for nuclear, oil & gas, and heavy industrial skids under earthquake loads.",
+      "Rotordynamics: Critical speed maps, Campbell diagrams, and unbalance response for rotating machinery.",
+      "Random Vibration: Power Spectral Density (PSD) analysis for transport and aerospace component certification.",
     ],
   },
 ];
 
-const capabilities = [
-  {
-    title: "Technical Capabilities",
-    id: "technical-capabilities",
-    icon: Cpu,
-  },
-  {
-    title: "Codes & Standards",
-    id: "code-compliance",
-    icon: ShieldCheck,
-  },
-  {
-    title: "Offshore CAE",
-    id: "offshore-cae",
-    icon: Database,
-  },
-  {
-    title: "Onsite Consulting",
-    id: "onsite-cae",
-    icon: Settings,
-  },
-  {
-    title: "Industry Sectors",
-    id: "sectors-served",
-    icon: Building2,
-  },
+const industries = [
+  "Oil & Gas (Upstream, Midstream, and Downstream)",
+  "Aerospace & Defense Systems",
+  "Power Generation & Nuclear Infrastructure",
+  "Heavy Machinery & Industrial Equipment",
+  "Automotive & Transportation Engineering",
 ];
 
 const faqs = [
   {
     question:
-      "What Finite Element Analysis (FEA) and CAE simulation services does ProSIM offer?",
+      "What FEA services does ProSIM offer for industrial product development?",
     answer:
-      "ProSIM provides a comprehensive suite of computer-aided engineering (CAE) and multi-physics simulation services designed to turn intricate data into practical business insights. Our core offerings include linear and non-linear analysis, dynamic and frequency domain analysis, design optimization, structural integrity assessments, and coupled multi-physics modeling. We act as your dedicated engineering advisors to help you solve complex design challenges, improve product reliability, and accelerate time-to-market.",
+      "ProSIM delivers advanced Finite Element Analysis (FEA) services covering Linear & Non-Linear Stress Analysis, Fatigue & Fracture Mechanics, Thermal & Coupled-Field Simulations, Explicit Dynamics, and Vibration & Seismic Analysis.",
   },
   {
     question:
-      "What engagement models are available for outsourcing CAE and FEA projects?",
+      "How does FEA consulting help reduce physical prototype testing costs?",
     answer:
-      "We offer highly adaptable partnership structures tailored to fit your specific operational and budgetary needs. You can choose from Offshore CAE Services managed through our dedicated Bangalore delivery center, Onsite CAE Consulting where we deploy resident engineers directly to your facility, or Dedicated CAE Outsourcing via Master Service Agreements (MSAs) to guarantee steady, long-term engineering bandwidth for continuous project demands.",
+      "By simulating real-world operating conditions digitally, FEA identifies structural flaws, stress concentrations, and failure points early in the design phase, drastically reducing the need for costly physical prototypes and iterative testing cycles.",
   },
   {
     question:
-      "How do you ensure our engineering designs comply with global industry standards?",
+      "Which international standards and codes do your FEA reports comply with?",
     answer:
-      "Risk mitigation and regulatory compliance are at the forefront of our engineering process. Our experts meticulously evaluate and validate your designs to guarantee they satisfy rigorous, sector-specific global safety codes. We possess deep expertise in qualifying products against leading international standards, including ASME B&PV, API, EN / ISO, IEEE, and DNVGL.",
+      "Our simulation deliverables and methodologies comply with major global standards including ASME Section VIII (Div 2 & 3), API 579 / ASME FFS-1, EN 13445, DNV-GL, ISO, and aerospace standards like MIL-STD.",
   },
   {
     question:
-      "How can FEA design optimization help reduce manufacturing costs and improve product performance?",
+      "Can you perform non-linear analysis for complex material behaviors?",
     answer:
-      "By leveraging advanced simulation data, our team streamlines your products through parametric, topology, shape, and sizing refinements. This optimization process eliminates unnecessary weight and material waste while maximizing stiffness, strength, and overall performance, ultimately driving down manufacturing costs and enhancing product margins.",
+      "Yes. We specialize in advanced non-linear simulations involving elastoplasticity, hyperelasticity (elastomers), foam crush behavior, temperature-dependent material properties, and large geometric deformations.",
   },
   {
     question:
-      "Can ProSIM assist with failure analysis and root cause identification for broken components?",
+      "What software tools do your simulation engineers utilize?",
     answer:
-      "Yes. When a breakdown occurs, our dedicated consulting team conducts comprehensive failure analysis to identify the exact root causes of the structural or mechanical failure. Beyond just identifying the problem, we provide actionable, corrective design modifications to ensure the issue is resolved and long-term durability is restored.",
+      "Our team leverages industry-standard high-end solvers such as ANSYS Mechanical, ABAQUS, LS-DYNA, and Nastran, backed by advanced CAD-cleanup and pre/post-processing pipelines.",
   },
   {
     question:
-      "Do you offer Remaining Life Assessment (RLA) and Fitness-for-Service (FFS) evaluations for aging assets?",
+      "Do you provide fitness-for-service (FFS) and remaining life assessment for existing assets?",
     answer:
-      "Absolutely. For capital-intensive industries, we conduct rigorous asset longevity evaluations, including Remaining Life Assessment and Extension (RLA/RLE) and Fitness-for-Service (FFS) analyses. By predicting long-term durability and evaluating potential fatigue life, we help plant managers and operations executives safely extend the lifespan of critical components and systems.",
+      "Yes. We perform ASME API 579 Fitness-For-Service assessments, combining laser scans or inspection data with non-linear FEA to evaluate structural flaws, corrosion, and remaining operational lifespan.",
   },
   {
     question:
-      "What are the business advantages of utilizing ProSIM’s offshore CAE delivery center in India?",
+      "How do you ensure the accuracy and reliability of your FEA models?",
     answer:
-      "Our Bangalore-based delivery center operates as a highly scalable, dependable, and cost-effective hub for complete simulation lifecycles. By outsourcing your finite element workflows to us, you gain access to top-tier engineering talent managing everything from detailed pre-processing, geometric cleanup, and rigorous quality assurance to solver execution and actionable post-processing insights—all seamlessly integrated into your global supply chain.",
+      "We implement rigorous mesh convergence studies, element quality checks, boundary condition validation, and back-calculation against analytical formulas or physical test benchmarks where available.",
   },
   {
     question:
-      "Are you able to provide onsite CAE consulting and deploy resident FEA engineers at our facility?",
+      "What industries benefit most from your structural simulation consultancy?",
     answer:
-      "Yes. Through our onsite placement program, we can seamlessly integrate highly trained ProSIM professionals—such as application engineers or resident consultants—directly into your workspace. Our personnel are rigorously cross-trained in specific domains and can manage specialized FEA/CAE solvers like ANSYS, Radioss, and OptiStruct and CAD tools locally, engaging face-to-face with your team and clientele.",
+      "Our simulation consultancy serves high-reliability sectors including oil and gas, aerospace, defense, nuclear power generation, heavy manufacturing, and automotive industries.",
   },
   {
     question:
-      "Which industry sectors do you support with structural integrity and multi-physics simulations?",
-    answer:
-      "Our comprehensive simulation offerings are backed by deep, sector-specific knowledge supporting high-stakes global industries. We routinely partner with executives and engineering teams in the Energy sector, including nuclear, wind, offshore, oil and gas, and thermal power; Aerospace & Defence; Automotive; and Electrical & Electronics.",
+      "Which sectors and markets do your engineering consultants serve?",
+    list: industries,
   },
   {
     question:
-      "Which commercial simulation software platforms and CAD tools does your engineering team utilize?",
+      "Why should global engineering firms choose ProSIM for simulation outsourcing?",
     answer:
-      "To ensure seamless integration with your existing engineering workflows, our professionals rely on a powerful combination of leading commercial platforms and versatile open-source programs. Our technical proficiency covers ANSYS, Abaqus, Nastran, OptiStruct, Radioss, and Code_Aster for analysis, alongside AutoCAD, CATIA, Solidworks, and Hypermesh for geometric cleanup and precise model configuration.",
+      "ProSIM functions as an extension of your R&D and engineering teams, offering deep domain expertise, rapid turnaround times, advanced computational capabilities, and compliance with strict international codes.",
   },
 ];
 
-export default function FiniteElementAnalysis() {
+const disciplineIcons = [Activity, ShieldAlert, Layers, Cpu, Zap];
+
+const disciplineItems = [
+  { title: "Stress Analysis", id: "linear-nonlinear" },
+  { title: "Fatigue & Fracture", id: "fatigue-fracture" },
+  { title: "Thermal & Coupled", id: "thermal-coupled" },
+  { title: "Explicit Dynamics", id: "explicit-dynamics" },
+  { title: "Vibration & Seismic", id: "vibration-dynamics" },
+];
+
+export default function FeaServices() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
-    <main className="fea-page">
+    <main className="seismic-page">
       <Breadcrumbs />
 
       {/* HERO */}
-      <section className="fea-hero">
-        <div className="fea-container">
-          <span className="fea-label">FINITE ELEMENT ANALYSIS</span>
+      <section className="sa-hero">
+        <div className="sa-container">
+          <span className="sa-label">SIMULATION SERVICES</span>
 
-          <h1>Finite Element Analysis (FEA)</h1>
+          <h1>Advanced FEA & Simulation Services</h1>
 
           <p>
-            ProSIM provides sophisticated multi-physics simulations alongside
-            expert finite element analysis, turning intricate engineering data
-            into practical insights that drive smarter design decisions.
+            ProSIM delivers high-fidelity Finite Element Analysis (FEA) services
+            designed to predict physical behavior, validate structural integrity,
+            and optimize product performance across demanding industries.
           </p>
 
           <p>
-            Our experienced engineering team evaluates simulation results and
-            applies deep technical knowledge to solve complex engineering
-            challenges, improve reliability, and support successful project
-            execution.
+            We specialize in translating complex operational loads into accurate
+            computational models, helping engineering teams eliminate design flaws
+            before physical prototyping.
           </p>
         </div>
       </section>
 
-      {/* CAPABILITIES */}
-      <section className="fea-capabilities">
-        <div className="fea-container">
-          <div className="fea-about-card">
-            <h2>FEA & CAE Simulation Services</h2>
+      {/* NAVIGATION */}
+      <section className="sa-navigation">
+        <div className="sa-container">
+          <div className="sa-navigation-card">
+            <h2>Simulation Disciplines</h2>
 
-            <div className="fea-banner">
-              <div className="fea-capability-grid">
-                {capabilities.map((item) => {
-                  const Icon = item.icon;
+            <div className="sa-navigation-grid">
+              {disciplineItems.map((item, index) => {
+                const Icon = disciplineIcons[index];
 
-                  return (
-                    <a
-                      href={`#${item.id}`}
-                      className="fea-capability-link"
-                      key={item.id}
-                    >
-                      <div className="fea-capability-card">
-                        <div className="fea-icon-box">
-                          <Icon size={25} strokeWidth={1.8} />
-                        </div>
-
-                        <h5>{item.title}</h5>
-
-                        <span className="fea-card-arrow">
-                          <ArrowUpRight size={20} strokeWidth={1.8} />
-                        </span>
+                return (
+                  <a
+                    href={`#${item.id}`}
+                    className="sa-navigation-link"
+                    key={item.id}
+                  >
+                    <div className="sa-navigation-item">
+                      <div className="sa-navigation-icon">
+                        <Icon size={25} strokeWidth={1.8} />
                       </div>
-                    </a>
-                  );
-                })}
-              </div>
+
+                      <h3>{item.title}</h3>
+
+                      <span>
+                        <ArrowUpRight size={20} strokeWidth={1.8} />
+                      </span>
+                    </div>
+                  </a>
+                );
+              })}
             </div>
           </div>
         </div>
       </section>
 
       {/* MAIN IMAGE */}
-      <section className="fea-image-section">
-        <div className="fea-container">
-          <div className="fea-image-card">
+      <section className="sa-image-section">
+        <div className="sa-container">
+          <div className="sa-main-image">
             <img
-              src="/new-img/offerings/FEA/1.png"
-              alt="Finite Element Analysis"
+              src="/img/fea-services-service-01.png"
+              alt="Advanced FEA Services"
             />
           </div>
         </div>
       </section>
 
       {/* INTRO */}
-      <section className="fea-intro">
-        <div className="fea-container">
-          <span className="fea-label">OUR EXPERTISE</span>
+      <section className="sa-intro">
+        <div className="sa-container">
+          <span className="sa-label">OUR EXPERTISE</span>
 
-          <h2>Advanced FEA, Simulation & Engineering Analysis</h2>
+          <h2>Our Core Simulation Capabilities</h2>
 
           <p>
-            Our engineering capabilities cover design optimization, seismic
-            qualification, structural integrity, remaining life assessment,
-            failure analysis, and multi-physics simulation for demanding
-            industrial applications.
+            As a specialized engineering simulation consultancy, our expertise
+            covers a comprehensive range of computational mechanics.
           </p>
         </div>
       </section>
 
       {/* SERVICES */}
-      <section className="fea-services">
-        <div className="fea-container">
-          <div className="fea-service-list">
+      <section className="sa-services">
+        <div className="sa-container">
+          <div className="sa-service-list">
             {services.map((service, index) => (
               <article
-                className="fea-service-box"
+                className="sa-service-box"
                 id={service.id}
                 key={service.id}
               >
-                <div className="fea-service-top">
-                  <span>{String(index + 1).padStart(2, "0")}</span>
+                <div className="sa-service-top">
+                  <div className="sa-service-number">
+                    <span>{String(index + 1).padStart(2, "0")}</span>
+
+                    <div className="sa-service-icon">
+                      {React.createElement(disciplineIcons[index], {
+                        size: 25,
+                        strokeWidth: 1.8,
+                      })}
+                    </div>
+                  </div>
 
                   <ArrowUpRight
-                    className="fea-service-arrow"
+                    className="sa-service-arrow"
                     size={25}
                     strokeWidth={1.8}
                   />
                 </div>
 
-                <h3>{service.title}</h3>
+                <h2>{service.title}</h2>
 
                 <p>{service.description}</p>
 
@@ -300,50 +286,49 @@ export default function FiniteElementAnalysis() {
                   ))}
                 </ul>
 
-                {/* IMAGES */}
-
-                {index === 0 && (
-                  <div className="fea-gallery">
-                    <div className="fea-gallery-card">
+                {/* GALLERY */}
+                {index === 1 && (
+                  <div className="sa-gallery">
+                    <div className="sa-gallery-card">
                       <img
-                        src="/new-img/offerings/FEA/2.png"
-                        alt="FEA Simulation"
+                        src="/new-img/offerings/fea-services/1.png"
+                        alt="Fatigue Analysis"
                       />
                     </div>
 
-                    <div className="fea-gallery-card">
+                    <div className="sa-gallery-card">
                       <img
-                        src="/new-img/offerings/FEA/3.png"
-                        alt="Finite Element Analysis"
+                        src="/new-img/offerings/fea-services/2.png"
+                        alt="Fracture Mechanics"
                       />
                     </div>
                   </div>
                 )}
 
                 {index === 2 && (
-                  <div className="fea-gallery">
-                    <div className="fea-gallery-card">
+                  <div className="sa-gallery">
+                    <div className="sa-gallery-card">
                       <img
-                        src="/new-img/offerings/FEA/3.png"
-                        alt="Offshore CAE Services"
+                        src="/new-img/offerings/fea-services/3.png"
+                        alt="Thermal Stress Simulation"
                       />
                     </div>
 
-                    <div className="fea-gallery-card">
+                    <div className="sa-gallery-card">
                       <img
-                        src="/new-img/offerings/FEA/4.png"
-                        alt="CAE Simulation"
+                        src="/new-img/offerings/fea-services/4.png"
+                        alt="Coupled Field Analysis"
                       />
                     </div>
                   </div>
                 )}
 
-                {index === 3 && (
-                  <div className="fea-gallery single">
-                    <div className="fea-gallery-card">
+                {index === 4 && (
+                  <div className="sa-gallery">
+                    <div className="sa-gallery-card">
                       <img
-                        src="/new-img/offerings/FEA/4.png"
-                        alt="Onsite CAE Consulting"
+                        src="/new-img/offerings/fea-services/5.png"
+                        alt="Vibration & Seismic"
                       />
                     </div>
                   </div>
@@ -354,67 +339,89 @@ export default function FiniteElementAnalysis() {
         </div>
       </section>
 
-      {/* DESIGN OPTIMIZATION */}
-      <section className="fea-advantage">
-        <div className="fea-container">
-          <span className="fea-label">WHY PROSIM</span>
+      {/* INDUSTRIES */}
+      <section className="sa-clients">
+        <div className="sa-container">
+          <span className="sa-label">INDUSTRIES WE SERVE</span>
 
-          <h2>
-            The ProSIM Advantage: Engineering Analysis That Drives Better
-            Decisions
-          </h2>
-
-          <h3 className="fea-advantage-title">
-            Reliable Simulation. Practical Engineering. Better Performance.
-          </h3>
+          <h2>Industries We Serve</h2>
 
           <p>
-            ProSIM combines advanced simulation technologies with engineering
-            judgment to help clients optimize designs, improve structural
-            reliability, reduce failure risks, and make confident engineering
-            decisions.
+            Our simulation team delivers reliable numerical evaluations across
+            highly regulated, mission-critical sectors.
           </p>
 
-          <div className="fea-advantage-list">
+          <div className="sa-client-list">
+            {industries.map((industry, index) => {
+              const Icon = disciplineIcons[index];
+
+              return (
+                <div className="sa-client-item" key={industry}>
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+
+                  <div className="sa-client-icon">
+                    <Icon size={21} strokeWidth={1.8} />
+                  </div>
+
+                  <strong>{industry}</strong>
+
+                  <ArrowUpRight size={22} strokeWidth={1.8} />
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ADVANTAGE */}
+      <section className="sa-advantage">
+        <div className="sa-container">
+          <span className="sa-label">WHY PROSIM</span>
+
+          <h2>The ProSIM Advantage: Why Partner with Us?</h2>
+
+          <p className="sa-section-intro">
+            Mitigate technical risk, optimize product performance, and accelerate
+            time-to-market through expert computational simulation.
+          </p>
+
+          <div className="sa-advantage-list">
             {[
               {
                 number: "01",
-                title: "Design Optimization",
-                text: "Parametric, topology, shape, and sizing refinements help reduce unnecessary weight and material while improving structural performance.",
-                icon: Box,
+                title: "Deep Domain Expertise",
+                text: "Decades of multi-disciplinary simulation experience solving complex non-linear structural and thermal problems.",
               },
               {
                 number: "02",
-                title: "Structural Integrity",
-                text: "FEA helps evaluate factor of safety, stiffness, strength, fatigue life, and structural response under realistic operating conditions.",
-                icon: ShieldCheck,
+                title: "Regulatory Compliance",
+                text: "Robust analysis documentation verified against strict international codes and standards.",
               },
               {
                 number: "03",
-                title: "Reduced Engineering Risk",
-                text: "Simulation identifies potential structural and mechanical issues before physical testing, fabrication, or field deployment.",
-                icon: ScanLine,
+                title: "Prototype Reduction",
+                text: "Virtual testing accurately predicts performance issues, saving substantial capital on physical testing iterations.",
               },
               {
                 number: "04",
-                title: "Flexible CAE Expertise",
-                text: "Our teams work across ANSYS, Abaqus, Nastran, OptiStruct, Radioss, Code_Aster, Hypermesh, CATIA, Solidworks, and AutoCAD.",
-                icon: Cpu,
+                title: "Agile Collaboration",
+                text: "Seamless integration with your internal engineering teams for swift design modifications and optimization.",
               },
-            ].map((item) => {
-              const Icon = item.icon;
+            ].map((item, index) => {
+              const Icon = disciplineIcons[index];
 
               return (
-                <div className="fea-advantage-box" key={item.number}>
-                  <span>{item.number}</span>
+                <div className="sa-advantage-box" key={item.number}>
+                  <span className="sa-advantage-number">
+                    {item.number}
+                  </span>
 
-                  <div className="fea-advantage-icon">
-                    <Icon size={24} strokeWidth={1.8} />
+                  <div className="sa-advantage-icon">
+                    <Icon size={22} strokeWidth={1.8} />
                   </div>
 
-                  <div>
+                  <div className="sa-advantage-content">
                     <h3>{item.title}</h3>
-
                     <p>{item.text}</p>
                   </div>
 
@@ -424,50 +431,47 @@ export default function FiniteElementAnalysis() {
             })}
           </div>
 
-          <p className="fea-final-text">
-            Choose ProSIM for reliable FEA, CAE, and multi-physics simulation
-            services. Our engineering teams help clients validate designs,
-            optimize performance, manage structural risks, and develop
-            practical engineering solutions for complex applications.
+          <p className="sa-section-intro" style={{ marginTop: "40px" }}>
+            Choose ProSIM as your trusted FEA simulation partner for
+            world-class engineering insight, reliable structural validation, and
+            operational safety.
           </p>
         </div>
       </section>
 
       {/* FAQ */}
-      <section className="fea-faq" id="faq-fea-cae">
-        <div className="fea-container">
-          <div className="fea-faq-heading">
-            <span className="fea-label">FAQ</span>
+      <section className="sa-faq" id="faq">
+        <div className="sa-container">
+          <div className="sa-faq-heading">
+            <span className="sa-label">FAQ</span>
 
-            <h2>FEA & CAE Simulation FAQs</h2>
+            <h2>Frequently Asked Questions</h2>
           </div>
 
-          <div className="fea-faq-list">
+          <div className="sa-faq-list">
             {faqs.map((faq, index) => {
               const isOpen = openFaq === index;
 
               return (
                 <div
-                  className={`fea-faq-item ${
-                    isOpen ? "active" : ""
-                  }`}
+                  className={`sa-faq-item ${isOpen ? "active" : ""}`}
                   key={faq.question}
                 >
                   <button
                     type="button"
-                    className="fea-faq-question"
+                    className="sa-faq-question"
                     onClick={() =>
                       setOpenFaq(isOpen ? null : index)
                     }
                     aria-expanded={isOpen}
                   >
-                    <span className="fea-faq-number">
+                    <span className="sa-faq-number">
                       {String(index + 1).padStart(2, "0")}
                     </span>
 
                     <strong>{faq.question}</strong>
 
-                    <span className="fea-faq-icon">
+                    <span className="sa-faq-icon">
                       {isOpen ? (
                         <Minus size={19} strokeWidth={1.8} />
                       ) : (
@@ -477,11 +481,19 @@ export default function FiniteElementAnalysis() {
                   </button>
 
                   <div
-                    className={`fea-faq-answer ${
+                    className={`sa-faq-answer ${
                       isOpen ? "show" : ""
                     }`}
                   >
-                    <p>{faq.answer}</p>
+                    {faq.answer && <p>{faq.answer}</p>}
+
+                    {faq.list && (
+                      <ul>
+                        {faq.list.map((item) => (
+                          <li key={item}>{item}</li>
+                        ))}
+                      </ul>
+                    )}
                   </div>
                 </div>
               );

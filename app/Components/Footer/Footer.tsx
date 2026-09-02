@@ -288,8 +288,8 @@ export default function Footer() {
                             </div>
 
                             <div>
-                                <small>Desk Phone</small>
-                                <strong>+91 (080) 2347-7000</strong>
+                                <small>Call Us</small>
+                                <strong>080 68160000</strong>
                             </div>
                         </a>
 
@@ -320,8 +320,8 @@ export default function Footer() {
                             </div>
 
                             <div>
-                                <small>Technical Email</small>
-                                <strong>info@prosim.co.in</strong>
+                                <small> Email Us</small>
+                                <strong>enquiry@pro-sim.com</strong>
                             </div>
                         </a>
 
@@ -346,12 +346,10 @@ export default function Footer() {
                             <div>
                                 <small>Address</small>
 
-                                <strong>
-                                    ProSIM R&amp;D - 378/1, Ring Rd, near TVS
-                                    Cross, Peenya 1st Stage, Netaji Nagar,
-                                    Peenya, Bengaluru, Karnataka 560058
+                                <strong>  ProSIM R & D Pvt.
                                 </strong>
-
+<strong>   B-378/1, Ring Road, 1st Stage, Peenya, Bangalore 560058.
+                                </strong>
                                 <a
                                     href={mapUrl}
                                     target="_blank"
