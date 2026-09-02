@@ -623,7 +623,7 @@ font-weight: 400;
 .sa-point-body p {
   margin: 0;
   color: var(--sa-text);
-  font-size: 13.5px;
+  font-size: 15px;
   line-height: 1.65;
 }
 
@@ -1000,7 +1000,7 @@ font-weight: 400;
 
 .sa-adv-body h3 {
   margin: 2px 0 10px;
-  font-size: 19px;
+  font-size: 16px;
   font-weight: 700;
   color: var(--sa-dark);
 }
@@ -1008,7 +1008,7 @@ font-weight: 400;
 .sa-adv-body p {
   margin: 0;
   color: var(--sa-text);
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.7;
 }
 
