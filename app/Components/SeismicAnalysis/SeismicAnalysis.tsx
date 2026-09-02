@@ -565,20 +565,12 @@ export default function SeismicAnalysis() {
                   </button>
 
                   <div
-                    className={`sa-faq-answer ${
-                      isOpen ? "show" : ""
-                    }`}
-                  >
-                    {faq.answer && <p>{faq.answer}</p>}
-
-                    {faq.list && (
-                      <ul>
-                        {faq.list.map((item) => (
-                          <li key={item}>{item}</li>
-                        ))}
-                      </ul>
-                    )}
-                  </div>
+  className={`sa-faq-answer ${
+    isOpen ? "show" : ""
+  }`}
+>
+  {faq.answer && <p>{faq.answer}</p>}
+</div>
                 </div>
               );
             })}
