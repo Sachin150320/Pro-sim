@@ -46,23 +46,23 @@ export const menuItems: MenuItem[] = [
         },
         {
             name: "Seismic Analysis & Qualification",
-            href: "/Seismic-analysis-and-qualification",
+            href: "/#",
         },
         {
             name: "Piping & Pipeline Engineering",
-            href: "/Piping-&-pipeline-engineering-services",
+            href: "/#",
         },
         {
             name: "3D Plant Modelling",
-            href: "/Three-D-plant-modelling-services",
+            href: "/#",
         },
         {
             name: "Finite Element Analysis (FEA)",
-            href: "/finite-element-analysis-services",
+            href: "/#s",
         },
         {
             name: "CFD & Multiphysics Simulations",
-            href: "/Computational-fluid-dynamics-services",
+            href: "/#",
         },
         {
             name: "RLA/RLE & Fitness-for-Service (FFS)",
@@ -70,11 +70,11 @@ export const menuItems: MenuItem[] = [
         },
         {
             name: "Engineering Automation & Digital Twin",
-            href: "/Engineering-Automation-&-Digital-Twin",
+            href: "#",
         },
         {
             name: "Pre-Bid & Owner’s Engineering",
-            href: "/Pre-Bid-&-Owners-Engineering",
+            href: "#",
         },
     ],
 },

@@ -1,6 +1,6 @@
 .breadcrumb-section {
     width: 100%;
-    padding-top: 125px;
+    padding-top: 211px;
     padding-bottom: 25px;
 
     background:
@@ -56,7 +56,7 @@
 
 @media (max-width: 767px) {
     .breadcrumb-section {
-        padding-top: 75px;
+        padding-top: 100px;
         padding-bottom: 18px;
     }
 
@@ -67,7 +67,7 @@
     .breadcrumb-link,
     .breadcrumb-parent,
     .breadcrumb-current {
-        font-size: 12px;
+        font-size: 15px;
     }
 
     .breadcrumb-separator {

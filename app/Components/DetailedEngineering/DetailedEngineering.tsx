@@ -205,39 +205,144 @@ const latestUpdates = [
     image: "/assets/images/portfolio/modern/3.webp",
   },
 ];
+const blogPosts = [
+  {
+
+    title: "Advanced Piping Stress Analysis Techniques",
+    excerpt:
+      "How thermal, seismic and dynamic loads shape a safe, code-compliant piping network.",
+    topics: [
+      "Thermal expansion & flexibility",
+      "Seismic & wind loading",
+      "Dynamic vibration checks",
+    ],
+    image: "/assets/images/portfolio/modern/4.webp",
+  },
+  {
+
+    title: "Building Clash-Free Multi-Discipline Models",
+    excerpt:
+      "Coordinating piping, structures and equipment in one intelligent model to cut field rework.",
+    topics: [
+      "Multi-discipline coordination",
+      "Automated MTO / BoQ",
+      "Isometric & GAD extraction",
+    ],
+    image: "/assets/images/portfolio/modern/5.webp",
+  },
+  {
+
+    title: "Pressure Vessel Design to ASME & API",
+    excerpt:
+      "Meeting structural integrity requirements for static equipment across process plants.",
+    topics: [
+      "ASME Sec. VIII design",
+      "API 650 & 660 compliance",
+      "TEMA heat-exchanger checks",
+    ],
+    image: "/assets/images/portfolio/modern/6.webp",
+  },
+  {
+
+    title: "Hydraulic & Flow Assurance Studies",
+    excerpt:
+      "Sizing critical process and utility lines for steady flow, surge control and safety.",
+    topics: [
+      "Line sizing & hydraulics",
+      "Surge & water-hammer analysis",
+      "PSV & relief sizing",
+    ],
+    image: "/assets/images/portfolio/modern/7.webp",
+  },
+  {
+
+    title: "As-Built Engineering from Laser Scans",
+    excerpt:
+      "Turning point clouds and red-marked drawings into intelligent as-built 3D models.",
+    topics: [
+      "Point-cloud processing",
+      "Intelligent as-built modelling",
+      "Revamp & tie-in studies",
+    ],
+    image: "/assets/images/portfolio/modern/8.webp",
+  },
+  {
+
+    title: "Electrical Load Pooling & Safety Systems",
+    excerpt:
+      "Designing robust power distribution and protection architectures for process facilities.",
+    topics: [
+      "SLD & load list development",
+      "Hazardous area classification",
+      "Earthing & lightning protection",
+    ],
+    image: "/assets/images/portfolio/modern/9.webp",
+  },
+];
+
 export default function DetailedEngineering() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
     <main className="seismic-page">
-      <Breadcrumbs />
-
       {/* HERO */}
       <section className="sa-hero">
-        <div className="sa-container">
-          {/* <span className="sa-label">ENGINEERING SERVICES</span> */}
+        <div className="sa-hero-crumbs">
+          <Breadcrumbs />
+        </div>
 
-          <h1>Detailed Engineering Services</h1>
+        <div className="sa-hero-inner">
+          <div className="sa-hero-text">
+            <span className="sa-hero-eyebrow">Detailed Engineering</span>
 
-          <p>
-            ProSIM offers end-to-end detailed engineering services designed to
-            support the complete project lifecycle across major energy and
-            industrial sectors.
-          </p>
+            <h1>
+              End-to-End <span>Detailed Engineering</span> Services.
+            </h1>
 
-          <p>
-            We specialize in converting engineering concepts, front-end
-            designs, and process requirements into precise,
-            construction-ready deliverables.
-          </p>
+            <p>
+              ProSIM converts engineering concepts, front-end designs and process
+              requirements into precise, construction-ready deliverables across the
+              complete project lifecycle for major energy and industrial sectors.
+            </p>
+
+           
+          </div>
+
+          <div className="sa-hero-media">
+            <figure className="sa-hero-media-main">
+              <img
+                src="/assets/images/industries/detail-engineering.png"
+                alt="Detailed engineering — 3D plant model and process plant"
+                loading="eager"
+              />
+              <figcaption>Detailed Engineering</figcaption>
+            </figure>
+            <figure className="sa-hero-media-inset">
+              <img
+                src="/assets/images/portfolio/modern/6.webp"
+                alt="3D plant and piping model detail"
+                loading="lazy"
+              />
+            </figure>
+          </div>
+        </div>
+
+        <div className="sa-hero-inner">
+          <div className="sa-hero-nav">
+            {disciplineItems.map((item) => (
+              <a href={`#${item.id}`} className="sa-hero-nav-button" key={item.id}>
+                {item.title}
+              </a>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* NAVIGATION */}
-      <section className="sa-navigation">
+      {/* <section className="sa-navigation">
         <div className="sa-container">
           <div className="sa-navigation-card">
-            <h2>Detailed Engineering Services</h2>
+       
 
             <div className="sa-navigation-grid">
               {disciplineItems.map((item, index) => {
@@ -246,19 +351,11 @@ export default function DetailedEngineering() {
                 return (
                   <a
                     href={`#${item.id}`}
-                    className="sa-navigation-link"
+                    className="sa-navigation-button"
                     key={item.id}
                   >
-                    <div className="sa-navigation-item">
-                      <div className="sa-navigation-icon">
-                        <Icon size={25} strokeWidth={1.8} />
-                      </div>
-
+                    <div className="sa-navigation-button-content">
                       <h3>{item.title}</h3>
-
-                      {/* <span>
-                        <ArrowUpRight size={20} strokeWidth={1.8} />
-                      </span> */}
                     </div>
                   </a>
                 );
@@ -266,10 +363,10 @@ export default function DetailedEngineering() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* MAIN IMAGE */}
-     {/* <section className="sa-image-section">
+      {/* <section className="sa-image-section">
   <div className="sa-container">
     <div className="sa-main-image">
       <img
@@ -305,25 +402,15 @@ export default function DetailedEngineering() {
                 key={service.id}
               >
                 <div className="sa-service-top">
-                  <div className="sa-service-number">
-                    <span>{String(index + 1).padStart(2, "0")}</span>
-
-                    <div className="sa-service-icon">
-                      {React.createElement(disciplineIcons[index], {
-                        size: 25,
-                        strokeWidth: 1.8,
-                      })}
-                    </div>
+                  <div className="sa-service-icon">
+                    {React.createElement(disciplineIcons[index], {
+                      size: 25,
+                      strokeWidth: 1.8,
+                    })}
                   </div>
 
-                  <ArrowUpRight
-                    className="sa-service-arrow"
-                    size={25}
-                    strokeWidth={1.8}
-                  />
+                  <h2>{service.title}</h2>
                 </div>
-
-                <h2>{service.title}</h2>
 
                 <p>{service.description}</p>
 
@@ -404,7 +491,7 @@ export default function DetailedEngineering() {
 
               return (
                 <div className="sa-client-item" key={industry}>
-                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <span></span>
 
                   <div className="sa-client-icon">
                     <Icon size={21} strokeWidth={1.8} />
@@ -412,7 +499,7 @@ export default function DetailedEngineering() {
 
                   <strong>{industry}</strong>
 
-                  <ArrowUpRight size={22} strokeWidth={1.8} />
+
                 </div>
               );
             })}
@@ -460,7 +547,7 @@ export default function DetailedEngineering() {
               return (
                 <div className="sa-advantage-box" key={item.number}>
                   <span className="sa-advantage-number">
-                    {item.number}
+
                   </span>
 
                   <div className="sa-advantage-icon">
@@ -472,7 +559,7 @@ export default function DetailedEngineering() {
                     <p>{item.text}</p>
                   </div>
 
-                  <ArrowUpRight size={23} strokeWidth={1.8} />
+
                 </div>
               );
             })}
@@ -486,12 +573,12 @@ export default function DetailedEngineering() {
         </div>
       </section>
 
-{/* LATEST UPDATES SECTION (2 Rows, 3 Columns, Horizontal Card Layout) */}
+      {/* LATEST UPDATES SECTION (2 Rows, 3 Columns, Horizontal Card Layout) */}
       <section className="sa-updates">
         <div className="sa-container">
           <span className="sa-label">Projects</span>
           <h2>Our Successful Projects</h2>
-       
+
 
           <div className="sa-updates-grid">
             {latestUpdates.map((item) => (
@@ -557,9 +644,8 @@ export default function DetailedEngineering() {
                   </button>
 
                   <div
-                    className={`sa-faq-answer ${
-                      isOpen ? "show" : ""
-                    }`}
+                    className={`sa-faq-answer ${isOpen ? "show" : ""
+                      }`}
                   >
                     {faq.answer && <p>{faq.answer}</p>}
 
@@ -574,6 +660,44 @@ export default function DetailedEngineering() {
                 </div>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* BLOGS */}
+      <section className="sa-blogs">
+        <div className="sa-container">
+          <span className="sa-label">Blog</span>
+          <h2>Insights from Our Engineering Desk</h2>
+          <p className="sa-section-intro">
+            Notes, case studies and technical explainers from ProSIM&rsquo;s detailed
+            engineering team.
+          </p>
+        </div>
+
+        <div className="sa-blogs-marquee">
+          <div className="sa-blogs-track">
+            {[...blogPosts, ...blogPosts].map((post, index) => (
+              <article
+                className="sa-blog-card"
+                key={index}
+                aria-hidden={index >= blogPosts.length}
+              >
+                <div className="sa-blog-image">
+                  <img src={post.image} alt={post.title} loading="lazy" />
+
+                </div>
+                <div className="sa-blog-body">
+                  <h3>{post.title}</h3>
+                  <p>{post.excerpt}</p>
+                  <ul>
+                    {post.topics.map((topic) => (
+                      <li key={topic}>{topic}</li>
+                    ))}
+                  </ul>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>

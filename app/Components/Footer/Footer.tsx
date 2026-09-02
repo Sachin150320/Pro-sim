@@ -222,14 +222,14 @@ export default function Footer() {
 
                         <ul>
                             <li>
-                                <Link href="/industries/power-grid-utilities">
+                                <Link href="/nuclear-power">
                                     <span className="footer-arrow">→</span>
                                     Nuclear Power
                                 </Link>
                             </li>
 
                             <li>
-                                <Link href="/industries/power-grid-utilities">
+                                <Link href="/thermal-power">
                                     <span className="footer-arrow">→</span>
                                     Thermal Power
                                 </Link>

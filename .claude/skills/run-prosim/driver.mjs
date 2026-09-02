@@ -138,6 +138,14 @@ class Session {
         this.failedRequests.push(`${msg.params.type} ${msg.params.errorText}`);
       }
     });
+    // If the tab crashes (e.g. OOM rendering a huge screenshot) the socket
+    // drops and any in-flight CDP call would hang forever — reject them.
+    const failAll = (why) => {
+      for (const { reject } of this.pending.values()) reject(new Error(why));
+      this.pending.clear();
+    };
+    ws.addEventListener("close", () => failAll("CDP socket closed"));
+    ws.addEventListener("error", () => failAll("CDP socket error"));
   }
   send(method, params = {}) {
     const id = ++this.id;
@@ -206,10 +214,53 @@ async function navigate(s, path) {
   return url;
 }
 
-async function screenshot(s, outfile) {
-  const { data } = await s.send("Page.captureScreenshot", { format: "png", captureBeyondViewport: true });
+// Chrome's headless tab OOM-crashes trying to rasterise a very tall
+// (~8000px+) page in one shot — the socket then drops silently. So cap
+// the captured height. Pass `scrollTo` (a CSS selector or a Y pixel) to
+// aim the capture at a section lower down the page.
+const MAX_SHOT_H = 4000;
+
+async function screenshot(s, outfile, scrollTo) {
   mkdirSync(dirname(outfile), { recursive: true });
+
+  if (scrollTo !== undefined && scrollTo !== null && scrollTo !== "") {
+    const expr =
+      /^\d+$/.test(String(scrollTo))
+        ? `window.scrollTo(0, ${Number(scrollTo)})`
+        : `document.querySelector(${JSON.stringify(scrollTo)})?.scrollIntoView({block:"start"})`;
+    await s.send("Runtime.evaluate", { expression: expr });
+    await sleep(500);
+  }
+
+  const { result: m } = await s.send("Runtime.evaluate", {
+    expression: `({h: document.documentElement.scrollHeight})`,
+    returnByValue: true,
+  });
+  const pageH = m?.value?.h ?? 900;
+
+  if (pageH <= MAX_SHOT_H && (scrollTo === undefined || scrollTo === null || scrollTo === "")) {
+    const { data } = await s.send("Page.captureScreenshot", {
+      format: "png",
+      captureBeyondViewport: true,
+    });
+    writeFileSync(outfile, Buffer.from(data, "base64"));
+    return outfile;
+  }
+
+  // Tall page (or aimed capture): grab just the current viewport window,
+  // widened to MAX_SHOT_H so a good chunk of the page is visible.
+  await s.send("Emulation.setDeviceMetricsOverride", {
+    width: 1440,
+    height: MAX_SHOT_H,
+    deviceScaleFactor: 1,
+    mobile: false,
+  });
+  await sleep(350);
+  const { data } = await s.send("Page.captureScreenshot", { format: "png", captureBeyondViewport: false });
   writeFileSync(outfile, Buffer.from(data, "base64"));
+  await s.send("Emulation.setDeviceMetricsOverride", {
+    width: 1440, height: 900, deviceScaleFactor: 1, mobile: false,
+  });
   return outfile;
 }
 
@@ -218,17 +269,21 @@ function slug(path) {
 }
 
 async function main() {
-  const [cmd, arg1, arg2] = process.argv.slice(2);
+  const [cmd, arg1, arg2, arg3] = process.argv.slice(2);
   if (!cmd || cmd === "help") {
-    console.log("commands: shot <path> [out] | shots [dir] | links <path> | errors <path> | eval <path> <js> | click <path> <sel>");
+    console.log("commands: shot <path> [at=<selector|Ypx>] | shots [dir] | links <path> | errors <path> | eval <path> <js> | click <path> <sel>");
     process.exit(0);
   }
   const { s, ws } = await connect();
   try {
     if (cmd === "shot") {
-      const out = arg2 ? resolve(arg2) : join(SHOT_DIR, slug(arg1) + ".png");
+      // arg2: "at=<selector|Y>" to aim the capture, else optional out path.
+      let at, out;
+      if (arg2 && arg2.startsWith("at=")) { at = arg2.slice(3); out = arg3 && resolve(arg3); }
+      else { out = arg2 && resolve(arg2); at = arg3 && arg3.replace(/^at=/, ""); }
+      out = out || join(SHOT_DIR, slug(arg1) + (at ? "-at" : "") + ".png");
       const url = await navigate(s, arg1);
-      const f = await screenshot(s, out);
+      const f = await screenshot(s, out, at);
       console.log(`${url} -> ${f}`);
       if (s.consoleErrors.length) console.log("console errors:", s.consoleErrors.length);
     } else if (cmd === "shots") {
@@ -279,6 +334,14 @@ const WATCHDOG_MS = Number(process.env.DRIVER_TIMEOUT_MS || 90000);
 setTimeout(() => { console.error(`driver: timed out after ${WATCHDOG_MS}ms`); process.exit(1); }, WATCHDOG_MS).unref();
 
 main().then(
-  () => { setImmediate(() => process.exit(0)); },
-  (e) => { console.error(e); setImmediate(() => process.exit(1)); },
+  () => {
+    // Flush stdout before exiting — on Windows a bare process.exit()
+    // truncates buffered pipe writes (the screenshot line went missing).
+    if (process.stdout.writableLength === 0) process.exit(0);
+    else process.stdout.once("drain", () => process.exit(0));
+  },
+  (e) => {
+    console.error(e);
+    process.exitCode = 1;
+  },
 );

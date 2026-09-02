@@ -1,0 +1,420 @@
+.tp-page {
+  --tp-blue: #0071bc;
+  --tp-blue-dark: #005a96;
+  --tp-navy: #0e1b28;
+  --tp-dark: #18232d;
+  --tp-text: #4e5963;
+  --tp-muted: #7a848d;
+  --tp-light: #f5f7f9;
+  --tp-border: #e4e7ea;
+  --tp-ring: rgba(0, 113, 188, 0.16);
+  --tp-shadow: 0 1px 2px rgba(16, 27, 40, 0.04), 0 12px 32px -12px rgba(16, 27, 40, 0.14);
+
+  color: var(--tp-dark);
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+
+.tp-container {
+  width: min(1200px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+.tp-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+  color: var(--tp-blue);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+}
+
+.tp-label::before {
+  content: "";
+  width: 26px;
+  height: 2px;
+  background: var(--tp-blue);
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+
+.tp-hero {
+  position: relative;
+  padding: 110px 0 90px;
+  background:
+    radial-gradient(120% 140% at 100% 0%, rgba(0, 113, 188, 0.08), transparent 55%),
+    linear-gradient(180deg, #fff 0%, var(--tp-light) 100%);
+  border-bottom: 1px solid var(--tp-border);
+  overflow: hidden;
+}
+
+.tp-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--tp-border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--tp-border) 1px, transparent 1px);
+  background-size: 64px 64px;
+  -webkit-mask-image: radial-gradient(80% 120% at 90% 0%, #000, transparent 70%);
+  mask-image: radial-gradient(80% 120% at 90% 0%, #000, transparent 70%);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.tp-hero .tp-container {
+  position: relative;
+}
+
+.tp-hero h1 {
+  margin: 0 0 30px;
+  padding-left: 22px;
+  border-left: 4px solid var(--tp-blue);
+  font-size: clamp(40px, 5.5vw, 56px);
+  line-height: 1.05;
+  font-weight: 500;
+  letter-spacing: -2px;
+}
+
+.tp-hero p {
+  max-width: 780px;
+  margin: 0 0 18px;
+  color: var(--tp-text);
+  font-size: 17px;
+  line-height: 1.85;
+}
+
+.tp-hero-lead {
+  max-width: 720px;
+  color: var(--tp-dark);
+  font-size: 19px;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+/* ============================================================
+   SECTIONS
+   ============================================================ */
+
+.tp-section {
+  padding: 100px 0;
+  background: #fff;
+  scroll-margin-top: 90px;
+}
+
+.tp-section--light {
+  background: var(--tp-light);
+}
+
+.tp-section + .tp-section {
+  border-top: 1px solid var(--tp-border);
+}
+
+.tp-section h2 {
+  position: relative;
+  max-width: 900px;
+  margin: 0 0 22px;
+  padding-bottom: 22px;
+  font-weight: 500;
+  font-size: clamp(28px, 4vw, 38px);
+  line-height: 1.2;
+  letter-spacing: -1px;
+}
+
+.tp-section h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 54px;
+  height: 3px;
+  background: var(--tp-blue);
+}
+
+.tp-eventmeta {
+  margin: 0 0 34px;
+  color: var(--tp-muted);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+
+.tp-body {
+  max-width: 860px;
+  margin: 0 0 20px;
+  color: var(--tp-text);
+  font-size: 16px;
+  line-height: 1.85;
+}
+
+/* ============================================================
+   LISTS
+   ============================================================ */
+
+.tp-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  max-width: 1080px;
+}
+
+.tp-list li {
+  position: relative;
+  margin-bottom: 4px;
+  padding: 11px 14px 11px 30px;
+  color: var(--tp-text);
+  font-size: 15px;
+  line-height: 1.7;
+  border-bottom: 1px solid var(--tp-border);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.tp-list li::before {
+  content: "";
+  position: absolute;
+  left: 8px;
+  top: 1.15em;
+  width: 6px;
+  height: 6px;
+  background: var(--tp-blue);
+  transform: rotate(45deg);
+}
+
+.tp-list li:hover {
+  background: rgba(0, 113, 188, 0.05);
+  color: var(--tp-dark);
+}
+
+.tp-list--two-col {
+  columns: 2;
+  column-gap: 56px;
+}
+
+.tp-list--two-col li {
+  break-inside: avoid;
+}
+
+/* ============================================================
+   CALLOUT
+   ============================================================ */
+
+.tp-callout {
+  max-width: 900px;
+  margin: 36px 0 44px;
+  padding: 26px 30px;
+  background: var(--tp-light);
+  border-left: 4px solid var(--tp-blue);
+  border-radius: 0 12px 12px 0;
+  color: var(--tp-dark);
+  font-size: 16px;
+  font-style: normal;
+  line-height: 1.8;
+}
+
+.tp-section--light .tp-callout {
+  background: #fff;
+}
+
+/* ============================================================
+   MEDIA ROWS
+   ============================================================ */
+
+.tp-media-list {
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
+  margin: 44px 0;
+}
+
+.tp-media-row {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.tp-media-row--reverse .tp-figure {
+  order: 2;
+}
+
+.tp-media-row p {
+  margin: 0;
+  color: var(--tp-text);
+  font-size: 15.5px;
+  line-height: 1.85;
+}
+
+.tp-figure {
+  margin: 0;
+  border: 1px solid var(--tp-border);
+  border-radius: 14px;
+  overflow: hidden;
+  background:
+    repeating-linear-gradient(
+      45deg,
+      var(--tp-light),
+      var(--tp-light) 12px,
+      #eef1f4 12px,
+      #eef1f4 24px
+    );
+}
+
+.tp-figure img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 240px;
+  object-fit: cover;
+  color: transparent;
+  font-size: 12px;
+}
+
+/* ============================================================
+   GALLERY (two-up)
+   ============================================================ */
+
+.tp-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin: 44px 0;
+}
+
+/* ============================================================
+   CTA
+   ============================================================ */
+
+.tp-cta {
+  position: relative;
+  padding: 100px 0;
+  background:
+    radial-gradient(90% 140% at 0% 0%, rgba(0, 113, 188, 0.35), transparent 60%),
+    linear-gradient(140deg, var(--tp-navy) 0%, #16283a 100%);
+  color: #fff;
+  text-align: center;
+  overflow: hidden;
+}
+
+.tp-cta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 56px 56px;
+  -webkit-mask-image: radial-gradient(70% 100% at 50% 50%, #000, transparent 75%);
+  mask-image: radial-gradient(70% 100% at 50% 50%, #000, transparent 75%);
+  pointer-events: none;
+}
+
+.tp-cta .tp-container {
+  position: relative;
+}
+
+.tp-cta h2 {
+  margin: 0 0 16px;
+  font-weight: 500;
+  font-size: clamp(28px, 4vw, 40px);
+  letter-spacing: -1px;
+}
+
+.tp-cta p {
+  max-width: 600px;
+  margin: 0 auto 34px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.tp-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 15px 30px;
+  background: var(--tp-blue);
+  color: #fff;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  text-decoration: none;
+  box-shadow: 0 18px 40px -12px rgba(0, 113, 188, 0.6);
+  transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
+}
+
+.tp-cta-btn svg {
+  transition: transform 0.25s ease;
+}
+
+.tp-cta-btn:hover {
+  transform: translateY(-3px);
+  background: #fff;
+  color: var(--tp-navy);
+}
+
+.tp-cta-btn:hover svg {
+  transform: translate(3px, -3px);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 768px) {
+  .tp-container {
+    width: min(100% - 32px, 1200px);
+  }
+
+  .tp-hero {
+    padding: 80px 0 64px;
+  }
+
+  .tp-hero h1 {
+    padding-left: 16px;
+  }
+
+  .tp-hero-lead {
+    font-size: 17px;
+  }
+
+  .tp-hero p {
+    font-size: 15.5px;
+    line-height: 1.75;
+  }
+
+  .tp-section {
+    padding: 66px 0;
+  }
+
+  .tp-list--two-col {
+    columns: 1;
+  }
+
+  .tp-media-row {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .tp-media-row--reverse .tp-figure {
+    order: 0;
+  }
+
+  .tp-gallery {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tp-page *,
+  .tp-page *::before,
+  .tp-page *::after {
+    transition: none !important;
+  }
+}
