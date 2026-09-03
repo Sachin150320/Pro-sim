@@ -560,7 +560,7 @@ export default function DetailedEngineering() {
                 )}
 
                 {index === 4 && (
-                  <div className="sa-gallery">
+                  <div className="sa-gallery single">
                     <div className="sa-gallery-card">
                       <img
                         src="assets/images/industries/detail-engg-5.png"
@@ -738,15 +738,17 @@ export default function DetailedEngineering() {
                     className={`sa-faq-answer ${isOpen ? "show" : ""
                       }`}
                   >
-                    {faq.answer && <p>{faq.answer}</p>}
+                    <div>
+                      {faq.answer && <p>{faq.answer}</p>}
 
-                    {faq.list && (
-                      <ul>
-                        {faq.list.map((item) => (
-                          <li key={item}>{item}</li>
-                        ))}
-                      </ul>
-                    )}
+                      {faq.list && (
+                        <ul>
+                          {faq.list.map((item) => (
+                            <li key={item}>{item}</li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
                   </div>
                 </div>
               );

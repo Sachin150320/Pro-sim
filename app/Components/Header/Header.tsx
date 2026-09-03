@@ -41,28 +41,28 @@ export const menuItems: MenuItem[] = [
     href: "#",
     children: [
         {
-            name: "Detailed Engineering",
+            name: "Detailed Engineering services",
             href: "/Detailed-Engineering-services",
         },
         {
             name: "Seismic Analysis & Qualification",
-            href: "/#",
+            href: "/Seismic-analysis-and-qualification",
         },
         {
-            name: "Piping & Pipeline Engineering",
-            href: "/#",
+            name: "Piping & Pipeline Engineering Services",
+            href: "/Piping-&-pipeline-engineering-services",
         },
         {
-            name: "3D Plant Modelling",
-            href: "/#",
+            name: "3D Plant Modelling Services",
+            href: "/Three-D-plant-modelling-services",
         },
         {
-            name: "Finite Element Analysis (FEA)",
-            href: "/#s",
+            name: "Finite Element Analysis Services",
+            href: "/finite-element-analysis-services",
         },
         {
-            name: "CFD & Multiphysics Simulations",
-            href: "/#",
+            name: "CFD & Multiphysics Simulations Services",
+            href: "/Computational-fluid-dynamics-services",
         },
         {
             name: "RLA/RLE & Fitness-for-Service (FFS)",
@@ -70,11 +70,11 @@ export const menuItems: MenuItem[] = [
         },
         {
             name: "Engineering Automation & Digital Twin",
-            href: "#",
+            href: "Engineering-Automation-&-Digital-Twin",
         },
         {
             name: "Pre-Bid & Owner’s Engineering",
-            href: "#",
+            href: "Pre-Bid-&-Owners-Engineering",
         },
     ],
 },

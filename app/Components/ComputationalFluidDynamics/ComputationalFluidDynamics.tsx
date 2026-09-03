@@ -3,363 +3,590 @@
 import React, { useState } from "react";
 import Breadcrumbs from "@/app/Components/Breadcrumbs/Breadcrumbs";
 import {
-  ArrowUpRight,
+  Waves,
+  Activity,
   Cog,
-  Wrench,
-  Boxes,
-  Building2,
+  Atom,
+  Fuel,
   Zap,
+  Car,
+  Plane,
+  Wrench,
+  FlaskConical,
   Plus,
   Minus,
 } from "lucide-react";
 import "./cfd.css";
 
-const services = [
+const IMG = "/assets/images/industries/computational-fluid-dynamics-services";
+
+type Point = { head?: string; body: string };
+
+const services: {
+  id: string;
+  title: string;
+  description: string;
+  points: Point[];
+  images?: { src: string; alt: string }[];
+}[] = [
   {
     id: "cfd-fsi",
     title: "Computational Fluid Dynamics (CFD) & Fluid-Structure Interaction",
-    icon: Cog,
     description:
       "By utilizing focused fluid dynamics analyses, we model intricate fluid movements to fine-tune thermal systems and accurately forecast how fluids in motion affect nearby physical structures. To produce highly dependable virtual prototypes, our specialists rely on premium software tools, particularly leveraging the advanced capabilities of the ANSYS Fluent platform.",
     points: [
-      "Fluid-Structure Interaction (FSI): We examine the combined effects of fluid streams on component integrity. This is essential for assessing acoustic-induced and flow-induced vibrations, water hammer or surge conditions, and the impact of sudden valve closures within piping arrays.",
-      "Multi-Phase & Free Surface Flows: Our industry-recognized simulations accurately map liquid-gas boundaries, cavitation, slurry movement, and mixing processes across rotating equipment and process machinery.",
-      "Thermal & Conjugate Heat Transfer (CHT): We provide focused thermal evaluations to track complicated heat loss and dissipation. This includes monitoring thermal stratification inside pipes and analyzing thermal shocks affecting pressure vessels and heat exchangers.",
-      "Flow Optimization: Our approaches reduce unnecessary pressure drops, clear out dead zones, and streamline fluid pathways throughout intricate valves, ducts, and manifold networks.",
+      {
+        head: "Fluid-Structure Interaction (FSI)",
+        body: "We examine the combined effects of fluid streams on component integrity — essential for assessing acoustic-induced and flow-induced vibrations, water hammer or surge conditions, and the impact of sudden valve closures within piping arrays.",
+      },
+      {
+        head: "Multi-Phase & Free Surface Flows",
+        body: "Our industry-recognized simulations accurately map liquid-gas boundaries, cavitation, slurry movement, and mixing processes across rotating equipment and process machinery.",
+      },
+      {
+        head: "Thermal & Conjugate Heat Transfer (CHT)",
+        body: "Focused thermal evaluations to track complicated heat loss and dissipation, including thermal stratification inside pipes and thermal shocks affecting pressure vessels and heat exchangers.",
+      },
+      {
+        head: "Flow Optimization",
+        body: "Our approaches reduce unnecessary pressure drops, clear out dead zones, and streamline fluid pathways throughout intricate valves, ducts, and manifold networks.",
+      },
     ],
     images: [
-      {
-        src: "/new-img/offerings/CFD/1.png",
-        alt: "Seismic Analysis",
-      },
-      {
-        src: "/new-img/offerings/CFD/2.png",
-        alt: "Seismic Analysis",
-      },
+      { src: `${IMG}/1.png`, alt: "CFD flow simulation result" },
+      { src: `${IMG}/2.png`, alt: "Fluid-structure interaction analysis" },
     ],
   },
   {
-    id: "damage-modeling",
+    id: "damage-life",
     title: "Materials, Damage Modeling & Life Assessment",
-    icon: Wrench,
     description:
       "Moving past basic linear evaluations, we investigate how severe mechanical and thermal stresses deteriorate materials throughout their operational lifespan. By integrating these insights with our fluid dynamics analyses, we seamlessly project complicated thermal data onto comprehensive structural frameworks.",
     points: [
-      "High-Temperature Durability: We analyze fatigue, creep, and their combined interactions within high-pressure, high-temperature equipment. Typical assets evaluated include industrial reactors, steam turbines, and power plant piping assemblies.",
-      "Fracture Mechanics & Fitness-for-Service (FFS): By modeling both the start and subsequent spread of structural cracks, we confidently estimate an asset's remaining useful life and establish secure operating boundaries.",
+      {
+        head: "High-Temperature Durability",
+        body: "We analyze fatigue, creep, and their combined interactions within high-pressure, high-temperature equipment. Typical assets evaluated include industrial reactors, steam turbines, and power plant piping assemblies.",
+      },
+      {
+        head: "Fracture Mechanics & Fitness-for-Service (FFS)",
+        body: "By modeling both the start and subsequent spread of structural cracks, we confidently estimate an asset's remaining useful life and establish secure operating boundaries.",
+      },
+    ],
+    images: [
+      { src: `${IMG}/3.png`, alt: "Thermal-structural damage model" },
+      { src: `${IMG}/4.png`, alt: "Fracture mechanics crack growth model" },
     ],
   },
   {
-    id: "mbd-analysis",
+    id: "mbd",
     title: "Multi-Body Dynamics (MBD)",
-    icon: Boxes,
     description:
       "We determine the actual dynamic and kinematic responses of intricate, linked assemblies comprising both flexible and rigid parts. When paired with the robust outputs of our ANSYS Fluent workflows, these dynamic simulations effectively incorporate real-world forces generated by fluid motion.",
     points: [
-      "Dynamic Load Extraction: We calculate accurate, fluctuating accelerations, velocities, and joint forces experienced throughout standard operating cycles.",
-      "FEA Integration: By transferring these precise dynamic forces directly into subsequent fatigue and structural models, we achieve unparalleled levels of physical accuracy.",
-    ],
-    images: [
       {
-        src: "/new-img/offerings/CFD/3.png",
-        alt: "Seismic Analysis",
+        head: "Dynamic Load Extraction",
+        body: "We calculate accurate, fluctuating accelerations, velocities, and joint forces experienced throughout standard operating cycles.",
       },
       {
-        src: "/new-img/offerings/CFD/4.png",
-        alt: "Seismic Analysis",
+        head: "FEA Integration",
+        body: "By transferring these precise dynamic forces directly into subsequent fatigue and structural models, we achieve unparalleled levels of physical accuracy.",
       },
     ],
+    images: [{ src: `${IMG}/1.png`, alt: "Multi-body dynamics assembly simulation" }],
   },
   {
     id: "coupled-multiphysics",
     title: "Fully Coupled Multiphysics Analysis",
-    icon: Building2,
     description:
       "Because practical engineering challenges seldom occur in a vacuum, we connect separate physical disciplines using simultaneous, multi-directional coupling. This advanced approach is heavily supported by our foundational fluid dynamics capabilities.",
     points: [
-      "Electro-Magnetic-Thermal-Structural-Flow Coupling: We model interconnected systems where electrical currents produce heat, which in turn alters cooling performance and triggers structural expansion. Typical applications include busbars, electrical transformers, and electric vehicle powertrains. Here, our comprehensive fluid simulations are essential for assessing and optimizing the overall thermal management of these complex setups.",
+      {
+        head: "Electro-Magnetic-Thermal-Structural-Flow Coupling",
+        body: "We model interconnected systems where electrical currents produce heat, which in turn alters cooling performance and triggers structural expansion. Typical applications include busbars, electrical transformers, and electric vehicle powertrains — where our comprehensive fluid simulations are essential for assessing and optimizing overall thermal management.",
+      },
     ],
   },
-  {
-    id: "industries-served",
-    title: "Industries & Verticals We Serve",
-    icon: Zap,
-    description:
-      "Because our premium fluid dynamics and multi-physics capabilities transcend specific markets, we consistently provide highly detailed engineering insights to a wide array of industrial sectors.",
-    points: [
-      "Oil & Gas, Petrochemicals & Refineries: We evaluate offshore platforms, subsea hardware, storage tanks, pressure vessels, and complicated piping infrastructure.",
-      "Power Generation (Thermal, Nuclear, Renewables): Our teams analyze high-energy piping, heat exchangers, gas and steam turbines, and boiler headers.",
-      "Automotive & Electric Vehicles (EV): We assess structural resilience, motor cooling mechanisms, battery thermal management, and overall powertrain dynamics.",
-      "Aerospace & Defense: Our expertise covers high-velocity impacts, defense payloads, turbomachinery, and specialized aerodynamic components.",
-      "Heavy Engineering & Industrial Machinery: We support the development of heavy cranes, industrial valves, pumps, rotating equipment, and earthmoving machinery.",
-      "Process & Chemical Industries: We simulate multi-phase fluid transport, cyclones, chemical reactors, and industrial mixing vessels.",
-    ],
-  },
+];
+
+const serviceIcons = [Waves, Activity, Cog, Atom];
+
+const heroNav = [
+  { title: "CFD & FSI", id: "cfd-fsi" },
+  { title: "Damage & Life Assessment", id: "damage-life" },
+  { title: "Multi-Body Dynamics", id: "mbd" },
+  { title: "Coupled Multiphysics", id: "coupled-multiphysics" },
+  { title: "Industries Served", id: "industries" },
 ];
 
 const advantages = [
   {
     number: "01",
-    icon: Cog,
     title: "Cross-Domain Expertise",
-    text: "Rather than simply delivering attractive visual plots, we convert fluid data into tangible structural outcomes. This ensures that your vessels, piping, and pumps are fully capable of surviving harsh operational demands.",
+    text: "Rather than simply delivering attractive visual plots, we convert fluid data into tangible structural outcomes — ensuring your vessels, piping, and pumps are fully capable of surviving harsh operational demands.",
   },
   {
     number: "02",
-    icon: Wrench,
     title: "Root Cause Analysis",
-    text: "We identify the precise origins of recurring equipment failures, from flow-induced cracking and localized cavitation to severe thermal fatigue. Leveraging advanced ANSYS Fluent techniques allows us to correctly diagnose these hidden fluid-related issues.",
+    text: "We identify the precise origins of recurring equipment failures, from flow-induced cracking and localized cavitation to severe thermal fatigue, using advanced ANSYS Fluent techniques to correctly diagnose hidden fluid-related issues.",
   },
   {
     number: "03",
-    icon: Boxes,
     title: "Code Compliance",
     text: "We seamlessly align our sophisticated simulation results with established international standards, including BS, API, and ASME, guaranteeing comprehensive design validation.",
   },
 ];
 
-const faqs = [
-  {
-    question: "What computational fluid dynamics (CFD) services does ProSIM provide?",
-    answer:
-      "ProSIM provides cutting-edge multi-physics simulations and computational fluid dynamics solutions, building on an established finite element analysis foundation. Our expertise lies in unraveling complicated thermal-fluid dynamics alongside intricate structural interactions using platforms like ANSYS Fluent.",
-  },
-  {
-    question: "What is Fluid-Structure Interaction (FSI) and how is it applied?",
-    answer:
-      "We examine the combined effects of fluid streams on component integrity. This is essential for assessing acoustic-induced and flow-induced vibrations, water hammer or surge conditions, and the impact of sudden valve closures within piping arrays.",
-  },
-  {
-    question: "What capabilities do you offer in multi-phase and free surface flows?",
-    answer:
-      "Our industry-recognized simulations accurately map liquid-gas boundaries, cavitation, slurry movement, and mixing processes across rotating equipment and process machinery.",
-  },
-  {
-    question: "How do you evaluate thermal performance and heat transfer?",
-    answer:
-      "We provide focused thermal evaluations to track complicated heat loss and dissipation, including monitoring thermal stratification inside pipes and analyzing thermal shocks affecting pressure vessels and heat exchangers.",
-  },
-  {
-    question: "What is involved in Materials, Damage Modeling & Life Assessment?",
-    answer:
-      "We investigate how severe mechanical and thermal stresses deteriorate materials throughout their operational lifespan, analyzing high-temperature durability (fatigue, creep) and conducting fracture mechanics and Fitness-for-Service (FFS) reviews.",
-  },
-  {
-    question: "How does Multi-Body Dynamics (MBD) integrate with fluid workflows?",
-    answer:
-      "We determine dynamic and kinematic responses of intricate assemblies. When paired with ANSYS Fluent workflows, these simulations incorporate real-world forces generated by fluid motion to extract dynamic loads and feed precise forces into FEA models.",
-  },
-  {
-    question: "What is Fully Coupled Multiphysics Analysis?",
-    answer:
-      "We connect separate physical disciplines using simultaneous, multi-directional coupling, such as Electro-Magnetic-Thermal-Structural-Flow Coupling for busbars, electrical transformers, and electric vehicle powertrains.",
-  },
-  {
-    question: "Which industries do you serve for CFD and multi-physics simulations?",
-    answer:
-      "We serve Oil & Gas, Petrochemicals & Refineries, Power Generation, Automotive & Electric Vehicles (EV), Aerospace & Defense, Heavy Engineering & Industrial Machinery, and Process & Chemical Industries.",
-  },
-  {
-    question: "What are the advantages of partnering with ProSIM for CFD?",
-    answer:
-      "Organizations benefit from our cross-domain expertise converting fluid data into structural outcomes, root cause analysis for equipment failures using ANSYS Fluent, and strict alignment with international codes like BS, API, and ASME.",
-  },
+const codes = [
+  { area: "ASME", detail: "Boiler & Pressure Vessel and piping design validation." },
+  { area: "API", detail: "American Petroleum Institute standards for oil, gas and refining assets." },
+  { area: "BS", detail: "British Standards for structural and pressure equipment design." },
 ];
 
-const navigationItems = [
+const industries = [
   {
-    title: "CFD & FSI",
-    id: "cfd-fsi",
-    icon: Cog,
+    icon: Fuel,
+    title: "Oil & Gas, Petrochemicals & Refineries",
+    body: "Offshore platforms, subsea hardware, storage tanks, pressure vessels, and complicated piping infrastructure.",
   },
   {
-    title: "Damage & Life Assessment",
-    id: "damage-modeling",
-    icon: Wrench,
-  },
-  {
-    title: "Multi-Body Dynamics",
-    id: "mbd-analysis",
-    icon: Boxes,
-  },
-  {
-    title: "Coupled Multiphysics",
-    id: "coupled-multiphysics",
-    icon: Building2,
-  },
-  {
-    title: "Industries Served",
-    id: "industries-served",
     icon: Zap,
+    title: "Power Generation (Thermal, Nuclear, Renewables)",
+    body: "High-energy piping, heat exchangers, gas and steam turbines, and boiler headers.",
+  },
+  {
+    icon: Car,
+    title: "Automotive & Electric Vehicles (EV)",
+    body: "Structural resilience, motor cooling mechanisms, battery thermal management, and overall powertrain dynamics.",
+  },
+  {
+    icon: Plane,
+    title: "Aerospace & Defense",
+    body: "High-velocity impacts, defense payloads, turbomachinery, and specialized aerodynamic components.",
+  },
+  {
+    icon: Wrench,
+    title: "Heavy Engineering & Industrial Machinery",
+    body: "Heavy cranes, industrial valves, pumps, rotating equipment, and earthmoving machinery.",
+  },
+  {
+    icon: FlaskConical,
+    title: "Process & Chemical Industries",
+    body: "Multi-phase fluid transport, cyclones, chemical reactors, and industrial mixing vessels.",
   },
 ];
 
-export default function CFDPage() {
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
+const projects = [
+  {
+    tag: "FSI",
+    date: "Oil & Gas · Offshore",
+    title: "Acoustic-Induced Vibration Study of a Relief Header",
+    description:
+      "ANSYS Fluent FSI model quantifying flow- and acoustic-induced vibration on a flare relief header, driving support and small-bore connection changes.",
+    image: `${IMG}/1.png`,
+  },
+  {
+    tag: "CONJUGATE HEAT TRANSFER",
+    date: "Power Generation",
+    title: "Thermal Shock Analysis of a Heat Exchanger",
+    description:
+      "Conjugate heat transfer and transient thermal-stress evaluation of a shell-and-tube exchanger subjected to rapid load-change thermal shocks.",
+    image: `${IMG}/2.png`,
+  },
+  {
+    tag: "MULTI-PHASE FLOW",
+    date: "Process & Chemical",
+    title: "Cavitation & Slurry Erosion in a Control Valve",
+    description:
+      "Multi-phase CFD mapping cavitation onset and slurry-driven erosion hotspots across a severe-service control valve trim.",
+    image: `${IMG}/3.png`,
+  },
+  {
+    tag: "COUPLED MULTIPHYSICS",
+    date: "Automotive · EV",
+    title: "Battery Pack Thermal Management Optimization",
+    description:
+      "Coupled electro-thermal-flow simulation of an EV battery pack cooling circuit to level cell temperatures and cut peak gradients.",
+    image: `${IMG}/4.png`,
+  },
+  {
+    tag: "MBD + FEA",
+    date: "Heavy Engineering",
+    title: "Dynamic Load Extraction for a Crane Slew Mechanism",
+    description:
+      "Multi-body dynamics run extracting fluctuating joint forces across operating cycles, transferred into a fatigue model for the slew ring.",
+    image: `${IMG}/1.png`,
+  },
+  {
+    tag: "FRACTURE / FFS",
+    date: "Refinery",
+    title: "Fitness-for-Service of a Cracked Pressure Vessel Nozzle",
+    description:
+      "Crack-initiation and growth modelling with an FFS assessment to establish safe operating limits and a re-inspection interval.",
+    image: `${IMG}/2.png`,
+  },
+];
 
-  const toggleFaq = (index: number) => {
-    setOpenFaq((current) => (current === index ? null : index));
-  };
+const blogPosts = [
+  {
+    title: "FSI Explained: When Flow Starts Breaking Structures",
+    excerpt:
+      "Acoustic- and flow-induced vibration, water hammer and valve slam — and how coupled simulation catches them early.",
+    topics: ["Flow-induced vibration", "Water hammer / surge", "Valve closure loads"],
+    image: `${IMG}/1.png`,
+  },
+  {
+    title: "Conjugate Heat Transfer for Pressure Equipment",
+    excerpt:
+      "Tracking heat loss, thermal stratification and thermal shock in vessels, exchangers and piping.",
+    topics: ["CHT modelling", "Thermal stratification", "Transient thermal stress"],
+    image: `${IMG}/2.png`,
+  },
+  {
+    title: "Multi-Phase & Cavitation Modelling in ANSYS Fluent",
+    excerpt:
+      "Liquid-gas interfaces, cavitation and slurry transport across pumps, valves and reactors.",
+    topics: ["Free-surface flows", "Cavitation onset", "Slurry erosion"],
+    image: `${IMG}/3.png`,
+  },
+  {
+    title: "From CFD to Fatigue: Projecting Thermal Data onto FEA",
+    excerpt:
+      "Mapping fluid and thermal results onto structural models for creep-fatigue and life assessment.",
+    topics: ["Thermal mapping", "Creep-fatigue interaction", "Remaining life"],
+    image: `${IMG}/4.png`,
+  },
+  {
+    title: "Multi-Body Dynamics as a Load Source for FEA",
+    excerpt:
+      "Extracting real operating-cycle accelerations and joint forces to drive accurate structural models.",
+    topics: ["Dynamic load extraction", "Flexible-body MBD", "FEA integration"],
+    image: `${IMG}/1.png`,
+  },
+  {
+    title: "Coupled Electro-Thermal-Flow for EV & Power Electronics",
+    excerpt:
+      "Where current makes heat, heat changes cooling, and cooling changes the structure — solved together.",
+    topics: ["Busbars & transformers", "Battery thermal management", "Powertrain cooling"],
+    image: `${IMG}/2.png`,
+  },
+];
+
+type Faq = { question: string; answer: string };
+
+const faqs: Faq[] = [
+  {
+    question: "Why should our company outsource CFD and multi-physics simulation services to ProSIM?",
+    answer:
+      "Outsourcing your simulation requirements to our specialized team provides immediate access to premium software tools, such as ANSYS Fluent, and deep technical expertise without the overhead of an in-house department. We bring the necessary scale and rigorous analytical methods to accelerate your product development cycles, boost overall performance, and ensure your engineering initiatives remain strictly on schedule and budget.",
+  },
+  {
+    question: "How does Fluid-Structure Interaction (FSI) analysis prevent costly piping and valve failures?",
+    answer:
+      "Equipment failures disrupt operations and impact your bottom line. We use advanced FSI modeling to examine the combined effects of fluid streams on component integrity. By accurately predicting acoustic-induced vibrations, water hammer effects, surge conditions, and the impact of sudden valve closures, we help you mitigate risks and avoid severe operational breakdowns before manufacturing begins.",
+  },
+  {
+    question: "Do you provide Fitness-for-Service (FFS) and remaining life assessments for industrial equipment?",
+    answer:
+      "Yes. For industries operating high-pressure and high-temperature equipment, assessing asset longevity is critical for safety and capital planning. We integrate fluid dynamics with fracture mechanics to model the start and spread of structural cracks, evaluate high-temperature durability, and analyze fatigue. This allows us to confidently estimate your equipment's remaining useful life and establish highly secure operating boundaries.",
+  },
+  {
+    question: "Can you optimize battery thermal management and cooling for EVs and electrical transformers?",
+    answer:
+      "Absolutely. Practical engineering challenges require a holistic approach. We utilize fully coupled Electro-Magnetic-Thermal-Structural-Flow analysis to model systems where electrical currents produce heat, which in turn alters cooling performance and causes structural expansion. This capability is essential for automotive, EV, and power generation clients looking to optimize the thermal management of complex powertrains and electrical enclosures.",
+  },
+  {
+    question: "How do your CFD consultants conduct root cause analysis for recurring equipment failures?",
+    answer:
+      "We go far beyond delivering attractive visual plots; we convert fluid data into tangible structural outcomes. By leveraging advanced analytical techniques, our simulation experts diagnose hidden fluid-related issues — such as localized cavitation, flow-induced cracking, or severe thermal fatigue — to pinpoint the precise origins of recurring failures and recommend permanent, real-world engineering solutions.",
+  },
+  {
+    question: "Are your engineering simulation reports compliant with ASME, API, and BS industry standards?",
+    answer:
+      "Yes, strict code compliance is built into our analytical framework. We seamlessly align our sophisticated fluid dynamics and structural simulation results with established international engineering codes, including ASME, API, and BS. This guarantees comprehensive design validation and ensures that your products seamlessly clear strict industry regulations.",
+  },
+  {
+    question: "How can fluid flow optimization improve the efficiency of our process machinery and manifold networks?",
+    answer:
+      "Inefficient fluid flow leads to energy waste and excessive wear. Our flow optimization strategies pinpoint and eliminate dead zones, reduce unnecessary pressure drops, and streamline fluid pathways throughout intricate valves, ducts, and manifold networks. This translates to lower operating costs, enhanced system reliability, and maximized equipment efficiency.",
+  },
+  {
+    question: "Do you have expertise in multi-phase flow simulations for chemical reactors and rotating equipment?",
+    answer:
+      "Yes, we serve the process, chemical, and heavy engineering sectors with industry-recognized simulations that accurately map complicated fluid behaviors. We routinely model liquid-gas boundaries, cavitation, slurry transport, and intricate mixing processes across rotating equipment, cyclones, and industrial reactors to guarantee operational precision.",
+  },
+  {
+    question: "How do Multi-Body Dynamics (MBD) simulations validate the reliability of our moving assemblies?",
+    answer:
+      "Moving assemblies experience complex, real-world forces that static tests cannot capture. We calculate the precise, fluctuating accelerations, velocities, and joint forces experienced throughout standard operating cycles. By transferring these dynamic forces directly into subsequent fatigue and structural models, we achieve unparalleled physical accuracy, ensuring your assemblies can survive harsh operational demands.",
+  },
+  {
+    question: "How does ProSIM's global delivery model for engineering simulation accelerate our project timelines?",
+    answer:
+      "Leveraging our Indian-based premium simulation services gives you a highly competitive advantage. Our seasoned fluid dynamics experts excel at translating intricate analytical data into practical engineering choices. This global delivery framework ensures rapid turnaround times, scalable engineering support, and cost-effective solutions for your most mission-critical and time-sensitive engineering projects.",
+  },
+];
+
+export default function ComputationalFluidDynamics() {
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
     <main className="seismic-page">
-      <Breadcrumbs />
-
       {/* HERO */}
       <section className="sa-hero">
-        <div className="sa-container">
-        
-          <h1>CFD & Multi-Physics Simulation Services</h1>
-
-          <p>
-            Building on our established finite element analysis foundation, ProSIM provides cutting-edge multi-physics simulations and computational fluid dynamics solutions. As a leading provider in the simulation space, our expertise lies in unraveling complicated thermal-fluid dynamics alongside intricate structural interactions.
-          </p>
-
-          <p>
-            By leveraging our specialized engineering support, industrial clients can successfully boost product performance, meet strict industry regulations, and effectively avoid severe operational breakdowns. For companies seeking to accelerate their development cycles by outsourcing these simulations, we bring the necessary scale, deep technical knowledge, and rigorous analytical methods demanded by mission-critical engineering initiatives.
-          </p>
+        <div className="sa-hero-crumbs">
+          <Breadcrumbs />
         </div>
-      </section>
 
-      {/* NAVIGATION */}
-      <section className="sa-navigation">
-        <div className="sa-container">
-          <div className="sa-navigation-card">
-            <h2>CFD & Multi-Physics Simulation Services</h2>
+        <div className="sa-hero-inner">
+          <div className="sa-hero-text">
+           
+            <h1>
+              <span>CFD &amp; Multi-Physics</span> Simulation Services.
+            </h1>
 
-            <div className="sa-navigation-grid">
-              {navigationItems.map((item) => {
-                const Icon = item.icon;
+            <p>
+              Building on our established finite element analysis foundation,
+              ProSIM provides cutting-edge multi-physics simulations and
+              computational fluid dynamics solutions. Our expertise lies in
+              unraveling complicated thermal-fluid dynamics alongside intricate
+              structural interactions — helping industrial clients boost product
+              performance, meet strict industry regulations, and avoid severe
+              operational breakdowns.
+            </p>
 
-                return (
-                  <a
-                    href={`#${item.id}`}
-                    className="sa-navigation-link"
-                    key={item.id}
-                  >
-                    <div className="sa-navigation-item">
-                      <div className="sa-navigation-icon">
-                        <Icon size={25} strokeWidth={1.8} />
-                      </div>
+            {/* <p>
+              For companies seeking to accelerate their development cycles by
+              outsourcing these simulations, we bring the necessary scale, deep
+              technical knowledge, and rigorous analytical methods demanded by
+              mission-critical engineering initiatives.
+            </p> */}
+          </div>
 
-                      <h3>{item.title}</h3>
-
-                      <span>
-                        <ArrowUpRight size={20} strokeWidth={1.8} />
-                      </span>
-                    </div>
-                  </a>
-                );
-              })}
-            </div>
+          <div className="sa-hero-media">
+            <figure className="sa-hero-media-main">
+              <img
+                src={`${IMG}/1.png`}
+                alt="Computational fluid dynamics simulation result"
+                loading="eager"
+              />
+              <figcaption>CFD &amp; Multi-Physics</figcaption>
+            </figure>
+            <figure className="sa-hero-media-inset">
+              <img
+                src={`${IMG}/3.png`}
+                alt="Multi-physics thermal-structural detail"
+                loading="lazy"
+              />
+            </figure>
           </div>
         </div>
-      </section>
 
-      {/* INTRO */}
-      <section className="sa-intro">
-        <div className="sa-container">
-          <span className="sa-label">OUR EXPERTISE</span>
-
-          <h2>Specialized, Multidisciplinary Engineering Solutions</h2>
-
-          <p>
-            We offer a broad range of specialized, multidisciplinary engineering solutions, spanning from foundational flow evaluations to sophisticated multi-phase configurations and fully coupled multiphysics.
-          </p>
+        <div className="sa-hero-inner">
+          <div className="sa-hero-nav">
+            {heroNav.map((item) => (
+              <a href={`#${item.id}`} className="sa-hero-nav-button" key={item.id}>
+                {item.title}
+              </a>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* SERVICES */}
       <section className="sa-services">
         <div className="sa-container">
+          <section className="sa-intro">
+            <span className="sa-label">OUR EXPERTISE</span>
+
+            <h2>Specialized, Multidisciplinary Simulation Solutions</h2>
+
+            <p>
+              From CFD and fluid-structure interaction to damage and life
+              assessment, multi-body dynamics and fully coupled multiphysics,
+              ProSIM converts thermal-fluid data into real structural outcomes.
+            </p>
+          </section>
+
           <div className="sa-service-list">
-            {services.map((service, index) => {
-              const Icon = service.icon;
-
-              return (
-                <article
-                  className="sa-service-box"
-                  id={service.id}
-                  key={service.id}
-                >
-                  <div className="sa-service-top">
-                    <div className="sa-service-number">
-                      <span>{String(index + 1).padStart(2, "0")}</span>
-
-                      <div className="sa-service-icon">
-                        <Icon size={24} strokeWidth={1.8} />
-                      </div>
-                    </div>
-
-                    <ArrowUpRight
-                      className="sa-service-arrow"
-                      size={25}
-                      strokeWidth={1.8}
-                    />
+            {services.map((service, index) => (
+              <article className="sa-service-box" id={service.id} key={service.id}>
+                <div className="sa-service-top">
+                  <div className="sa-service-icon">
+                    {React.createElement(serviceIcons[index], {
+                      size: 25,
+                      strokeWidth: 1.8,
+                    })}
                   </div>
 
                   <h2>{service.title}</h2>
+                </div>
 
-                  <p>{service.description}</p>
+                <p>{service.description}</p>
 
-                  <ul>
-                    {service.points.map((point) => (
-                      <li key={point}>{point}</li>
-                    ))}
-                  </ul>
-
-                  {service.images && (
-                    <div
-                      className={`sa-gallery ${
-                        service.images.length === 1 ? "single" : ""
-                      }`}
-                    >
-                      {service.images.map((image) => (
-                        <div className="sa-gallery-card" key={image.src}>
-                          <img src={image.src} alt={image.alt} />
-                        </div>
-                      ))}
+                <div className="sa-point-grid">
+                  {service.points.map((point, i) => (
+                    <div className="sa-point-box" key={point.head ?? point.body}>
+                      <span className="sa-point-num">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <div className="sa-point-body">
+                        {point.head && <h4>{point.head}</h4>}
+                        <p>{point.body}</p>
+                      </div>
                     </div>
-                  )}
-                </article>
-              );
-            })}
+                  ))}
+                </div>
+
+                {service.images && (
+                  <div
+                    className={`sa-gallery ${
+                      service.images.length === 1 ? "single" : ""
+                    }`}
+                  >
+                    {service.images.map((image) => (
+                      <div className="sa-gallery-card" key={image.src}>
+                        <img src={image.src} alt={image.alt} />
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </article>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* ADVANTAGE */}
+      {/* CODE COMPLIANCE */}
+      <section className="sa-ssc" id="codes-standards">
+        <div className="sa-container">
+          <span className="sa-label">CODE COMPLIANCE</span>
+
+          <h2>Standards We Validate Against</h2>
+
+          <p className="sa-section-intro">
+            We seamlessly align our sophisticated fluid dynamics and structural
+            simulation results with established international engineering codes,
+            guaranteeing comprehensive design validation.
+          </p>
+
+          <div className="sa-table-wrapper">
+            <table className="sa-ssc-table">
+              <thead>
+                <tr>
+                  <th>Standard</th>
+                  <th>Where It Applies</th>
+                </tr>
+              </thead>
+              <tbody>
+                {codes.map((row) => (
+                  <tr key={row.area}>
+                    <td>{row.area}</td>
+                    <td>{row.detail}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      {/* WHY PROSIM */}
       <section className="sa-advantage">
         <div className="sa-container">
-          <span className="sa-label">WHY PROSIM</span>
+          <span className="sa-label">WHY PARTNER WITH PROSIM</span>
 
           <h2>Why Partner with ProSIM?</h2>
 
           <p className="sa-section-intro">
-            Organizations seeking reliable fluid dynamics analysis benefit from several unique advantages when partnering with ProSIM.
+            Organizations seeking reliable fluid dynamics analysis benefit from
+            several unique advantages — cross-domain expertise, rigorous root
+            cause analysis, and built-in code compliance.
           </p>
 
-          <div className="sa-advantage-list">
-            {advantages.map((item) => {
-              const Icon = item.icon;
-
-              return (
-                <div className="sa-advantage-box" key={item.number}>
-                  <span className="sa-advantage-number">{item.number}</span>
-
-                  <div className="sa-advantage-icon">
-                    <Icon size={22} strokeWidth={1.8} />
-                  </div>
-
-                  <div className="sa-advantage-content">
-                    <h3>{item.title}</h3>
-                    <p>{item.text}</p>
-                  </div>
-
-                  <ArrowUpRight size={23} strokeWidth={1.8} />
+          <div className="sa-adv-grid">
+            {advantages.map((item) => (
+              <div className="sa-adv-box" key={item.number}>
+                <span className="sa-adv-number">{item.number}</span>
+                <div className="sa-adv-body">
+                  <h3>{item.title}</h3>
+                  <p>{item.text}</p>
                 </div>
-              );
-            })}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* INDUSTRIES */}
+      <section className="sa-clients" id="industries">
+        <div className="sa-container">
+          <div className="sa-ind-head">
+            <span className="sa-label">INDUSTRIES &amp; VERTICALS WE SERVE</span>
+
+            <h2>Industries &amp; Verticals We Serve</h2>
+
+            <p>
+              Because our premium fluid dynamics and multi-physics capabilities
+              transcend specific markets, we consistently provide highly detailed
+              engineering insights across a wide array of industrial sectors.
+            </p>
+          </div>
+
+          <div className="sa-ind-layout">
+            <div className="sa-ind-main">
+              <div className="sa-ind-grid">
+                {industries.map((industry) => {
+                  const Icon = industry.icon;
+
+                  return (
+                    <div className="sa-ind-box" key={industry.title}>
+                      <span className="sa-ind-icon">
+                        <Icon size={20} strokeWidth={1.8} />
+                      </span>
+                      <strong>{industry.title}</strong>
+                      <p>{industry.body}</p>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            <div className="sa-ind-media">
+              <figure className="sa-ind-photo">
+                <img
+                  src={`${IMG}/4.png`}
+                  alt="Industrial fluid dynamics application"
+                  loading="lazy"
+                />
+              </figure>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* PROJECTS */}
+      <section className="sa-updates" id="projects">
+        <div className="sa-container">
+          <span className="sa-label">Projects</span>
+          <h2>CFD &amp; Multi-Physics Projects</h2>
+
+          <div className="sa-updates-grid">
+            {projects.map((item) => (
+              <div className="sa-update-card" key={item.title}>
+                <div className="sa-update-image">
+                  <span className="sa-update-tag">{item.tag}</span>
+                  <img src={item.image} alt={item.title} />
+                </div>
+                <div className="sa-update-content">
+                  <span className="sa-update-date">{item.date}</span>
+                  <h3>{item.title}</h3>
+                  <p>{item.description}</p>
+                  <a href="#faq-cfd-multiphysics" className="sa-update-link">
+                    Read More &rarr;
+                  </a>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -368,13 +595,9 @@ export default function CFDPage() {
       <section className="sa-faq" id="faq-cfd-multiphysics">
         <div className="sa-container">
           <div className="sa-faq-heading">
-            <span className="sa-label">FAQ</span>
+            <span className="sa-label">FAQ&apos;s</span>
 
-            <h2>Frequently Asked Questions</h2>
-
-            <p>
-              Find answers to common questions about our CFD and multi-physics simulation services.
-            </p>
+            <h2>CFD &amp; Multi-Physics FAQs</h2>
           </div>
 
           <div className="sa-faq-list">
@@ -389,9 +612,8 @@ export default function CFDPage() {
                   <button
                     type="button"
                     className="sa-faq-question"
-                    onClick={() => toggleFaq(index)}
+                    onClick={() => setOpenFaq(isOpen ? null : index)}
                     aria-expanded={isOpen}
-                    aria-controls={`cfd-faq-answer-${index}`}
                   >
                     <span className="sa-faq-number">
                       {String(index + 1).padStart(2, "0")}
@@ -408,11 +630,7 @@ export default function CFDPage() {
                     </span>
                   </button>
 
-                  <div
-                    id={`cfd-faq-answer-${index}`}
-                    className={`sa-faq-answer ${isOpen ? "show" : ""}`}
-                    aria-hidden={!isOpen}
-                  >
+                  <div className={`sa-faq-answer ${isOpen ? "show" : ""}`}>
                     <div>
                       <p>{faq.answer}</p>
                     </div>
@@ -420,6 +638,44 @@ export default function CFDPage() {
                 </div>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* BLOGS */}
+      <section className="sa-blogs" id="blogs">
+        <div className="sa-container">
+          <span className="sa-label">Blog</span>
+          <h2>Insights from Our Fluid Dynamics Desk</h2>
+          <p className="sa-section-intro">
+            Technical explainers and case notes on FSI, conjugate heat transfer,
+            multi-phase flow, CFD-to-fatigue mapping, multi-body dynamics and
+            coupled multiphysics.
+          </p>
+        </div>
+
+        <div className="sa-blogs-marquee">
+          <div className="sa-blogs-track">
+            {[...blogPosts, ...blogPosts].map((post, index) => (
+              <article
+                className="sa-blog-card"
+                key={index}
+                aria-hidden={index >= blogPosts.length}
+              >
+                <div className="sa-blog-image">
+                  <img src={post.image} alt={post.title} loading="lazy" />
+                </div>
+                <div className="sa-blog-body">
+                  <h3>{post.title}</h3>
+                  <p>{post.excerpt}</p>
+                  <ul>
+                    {post.topics.map((topic) => (
+                      <li key={topic}>{topic}</li>
+                    ))}
+                  </ul>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
