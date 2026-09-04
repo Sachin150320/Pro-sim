@@ -67,21 +67,18 @@ export default function EventsSection() {
             <div className="event-featured-card">
               <div className="event-image-box">
                 <img
-                  src="/assets/images/project/1.jpg"
+                  src="/assets/images/project/5.jpg"
                   alt="Fitness-for-Service Assessment of a Pipeline During Lifting Operations"
                 />
                 <div className="event-badge">FEATURED</div>
               </div>
               <div className="event-content-box">
-                <span className="event-date">Duration · 6 Months</span>
+             
                 <h3 className="event-heading">
-                  Fitness-for-Service Assessment of a Pipeline During Lifting Operations
+                  Pipe Stress Analysis of a 40 MLD Desalination Plant
                 </h3>
                 <p className="event-text">
-                  Fitness-for-Service assessment of a live pipeline affected by Corrosion Under Pipe
-                  Support (CUPS), validating structural integrity during a 50 mm lift for UT
-                  inspection — with reusable lifting guidelines for multiple pipe sizes and
-                  configurations.
+                  Pipe stress analysis of critical piping systems under operating and environmental loads for a 40 MLD desalination plant, ensuring piping integrity, safety and code compliance to support safe and reliable plant execution.
                 </p>
                 <a href="#read-more" className="event-read-more">
                   Read More <span>→</span>
@@ -100,7 +97,7 @@ export default function EventsSection() {
                     <span className="event-tag">{ev.category}</span>
                   </div>
                   <div className="event-row-content">
-                    <span className="event-date">{ev.date}</span>
+                   
                     <h4 className="event-row-title">{ev.title}</h4>
                     {ev.location && <p className="event-location">{ev.location}</p>}
                     <p className="event-text-short">{ev.description}</p>
