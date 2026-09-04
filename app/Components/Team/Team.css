@@ -153,6 +153,33 @@
   color: var(--tm-red);
 }
 
+.tm-card-social {
+  display: flex;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.tm-card-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  border: 1px solid var(--tm-border);
+  background: #fff;
+  color: var(--tm-text);
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.tm-card-social a:hover {
+  background: var(--tm-red);
+  border-color: var(--tm-red);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
 /* ---- bottom ---- */
 .tm-bottom {
   padding: 70px 0 84px;
