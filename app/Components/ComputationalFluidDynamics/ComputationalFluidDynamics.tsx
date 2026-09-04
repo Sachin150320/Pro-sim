@@ -136,12 +136,6 @@ const advantages = [
   },
 ];
 
-const codes = [
-  { area: "ASME", detail: "Boiler & Pressure Vessel and piping design validation." },
-  { area: "API", detail: "American Petroleum Institute standards for oil, gas and refining assets." },
-  { area: "BS", detail: "British Standards for structural and pressure equipment design." },
-];
-
 const industries = [
   {
     icon: Fuel,
@@ -177,52 +171,44 @@ const industries = [
 
 const projects = [
   {
-    tag: "FSI",
-    date: "Oil & Gas · Offshore",
-    title: "Acoustic-Induced Vibration Study of a Relief Header",
+    tag: "OIL & GAS",
+    date: "Duration · 6 Months",
+    title: "Fitness-for-Service Assessment of a Pipeline During Lifting Operations",
     description:
-      "ANSYS Fluent FSI model quantifying flow- and acoustic-induced vibration on a flare relief header, driving support and small-bore connection changes.",
-    image: `${IMG}/1.png`,
+      "Fitness-for-Service assessment of a live pipeline affected by Corrosion Under Pipe Support (CUPS), validating structural integrity during a 50 mm lift for UT inspection. Reusable lifting guidelines were developed defining safe criteria for multiple pipe sizes and configurations.",
+    image: "/assets/images/project/1.jpg",
   },
   {
-    tag: "CONJUGATE HEAT TRANSFER",
-    date: "Power Generation",
-    title: "Thermal Shock Analysis of a Heat Exchanger",
+    tag: "OIL & GAS",
+    date: "Duration · 6 Weeks",
+    title: "Pipe Stress Analysis of a 44-inch Incinerator Line",
     description:
-      "Conjugate heat transfer and transient thermal-stress evaluation of a shell-and-tube exchanger subjected to rapid load-change thermal shocks.",
-    image: `${IMG}/2.png`,
+      "Static and dynamic pipe stress analysis validating a proposed incinerator piping design modification, enabling the customer to approve and proceed with site modifications while improving incinerator efficiency and minimising the risk of future operational failures.",
+    image: "/assets/images/project/2.jpg",
   },
   {
-    tag: "MULTI-PHASE FLOW",
-    date: "Process & Chemical",
-    title: "Cavitation & Slurry Erosion in a Control Valve",
+    tag: "RENEWABLE ENERGY",
+    date: "Duration · 5 Weeks",
+    title: "FEA of a Wind Turbine Generator (WTG) Transformer",
     description:
-      "Multi-phase CFD mapping cavitation onset and slurry-driven erosion hotspots across a severe-service control valve trim.",
-    image: `${IMG}/3.png`,
+      "FEA-based structural validation of a WTG transformer under transportation, lifting and extreme-wind acceleration loads. Critical stress regions were identified and the lifting arrangement, tie-down configuration and weld design were optimised for a manufacturing-ready design.",
+    image: "/assets/images/project/3.jpg",
   },
   {
-    tag: "COUPLED MULTIPHYSICS",
-    date: "Automotive · EV",
-    title: "Battery Pack Thermal Management Optimization",
+    tag: "NUCLEAR",
+    date: "Duration · 5 Weeks",
+    title: "Seismic Qualification of a 3.2 MW Induction Motor for a CCW Pump",
     description:
-      "Coupled electro-thermal-flow simulation of an EV battery pack cooling circuit to level cell temperatures and cut peak gradients.",
-    image: `${IMG}/4.png`,
+      "Equipment qualification for Operating Basis Earthquake (OBE) loading, giving the customer the confidence to release the motor for manufacturing and supply it to a nuclear power plant site — a decision that could not be made without seismic qualification proof.",
+    image: "/assets/images/project/4.jpg",
   },
   {
-    tag: "MBD + FEA",
-    date: "Heavy Engineering",
-    title: "Dynamic Load Extraction for a Crane Slew Mechanism",
+    tag: "WATER",
+    date: "Duration · 6 Months",
+    title: "Pipe Stress Analysis of a 40 MLD Desalination Plant",
     description:
-      "Multi-body dynamics run extracting fluctuating joint forces across operating cycles, transferred into a fatigue model for the slew ring.",
-    image: `${IMG}/1.png`,
-  },
-  {
-    tag: "FRACTURE / FFS",
-    date: "Refinery",
-    title: "Fitness-for-Service of a Cracked Pressure Vessel Nozzle",
-    description:
-      "Crack-initiation and growth modelling with an FFS assessment to establish safe operating limits and a re-inspection interval.",
-    image: `${IMG}/2.png`,
+      "Pipe stress analysis of critical piping systems under operating and environmental loads for a 40 MLD desalination plant, ensuring piping integrity, safety and code compliance to support safe and reliable plant execution.",
+    image: "/assets/images/project/5.jpg",
   },
 ];
 
@@ -456,40 +442,6 @@ export default function ComputationalFluidDynamics() {
         </div>
       </section>
 
-      {/* CODE COMPLIANCE */}
-      <section className="sa-ssc" id="codes-standards">
-        <div className="sa-container">
-          <span className="sa-label">CODE COMPLIANCE</span>
-
-          <h2>Standards We Validate Against</h2>
-
-          <p className="sa-section-intro">
-            We seamlessly align our sophisticated fluid dynamics and structural
-            simulation results with established international engineering codes,
-            guaranteeing comprehensive design validation.
-          </p>
-
-          <div className="sa-table-wrapper">
-            <table className="sa-ssc-table">
-              <thead>
-                <tr>
-                  <th>Standard</th>
-                  <th>Where It Applies</th>
-                </tr>
-              </thead>
-              <tbody>
-                {codes.map((row) => (
-                  <tr key={row.area}>
-                    <td>{row.area}</td>
-                    <td>{row.detail}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
       {/* WHY PROSIM */}
       <section className="sa-advantage">
         <div className="sa-container">
@@ -544,7 +496,6 @@ export default function ComputationalFluidDynamics() {
                         <Icon size={20} strokeWidth={1.8} />
                       </span>
                       <strong>{industry.title}</strong>
-                      <p>{industry.body}</p>
                     </div>
                   );
                 })}

@@ -8,32 +8,35 @@ export default function EventsSection() {
   const secondaryEvents = [
     {
       id: 1,
-      category: "WEBINAR",
-      title: "The Role Of ISO 19443 In Supporting India's Expanding Nuclear Energy Program",
-      date: "Apr 17, 2026",
-      description: "The nuclear energy sector in India is expected to grow multifold...",
-      image: "/assets/images/portfolio/modern/1.webp",
+      category: "OIL & GAS",
+      title: "Pipe Stress Analysis of a 44-inch Incinerator Line",
+      date: "Duration · 6 Weeks",
+      description:
+        "Static and dynamic pipe stress analysis validating a proposed incinerator piping design modification, enabling the customer to approve and proceed with site modifications while improving efficiency.",
+      image: "/assets/images/project/2.jpg",
       linkText: "Read More →",
     },
     {
       id: 2,
-      category: "CONFERENCE",
-      title: "India Nuclear Energy Forum 2026",
-      date: "Jan 30, 2026",
-      location: "29-30 May 2026, IIT-Bombay, Mumbai 2026",
-      image: "/assets/images/portfolio/modern/2.webp",
+      category: "RENEWABLE ENERGY",
+      title: "FEA of a Wind Turbine Generator (WTG) Transformer",
+      date: "Duration · 5 Weeks",
+      description:
+        "FEA-based structural validation under transportation, lifting and extreme-wind loads, with optimised lifting arrangement, tie-down configuration and weld design.",
+      image: "/assets/images/project/3.jpg",
       linkText: "Read More →",
     },
     {
       id: 3,
-      category: "CONFERENCE",
-      title: "India Nuclear Energy Forum 2026",
-      date: "Jan 30, 2026",
-      location: "29-30 May 2026, IIT-Bombay, Mumbai 2026",
-      image: "/assets/images/portfolio/modern/4.webp",
+      category: "NUCLEAR",
+      title: "Seismic Qualification of a 3.2 MW Induction Motor for a CCW Pump",
+      date: "Duration · 5 Weeks",
+      description:
+        "Equipment qualification for Operating Basis Earthquake (OBE) loading, enabling the customer to release the motor for manufacturing and supply it to a nuclear power plant site.",
+      image: "/assets/images/project/4.jpg",
       linkText: "Read More →",
     },
-  
+    
   ];
 
   return (
@@ -64,16 +67,21 @@ export default function EventsSection() {
             <div className="event-featured-card">
               <div className="event-image-box">
                 <img
-                  src="/assets/images/portfolio/modern/3.webp"
-                  alt="Simulators For Nuclear Power Plants"
+                  src="/assets/images/project/1.jpg"
+                  alt="Fitness-for-Service Assessment of a Pipeline During Lifting Operations"
                 />
                 <div className="event-badge">FEATURED</div>
               </div>
               <div className="event-content-box">
-                <span className="event-date">Apr 17, 2026</span>
-                <h3 className="event-heading">Simulators For Nuclear Power Plants</h3>
+                <span className="event-date">Duration · 6 Months</span>
+                <h3 className="event-heading">
+                  Fitness-for-Service Assessment of a Pipeline During Lifting Operations
+                </h3>
                 <p className="event-text">
-                  Get IIT Bombay-training program on simulator for nuclear power plant-15 to 17 april ...
+                  Fitness-for-Service assessment of a live pipeline affected by Corrosion Under Pipe
+                  Support (CUPS), validating structural integrity during a 50 mm lift for UT
+                  inspection — with reusable lifting guidelines for multiple pipe sizes and
+                  configurations.
                 </p>
                 <a href="#read-more" className="event-read-more">
                   Read More <span>→</span>

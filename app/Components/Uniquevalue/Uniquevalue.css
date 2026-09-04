@@ -82,15 +82,12 @@
 ===================================================== */
 
 .uvp-image {
-  position: relative;
-
-  min-height: 650px;
-
-  overflow: hidden;
-
-  background: #172b3a;
+    border-radius: 15px;
+    /* background: #172b3a; */
+    /* min-height: 650px; */
+    position: relative;
+    overflow: hidden;
 }
-
 .uvp-image img {
   object-fit: cover;
 

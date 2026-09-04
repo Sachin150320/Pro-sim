@@ -252,46 +252,44 @@ const disciplineItems = [
 // Add this array alongside your other data arrays
 const latestUpdates = [
   {
-    tag: "INSIGHT",
-    date: "Jan 30, 2026",
-    title: "Advanced Piping Stress Analysis Techniques",
-    description: "Exploring thermal expansion, seismic considerations and dynamic loads.",
-    image: "/assets/images/portfolio/modern/2.webp",
+    tag: "OIL & GAS",
+    date: "Duration · 6 Months",
+    title: "Fitness-for-Service Assessment of a Pipeline During Lifting Operations",
+    description:
+      "Fitness-for-Service assessment of a live pipeline affected by Corrosion Under Pipe Support (CUPS), validating structural integrity during a 50 mm lift for UT inspection. Reusable lifting guidelines were developed defining safe criteria for multiple pipe sizes and configurations.",
+    image: "/assets/images/project/1.jpg",
   },
   {
-    tag: "WEBINAR",
-    date: "Feb 12, 2026",
-    title: "Optimizing Plant CAPEX with 3D Modelling",
-    description: "How clash-free multi-disciplinary models eliminate costly field reworks.",
-    image: "/assets/images/portfolio/modern/1.webp",
+    tag: "OIL & GAS",
+    date: "Duration · 6 Weeks",
+    title: "Pipe Stress Analysis of a 44-inch Incinerator Line",
+    description:
+      "Static and dynamic pipe stress analysis validating a proposed incinerator piping design modification, enabling the customer to approve and proceed with site modifications while improving incinerator efficiency and minimising the risk of future operational failures.",
+    image: "/assets/images/project/2.jpg",
   },
   {
-    tag: "CASE STUDY",
-    date: "Feb 28, 2026",
-    title: "Refinery P&ID and Hydraulic Validation",
-    description: "A comprehensive review of fluid system safety and flow assurance.",
-    image: "/assets/images/portfolio/modern/3.webp",
+    tag: "RENEWABLE ENERGY",
+    date: "Duration · 5 Weeks",
+    title: "FEA of a Wind Turbine Generator (WTG) Transformer",
+    description:
+      "FEA-based structural validation of a WTG transformer under transportation, lifting and extreme-wind acceleration loads. Critical stress regions were identified and the lifting arrangement, tie-down configuration and weld design were optimised for a manufacturing-ready design.",
+    image: "/assets/images/project/3.jpg",
   },
   {
-    tag: "WHITEPAPER",
-    date: "Mar 10, 2026",
-    title: "ASME & API Codes in Pressure Vessel Design",
-    description: "Ensuring compliance and structural integrity in static equipment.",
-    image: "/assets/images/portfolio/modern/1.webp",
+    tag: "NUCLEAR",
+    date: "Duration · 5 Weeks",
+    title: "Seismic Qualification of a 3.2 MW Induction Motor for a CCW Pump",
+    description:
+      "Equipment qualification for Operating Basis Earthquake (OBE) loading, giving the customer the confidence to release the motor for manufacturing and supply it to a nuclear power plant site — a decision that could not be made without seismic qualification proof.",
+    image: "/assets/images/project/4.jpg",
   },
   {
-    tag: "ARTICLE",
-    date: "Mar 22, 2026",
-    title: "Electrical Load Pooling & Safety Systems",
-    description: "Designing robust power distribution architectures for process plants.",
-    image: "/assets/images/portfolio/modern/2.webp",
-  },
-  {
-    tag: "CONFERENCE",
-    date: "May 29, 2026",
-    title: "India Nuclear Energy Forum 2026",
-    description: "29–30 May 2026, IIT-Bombay, Mumbai 2026",
-    image: "/assets/images/portfolio/modern/3.webp",
+    tag: "WATER",
+    date: "Duration · 6 Months",
+    title: "Pipe Stress Analysis of a 40 MLD Desalination Plant",
+    description:
+      "Pipe stress analysis of critical piping systems under operating and environmental loads for a 40 MLD desalination plant, ensuring piping integrity, safety and code compliance to support safe and reliable plant execution.",
+    image: "/assets/images/project/5.jpg",
   },
 ];
 const blogPosts = [
@@ -382,8 +380,7 @@ export default function DetailedEngineering() {
 
         <div className="sa-hero-inner">
           <div className="sa-hero-text">
-            <span className="sa-hero-eyebrow">Detailed Engineering</span>
-
+          
             <h1>
               <span>Detailed Engineering</span> Services.
             </h1>

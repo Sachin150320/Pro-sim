@@ -4,11 +4,11 @@
 import React, { useEffect, useState } from "react";
 import ScrollAnimation from "@/app/Components/ScrollAnimation";
 import "./Gallery.css";
-import Breadcrumbs from "@/app/Components/Breadcrumbs/Breadcrumbs";
+import CrumbBanner from "@/app/Components/CrumbBanner/CrumbBanner";
 const galleryData = [
   {
     id: 1,
-    image: "https://www.pro-sim.com/new-img/gal4.jpg",
+    image: "/assets/images/Gallery/gal4.jpg",
     title: "ProSIM Team Tree Planting",
     description:
       "The ProSIM team is actively involved in tree planting as part of our commitment to environmental sustainability and the cause of a greener planet.",
@@ -16,17 +16,17 @@ const galleryData = [
   },
   {
     id: 2,
-    image: "https://www.pro-sim.com/new-img/gal2.jpg",
+    image: "/assets/images/Gallery/gal2.jpg",
     title: "Environmental Sustainability",
   },
   {
     id: 3,
-    image: "https://www.pro-sim.com/new-img/gal3.jpg",
+    image: "/assets/images/Gallery/gal3.jpg",
     title: "Greener Planet Initiative",
   },
   {
     id: 4,
-    image: "https://www.pro-sim.com/new-img/gal-05.jpg",
+    image: "/assets/images/Gallery/gal-05.jpg",
     title: "CORDEL Workshop – World Nuclear Association",
     description:
       "ProSIM contributes to the Nuclear Design Code Harmonization efforts by World Nuclear Association.",
@@ -34,7 +34,7 @@ const galleryData = [
   },
   {
     id: 5,
-    image: "https://www.pro-sim.com/new-img/gal-06.jpg",
+    image: "/assets/images/Gallery/gal-06.jpg",
     title: "FRAMATOME Factory Visit",
     description:
       "Dr Shamasundar, ProSIM, visited the factories of FRAMATOME at St. Marcel and Le Creusot in France, along with select delegates of the CORDEL workshop.",
@@ -42,52 +42,52 @@ const galleryData = [
   },
   {
     id: 6,
-    image: "https://www.pro-sim.com/new-img/gallery-01.jpg",
+    image: "/assets/images/Gallery/gallery-01.jpg",
     title: "ProSIM Gallery",
   },
   {
     id: 7,
-    image: "https://www.pro-sim.com/new-img/gallery-02.jpg",
+    image: "/assets/images/Gallery/gallery-02.jpg",
     title: "ProSIM Gallery",
   },
   {
     id: 8,
-    image: "https://www.pro-sim.com/new-img/gallery-03.jpg",
+    image: "/assets/images/Gallery/gallery-03.jpg",
     title: "ProSIM Gallery",
   },
   {
     id: 9,
-    image: "https://www.pro-sim.com/new-img/gallery-04.jpg",
+    image: "/assets/images/Gallery/gallery-04.jpg",
     title: "ProSIM Gallery",
   },
   {
     id: 10,
-    image: "https://www.pro-sim.com/new-img/gallery-05.jpg",
+    image: "/assets/images/Gallery/gallery-05.jpg",
     title: "ProSIM Gallery",
   },
   {
     id: 11,
-    image: "https://www.pro-sim.com/new-img/gallery-06.jpg",
+    image: "/assets/images/Gallery/gallery-06.jpg",
     title: "ProSIM Gallery",
   },
   {
     id: 12,
-    image: "https://www.pro-sim.com/new-img/gallery-07.jpg",
+    image: "/assets/images/Gallery/gallery-07.jpg",
     title: "ProSIM Gallery",
   },
   {
     id: 13,
-    image: "https://www.pro-sim.com/new-img/gallery-08.jpg",
+    image: "/assets/images/Gallery/gallery-08.jpg",
     title: "ProSIM Gallery",
   },
   {
     id: 14,
-    image: "https://www.pro-sim.com/new-img/gallery-09.jpg",
+    image: "/assets/images/Gallery/gallery-09.jpg",
     title: "ProSIM Gallery",
   },
   {
     id: 15,
-    image: "https://www.pro-sim.com/new-img/gallery-10.jpg",
+    image: "/assets/images/Gallery/gallery-10.jpg",
     title: "ProSIM Gallery",
   },
 ];
@@ -127,12 +127,16 @@ export default function Gallery() {
 
   return (
     <>
+      {/* Breadcrumb */}
+      <CrumbBanner
+        title="Gallery"
+        subtitle="Moments from ProSIM — events, factory visits, workshops and community initiatives."
+        image="/assets/images/about/prosim_enhanced.png"
+        imageInset="/assets/images/about/1.webp"
+        imageCaption="ProSIM moments"
+      />
+
       <section className="ps-gallery-section">
-         {/* Breadcrumb */}
-        
-              <Breadcrumbs />
-        
-        
         <div className="ps-gallery-container">
 
           {/* HEADER */}

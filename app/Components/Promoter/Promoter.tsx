@@ -11,7 +11,7 @@ import {
     Users,
 } from "lucide-react";
 
-import Breadcrumbs from "@/app/Components/Breadcrumbs/Breadcrumbs";
+import CrumbBanner from "@/app/Components/CrumbBanner/CrumbBanner";
 import "./Promoter.css";
 
 export default function Promoter() {
@@ -26,7 +26,13 @@ export default function Promoter() {
     return (
         <main>
             {/* Breadcrumb */}
-            <Breadcrumbs />
+            <CrumbBanner
+                title="Promoter"
+                subtitle="Dr. S. Shamasundar — Promoter and Managing Director of ProSIM R&D, and the research vision behind the company."
+                image="/assets/images/about/prosim_enhanced.png"
+                imageInset="/assets/images/about/1.webp"
+                imageCaption="Leadership"
+            />
 
 
             {/* Profile */}
@@ -75,7 +81,7 @@ export default function Promoter() {
                         <div className="promoter-image-wrap">
                             <div className="promoter-image">
                                 <img
-                                    src="/images/about/img2.jpg"
+                                    src="/assets/images/about/4.jpg"
                                     alt="Dr. S. Shamasundar"
                                 />
                             </div>

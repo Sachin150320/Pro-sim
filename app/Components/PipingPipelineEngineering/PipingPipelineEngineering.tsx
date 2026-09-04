@@ -2,20 +2,7 @@
 
 import React, { useState } from "react";
 import Breadcrumbs from "@/app/Components/Breadcrumbs/Breadcrumbs";
-import {
-  Cog,
-  Wrench,
-  Boxes,
-  Building2,
-  Zap,
-  Fuel,
-  FlaskConical,
-  Flame,
-  Atom,
-  Leaf,
-  Plus,
-  Minus,
-} from "lucide-react";
+import { Cog, Wrench, Boxes, Building2, Zap, Plus, Minus } from "lucide-react";
 import "./PipingPipelineEngineering.css";
 
 const IMG = "/assets/images/industries/Piping-&-Pipeline-Engineering-Services";
@@ -156,26 +143,6 @@ const heroNav = [
   { title: "Technical Mastery & Codes", id: "code-compliance" },
 ];
 
-const technicalMastery = [
-  {
-    area: "Industry-Standard Software",
-    detail: "CAESAR-II, CAEPIPE and PEPS (PIPESTRESS) for 1D pipe stress and flexibility analysis.",
-  },
-  {
-    area: "Advanced Sub-Modeling",
-    detail:
-      "Integration of 1D piping models with localized 3D FEA models built in ABAQUS and ANSYS, linked via a mathematically precise, proprietary sub-modeling technique.",
-  },
-  {
-    area: "ASME Codes",
-    detail: "ASME B&PV Codes, B31.1 Power Piping, B31.2 Fuel Gas Piping and B31.3 Process Piping.",
-  },
-  {
-    area: "International Codes",
-    detail: "IS, EN, ISO, RCC, API and DNVGL standards for global code conversion.",
-  },
-];
-
 const advantages = [
   {
     number: "01",
@@ -194,64 +161,46 @@ const advantages = [
   },
 ];
 
-const industries = [
-  "Onshore & Offshore Oil & Gas",
-  "Chemical Processing",
-  "Thermal Power",
-  "Nuclear Energy",
-  "Bioenergy",
-];
-
-const industryIcons = [Fuel, FlaskConical, Flame, Atom, Leaf];
-
 const projects = [
   {
-    tag: "PIPE STRESS",
-    date: "EPC · Gulf Region",
-    title: "CAESAR-II Stress Analysis — High-Temperature Process Header",
+    tag: "OIL & GAS",
+    date: "Duration · 6 Months",
+    title: "Fitness-for-Service Assessment of a Pipeline During Lifting Operations",
     description:
-      "Static and dynamic qualification of a high-temperature process header against thermal, sustained and occasional loads, with optimized support and anchorage design.",
-    image: `${IMG}/1.png`,
+      "Fitness-for-Service assessment of a live pipeline affected by Corrosion Under Pipe Support (CUPS), validating structural integrity during a 50 mm lift for UT inspection. Reusable lifting guidelines were developed defining safe criteria for multiple pipe sizes and configurations.",
+    image: "/assets/images/project/1.jpg",
   },
   {
-    tag: "PIPELINE",
-    date: "Offshore Operator",
-    title: "DNVGL Code Qualification — Subsea Gas Pipeline",
+    tag: "OIL & GAS",
+    date: "Duration · 6 Weeks",
+    title: "Pipe Stress Analysis of a 44-inch Incinerator Line",
     description:
-      "Full pipeline checking and code qualification of a subsea natural gas line to DNVGL standards, including Design Basis Report authoring and review.",
-    image: `${IMG}/2.png`,
+      "Static and dynamic pipe stress analysis validating a proposed incinerator piping design modification, enabling the customer to approve and proceed with site modifications while improving incinerator efficiency and minimising the risk of future operational failures.",
+    image: "/assets/images/project/2.jpg",
   },
   {
-    tag: "3D FEA SUB-MODELING",
-    date: "Chemical Processor",
-    title: "ABAQUS Sub-Model of a Complex Nozzle-to-Shell Junction",
+    tag: "RENEWABLE ENERGY",
+    date: "Duration · 5 Weeks",
+    title: "FEA of a Wind Turbine Generator (WTG) Transformer",
     description:
-      "Localized 3D FEA sub-model linked to the 1D CAESAR-II model to resolve peak stresses at a critical nozzle junction that standard software could not qualify.",
-    image: `${IMG}/3.png`,
+      "FEA-based structural validation of a WTG transformer under transportation, lifting and extreme-wind acceleration loads. Critical stress regions were identified and the lifting arrangement, tie-down configuration and weld design were optimised for a manufacturing-ready design.",
+    image: "/assets/images/project/3.jpg",
   },
   {
-    tag: "FITNESS-FOR-SERVICE",
-    date: "Refinery Turnaround",
-    title: "FFS & Remaining Life Assessment of Ageing Pipe Racks",
+    tag: "NUCLEAR",
+    date: "Duration · 5 Weeks",
+    title: "Seismic Qualification of a 3.2 MW Induction Motor for a CCW Pump",
     description:
-      "Fitness-for-Service review, Remaining Life Assessment and Engineering Critical Analysis delivering repair-reuse-retire recommendations for corroded rack piping.",
-    image: `${IMG}/4.png`,
+      "Equipment qualification for Operating Basis Earthquake (OBE) loading, giving the customer the confidence to release the motor for manufacturing and supply it to a nuclear power plant site — a decision that could not be made without seismic qualification proof.",
+    image: "/assets/images/project/4.jpg",
   },
   {
-    tag: "DETAILED ENGINEERING",
-    date: "Bioenergy Plant",
-    title: "Skid-Mounted Piping Package — Layout & Isometrics",
+    tag: "WATER",
+    date: "Duration · 6 Months",
+    title: "Pipe Stress Analysis of a 40 MLD Desalination Plant",
     description:
-      "Modular skid piping design with optimized routing, 3D model, MTO/BoQ extraction and construction-ready isometric and GA drawings.",
-    image: `${IMG}/5.png`,
-  },
-  {
-    tag: "DYNAMIC ANALYSIS",
-    date: "Thermal Power Utility",
-    title: "Steam Hammer & Vibration Study — Main Steam Lines",
-    description:
-      "Transient dynamic analysis of steam hammer events and flow-induced vibration on main steam lines, with snubber and support re-engineering.",
-    image: `${IMG}/1.png`,
+      "Pipe stress analysis of critical piping systems under operating and environmental loads for a 40 MLD desalination plant, ensuring piping integrity, safety and code compliance to support safe and reliable plant execution.",
+    image: "/assets/images/project/5.jpg",
   },
 ];
 
@@ -499,40 +448,6 @@ export default function PipingPipelineEngineering() {
         </div>
       </section>
 
-      {/* TECHNICAL MASTERY */}
-      <section className="sa-ssc" id="technical-mastery">
-        <div className="sa-container">
-          <span className="sa-label">TECHNICAL MASTERY</span>
-
-          <h2>Advanced Analysis, Software &amp; Global Codes</h2>
-
-          <p className="sa-section-intro">
-            ProSIM connects advanced 3D Finite Element Analysis with conventional
-            1D piping software to solve exceptionally complex engineering
-            challenges.
-          </p>
-
-          <div className="sa-table-wrapper">
-            <table className="sa-ssc-table">
-              <thead>
-                <tr>
-                  <th>Technical Area</th>
-                  <th>Capabilities</th>
-                </tr>
-              </thead>
-              <tbody>
-                {technicalMastery.map((row) => (
-                  <tr key={row.area}>
-                    <td>{row.area}</td>
-                    <td>{row.detail}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
       {/* WHY PROSIM */}
       <section className="sa-advantage">
         <div className="sa-container">
@@ -555,51 +470,6 @@ export default function PipingPipelineEngineering() {
                 </div>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* INDUSTRIES */}
-      <section className="sa-clients" id="industries">
-        <div className="sa-container">
-          <div className="sa-ind-head">
-            <span className="sa-label">INDUSTRIES WE SERVE</span>
-
-            <h2>Industries We Serve</h2>
-
-            <p>
-              We deliver complete consulting solutions tailored for high-stakes
-              sectors, backed by deep, proven expertise in each domain.
-            </p>
-          </div>
-
-          <div className="sa-ind-layout">
-            <div className="sa-ind-main">
-              <div className="sa-ind-grid">
-                {industries.map((industry, index) => {
-                  const Icon = industryIcons[index];
-
-                  return (
-                    <div className="sa-ind-box" key={industry}>
-                      <span className="sa-ind-icon">
-                        <Icon size={20} strokeWidth={1.8} />
-                      </span>
-                      <strong>{industry}</strong>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-
-            <div className="sa-ind-media">
-              <figure className="sa-ind-photo">
-                <img
-                  src={`${IMG}/4.png`}
-                  alt="Process plant piping infrastructure"
-                  loading="lazy"
-                />
-              </figure>
-            </div>
           </div>
         </div>
       </section>

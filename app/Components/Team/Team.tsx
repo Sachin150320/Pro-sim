@@ -1,336 +1,124 @@
-
 "use client";
 
 import { useEffect, useRef } from "react";
-import Image from "next/image";
-import Breadcrumbs from "@/app/Components/Breadcrumbs/Breadcrumbs";
+import CrumbBanner from "@/app/Components/CrumbBanner/CrumbBanner";
 import "./Team.css";
 
-const management = [
-  {
-    image: "/images/team/5.png",
-    name: "Sandeep PS",
-    role: "Senior Manager - BD",
-  },
-  {
-    image: "/images/team/11.png",
-    name: "Prathik JP",
-    role: "Dy Manager Pre Sales",
-  },
-  {
-    image: "/images/team/6.png",
-    name: "Harsharaj S Ankalkoti",
-    role: "Delivery Head",
-  },
-  {
-    image: "/images/team/12.png",
-    name: "Vishwajeet Raj",
-    role: "Team Lead - FEA",
-  },
-  {
-    image: "/images/team/7.png",
-    name: "Ganesh Bharadwaj H S",
-    role: "Head Of Dept - Piping",
-  },
-  {
-    image: "/images/team/13.png",
-    name: "Sagar S",
-    role: "Team Lead - Piping",
-  },
-  {
-    image: "/images/team/8.png",
-    name: "Srikanth G",
-    role: "Project Manager",
-  },
-  {
-    image: "/images/team/14.png",
-    name: "Shane Stuart",
-    role: "Team Lead - FEA",
-  },
-  {
-    image: "/images/team/9.png",
-    name: "Santosh Mankani",
-    role: "Project Manager",
-  },
-  {
-    image: "/images/team/15.png",
-    name: "Benith Kumar",
-    role: "Team Lead - Piping",
-  },
-  {
-    image: "/images/team/10.png",
-    name: "Shivakumar Hadagali",
-    role: "Project Manager",
-  },
-  {
-    image: "/images/team/16.png",
-    name: "Prateek Ranjan",
-    role: "Team Lead - Piping",
-  },
+const PHOTO = "/assets/images/team/1.png";
+
+const leadership = [
+  { name: "Dr Shamasundar", role: "Managing Director" },
+  { name: "Umesh Chandra", role: "Director" },
+  { name: "Dr Sridhar Mandyam", role: "Lead - Digital Initiatives" },
+];
+
+const team = [
+  { name: "Sandeep PS", role: "Senior Manager - BD" },
+  { name: "Prathik JP", role: "Dy Manager Pre Sales" },
+  { name: "Harsharaj S Ankalkoti", role: "Delivery Head" },
+  { name: "Vishwajeet Raj", role: "Team Lead - FEA" },
+  { name: "Ganesh Bharadwaj H S", role: "Head Of Dept - Piping" },
+  { name: "Sagar S", role: "Team Lead - Piping" },
+  { name: "Srikanth G", role: "Project Manager" },
+  { name: "Shane Stuart", role: "Team Lead - FEA" },
+  { name: "Santosh Mankani", role: "Project Manager" },
+  { name: "Benith Kumar", role: "Team Lead - Piping" },
+  // { name: "Shivakumar Hadagali", role: "Project Manager" },
+  // { name: "Prateek Ranjan", role: "Team Lead - Piping" },
 ];
 
 export default function Team() {
-  const sectionRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    const cards =
-      sectionRef.current?.querySelectorAll(".team-card");
-
+    const cards = sectionRef.current?.querySelectorAll(".tm-card");
     if (!cards) return;
 
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("team-show");
+            entry.target.classList.add("tm-show");
+            observer.unobserve(entry.target);
           }
         });
       },
-      {
-        threshold: 0.1,
-      }
+      { threshold: 0.12 }
     );
 
     cards.forEach((card) => observer.observe(card));
-
     return () => observer.disconnect();
   }, []);
 
   return (
     <main className="team-page">
+      <CrumbBanner
+        title="Our Team"
+        subtitle="The people behind ProSIM's engineering, delivery and project management."
+        image="/assets/images/about/prosim_enhanced.png"
+        imageInset="/assets/images/about/1.webp"
+        imageCaption="Our people"
+      />
 
-      <Breadcrumbs />
-
-
-      
-
-
-      {/* ORGANISATION */}
-
-      <section
-        className="org-section"
-        ref={sectionRef}
-      >
-
-        <div className="team-container">
-
-          <div className="org-heading">
-
-            <span>
-              ORGANISATION
-            </span>
-
+      <section className="tm-section" ref={sectionRef}>
+        <div className="tm-container">
+          <div className="tm-heading">
+            <span className="tm-label">Organisation</span>
             <h2>
-              Our Leadership &amp;  <strong>Team</strong> 
+              Our Leadership &amp; <strong>Team</strong>
             </h2>
-
             <p>
-              A strong leadership structure supported by experienced
-              engineering professionals and specialised technical teams.
+              A strong leadership structure supported by experienced engineering
+              professionals and specialised technical teams.
             </p>
-
           </div>
 
-
-          {/* TOP LEADERSHIP */}
-
-          <div className="leadership">
-
-            <div className="leader-card main-leader">
-
-              <div className="leader-image">
-
-                <Image
-                  src="/images/team/1.png"
-                  alt="Dr Shamasundar"
-                  fill
-                  sizes="180px"
-                />
-
-              </div>
-
-              <div className="leader-info">
-
-               
-
-                <h3>
-                  Dr Shamasundar
-                </h3>
-
-                <p>
-                  Managing Director
-                </p>
-
-              </div>
-
-            </div>
-
-
-            <div className="org-connector"></div>
-
-
-            <div className="leader-card">
-
-              <div className="leader-image">
-
-                <Image
-                  src="/images/team/2.png"
-                  alt="Umesh Chandra"
-                  fill
-                  sizes="180px"
-                />
-
-              </div>
-
-              <div className="leader-info">
-
-            
-
-                <h3>
-                  Umesh Chandra
-                </h3>
-
-                <p>
-                  Director
-                </p>
-
-              </div>
-
-            </div>
-
-
-            <div className="org-connector"></div>
-
-
-            <div className="leader-card">
-
-              <div className="leader-image">
-
-                <Image
-                  src="/images/team/4.png"
-                  alt="Dr Sridhar Mandyam"
-                  fill
-                  sizes="180px"
-                />
-
-              </div>
-
-              <div className="leader-info">
-
-               
-
-                <h3>
-                  Dr Sridhar Mandyam
-                </h3>
-
-                <p>
-                  Lead - Digital Initiatives
-                </p>
-
-              </div>
-
-            </div>
-
-          </div>
-
-
-          {/* MAIN LINE */}
-
-          <div className="main-connector">
-            <span></span>
-          </div>
-
-
-          {/* TEAM GRID */}
-
-          <div className="team-grid">
-
-            {management.map((person, index) => (
-
+          {/* first row — leadership */}
+          <div className="tm-grid tm-grid-lead">
+            {leadership.map((p, i) => (
               <article
-                className="team-card"
-                key={person.name}
-                style={{
-                  transitionDelay: `${index * 80}ms`,
-                }}
+                className="tm-card"
+                key={p.name}
+                style={{ transitionDelay: `${i * 70}ms` }}
               >
-
-                <div className="team-card-image">
-
-                  <Image
-                    src={person.image}
-                    alt={person.name}
-                    fill
-                    sizes="(max-width: 700px) 100vw, 280px"
-                  />
-
-                  <div className="team-card-number">
-                    {String(index + 1).padStart(2, "0")}
-                  </div>
-
+                <div className="tm-card-photo">
+                  <img src={PHOTO} alt={p.name} loading="lazy" />
                 </div>
-
-
-                <div className="team-card-content">
-
-                  <span>
-                    TEAM
-                  </span>
-
-                  <h3>
-                    {person.name}
-                  </h3>
-
-                  <p>
-                    {person.role}
-                  </p>
-
-
-                 
-
-                </div>
-
+                <h4>{p.name}</h4>
+                <p>{p.role}</p>
               </article>
-
             ))}
-
           </div>
 
-        </div>
-
-      </section>
-
-
-      {/* BOTTOM */}
-
-      <section className="team-bottom">
-
-        <div className="team-container">
-
-          <div className="team-bottom-content">
-
-            <span>
-              ONE TEAM. ONE PURPOSE.
-            </span>
-
-            <h2>
-              Engineering expertise,
-              working together.
-            </h2>
-
-            <p>
-              Our collaborative approach allows specialised teams to
-              combine their knowledge and experience to deliver
-              dependable engineering solutions.
-            </p>
-
+          {/* remaining members */}
+          <div className="tm-grid">
+            {team.map((p, i) => (
+              <article
+                className="tm-card"
+                key={p.name}
+                style={{ transitionDelay: `${(i % 5) * 60}ms` }}
+              >
+                <div className="tm-card-photo">
+                  <img src={PHOTO} alt={p.name} loading="lazy" />
+                </div>
+                <h4>{p.name}</h4>
+                <p>{p.role}</p>
+              </article>
+            ))}
           </div>
-
         </div>
-
       </section>
 
+      {/* <section className="tm-bottom">
+        <div className="tm-container">
+          <span className="tm-label">One team. One purpose.</span>
+          <h2>Engineering expertise, working together.</h2>
+          <p>
+            Our collaborative approach allows specialised teams to combine their
+            knowledge and experience to deliver dependable engineering solutions.
+          </p>
+        </div>
+      </section> */}
     </main>
   );
 }
-

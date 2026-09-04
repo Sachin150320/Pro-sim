@@ -1,7 +1,7 @@
 
 
 "use client";
-import Breadcrumbs from "@/app/Components/Breadcrumbs/Breadcrumbs";
+import CrumbBanner from "@/app/Components/CrumbBanner/CrumbBanner";
 import "./AboutUs.css";
 import {
     ArrowRight,
@@ -40,7 +40,13 @@ export default function AboutSection() {
         <main className="about-page">
 
             {/* Breadcrumb */}
-            <Breadcrumbs />
+            <CrumbBanner
+                title="About ProSIM"
+                subtitle="ProSIM R&D delivers simulation-driven engineering — FEA, CFD, pipe stress and structural integrity assessment — for nuclear and non-nuclear industries worldwide."
+                image="/assets/images/about/prosim_enhanced.png"
+                imageInset="/assets/images/about/1.webp"
+                imageCaption="ProSIM R&D"
+            />
 
             <section className="about-prosim-section">
 
@@ -54,14 +60,14 @@ export default function AboutSection() {
 
                         <div className="about-prosim-image">
                             <img
-                                src="/images/about/img2.png"
+                                src="/assets/images/about/3.jpg"
                                 alt="ProSIM Engineering"
                             />
 
-                            <div className="about-image-badge">
+                            {/* <div className="about-image-badge">
                                 <span>Engineering</span>
                                 <strong>Your Designs</strong>
-                            </div>
+                            </div> */}
                         </div>
 
                         <div className="about-prosim-content">

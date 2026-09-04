@@ -66,15 +66,15 @@ export const menuItems: MenuItem[] = [
         },
         {
             name: "RLA/RLE & Fitness-for-Service (FFS)",
-            href: "#",
+            href: "/structural-integrity-assessments",
         },
         {
             name: "Engineering Automation & Digital Twin",
-            href: "Engineering-Automation-&-Digital-Twin",
+            href: "/Engineering-Automation-&-Digital-Twin",
         },
         {
             name: "Pre-Bid & Owner’s Engineering",
-            href: "Pre-Bid-&-Owners-Engineering",
+            href: "/Pre-Bid-&-Owners-Engineering",
         },
     ],
 },
@@ -83,17 +83,17 @@ export const menuItems: MenuItem[] = [
     href: "#",
     children: [
       { name: "Nuclear Power", href: "/nuclear-power" },
-      { name: "Thermal Power", href: "#" },
-      { name: "Oil & Gas, Off Shore", href: "#" },
-      { name: "Defence", href: "#" },
+      { name: "Thermal Power", href: "/thermal-power" },
+      { name: "Oil & Gas, Off Shore", href: "/oil-gas-and-offshore" },
+      { name: "Defence", href: "/defence-systems" },
       { name: "Heavy Engineering Equipment / General Engineering", href: "#" },
       { name: "Renewable & Green Energy", href: "#" },
     ],
   },
-  
-  { name: "Projects", href: "#" },
-    { name: "Events", href: "#" },
-  { name: "Careers", href: "#" },
+
+  { name: "Projects", href: "/projects" },
+    { name: "Events", href: "/events" },
+  { name: "Careers", href: "/careers" },
   { name: "Contact Us", href: "/contact-us" },
 ];
 

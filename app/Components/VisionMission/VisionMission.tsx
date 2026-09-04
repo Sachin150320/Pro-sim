@@ -2,7 +2,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import Breadcrumbs from "@/app/Components/Breadcrumbs/Breadcrumbs";
+import CrumbBanner from "@/app/Components/CrumbBanner/CrumbBanner";
 import "./VisionMission.css";
 
 const content = [
@@ -47,7 +47,13 @@ export default function VisionMission() {
   return (
     <main className="vm-page" ref={sectionRef}>
 
-      <Breadcrumbs />
+      <CrumbBanner
+        title="Vision & Mission"
+        subtitle="What drives ProSIM — our purpose, our promise, and the principles that shape every engagement."
+        image="/assets/images/about/prosim_enhanced.png"
+        imageInset="/assets/images/about/1.webp"
+        imageCaption="What drives us"
+      />
 
      
 

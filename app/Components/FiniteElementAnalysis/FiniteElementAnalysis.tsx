@@ -184,29 +184,6 @@ const codes = [
   { area: "DNVGL", detail: "Maritime and Offshore Standards." },
 ];
 
-const advantages = [
-  {
-    number: "01",
-    title: "Engineering Judgment, Not Just Solver Output",
-    text: "As premier consultants, we thoroughly evaluate simulation outcomes and apply deep technical knowledge to craft reliable answers to the most challenging engineering puzzles.",
-  },
-  {
-    number: "02",
-    title: "Multi-Physics Depth",
-    text: "From linear static to non-linear contact, dynamics, frequency and time domain, and coupled fluid-structure and thermo-mechanical phenomena.",
-  },
-  {
-    number: "03",
-    title: "Global Standards Compliance",
-    text: "Designs validated against ASME B&PV, API, EN / ISO, IEEE and DNVGL to clear sector-specific safety verifications.",
-  },
-  {
-    number: "04",
-    title: "Flexible Engagement Models",
-    text: "Offshore delivery from Bangalore, onsite resident engineers, or dedicated outsourcing under Master Service Agreements.",
-  },
-];
-
 const industries = [
   "Energy — nuclear, wind, offshore, oil & gas, and thermal power initiatives.",
   "Aerospace & Defence — impact tests, dynamic qualifications, and structural weight minimization.",
@@ -218,52 +195,44 @@ const industryIcons = [Zap, Plane, Car, CircuitBoard];
 
 const projects = [
   {
-    tag: "SEISMIC QUALIFICATION",
-    date: "Energy · Nuclear",
-    title: "Response-Spectrum Seismic Qualification of a Skid Package",
+    tag: "OIL & GAS",
+    date: "Duration · 6 Months",
+    title: "Fitness-for-Service Assessment of a Pipeline During Lifting Operations",
     description:
-      "Modal and response-spectrum FEA qualifying a safety-classified skid to IEEE and ASME requirements, with support and anchorage optimization.",
-    image: `${IMG}/1.png`,
+      "Fitness-for-Service assessment of a live pipeline affected by Corrosion Under Pipe Support (CUPS), validating structural integrity during a 50 mm lift for UT inspection. Reusable lifting guidelines were developed defining safe criteria for multiple pipe sizes and configurations.",
+    image: "/assets/images/project/1.jpg",
   },
   {
-    tag: "TOPOLOGY OPTIMIZATION",
-    date: "Automotive OEM",
-    title: "OptiStruct Topology Optimization of a Cast Bracket",
+    tag: "OIL & GAS",
+    date: "Duration · 6 Weeks",
+    title: "Pipe Stress Analysis of a 44-inch Incinerator Line",
     description:
-      "Weight reduction through topology and sizing refinement while maintaining stiffness and durability targets under real-world load cases.",
-    image: `${IMG}/2.png`,
+      "Static and dynamic pipe stress analysis validating a proposed incinerator piping design modification, enabling the customer to approve and proceed with site modifications while improving incinerator efficiency and minimising the risk of future operational failures.",
+    image: "/assets/images/project/2.jpg",
   },
   {
-    tag: "NON-LINEAR ANALYSIS",
-    date: "Oil & Gas",
-    title: "Non-Linear Contact Analysis of a Flanged Connection",
+    tag: "RENEWABLE ENERGY",
+    date: "Duration · 5 Weeks",
+    title: "FEA of a Wind Turbine Generator (WTG) Transformer",
     description:
-      "Abaqus contact model with bolt pretension and gasket non-linearity to verify sealing and code compliance under pressure and thermal load.",
-    image: `${IMG}/3.png`,
+      "FEA-based structural validation of a WTG transformer under transportation, lifting and extreme-wind acceleration loads. Critical stress regions were identified and the lifting arrangement, tie-down configuration and weld design were optimised for a manufacturing-ready design.",
+    image: "/assets/images/project/3.jpg",
   },
   {
-    tag: "RLA / FFS",
-    date: "Thermal Power Plant",
-    title: "Remaining Life Assessment of a High-Temperature Header",
+    tag: "NUCLEAR",
+    date: "Duration · 5 Weeks",
+    title: "Seismic Qualification of a 3.2 MW Induction Motor for a CCW Pump",
     description:
-      "Creep-fatigue FEA and Fitness-for-Service evaluation to safely extend the service life of an ageing high-energy piping component.",
-    image: `${IMG}/4.png`,
+      "Equipment qualification for Operating Basis Earthquake (OBE) loading, giving the customer the confidence to release the motor for manufacturing and supply it to a nuclear power plant site — a decision that could not be made without seismic qualification proof.",
+    image: "/assets/images/project/4.jpg",
   },
   {
-    tag: "DROP SIMULATION",
-    date: "Electronics",
-    title: "Drop & Thermal Simulation of an Enclosure",
+    tag: "WATER",
+    date: "Duration · 6 Months",
+    title: "Pipe Stress Analysis of a 40 MLD Desalination Plant",
     description:
-      "Explicit drop-test simulation and thermal management study for a ruggedised electronics enclosure, driving board-mount and rib changes.",
-    image: `${IMG}/1.png`,
-  },
-  {
-    tag: "MULTI-PHYSICS",
-    date: "Aerospace & Defence",
-    title: "Fluid-Structure Interaction of a Control Surface",
-    description:
-      "Coupled FSI and thermo-mechanical analysis of a control surface under combined aerodynamic, inertial and thermal loading.",
-    image: `${IMG}/2.png`,
+      "Pipe stress analysis of critical piping systems under operating and environmental loads for a 40 MLD desalination plant, ensuring piping integrity, safety and code compliance to support safe and reliable plant execution.",
+    image: "/assets/images/project/5.jpg",
   },
 ];
 
@@ -528,33 +497,6 @@ export default function FiniteElementAnalysis() {
                 ))}
               </tbody>
             </table>
-          </div>
-        </div>
-      </section>
-
-      {/* WHY PROSIM */}
-      <section className="sa-advantage">
-        <div className="sa-container">
-          <span className="sa-label">WHY PROSIM</span>
-
-          <h2>Why Choose ProSIM for FEA &amp; CAE?</h2>
-
-          <p className="sa-section-intro">
-            Engineering judgment on top of solver output, deep multi-physics
-            capability, global standards compliance and flexible engagement
-            models.
-          </p>
-
-          <div className="sa-adv-grid">
-            {advantages.map((item) => (
-              <div className="sa-adv-box" key={item.number}>
-                <span className="sa-adv-number">{item.number}</span>
-                <div className="sa-adv-body">
-                  <h3>{item.title}</h3>
-                  <p>{item.text}</p>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>

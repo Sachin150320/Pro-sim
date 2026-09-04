@@ -1,551 +1,612 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import Link from "next/link";
-import { ArrowRight, ArrowUpRight, X, CheckCircle2, Download } from "lucide-react";
+import React, { useState } from "react";
+import Breadcrumbs from "@/app/Components/Breadcrumbs/Breadcrumbs";
+import {
+  Boxes,
+  Users,
+  ShieldCheck,
+  Building2,
+  Landmark,
+  Factory,
+  Wrench,
+  FlaskConical,
+  Cpu,
+  Download,
+  X,
+  CheckCircle2,
+  FileText,
+  Box,
+  Workflow,
+  MonitorCheck,
+  Activity,
+  Thermometer,
+  Wind,
+  Cog,
+  Magnet,
+  Layers,
+  Waves,
+  Gauge,
+  Timer,
+  SearchCheck,
+  Recycle,
+} from "lucide-react";
+import ScrollAnimation from "@/app/Components/ScrollAnimation";
 import "./NuclearPower.css";
 
-const capabilities = [
+const IMG = "/assets/images/industries/nuclear";
+
+const quickLinks = [
   {
-    num: "01",
-    title: "Detailed Engineering",
-    desc: "Engineering development for nuclear systems, equipment and packages.",
-    points: [
-      "Engineering calculations & sizing",
-      "PFD / P&ID / ISO development",
-      "Equipment & skid design",
-      "2D / 3D CAD modelling",
-      "Design documentation",
+    title: "ProSIM Offerings to the Nuclear Power Sector",
+    href: "#offerings",
+    image: `${IMG}/nuclear-1.jpg`,
+  },
+  {
+    title: "Who Are Potential Customers?",
+    href: "#customers",
+    image: `${IMG}/pro-02.jpg`,
+  },
+  {
+    title: "Why Customers Choose to Work with ProSIM?",
+    href: "#why-prosim",
+    image: `${IMG}/pro-03.jpg`,
+  },
+  {
+    title: "ProSIM Experience — Nuclear Power Plant (NPP) Packages",
+    href: "#packages",
+    image: `${IMG}/nuclear-2.jpg`,
+  },
+];
+
+const offerings: {
+  icon: React.ComponentType<{ size?: number; strokeWidth?: number }>;
+  label: string;
+}[] = [
+  { icon: FileText, label: "Design Calculations and documentation" },
+  { icon: Box, label: "2D / 3D CAD modeling" },
+  { icon: Workflow, label: "Methodology Development" },
+  { icon: MonitorCheck, label: "Design Verification By Simulation" },
+  { icon: Activity, label: "FEM Analysis (stress, vibration)" },
+  { icon: Thermometer, label: "Thermal Analysis" },
+  {
+    icon: Wind,
+    label: "CFD Analysis (Conjugate Heat Transfer, Fluid Structure Interaction)",
+  },
+  { icon: Cog, label: "Kinematics And Dynamics" },
+  { icon: Magnet, label: "Electro Magnetic Analysis" },
+  { icon: Layers, label: "Materials And Damage (fatigue, fracture, Creep Studies)" },
+  {
+    icon: Waves,
+    label:
+      "Seismic Evaluation and Re-Evaluation (ASME B&PV code, RCC, PNAE, API, NEMA, IEEE, etc)",
+  },
+  { icon: Gauge, label: "Seismic Margin Assessment (SMA) and HCLPF calculation" },
+  { icon: Timer, label: "Remaining Life Assessment and Extension (RLA / RLE)" },
+  { icon: ShieldCheck, label: "Fitness for Service (FFS)" },
+  { icon: Building2, label: "Structural Integrity Assessment" },
+  { icon: SearchCheck, label: "Failure Analysis / Root Cause Analysis" },
+  { icon: FlaskConical, label: "Design of Special Purpose experimental test apparatus" },
+  { icon: Recycle, label: "Nuclear Waste Re-cycling and Disposal" },
+];
+
+const packageGroups = [
+  {
+    title: "Disciplines Covered",
+    desc: "The multi-discipline scope ProSIM covers across a nuclear power plant.",
+    items: [
+      "Mechanical systems and equipment",
+      "Piping",
+      "Electrical",
+      "Control and instrumentation",
+      "Structures (RCC and steel)",
     ],
   },
   {
-    num: "02",
-    title: "Piping Engineering",
-    desc: "Design and analysis of critical piping systems and supports.",
-    points: [
-      "Pipe routing & modelling",
-      "Static & dynamic pipe stress",
-      "Pipe supports & restraints",
-      "Nozzle load evaluation",
-      "Seismic load cases",
+    title: "Packages ProSIM Has Worked On",
+    desc: "Full NPP packages delivered across primary systems and balance of plant.",
+    items: [
+      "Primary Piping Package (PPP)",
+      "Nuclear Ventilation",
+      "Balance of Turbine Island Package (BOTIP)",
+      "Plant Water System",
+      "Common Services",
+      "Pumps",
+      "Upgrading Waste Management",
+      "HVAC Package",
+      "Electrical Package",
+      "C&I Package",
+      "… and many more",
     ],
   },
   {
-    num: "03",
-    title: "Seismic Qualification",
-    desc: "Analysis-led qualification of safety-critical SSCs.",
-    points: [
-      "Seismic response analysis",
-      "Equipment qualification",
-      "Support & anchorage qualification",
-      "SMA & HCLPF assessment",
-      "Test correlation support",
+    title: "Piping & Structures",
+    desc: "Piping systems, supports, foundations and civil / steel structures.",
+    items: [
+      "Piping Systems",
+      "Instruments — Thermowells, Gauges, Valves, Pressure Switches",
+      "Piping Supports (Hangers, tie rods, Fabricated supports, etc.)",
+      "Structures (Steel & RCC)",
+      "Foundation",
+      "Pumps",
+      "Chimneys",
+      "Buildings",
     ],
   },
   {
-    num: "04",
-    title: "CAE / FEA / CFD",
-    desc: "Simulation to validate designs and understand operating behaviour.",
-    points: [
-      "Stress & deformation",
-      "Vibration & dynamics",
-      "Thermal analysis",
-      "CFD & conjugate heat transfer",
-      "Fluid–structure interaction",
+    title: "Mechanical Equipment",
+    desc: "Static and rotating equipment across the plant.",
+    items: [
+      "Pressure Vessels / Tanks",
+      "Heat Exchangers",
+      "Custom Design Equipment",
+      "Pumps / Blowers / Compressors",
+      "Valves",
+      "Fire Fighting Systems",
+      "Filters & Strainers",
+      "Dampers",
+      "Support Systems for all Equipment",
     ],
   },
   {
-    num: "05",
-    title: "Structural Integrity",
-    desc: "Assessment of component integrity throughout the operating lifecycle.",
-    points: [
-      "Fatigue & fracture assessment",
-      "Creep evaluation",
-      "Fitness-for-service studies",
-      "Failure / root-cause analysis",
-      "Remaining-life assessment",
+    title: "Special Independent Packages",
+    desc: "Reactor island and turbine island independent packages.",
+    items: [
+      "Steam Generator",
+      "Pressurizers",
+      "Reactor Headers",
+      "Heat Exchangers",
+      "Coolant Channels",
+      "Reactor Equipment",
+      "Instrumentation",
+      "Turbine Package",
+      "Field Instrumentation",
     ],
   },
   {
-    num: "06",
-    title: "Design Verification",
-    desc: "Independent analysis and engineering verification for critical designs.",
-    points: [
-      "Design review & verification",
-      "Code-based assessment",
-      "Qualification documentation",
-      "Design optimisation",
-      "Engineering reports",
+    title: "Electrical, C&I",
+    desc: "Power distribution, instrumentation and control scope.",
+    items: [
+      "Complete DG set with alternator, Transformers, Battery Chargers and Inverters, Motor Control Centres, Low & Medium Voltage Switchgear, Distribution Modules, Motors, Generators",
+      "Instrumentation and Control Panels, Instruments on racks, bus bar ducts, Cable trays, Battery Stands, Relay Panel Structures, etc.",
     ],
   },
 ];
 
-const disciplineChips = [
-  "Mechanical Equipment Design",
-  "Piping Systems & Supports",
-  "Pressure Vessels & Tanks",
-  "Heat Exchangers",
-  "Pumps & Compressors",
-  "Valves & Actuators",
-  "Steel & RCC Structures",
-  "Foundations & Anchorages",
-  "HVAC / Nuclear Ventilation",
-  "Electrical Packages",
-  "C&I Packages",
-  "Special Purpose Equipment",
+const customers = [
+  { icon: Building2, title: "Nuclear Power Plant Operators" },
+  { icon: Factory, title: "EPC Contractors" },
+  { icon: Wrench, title: "System Integrators" },
+  { icon: Boxes, title: "Tier-1 / Tier-2 Vendors; Component Suppliers" },
+  { icon: FlaskConical, title: "Nuclear R&D Establishments" },
+  { icon: Landmark, title: "Nuclear Regulatory Bodies" },
 ];
 
-const processSteps = [
-  { num: "01", title: "Define", text: "Loads, boundary conditions & design basis" },
-  { num: "02", title: "Model", text: "Equipment, piping, structures & interfaces" },
-  { num: "03", title: "Analyse", text: "FEA, CFD, seismic, thermal & dynamic response" },
-  { num: "04", title: "Qualify", text: "Code checks, margins, integrity & qualification" },
-  { num: "05", title: "Document", text: "Traceable engineering calculations & reports" },
-];
-
-const showcase = [
+const whyProsim: {
+  id: string;
+  title: string;
+  icon: React.ComponentType<{ size?: number; strokeWidth?: number }>;
+  points: string[];
+}[] = [
   {
-    image: "/assets/images/portfolio/modern/4.webp",
-    title: "Seismic Analysis & Qualification",
-    text: "Analysis of equipment and components subjected to nuclear seismic requirements.",
+    id: "knowledge",
+    title: "Knowledge, Competence & Insights",
+    icon: ShieldCheck,
+    points: [
+      "The ProSIM team has knowledge and competence in engineering design, analysis and structural integrity assessment that are very critical to safe and reliable design of nuclear systems.",
+      "We bring special insights to customise / localise products to specific nuclear applications.",
+    ],
   },
   {
-    image: "/assets/images/portfolio/modern/6.webp",
-    title: "Equipment Engineering",
-    text: "Design, modelling and verification of nuclear mechanical equipment.",
-  },
-];
-
-const coverage = [
-  {
-    title: "Mechanical Systems",
-    desc: "Pumps, valves, pressure vessels, tanks, heat exchangers, compressors, filters, strainers and custom equipment.",
-  },
-  {
-    title: "Piping & Supports",
-    desc: "Primary piping, utility systems, piping supports, hangers, restraints, instruments and associated piping.",
+    id: "exposure",
+    title: "Deep Exposure With Nuclear Entities",
+    icon: Landmark,
+    points: [
+      "ProSIM has worked with Department of Atomic Energy entities such as NPCIL, BARC, IGCAR, BHAVINI, ITER India, etc., and their EPC contractors such as BGR, Dodsal, GE, L&T, Punj Lloyd, etc.; system integrators such as Kirloskar, Core Energy and dozens of tier-2 / tier-3 vendors.",
+      "ProSIM has worked on projects for ITER I/O and international companies such as AMEC FW, Assystem, PowerSys, JSOL, Zentech, etc.",
+      "ProSIM has interfaced with the regulatory bodies (such as AERB).",
+      "ProSIM has been a part of the World Nuclear Association (WNA) for rationalisation of codes and standards, and is connected with the international nuclear community.",
+    ],
   },
   {
-    title: "Structures",
-    desc: "Steel structures, RCC structures, foundations, equipment supports, anchorages and embedded components.",
+    id: "tools",
+    title: "Expertise in Design and Analysis Tools",
+    icon: Cpu,
+    points: [
+      "The ProSIM team has expertise in using software such as CATIA, Solidworks, ANSYS, ABAQUS, Caesar, CAEPipe, Pipestress, NASTRAN, CFX, Fluent, HYPERWORKS, JMAG, STAAD, SAP2000, etc.",
+      "Expertise in customisation, development of macros and scripting.",
+    ],
   },
   {
-    title: "Electrical & C&I",
-    desc: "DG systems, transformers, panels, switchgear, cable trays, instrumentation, control panels and support structures.",
-  },
-  {
-    title: "Nuclear Ventilation",
-    desc: "Ventilation and HVAC-related equipment, supports, ducting and qualification-oriented engineering.",
-  },
-  {
-    title: "Special Packages",
-    desc: "Steam generators, pressurizers, reactor headers, coolant channels, turbine packages and special equipment.",
-  },
-  {
-    title: "Plant Water Systems",
-    desc: "Plant water, cooling-related systems, common services and associated mechanical and piping components.",
-  },
-  {
-    title: "Waste Management",
-    desc: "Engineering and analysis support for nuclear waste management, recycling and disposal-related systems.",
+    id: "collaboration",
+    title: "Collaborative Spirit",
+    icon: Users,
+    points: [
+      "Seamless and smooth collaboration with vendors, EPC contractors, operator (NPCIL) and regulatory bodies (AERB).",
+      "Track record of delivering projects on time, with high quality, keeping the concerns of all stakeholders.",
+      "Interactions with international code committees (ASME, AFCEN-RCC, PNAE, WNA, etc.).",
+      "ProSIM has delivered projects with quality and on time, keeping the concerns of all parties involved.",
+    ],
   },
 ];
 
-const phases = [
-  {
-    step: "01 — Pre-Bid",
-    title: "Engineering Support",
-    text: "Scope understanding, engineering estimates, feasibility and pre-bid technical support.",
-  },
-  {
-    step: "02 — Design",
-    title: "Detailed Engineering",
-    text: "Calculations, modelling, drawings, equipment design and multidisciplinary engineering.",
-  },
-  {
-    step: "03 — Analysis",
-    title: "Verification & Qualification",
-    text: "FEA, CFD, seismic, pipe stress, structural integrity and code-based evaluations.",
-  },
-  {
-    step: "04 — Lifecycle",
-    title: "Assessment & Life Extension",
-    text: "Failure analysis, fitness-for-service, remaining-life and life-extension studies.",
-  },
+const heroNav = [
+  { title: "Our Offerings", id: "offerings" },
+  { title: "SSCs & Packages", id: "packages" },
+  { title: "Potential Customers", id: "customers" },
+  { title: "Why Work with ProSIM", id: "why-prosim" },
+  { title: "Downloads", id: "downloads" },
 ];
 
-const brochures = [
+const downloads = [
   "Nuclear Brochure",
-  "Abstract – Engineered Buffer Clay Modeling – Nuclear Waste Disposal",
-  "ProSIM Nuclear Offerings: Engineering Design & Seismic Qualification",
+  "Abstract — Engineered Buffer Clay Modeling — Nuclear Waste Disposal",
+  "ProSIM Nuclear Offerings — Engineering Design & Seismic Qualification",
 ];
 
-const emptyForm = { name: "", email: "", company: "", address: "", phone: "" };
+const emptyForm = { name: "", phone: "", email: "", company: "" };
 
-export default function NuclearPowerPage() {
-  const [activeBrochure, setActiveBrochure] = useState<string | null>(null);
-  const [submitted, setSubmitted] = useState(false);
+export default function NuclearPower() {
+  const [activeDownload, setActiveDownload] = useState<string | null>(null);
   const [form, setForm] = useState(emptyForm);
+  const [submitted, setSubmitted] = useState(false);
 
-  useEffect(() => {
-    document.body.style.overflow = activeBrochure ? "hidden" : "";
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [activeBrochure]);
-
-  const openModal = (title: string) => {
-    setActiveBrochure(title);
-    setSubmitted(false);
+  const openForm = (resource: string) => {
+    setActiveDownload(resource);
     setForm(emptyForm);
+    setSubmitted(false);
   };
-  const closeModal = () => setActiveBrochure(null);
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+
+  const closeForm = () => setActiveDownload(null);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
     setSubmitted(true);
   };
-  const updateField =
-    (field: keyof typeof emptyForm) =>
-    (event: React.ChangeEvent<HTMLInputElement>) =>
-      setForm((current) => ({ ...current, [field]: event.target.value }));
 
   return (
-    <main className="nk-page">
+    <main className="seismic-page">
       {/* HERO */}
-      <section className="nk-hero">
-        <div className="nk-hero-inner">
-          <div className="nk-hero-text">
-            <span className="nk-eyebrow nk-eyebrow--light">Nuclear Power Engineering</span>
+      <section className="sa-hero">
+        <div className="sa-hero-crumbs">
+          <Breadcrumbs />
+        </div>
+
+        <div className="sa-hero-inner">
+          <div className="sa-hero-text">
+         
             <h1>
-              Engineering for the <span>Nuclear Energy</span> Lifecycle.
+              <span>ProSIM Offerings</span> to the Nuclear Power Sector.
             </h1>
+
             <p>
-              ProSIM provides detailed engineering, CAE / FEA, seismic qualification, piping
-              engineering, structural integrity and multidisciplinary engineering support for
-              nuclear power plant systems, structures and components.
+              Providing collaborative engineering, design, R&amp;D and seismic
+              evaluation. ProSIM is a collaborative engineering and R&amp;D
+              services company that has been working with all the nuclear
+              entities in India and abroad, providing services for safe and
+              reliable operation of nuclear power plant (NPP) related systems,
+              structures and components (SSCs).
             </p>
-            <div className="nk-hero-actions">
-              <a href="#capabilities" className="nk-btn nk-btn--solid">
-                Explore Capabilities
-              </a>
-              <Link href="/contact-us" className="nk-btn nk-btn--ghost">
-                Discuss a Project
-              </Link>
-            </div>
+
+            {/* <p>
+              We are specialists in seismic evaluation by analysis and qualify
+              nuclear systems as per relevant geography-specific codes and
+              standards.
+            </p> */}
           </div>
 
-          <div className="nk-hero-media">
-            <figure className="nk-hero-media-main">
+          <div className="sa-hero-media">
+            <figure className="sa-hero-media-main">
               <img
-                src="/assets/images/portfolio/modern/4.webp"
-                alt="Finite element seismic analysis of a nuclear structure"
+                src={`${IMG}/nuclear-1.jpg`}
+                alt="Nuclear power plant — engineering and seismic qualification"
                 loading="eager"
               />
-              <figcaption>Seismic Qualification</figcaption>
+              <figcaption>Nuclear Power</figcaption>
             </figure>
-            <figure className="nk-hero-media-inset">
+            <figure className="sa-hero-media-inset">
               <img
-                src="/assets/images/portfolio/modern/6.webp"
-                alt="CFD analysis of a nuclear heat exchanger"
+                src={`${IMG}/nuclear-2.jpg`}
+                alt="Nuclear systems, structures and components"
                 loading="lazy"
               />
             </figure>
           </div>
         </div>
+
+       
       </section>
 
-      {/* INTRO */}
-      <section className="nk-intro">
-        <div className="nk-container nk-intro-grid">
-          <div className="nk-intro-head">
-            <span className="nk-eyebrow">Nuclear Engineering Partner</span>
-            <h2>From engineering calculations to qualification.</h2>
-          </div>
-          <div className="nk-intro-body">
+      {/* OFFERINGS */}
+      <section className="sa-services" id="offerings">
+        <div className="sa-container">
+          <section className="sa-intro">
+            <span className="sa-label">OUR OFFERINGS</span>
+
+            <h2>Our Offerings to Nuclear</h2>
+
             <p>
-              Nuclear projects demand engineering that connects design, analysis,
-              qualification, documentation and safety requirements. ProSIM combines
-              multidisciplinary engineering with simulation-led design verification to support
-              critical nuclear systems, structures and components.
+              Collaborative engineering, design, R&amp;D and seismic evaluation
+              across the full range of nuclear systems, structures and
+              components.
             </p>
-            <p>
-              Our engineering teams support EPC contractors, equipment manufacturers, system
-              integrators, operators and nuclear R&amp;D organisations across design
-              development, detailed engineering, analysis, qualification and life-extension
-              activities.
-            </p>
+          </section>
+
+          <div className="nk-cap-grid">
+            {offerings.map((item) => {
+              const Icon = item.icon;
+
+              return (
+                <div className="nk-cap-box" key={item.label}>
+                  <span className="nk-cap-icon">
+                    <Icon size={20} strokeWidth={1.8} />
+                  </span>
+                  <p>{item.label}</p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* CORE CAPABILITIES */}
-      <section id="capabilities" className="nk-section nk-section--tint">
-        <div className="nk-container">
-          <span className="nk-eyebrow">Core Capabilities</span>
-          <h2 className="nk-section-title">
-            Multidisciplinary engineering, backed by simulation.
-          </h2>
-          <p className="nk-lead">
-            Our nuclear engineering capability covers the complete technical chain — from
-            system-level engineering and equipment design to advanced analysis, qualification
-            and structural integrity assessment.
+      {/* QUICK LINK CARDS */}
+      <section className="nk-quick">
+        <div className="sa-container">
+          <div className="nk-ql-grid">
+            {quickLinks.map((q, index) => (
+              <ScrollAnimation key={q.title} delay={index * 90}>
+                <a href={q.href} className="nk-ql-card">
+                  <div className="nk-ql-img">
+                    <img src={q.image} alt={q.title} loading="lazy" />
+                  </div>
+                  <div className="nk-ql-cap">
+                    <span>{q.title}</span>
+                  </div>
+                </a>
+              </ScrollAnimation>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SSCs & PACKAGES */}
+      <section className="sa-ssc" id="packages">
+        <div className="sa-container">
+          <span className="sa-label">SSCs &amp; PACKAGES</span>
+
+          <h2>Experience Across NPP Packages &amp; SSCs</h2>
+
+          <p className="sa-section-intro">
+            ProSIM experience in various packages of nuclear power plants (NPP) —
+            covering several systems, structures and components (SSCs). ProSIM has
+            worked on multiple packages of a nuclear power plant covering a
+            variety of disciplines, packages, piping and structures, mechanical
+            equipment, special independent packages and electrical, C&amp;I.
           </p>
 
-          <div className="nk-capgrid">
-            {capabilities.map((c) => (
-              <article className="nk-cap-card" key={c.num}>
-                <span className="nk-cap-num">{c.num}</span>
-                <h3>{c.title}</h3>
-                <p>{c.desc}</p>
+          <ScrollAnimation className="nk-pkg-grid">
+            {packageGroups.map((group, index) => (
+              <article className="nk-pkg-card" key={group.title}>
+                <span className="nk-pkg-num">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <h3>{group.title}</h3>
+                <p className="nk-pkg-desc">{group.desc}</p>
                 <ul>
-                  {c.points.map((p) => (
-                    <li key={p}>{p}</li>
+                  {group.items.map((item) => (
+                    <li key={item}>{item}</li>
                   ))}
                 </ul>
               </article>
             ))}
-          </div>
+          </ScrollAnimation>
         </div>
       </section>
 
-      {/* ENGINEERING DEPTH */}
-      <section className="nk-section">
-        <div className="nk-container nk-depth-grid">
-          <div className="nk-depth-left">
-            <span className="nk-eyebrow">Detailed Engineering Capability</span>
-            <h2 className="nk-section-title">Engineering depth across the plant.</h2>
-            <p className="nk-lead">
-              ProSIM supports engineering packages across mechanical, piping, structural,
-              electrical and control &amp; instrumentation disciplines. This allows individual
-              components to be engineered with an understanding of their interfaces, loads,
-              supports and qualification requirements.
+      {/* CUSTOMERS */}
+      <section className="sa-clients" id="customers">
+        <div className="sa-container">
+          <div className="sa-ind-head">
+            <span className="sa-label">POTENTIAL CUSTOMERS</span>
+
+            <h2>Who Are Potential Customers?</h2>
+
+            <p>
+              Practically all the stakeholders connected with nuclear energy are
+              connected with ProSIM.
             </p>
-            <div className="nk-chip-grid">
-              {disciplineChips.map((chip) => (
-                <span className="nk-chip" key={chip}>
-                  {chip}
-                </span>
-              ))}
+          </div>
+
+          <div className="sa-ind-layout">
+            <div className="sa-ind-main">
+              <div className="sa-ind-grid">
+                {customers.map((c) => {
+                  const Icon = c.icon;
+
+                  return (
+                    <div className="sa-ind-box" key={c.title}>
+                      <span className="sa-ind-icon">
+                        <Icon size={20} strokeWidth={1.8} />
+                      </span>
+                      <strong>{c.title}</strong>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            <div className="sa-ind-media">
+              <figure className="sa-ind-photo">
+                <img
+                  src={`${IMG}/1.jpg`}
+                  alt="Nuclear power infrastructure"
+                  loading="lazy"
+                />
+              </figure>
             </div>
           </div>
+        </div>
+      </section>
 
-          <aside className="nk-process-card">
-            <h3>Simulation-led engineering</h3>
+      {/* WHY WORK WITH PROSIM */}
+      <section className="sa-services" id="why-prosim">
+        <div className="sa-container">
+          <section className="sa-intro">
+            <span className="sa-label">WHY PROSIM</span>
+
+            <h2>Why Work with ProSIM?</h2>
+
             <p>
-              Engineering decisions are supported through numerical analysis, code-based
-              assessment and multidisciplinary simulation.
+              ProSIM has been working with operators, nuclear engineering / R&amp;D
+              companies, regulatory bodies, EPC contractors and system integrators,
+              combining an independent mindset with deep technical strength.
             </p>
-            <ol>
-              {processSteps.map((s) => (
-                <li key={s.num}>
-                  <span className="nk-process-num">{s.num}</span>
-                  <span className="nk-process-text">
-                    <strong>{s.title}</strong>
-                    <span>{s.text}</span>
-                  </span>
-                </li>
-              ))}
-            </ol>
-          </aside>
-        </div>
+          </section>
 
-        <div className="nk-container nk-showcase">
-          {showcase.map((item) => (
-            <figure className="nk-showcase-card" key={item.title}>
-              <img src={item.image} alt={item.title} loading="lazy" />
-              <figcaption>
-                <strong>{item.title}</strong>
-                <span>{item.text}</span>
-              </figcaption>
-            </figure>
-          ))}
-        </div>
-      </section>
+          <div className="sa-service-list">
+            {whyProsim.map((block) => {
+              const Icon = block.icon;
 
-      {/* PLANT COVERAGE */}
-      <section className="nk-section nk-section--tint">
-        <div className="nk-container">
-          <span className="nk-eyebrow">Nuclear Plant Coverage</span>
-          <h2 className="nk-section-title">Systems, structures and components.</h2>
-          <div className="nk-coverage-grid">
-            {coverage.map((c) => (
-              <article className="nk-coverage-card" key={c.title}>
-                <h3>{c.title}</h3>
-                <p>{c.desc}</p>
-              </article>
-            ))}
+              return (
+                <article className="sa-service-box" id={block.id} key={block.id}>
+                  <div className="sa-service-top">
+                    <div className="sa-service-icon">
+                      <Icon size={25} strokeWidth={1.8} />
+                    </div>
+
+                    <h2>{block.title}</h2>
+                  </div>
+
+                  <div className="sa-point-grid">
+                    {block.points.map((point, i) => (
+                      <div className="sa-point-box" key={point}>
+                        <span className="sa-point-num">
+                          {String(i + 1).padStart(2, "0")}
+                        </span>
+                        <div className="sa-point-body">
+                          <p>{point}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </article>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* PROJECT SUPPORT */}
-      <section className="nk-section">
-        <div className="nk-container">
-          <span className="nk-eyebrow">Project Support</span>
-          <h2 className="nk-section-title">Support from concept to qualification.</h2>
-          <div className="nk-phase-grid">
-            {phases.map((p) => (
-              <article className="nk-phase-card" key={p.step}>
-                <span className="nk-phase-step">{p.step}</span>
-                <h3>{p.title}</h3>
-                <p>{p.text}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* DOWNLOADS */}
+      <section className="sa-ssc" id="downloads">
+        <div className="sa-container">
+          <span className="sa-label">RESOURCES</span>
 
-      {/* RESOURCES */}
-      <section id="downloads" className="nk-section nk-section--tint">
-        <div className="nk-container">
-          <span className="nk-eyebrow">Resources</span>
-          <h2 className="nk-section-title">Download nuclear resources.</h2>
-          <p className="nk-lead">
-            Request any of the following documents and our team will email them to you.
+          <h2>Downloads</h2>
+
+          <p className="sa-section-intro">
+            Reference material on ProSIM&rsquo;s nuclear offerings, engineering
+            design and seismic qualification.
           </p>
-          <div className="nk-download-list">
-            {brochures.map((title) => (
+
+          <div className="nk-downloads">
+            {downloads.map((d) => (
               <button
                 type="button"
-                className="nk-download-btn"
-                key={title}
-                onClick={() => openModal(title)}
+                className="nk-download"
+                key={d}
+                onClick={() => openForm(d)}
               >
-                <span className="nk-download-btn-icon">
-                  <Download size={18} strokeWidth={2} />
-                </span>
-                <span className="nk-download-btn-label">{title}</span>
-                <ArrowUpRight size={18} strokeWidth={1.8} />
+                <Download size={17} strokeWidth={1.8} />
+                {d}
               </button>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="nk-cta">
-        <div className="nk-container">
-          <span className="nk-eyebrow nk-eyebrow--light">Work With ProSIM</span>
-          <h2>Need engineering capacity for a nuclear project?</h2>
-          <p>
-            Engage ProSIM for detailed engineering, analysis, qualification or
-            multidisciplinary engineering support for nuclear power plant projects.
-          </p>
-          <Link href="/contact-us" className="nk-btn nk-btn--solid">
-            Contact ProSIM
-            <ArrowRight size={17} strokeWidth={2} />
-          </Link>
-        </div>
-      </section>
-
       {/* DOWNLOAD REQUEST MODAL */}
-      {activeBrochure && (
+      {activeDownload && (
         <div
           className="nk-modal-overlay"
-          role="presentation"
-          onMouseDown={(event) => {
-            if (event.target === event.currentTarget) closeModal();
-          }}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Request download"
+          onClick={closeForm}
         >
-          <div
-            className="nk-modal"
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="nk-modal-title"
-          >
+          <div className="nk-modal" onClick={(e) => e.stopPropagation()}>
             <button
               type="button"
               className="nk-modal-close"
-              onClick={closeModal}
               aria-label="Close"
+              onClick={closeForm}
             >
-              <X size={18} strokeWidth={2} />
+              <X size={20} strokeWidth={1.8} />
             </button>
 
             {submitted ? (
               <div className="nk-modal-done">
-                <span className="nk-modal-done-icon">
-                  <CheckCircle2 size={28} strokeWidth={1.8} />
-                </span>
-                <h3 id="nk-modal-title">Request received</h3>
+                <CheckCircle2 size={44} strokeWidth={1.6} />
+                <h3>Thank you</h3>
                 <p>
-                  Thank you. We&apos;ll email &ldquo;{activeBrochure}&rdquo; to{" "}
-                  <strong>{form.email}</strong> shortly.
+                  Your request for <strong>{activeDownload}</strong> has been
+                  received. Our team will share the document with you shortly.
                 </p>
-                <button type="button" className="nk-btn nk-btn--solid" onClick={closeModal}>
+                <button type="button" className="nk-modal-submit" onClick={closeForm}>
                   Close
                 </button>
               </div>
             ) : (
               <>
-                <span className="nk-eyebrow">Download Request</span>
-                <h3 id="nk-modal-title" className="nk-modal-heading">
-                  {activeBrochure}
-                </h3>
+                <span className="sa-label">Request Download</span>
+                <h3>{activeDownload}</h3>
+                <p className="nk-modal-sub">
+                  Please share your details and we&rsquo;ll send you the document.
+                </p>
+
                 <form className="nk-form" onSubmit={handleSubmit}>
-                  <div className="nk-field">
-                    <label htmlFor="nk-name">
-                      Name <span>*</span>
-                    </label>
+                  <label>
+                    <span>Name</span>
                     <input
-                      id="nk-name"
                       type="text"
-                      autoComplete="name"
                       required
                       value={form.name}
-                      onChange={updateField("name")}
+                      onChange={(e) => setForm({ ...form, name: e.target.value })}
                     />
-                  </div>
-                  <div className="nk-field">
-                    <label htmlFor="nk-email">
-                      Email <span>*</span>
-                    </label>
+                  </label>
+
+                  <label>
+                    <span>Phone Number</span>
                     <input
-                      id="nk-email"
-                      type="email"
-                      autoComplete="email"
-                      required
-                      value={form.email}
-                      onChange={updateField("email")}
-                    />
-                  </div>
-                  <div className="nk-field">
-                    <label htmlFor="nk-company">Company name</label>
-                    <input
-                      id="nk-company"
-                      type="text"
-                      autoComplete="organization"
-                      value={form.company}
-                      onChange={updateField("company")}
-                    />
-                  </div>
-                  <div className="nk-field">
-                    <label htmlFor="nk-phone">
-                      Phone number <span>*</span>
-                    </label>
-                    <input
-                      id="nk-phone"
                       type="tel"
-                      inputMode="tel"
-                      autoComplete="tel"
                       required
                       value={form.phone}
-                      onChange={updateField("phone")}
+                      onChange={(e) => setForm({ ...form, phone: e.target.value })}
                     />
-                  </div>
-                  <div className="nk-field nk-field--full">
-                    <label htmlFor="nk-address">Address</label>
+                  </label>
+
+                  <label>
+                    <span>Email Address</span>
                     <input
-                      id="nk-address"
-                      type="text"
-                      autoComplete="street-address"
-                      value={form.address}
-                      onChange={updateField("address")}
+                      type="email"
+                      required
+                      value={form.email}
+                      onChange={(e) => setForm({ ...form, email: e.target.value })}
                     />
-                  </div>
-                  <button type="submit" className="nk-form-submit">
-                    Submit request
-                    <ArrowUpRight size={17} strokeWidth={2} />
+                  </label>
+
+                  <label>
+                    <span>Company Name</span>
+                    <input
+                      type="text"
+                      required
+                      value={form.company}
+                      onChange={(e) => setForm({ ...form, company: e.target.value })}
+                    />
+                  </label>
+
+                  <button type="submit" className="nk-modal-submit">
+                    <Download size={16} strokeWidth={1.8} />
+                    Get Download
                   </button>
                 </form>
               </>

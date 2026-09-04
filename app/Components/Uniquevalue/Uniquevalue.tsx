@@ -3,7 +3,7 @@
 
 import { useEffect, useRef } from "react";
 import Image from "next/image";
-import Breadcrumbs from "@/app/Components/Breadcrumbs/Breadcrumbs";
+import CrumbBanner from "@/app/Components/CrumbBanner/CrumbBanner";
 import "./Uniquevalue.css";
 
 const values = [
@@ -69,7 +69,13 @@ export default function UniqueValueProposition() {
         <main className="uvp-page">
 
             {/* Breadcrumb */}
-            <Breadcrumbs />
+            <CrumbBanner
+                title="Unique Value Proposition"
+                subtitle="Why customers choose ProSIM — the engineering strengths and processes that set our work apart."
+                image="/assets/images/about/prosim_enhanced.png"
+                imageInset="/assets/images/about/1.webp"
+                imageCaption="Our USP"
+            />
 
             {/* Unique Value Proposition */}
             <section className="uvp-section" ref={sectionRef}>
@@ -107,7 +113,7 @@ export default function UniqueValueProposition() {
                         <div className="uvp-image">
 
                             <Image
-                                src="/images/unique-value-proposition.jpg"
+                                src="/assets/images/about/5.png"
                                 alt="Engineering simulation and analysis"
                                 fill
                                 priority

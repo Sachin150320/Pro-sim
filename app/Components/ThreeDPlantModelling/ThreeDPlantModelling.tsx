@@ -2,19 +2,7 @@
 
 import React, { useState } from "react";
 import Breadcrumbs from "@/app/Components/Breadcrumbs/Breadcrumbs";
-import {
-  Box,
-  Route,
-  Combine,
-  Layers,
-  Factory,
-  Atom,
-  Flame,
-  Ship,
-  Fuel,
-  Plus,
-  Minus,
-} from "lucide-react";
+import { Box, Route, Combine, Layers, Plus, Minus } from "lucide-react";
 import "./ThreeDPlantModelling.css";
 
 const IMG = "/assets/images/industries/3D-plant-modelling-services";
@@ -117,118 +105,50 @@ const heroNav = [
   { title: "Equipment & Structural Modelling", id: "equipment-structural" },
   { title: "Spec-Driven Piping & Routing", id: "piping-routing" },
   { title: "Multi-Discipline Clash Resolution", id: "clash-resolution" },
-  { title: "Technical Expertise & Toolsets", id: "technical-expertise" },
+  { title: "Technical Expertise & Methodologies", id: "technical-expertise" },
+  { title: "Projects", id: "projects" },
 ];
-
-const toolsets = [
-  {
-    area: "Intergraph SP3D",
-    detail:
-      "Massive, data-centric enterprise megaprojects with full schema synchronization and multidisciplinary database integration.",
-  },
-  {
-    area: "Aveva E3D & PDMS",
-    detail:
-      "Everything3D and traditional PDMS environments for collaborative global design and accurate, clash-free layouts and routing.",
-  },
-  {
-    area: "Autodesk Plant 3D",
-    detail:
-      "Versatile modelling for modular designs and fast-turnaround projects — intelligent workflows, rapid asset setup and efficient spec creation.",
-  },
-  {
-    area: "CADWorx & OpenPlant",
-    detail:
-      "Component-dense processing facilities on open-data architectures with intelligent routing, custom modelling and full BIM readiness.",
-  },
-  {
-    area: "Navisworks & Aveva Review",
-    detail:
-      "Automated clash detection, advanced interference mapping and final conflict resolution across all disciplines.",
-  },
-];
-
-const advantages = [
-  {
-    number: "01",
-    title: "Unified Source of Truth",
-    text: "A single, unambiguous, data-rich digital replica that spans the entire lifespan of your engineering assets and streamlines every phase of project execution.",
-  },
-  {
-    number: "02",
-    title: "Rigorous Data Compliance & Fidelity",
-    text: "Exceptional model fidelity across every engineering discipline, with layouts that strictly honour hazardous zone classifications, spatial limitations and regulatory standards.",
-  },
-  {
-    number: "03",
-    title: "Clash-Free Delivery",
-    text: "Exhaustive multi-discipline interference checks pinpoint clearance, soft and hard clashes long before fabrication, eliminating costly on-site rework.",
-  },
-  {
-    number: "04",
-    title: "Multi-Platform Capability",
-    text: "Deep proficiency across SP3D, Aveva E3D/PDMS, Autodesk Plant 3D, CADWorx and OpenPlant lets us plug directly into your enterprise database and design standards.",
-  },
-];
-
-const industries = [
-  "Process Plants",
-  "Nuclear Containment Facilities",
-  "Thermal Power Plants",
-  "Offshore Platforms",
-  "Complex Oil & Gas Facilities",
-];
-
-const industryIcons = [Factory, Atom, Flame, Ship, Fuel];
 
 const projects = [
   {
-    tag: "SP3D MEGAPROJECT",
-    date: "EPC · Oil & Gas",
-    title: "Enterprise SP3D Model of a Refinery Expansion",
+    tag: "OIL & GAS",
+    date: "Duration · 6 Months",
+    title: "Fitness-for-Service Assessment of a Pipeline During Lifting Operations",
     description:
-      "Data-centric SP3D environment with full schema synchronization and multidisciplinary database integration for a large refinery brownfield expansion.",
-    image: `${IMG}/1.png`,
+      "Fitness-for-Service assessment of a live pipeline affected by Corrosion Under Pipe Support (CUPS), validating structural integrity during a 50 mm lift for UT inspection. Reusable lifting guidelines were developed defining safe criteria for multiple pipe sizes and configurations.",
+    image: "/assets/images/project/1.jpg",
   },
   {
-    tag: "AS-BUILT MODELLING",
-    date: "Facility Operator",
-    title: "As-Built 3D Model of a Brownfield Process Unit",
+    tag: "OIL & GAS",
+    date: "Duration · 6 Weeks",
+    title: "Pipe Stress Analysis of a 44-inch Incinerator Line",
     description:
-      "Highly accurate as-built modelling so new equipment and piping fit flawlessly within existing site constraints ahead of a turnaround.",
-    image: `${IMG}/2.png`,
+      "Static and dynamic pipe stress analysis validating a proposed incinerator piping design modification, enabling the customer to approve and proceed with site modifications while improving incinerator efficiency and minimising the risk of future operational failures.",
+    image: "/assets/images/project/2.jpg",
   },
   {
-    tag: "SPEC-DRIVEN ROUTING",
-    date: "Chemical Processor",
-    title: "P&ID-Governed 3D Piping & HVAC Routing",
+    tag: "RENEWABLE ENERGY",
+    date: "Duration · 5 Weeks",
+    title: "FEA of a Wind Turbine Generator (WTG) Transformer",
     description:
-      "Intelligent P&IDs driving automated specification compliance across multi-sector piping runs, HVAC ductwork and electrical cable trays.",
-    image: `${IMG}/3.png`,
+      "FEA-based structural validation of a WTG transformer under transportation, lifting and extreme-wind acceleration loads. Critical stress regions were identified and the lifting arrangement, tie-down configuration and weld design were optimised for a manufacturing-ready design.",
+    image: "/assets/images/project/3.jpg",
   },
   {
-    tag: "DELIVERABLE EXTRACTION",
-    date: "EPC Contractor",
-    title: "GA Drawings, MTO/BOM & Isogen Isometrics",
+    tag: "NUCLEAR",
+    date: "Duration · 5 Weeks",
+    title: "Seismic Qualification of a 3.2 MW Induction Motor for a CCW Pump",
     description:
-      "Fabrication-ready deliverables pulled straight from a finished, spec-driven model for procurement and shop fabrication.",
-    image: `${IMG}/4.png`,
+      "Equipment qualification for Operating Basis Earthquake (OBE) loading, giving the customer the confidence to release the motor for manufacturing and supply it to a nuclear power plant site — a decision that could not be made without seismic qualification proof.",
+    image: "/assets/images/project/4.jpg",
   },
   {
-    tag: "CLASH RESOLUTION",
-    date: "Thermal Power Plant",
-    title: "Navisworks Clash Audit of a Boiler House",
+    tag: "WATER",
+    date: "Duration · 6 Months",
+    title: "Pipe Stress Analysis of a 40 MLD Desalination Plant",
     description:
-      "Ongoing multi-disciplinary coordination reviews across electrical, structural, civil and piping to eliminate clearance, soft and hard clashes.",
-    image: `${IMG}/5.png`,
-  },
-  {
-    tag: "NUCLEAR STRUCTURES",
-    date: "Nuclear Installation",
-    title: "3D Structural Model of a Containment Building",
-    description:
-      "Exact modelling of nuclear containment structures, secondary steelwork, foundations and access platforms to regulatory spatial standards.",
-    image: `${IMG}/1.png`,
+      "Pipe stress analysis of critical piping systems under operating and environmental loads for a 40 MLD desalination plant, ensuring piping integrity, safety and code compliance to support safe and reliable plant execution.",
+    image: "/assets/images/project/5.jpg",
   },
 ];
 
@@ -472,112 +392,6 @@ export default function ThreeDPlantModelling() {
                 )}
               </article>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* TOOLSETS */}
-      <section className="sa-ssc" id="toolsets">
-        <div className="sa-container">
-          <span className="sa-label">TECHNICAL EXPERTISE &amp; TOOLSETS</span>
-
-          <h2>Multi-Platform Modelling Capability</h2>
-
-          <p className="sa-section-intro">
-            Our project managers and engineering teams are highly proficient
-            across the industry&rsquo;s leading 3D plant modelling platforms,
-            ready to plug into your enterprise database and design standards.
-          </p>
-
-          <div className="sa-table-wrapper">
-            <table className="sa-ssc-table">
-              <thead>
-                <tr>
-                  <th>Platform</th>
-                  <th>Where It Excels</th>
-                </tr>
-              </thead>
-              <tbody>
-                {toolsets.map((row) => (
-                  <tr key={row.area}>
-                    <td>{row.area}</td>
-                    <td>{row.detail}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      {/* WHY PROSIM */}
-      <section className="sa-advantage">
-        <div className="sa-container">
-          <span className="sa-label">WHY PROSIM</span>
-
-          <h2>Why Choose ProSIM for 3D Plant Modelling?</h2>
-
-          <p className="sa-section-intro">
-            A single source of truth, rigorous data compliance, clash-free
-            delivery and deep multi-platform capability across the full asset
-            lifecycle.
-          </p>
-
-          <div className="sa-adv-grid">
-            {advantages.map((item) => (
-              <div className="sa-adv-box" key={item.number}>
-                <span className="sa-adv-number">{item.number}</span>
-                <div className="sa-adv-body">
-                  <h3>{item.title}</h3>
-                  <p>{item.text}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* INDUSTRIES */}
-      <section className="sa-clients" id="industries">
-        <div className="sa-container">
-          <div className="sa-ind-head">
-            <span className="sa-label">INDUSTRIES WE SERVE</span>
-
-            <h2>Industries We Serve</h2>
-
-            <p>
-              We partner directly with energy asset owners, facility operators
-              and EPC contractors across the broader energy sector.
-            </p>
-          </div>
-
-          <div className="sa-ind-layout">
-            <div className="sa-ind-main">
-              <div className="sa-ind-grid">
-                {industries.map((industry, index) => {
-                  const Icon = industryIcons[index];
-
-                  return (
-                    <div className="sa-ind-box" key={industry}>
-                      <span className="sa-ind-icon">
-                        <Icon size={20} strokeWidth={1.8} />
-                      </span>
-                      <strong>{industry}</strong>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-
-            <div className="sa-ind-media">
-              <figure className="sa-ind-photo">
-                <img
-                  src={`${IMG}/2.png`}
-                  alt="Process plant 3D model"
-                  loading="lazy"
-                />
-              </figure>
-            </div>
           </div>
         </div>
       </section>

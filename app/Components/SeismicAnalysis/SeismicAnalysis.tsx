@@ -172,52 +172,44 @@ const clientIcons = [Building2, Landmark, Factory, Wrench, Boxes];
 
 const projects = [
   {
-    tag: "SEISMIC QUALIFICATION",
-    date: "NPCIL · Tier-1 OEM",
-    title: "FEA Seismic Qualification — Primary Piping Package",
+    tag: "OIL & GAS",
+    date: "Duration · 6 Months",
+    title: "Fitness-for-Service Assessment of a Pipeline During Lifting Operations",
     description:
-      "End-to-end FEA-based qualification of a skid-mounted primary piping system to AERB and ASME requirements, including fixture design and test reporting.",
-    image: "/assets/images/industries/seismic-analysis-and-qualification/pipping.jpg",
+      "Fitness-for-Service assessment of a live pipeline affected by Corrosion Under Pipe Support (CUPS), validating structural integrity during a 50 mm lift for UT inspection. Reusable lifting guidelines were developed defining safe criteria for multiple pipe sizes and configurations.",
+    image: "/assets/images/project/1.jpg",
   },
   {
-    tag: "FLOOR RESPONSE SPECTRA",
-    date: "NPP Operator",
-    title: "Multi-Elevation FRS Generation, Reactor Building",
+    tag: "OIL & GAS",
+    date: "Duration · 6 Weeks",
+    title: "Pipe Stress Analysis of a 44-inch Incinerator Line",
     description:
-      "Regulator-approved building and structural models used to run seismic FEA and produce accurate Floor Response Spectra across multiple elevations.",
-    image: "/assets/images/industries/seismic-analysis-and-qualification/1.png",
+      "Static and dynamic pipe stress analysis validating a proposed incinerator piping design modification, enabling the customer to approve and proceed with site modifications while improving incinerator efficiency and minimising the risk of future operational failures.",
+    image: "/assets/images/project/2.jpg",
   },
   {
-    tag: "SEISMIC RE-EVALUATION",
-    date: "Legacy SSC Upgrade",
-    title: "Seismic Re-evaluation of a Legacy Cooling System",
+    tag: "RENEWABLE ENERGY",
+    date: "Duration · 5 Weeks",
+    title: "FEA of a Wind Turbine Generator (WTG) Transformer",
     description:
-      "Focused FEA seismic assessment to align an ageing safety-classified system with revised safety classifications and updated regulatory benchmarks.",
-    image: "/assets/images/industries/seismic-analysis-and-qualification/2.png",
+      "FEA-based structural validation of a WTG transformer under transportation, lifting and extreme-wind acceleration loads. Critical stress regions were identified and the lifting arrangement, tie-down configuration and weld design were optimised for a manufacturing-ready design.",
+    image: "/assets/images/project/3.jpg",
   },
   {
-    tag: "PIPE STRESS",
-    date: "EPC Contractor",
-    title: "Static & Dynamic Pipe Stress Analysis, BOP Package",
+    tag: "NUCLEAR",
+    date: "Duration · 5 Weeks",
+    title: "Seismic Qualification of a 3.2 MW Induction Motor for a CCW Pump",
     description:
-      "ASME-compliant flexibility and stress analysis with code qualification of supports, anchor plates, bolts and welds for a balance-of-plant network.",
-    image: "/assets/images/industries/seismic-analysis-and-qualification/3.png",
+      "Equipment qualification for Operating Basis Earthquake (OBE) loading, giving the customer the confidence to release the motor for manufacturing and supply it to a nuclear power plant site — a decision that could not be made without seismic qualification proof.",
+    image: "/assets/images/project/4.jpg",
   },
   {
-    tag: "EXTREME LOAD",
-    date: "Nuclear R&D Establishment",
-    title: "Air Shock Wave & Air Crash Impact Simulation",
+    tag: "WATER",
+    date: "Duration · 6 Months",
+    title: "Pipe Stress Analysis of a 40 MLD Desalination Plant",
     description:
-      "Advanced non-linear simulation of ASW and aircraft impact scenarios on a heavy RCC structure, with margin assessment against extreme seismic events.",
-    image: "/assets/images/industries/seismic-analysis-and-qualification/4.png",
-  },
-  {
-    tag: "SHAKE TABLE SUPPORT",
-    date: "Equipment Manufacturer",
-    title: "Shake Table Test Fixture & Qualification Report",
-    description:
-      "Boundary condition definition, specialized jig and fixture engineering, and compilation of the full qualification test report for a control panel package.",
-    image: "/assets/images/industries/seismic-analysis-and-qualification/pipping.jpg",
+      "Pipe stress analysis of critical piping systems under operating and environmental loads for a 40 MLD desalination plant, ensuring piping integrity, safety and code compliance to support safe and reliable plant execution.",
+    image: "/assets/images/project/5.jpg",
   },
 ];
 
