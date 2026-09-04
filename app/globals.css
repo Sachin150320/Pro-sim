@@ -1223,6 +1223,16 @@ body {
     align-items: flex-start !important;
     gap: 15px !important;
   }
+  .eng-horizontal-grid {
+    grid-template-columns: repeat(1, 1fr) !important;
+    gap: 24px !important;
+    width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    display: grid !important;
+    overflow: visible !important;
+}
+
 }
 
 .scroll-animate {
@@ -4931,7 +4941,7 @@ span.sub-link a {
 ========================================= */
 .eng-horizontal-grid {
   display: grid !important;
-  grid-template-columns: repeat(3, 1fr) !important;
+  grid-template-columns: repeat(3, 1fr);
   gap: 24px !important;
   width: 100% !important;
   height: auto !important;
