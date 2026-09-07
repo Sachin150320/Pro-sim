@@ -14,7 +14,6 @@ import {
   Plus,
   Minus,
 } from "lucide-react";
-import ProjectsHighlight from "@/app/Components/ProjectsHighlight/ProjectsHighlight";
 import "./SeismicAnalysis.css";
 
 const services = [
@@ -171,6 +170,48 @@ const clientEcosystem = [
 
 const clientIcons = [Building2, Landmark, Factory, Wrench, Boxes];
 
+const projects = [
+  {
+    tag: "OIL & GAS",
+    date: "Duration · 6 Months",
+    title: "Fitness-for-Service Assessment of a Pipeline During Lifting Operations",
+    description:
+      "Fitness-for-Service assessment of a live pipeline affected by Corrosion Under Pipe Support (CUPS), validating structural integrity during a 50 mm lift for UT inspection. Reusable lifting guidelines were developed defining safe criteria for multiple pipe sizes and configurations.",
+    image: "/assets/images/project/1.jpg",
+  },
+  {
+    tag: "OIL & GAS",
+    date: "Duration · 6 Weeks",
+    title: "Pipe Stress Analysis of a 44-inch Incinerator Line",
+    description:
+      "Static and dynamic pipe stress analysis validating a proposed incinerator piping design modification, enabling the customer to approve and proceed with site modifications while improving incinerator efficiency and minimising the risk of future operational failures.",
+    image: "/assets/images/project/2.jpg",
+  },
+  {
+    tag: "RENEWABLE ENERGY",
+    date: "Duration · 5 Weeks",
+    title: "FEA of a Wind Turbine Generator (WTG) Transformer",
+    description:
+      "FEA-based structural validation of a WTG transformer under transportation, lifting and extreme-wind acceleration loads. Critical stress regions were identified and the lifting arrangement, tie-down configuration and weld design were optimised for a manufacturing-ready design.",
+    image: "/assets/images/project/3.jpg",
+  },
+  {
+    tag: "NUCLEAR",
+    date: "Duration · 5 Weeks",
+    title: "Seismic Qualification of a 3.2 MW Induction Motor for a CCW Pump",
+    description:
+      "Equipment qualification for Operating Basis Earthquake (OBE) loading, giving the customer the confidence to release the motor for manufacturing and supply it to a nuclear power plant site — a decision that could not be made without seismic qualification proof.",
+    image: "/assets/images/project/4.jpg",
+  },
+  {
+    tag: "WATER",
+    date: "Duration · 6 Months",
+    title: "Pipe Stress Analysis of a 40 MLD Desalination Plant",
+    description:
+      "Pipe stress analysis of critical piping systems under operating and environmental loads for a 40 MLD desalination plant, ensuring piping integrity, safety and code compliance to support safe and reliable plant execution.",
+    image: "/assets/images/project/5.jpg",
+  },
+];
 
 const blogPosts = [
   {
@@ -309,9 +350,287 @@ export default function SeismicAnalysis() {
 
   return (
     <main className="seismic-page">
+      {/* HERO */}
+      <section className="sa-hero">
+        <div className="sa-hero-crumbs">
+          <Breadcrumbs />
+        </div>
+
+        <div className="sa-hero-inner">
+          <div className="sa-hero-text">
+        
+            <h1>
+              <span>Seismic Analysis </span>  
+            </h1>
+            <h1>
+                & Qualification 
+            </h1>
+
+            <p>
+              ProSIM is a premier provider of engineering and consultancy
+              solutions for the nuclear power industry. As a seasoned seismic
+              design consultant, we team up with system integrators, equipment
+              manufacturers and EPC contractors worldwide to deliver secure,
+              dependable and code-compliant design and operational support for
+              nuclear Systems, Structures and Components (SSCs).
+            </p>
+
+            {/* <p>
+              We work intimately with leading entities such as NPCIL, BARC,
+              IGCAR, NRB, AERB, ITER India and ITER I/O, alongside global Tier-1
+              vendors and major EPC contractors &mdash; providing exceptional
+              engineering and safety validations that guarantee rigorous Nuclear
+              Seismic Qualification.
+            </p> */}
+          </div>
+
+          <div className="sa-hero-media">
+            <figure className="sa-hero-media-main">
+              <img
+                src="/assets/images/industries/seismic-analysis-and-qualification/pipping.jpg"
+                alt="Nuclear piping — seismic analysis and qualification"
+                loading="eager"
+              />
+              <figcaption>Seismic Qualification</figcaption>
+            </figure>
+            <figure className="sa-hero-media-inset">
+              <img
+                src="/assets/images/industries/seismic-analysis-and-qualification/1.png"
+                alt="FEA seismic model detail"
+                loading="lazy"
+              />
+            </figure>
+          </div>
+        </div>
+
+        <div className="sa-hero-inner">
+          <div className="sa-hero-nav">
+            {heroNav.map((item) => (
+              <a href={`#${item.id}`} className="sa-hero-nav-button" key={item.id}>
+                {item.title}
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SERVICES */}
+      <section className="sa-services">
+        <div className="sa-container">
+          <section className="sa-intro">
+            <span className="sa-label">OUR EXPERTISE</span>
+
+            <h2>Seismic Analysis &amp; Qualification Services</h2>
+
+            <p>
+              Our multidisciplinary capabilities combine advanced FEA, seismic
+              analysis, piping engineering and nuclear safety expertise to
+              support critical nuclear projects across their complete lifecycle.
+            </p>
+          </section>
+
+          <div className="sa-service-list">
+            {services.map((service, index) => (
+              <article className="sa-service-box" id={service.id} key={service.id}>
+                <div className="sa-service-top">
+                  <div className="sa-service-icon">
+                    {React.createElement(serviceIcons[index], {
+                      size: 25,
+                      strokeWidth: 1.8,
+                    })}
+                  </div>
+
+                  <h2>{service.title}</h2>
+                </div>
+
+                <p>{service.description}</p>
+
+                <div className="sa-point-grid">
+                  {service.points.map((point, i) => (
+                    <div className="sa-point-box" key={point.head}>
+                      <span className="sa-point-num">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <div className="sa-point-body">
+                        <h4>{point.head}</h4>
+                        <p>{point.body}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {index === 0 && (
+                  <div className="sa-gallery">
+                    <div className="sa-gallery-card">
+                      <img
+                        src="/assets/images/industries/seismic-analysis-and-qualification/1.png"
+                        alt="Seismic FEA analysis"
+                      />
+                    </div>
+                    <div className="sa-gallery-card">
+                      <img
+                        src="/assets/images/industries/seismic-analysis-and-qualification/2.png"
+                        alt="Shake table testing"
+                      />
+                    </div>
+                  </div>
+                )}
+
+                {index === 1 && (
+                  <div className="sa-gallery">
+                    <div className="sa-gallery-card">
+                      <img
+                        src="/assets/images/industries/seismic-analysis-and-qualification/3.png"
+                        alt="Piping engineering"
+                      />
+                    </div>
+                    <div className="sa-gallery-card">
+                      <img
+                        src="/assets/images/industries/seismic-analysis-and-qualification/4.png"
+                        alt="Pipe stress analysis"
+                      />
+                    </div>
+                  </div>
+                )}
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SSC TABLE */}
+      <section className="sa-ssc" id="sscs-handled">
+        <div className="sa-container">
+          <span className="sa-label">SYSTEMS &amp; COMPONENTS</span>
+
+          <h2>Systems, Structures &amp; Components (SSCs) Handled</h2>
+
+          <p className="sa-section-intro">
+            ProSIM brings profound industry expertise to managing Class 1, 2 and
+            3 safety-classified systems, supplying meticulous nuclear seismic
+            analysis across multiple critical domains.
+          </p>
+
+          <div className="sa-table-wrapper">
+            <table className="sa-ssc-table">
+              <thead>
+                <tr>
+                  <th>Category</th>
+                  <th>Nuclear Packages &amp; Equipment Covered</th>
+                </tr>
+              </thead>
+              <tbody>
+                {sscData.map((item) => (
+                  <tr key={item.category}>
+                    <td>{item.category}</td>
+                    <td>{item.equipment}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      {/* WHY PROSIM */}
+      <section className="sa-advantage">
+        <div className="sa-container">
+          <span className="sa-label">WHY PROSIM</span>
+
+          <h2>Why Choose ProSIM?</h2>
+
+          <p className="sa-section-intro">
+            Our nuclear engineering capabilities are supported by deep code
+            expertise, validated engineering processes, quality management and a
+            strong global engineering network.
+          </p>
+
+          <div className="sa-adv-grid">
+            {advantages.map((item) => (
+              <div className="sa-adv-box" key={item.number}>
+                <span className="sa-adv-number">{item.number}</span>
+                <div className="sa-adv-body">
+                  <h3>{item.title}</h3>
+                  <p>{item.text}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CLIENT ECOSYSTEM */}
+      <section className="sa-clients" id="client-ecosystem">
+        <div className="sa-container">
+          <div className="sa-ind-head">
+            <span className="sa-label">TARGET CLIENT ECOSYSTEM</span>
+
+            <h2>Target Client Ecosystem</h2>
+
+            <p>
+              Operating as elite FEA seismic qualification consultants, we
+              partner with stakeholders across the entire global nuclear supply
+              chain to ensure flawless nuclear seismic qualification.
+            </p>
+          </div>
+
+          <div className="sa-ind-layout">
+            <div className="sa-ind-main">
+              <div className="sa-ind-grid">
+                {clientEcosystem.map((client, index) => {
+                  const Icon = clientIcons[index];
+
+                  return (
+                    <div className="sa-ind-box" key={client}>
+                      <span className="sa-ind-icon">
+                        <Icon size={20} strokeWidth={1.8} />
+                      </span>
+                      <strong>{client}</strong>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            <div className="sa-ind-media">
+              <figure className="sa-ind-photo">
+                <img
+                  src="/assets\images/industries/seismic-analysis-and-qualification/seismic.png"
+                  alt="Nuclear power infrastructure"
+                  loading="lazy"
+                />
+              </figure>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* PROJECTS */}
-      <ProjectsHighlight />
+      <section className="sa-updates" id="projects">
+        <div className="sa-container">
+          <span className="sa-label">Projects</span>
+          <h2>Nuclear Seismic Qualification Projects</h2>
+
+          <div className="sa-updates-grid">
+            {projects.map((item) => (
+              <div className="sa-update-card" key={item.title}>
+                <div className="sa-update-image">
+                  <span className="sa-update-tag">{item.tag}</span>
+                  <img src={item.image} alt={item.title} />
+                </div>
+                <div className="sa-update-content">
+                  <span className="sa-update-date">{item.date}</span>
+                  <h3>{item.title}</h3>
+                  <p>{item.description}</p>
+                  <a href="/projects" className="sa-update-link">
+                    Read More &rarr;
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* FAQ */}
       <section className="sa-faq" id="faq-nuclear">

@@ -83,7 +83,7 @@ export default function EventsSection() {
                     Pipe stress analysis of critical piping systems under operating and environmental loads for a 40 MLD desalination plant, ensuring piping integrity, safety and code compliance to support safe and reliable plant execution.
                
                 </p>
-                <a href="#read-more" className="event-read-more">
+                <a href="/projects" className="event-read-more">
                   Read More <span>→</span>
                 </a>
               </div>
@@ -104,7 +104,7 @@ export default function EventsSection() {
                     <h4 className="event-row-title">{ev.title}</h4>
                     {ev.location && <p className="event-location">{ev.location}</p>}
                     <p className="event-text-short">{ev.description}</p>
-                    <a href="#read-more" className="event-read-more">
+                    <a href="/projects" className="event-read-more">
                       {ev.linkText}
                     </a>
                   </div>
