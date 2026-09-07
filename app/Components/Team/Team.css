@@ -73,7 +73,7 @@
 .tm-grid {
   position: relative;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 22px;
 }
 
@@ -83,21 +83,20 @@
 
 .tm-grid-lead {
   grid-template-columns: repeat(3, 1fr);
-  max-width: 760px;
+  max-width: 900px;
   margin: 0 auto 22px;
 }
 
 /* ---- card ---- */
 .tm-card {
+  position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 10px 10px 10px;
+  padding: 14px 14px 20px;
   border: 1px solid var(--tm-border);
-  border-radius: 16px;
+  border-radius: 18px;
   background: #fff;
-  box-shadow: 0 16px 40px -30px rgba(16, 27, 40, 0.3);
+  box-shadow: 0 18px 44px -34px rgba(16, 27, 40, 0.3);
   opacity: 0;
   transform: translateY(26px);
   transition: opacity 0.55s ease, transform 0.55s ease,
@@ -109,19 +108,36 @@
   transform: translateY(0);
 }
 
+.tm-card::before {
+  content: "";
+  position: absolute;
+  left: 22px;
+  right: 22px;
+  bottom: 0;
+  height: 3px;
+  border-radius: 3px;
+  background: var(--tm-red);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
 .tm-card:hover {
-  border-color: rgba(0, 113, 188, 0.4);
-  box-shadow: 0 28px 56px -30px rgba(16, 27, 40, 0.38);
+  transform: translateY(-6px);
+  border-color: rgba(0, 113, 188, 0.35);
+  box-shadow: 0 34px 64px -34px rgba(16, 27, 40, 0.4);
+}
+
+.tm-card:hover::before {
+  transform: scaleX(1);
 }
 
 .tm-card-photo {
-  width: 116px;
-  height: 116px;
-  margin-bottom: 18px;
-  border-radius: 50%;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  margin-bottom: 16px;
+  border-radius: 14px;
   overflow: hidden;
-  border: 2px solid rgba(0, 113, 188, 0.4);
-  box-shadow: 0 0 0 6px rgba(0, 113, 188, 0.1);
   background: var(--tm-light);
 }
 
@@ -134,29 +150,54 @@
 }
 
 .tm-card:hover .tm-card-photo img {
-  transform: scale(1.06);
+  transform: scale(1.05);
+}
+
+.tm-card-body {
+  text-align: center;
+  padding: 0 6px;
 }
 
 .tm-card h4 {
-  margin: 0 0 6px;
+  margin: 0 0 5px;
   font-size: 15px;
   font-weight: 700;
-  letter-spacing: 0.4px;
+  letter-spacing: 0.5px;
   text-transform: uppercase;
   color: var(--tm-dark);
 }
 
 .tm-card p {
-  margin: 0;
-  font-size: 13px;
+  margin: 0 0 8px;
+  font-size: 12.5px;
   line-height: 1.5;
+  color: var(--tm-text);
+}
+
+.tm-card-group {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
   color: var(--tm-red);
 }
 
 .tm-card-social {
+  align-self: center;
   display: flex;
+  justify-content: center;
   gap: 8px;
-  margin-top: 14px;
+  margin-top: 16px;
+  padding: 7px 11px;
+  border: 1px solid var(--tm-border);
+  border-radius: 999px;
+  background: var(--tm-light);
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.tm-card:hover .tm-card-social {
+  border-color: rgba(0, 113, 188, 0.25);
+  background: rgba(0, 113, 188, 0.06);
 }
 
 .tm-card-social a {
@@ -165,19 +206,18 @@
   justify-content: center;
   width: 30px;
   height: 30px;
-  border-radius: 8px;
-  border: 1px solid var(--tm-border);
+  border-radius: 50%;
   background: #fff;
   color: var(--tm-text);
-  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease,
-    transform 0.2s ease;
+  transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .tm-card-social a:hover {
   background: var(--tm-red);
-  border-color: var(--tm-red);
   color: #fff;
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px -8px rgba(0, 113, 188, 0.55);
 }
 
 /* ---- bottom ---- */
@@ -228,11 +268,6 @@
 
   .tm-heading {
     margin-bottom: 38px;
-  }
-
-  .tm-card-photo {
-    width: 96px;
-    height: 96px;
   }
 }
 
