@@ -78,7 +78,10 @@ export default function EventsSection() {
                   Pipe Stress Analysis of a 40 MLD Desalination Plant
                 </h3>
                 <p className="event-text">
-                  Pipe stress analysis of critical piping systems under operating and environmental loads for a 40 MLD desalination plant, ensuring piping integrity, safety and code compliance to support safe and reliable plant execution.
+             Evaluated critical piping systems under operating and environmental loads by performing pipe stress analysis for a 40 MLD desalination plant, ensuring piping integrity, safety, and code compliance to support safe and reliable plant execution.
+               
+                    Pipe stress analysis of critical piping systems under operating and environmental loads for a 40 MLD desalination plant, ensuring piping integrity, safety and code compliance to support safe and reliable plant execution.
+               
                 </p>
                 <a href="#read-more" className="event-read-more">
                   Read More <span>→</span>

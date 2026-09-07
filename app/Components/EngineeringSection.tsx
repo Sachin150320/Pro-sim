@@ -14,6 +14,9 @@ import {
     ArrowUpRight,
 } from "lucide-react";
 import ScrollAnimation from "@/app/Components/ScrollAnimation";
+
+const IMG = "/assets/images/portfolio/modern";
+
 const engineeringServices = [
     {
         number: "01",
@@ -21,6 +24,8 @@ const engineeringServices = [
         description:
             "Comprehensive engineering solutions developed with accuracy, practicality and project-specific requirements in mind.",
         icon: Box,
+        image: `${IMG}/1.webp`,
+        href: "/Detailed-Engineering-services",
     },
     {
         number: "02",
@@ -28,6 +33,8 @@ const engineeringServices = [
         description:
             "Engineering analysis and qualification solutions for systems and components subjected to seismic loading.",
         icon: Activity,
+        image: `${IMG}/2.webp`,
+        href: "/Seismic-analysis-and-qualification",
     },
     {
         number: "03",
@@ -35,6 +42,8 @@ const engineeringServices = [
         description:
             "Complete piping and pipeline engineering solutions focused on safety, reliability, constructability and performance.",
         icon: Network,
+        image: `${IMG}/3.webp`,
+        href: "/Piping-&-pipeline-engineering-services",
     },
     {
         number: "04",
@@ -42,6 +51,8 @@ const engineeringServices = [
         description:
             "Detailed 3D plant modelling for improved visualization, coordination, clash detection and engineering accuracy.",
         icon: Layers,
+        image: `${IMG}/4.webp`,
+        href: "/Three-D-plant-modelling-services",
     },
     {
         number: "05",
@@ -49,6 +60,8 @@ const engineeringServices = [
         description:
             "Advanced finite element analysis to evaluate structural behaviour, stresses, deformation and component performance.",
         icon: Cpu,
+        image: `${IMG}/5.webp`,
+        href: "/finite-element-analysis-services",
     },
     {
         number: "06",
@@ -56,6 +69,8 @@ const engineeringServices = [
         description:
             "Simulation-driven engineering using CFD and multiphysics methods to understand complex operating conditions.",
         icon: Workflow,
+        image: `${IMG}/6.webp`,
+        href: "/Computational-fluid-dynamics-services",
     },
     {
         number: "07",
@@ -63,6 +78,8 @@ const engineeringServices = [
         description:
             "Fitness-for-service assessment, residual life evaluation and re-qualification for equipment already in service.",
         icon: ShieldCheck,
+        image: `${IMG}/7.webp`,
+        href: "/structural-integrity-assessments",
     },
     {
         number: "08",
@@ -70,6 +87,8 @@ const engineeringServices = [
         description:
             "Digital engineering and automation solutions that improve engineering workflows, monitoring and asset performance.",
         icon: Settings2,
+        image: `${IMG}/8.webp`,
+        href: "/Engineering-Automation-&-Digital-Twin",
     },
     {
         number: "09",
@@ -77,6 +96,8 @@ const engineeringServices = [
         description:
             "Technical support, engineering evaluation and owner’s engineering services for effective project planning and execution.",
         icon: ClipboardCheck,
+        image: `${IMG}/9.webp`,
+        href: "/Pre-Bid-&-Owners-Engineering",
     },
 ];
 
@@ -146,25 +167,38 @@ export default function EngineeringSection() {
                                             {service.number}
                                         </span>
 
-                                        <div className="eng-card-icon">
-                                            <Icon
-                                                size={25}
-                                                strokeWidth={1.5}
+                                        <div className="eng-card-top-right">
+                                            <img
+                                                className="eng-card-thumb"
+                                                src={service.image}
+                                                alt={service.title}
+                                                loading="lazy"
                                             />
+
+                                            {/* <div className="eng-card-icon">
+                                                <Icon
+                                                    size={25}
+                                                    strokeWidth={1.5}
+                                                />
+                                            </div> */}
                                         </div>
                                     </div>
 
                                     <div className="eng-card-body">
-                                        <h3>{service.title}</h3>
+                                        <h3>
+                                            <a href={service.href}>
+                                                {service.title}
+                                            </a>
+                                        </h3>
 
                                         <p>{service.description}</p>
                                     </div>
 
                                     <a
-                                        href="#contact"
+                                        href={service.href}
                                         className="eng-card-action"
                                     >
-                                        <span>Discuss your scope</span>
+                                        <span>Explore this service</span>
 
                                         <span className="eng-card-arrow">
                                             <ArrowUpRight size={17} />

@@ -5,13 +5,21 @@ import Link from "next/link";
 import ScrollAnimation from "@/app/Components/ScrollAnimation"; // Adjust path to your component file
 
 const stats = [
-  { number: 800, suffix: "+", text: "Trusted Customers" },
-  { number: 4, suffix: "M+", text: "Hours of Experience" },
-  { number: 3600, suffix: "+", text: "Projects Delivered" },
-  { number: 25, suffix: "+", text: "Years of Excellence" },
+  { number: 800, suffix: "+", step: 100, text: "Trusted Customers" },
+  { number: 4, suffix: "M+", step: 1, text: "Hours of Experience" },
+  { number: 3600, suffix: "+", step: 100, text: "Projects Delivered" },
+  { number: 25, suffix: "+", step: 5, text: "Years of Excellence" },
 ];
 
-function Counter({ number, suffix }: { number: number; suffix: string }) {
+function Counter({
+  number,
+  suffix,
+  step,
+}: {
+  number: number;
+  suffix: string;
+  step: number;
+}) {
   const [count, setCount] = useState(0);
   const [started, setStarted] = useState(false);
   const counterRef = useRef<HTMLHeadingElement>(null);
@@ -36,22 +44,23 @@ function Counter({ number, suffix }: { number: number; suffix: string }) {
   useEffect(() => {
     if (!started) return;
 
-    let start = 0;
-    const duration = 2000;
-    const increment = number / (duration / 16);
+    const totalSteps = Math.max(1, Math.ceil(number / step));
+    // whole run ~2.4s, clamped so each visible tick sits between 90ms and 260ms
+    const delay = Math.min(260, Math.max(90, Math.round(2400 / totalSteps)));
 
+    let current = 0;
     const timer = setInterval(() => {
-      start += increment;
-      if (start >= number) {
+      current += step;
+      if (current >= number) {
         setCount(number);
         clearInterval(timer);
       } else {
-        setCount(Math.floor(start));
+        setCount(current);
       }
-    }, 16);
+    }, delay);
 
     return () => clearInterval(timer);
-  }, [started, number]);
+  }, [started, number, step]);
 
   return (
     <h2 ref={counterRef}>
@@ -65,7 +74,7 @@ export default function Hero() {
   return (
     <section className="hero-section">
       <video autoPlay muted loop playsInline className="hero-video">
-        <source src="assets/images/sliders/banner-01.mp4" type="video/mp4" />
+        <source src="assets/images/sliders/banner-02.mp4" type="video/mp4" />
         Your browser does not support HTML5 video.
       </video>
 
@@ -114,7 +123,7 @@ export default function Hero() {
         <div className="stats-section">
           {stats.map((stat) => (
             <div className="stat-card" key={stat.text}>
-              <Counter number={stat.number} suffix={stat.suffix} />
+              <Counter number={stat.number} suffix={stat.suffix} step={stat.step} />
               <p>{stat.text}</p>
             </div>
           ))}

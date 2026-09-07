@@ -152,63 +152,63 @@ export default function Footer() {
 
                         <ul>
                             <li>
-                                <Link href="/engineering/detailed-engineering">
+                                <Link href="/Detailed-Engineering-services">
                                     <span className="footer-arrow">→</span>
                                     Detailed Engineering
                                 </Link>
                             </li>
 
                             <li>
-                                <Link href="/engineering/seismic-analysis">
+                                <Link href="/Seismic-analysis-and-qualification">
                                     <span className="footer-arrow">→</span>
                                     Seismic Analysis & Qualification
                                 </Link>
                             </li>
 
                             <li>
-                                <Link href="/engineering/piping-pipeline">
+                                <Link href="/Piping-&-pipeline-engineering-services">
                                     <span className="footer-arrow">→</span>
                                     Piping & Pipeline Engineering
                                 </Link>
                             </li>
 
                             <li>
-                                <Link href="/engineering/3d-plant-modelling">
+                                <Link href="/Three-D-plant-modelling-services">
                                     <span className="footer-arrow">→</span>
                                     3D Plant Modelling
                                 </Link>
                             </li>
 
                             <li>
-                                <Link href="/engineering/fea">
+                                <Link href="/finite-element-analysis-services">
                                     <span className="footer-arrow">→</span>
                                     Finite Element Analysis (FEA)
                                 </Link>
                             </li>
 
                             <li>
-                                <Link href="/engineering/cfd-multiphysics">
+                                <Link href="/Computational-fluid-dynamics-services">
                                     <span className="footer-arrow">→</span>
                                     CFD & Multiphysics Simulations
                                 </Link>
                             </li>
 
                             <li>
-                                <Link href="/engineering/rla-rle-ffs">
+                                <Link href="/structural-integrity-assessments">
                                     <span className="footer-arrow">→</span>
                                     RLA/RLE & Fitness-for-Service (FFS)
                                 </Link>
                             </li>
 
                             <li>
-                                <Link href="/engineering/automation-digital-twin">
+                                <Link href="/Engineering-Automation-&-Digital-Twin">
                                     <span className="footer-arrow">→</span>
                                     Engineering Automation & Digital Twin
                                 </Link>
                             </li>
 
                             <li>
-                                <Link href="/engineering/pre-bid-owner-engineering">
+                                <Link href="/Pre-Bid-&-Owners-Engineering">
                                     <span className="footer-arrow">→</span>
                                     Pre-Bid & Owner&apos;s Engineering
                                 </Link>
@@ -236,28 +236,28 @@ export default function Footer() {
                             </li>
 
                             <li>
-                                <Link href="/industries/power-grid-utilities">
+                                <Link href="/oil-gas-and-offshore">
                                     <span className="footer-arrow">→</span>
-                                    Oil & Gas, Off Shore
+                                    Oil & Gas
                                 </Link>
                             </li>
 
                             <li>
-                                <Link href="/industries/power-grid-utilities">
+                                <Link href="/defence-systems">
                                     <span className="footer-arrow">→</span>
                                     Defence
                                 </Link>
                             </li>
 
                             <li>
-                                <Link href="/industries/power-grid-utilities">
+                                <Link href="/heavy-engineering">
                                     <span className="footer-arrow">→</span>
                                     Heavy Engineering Equipment / General Engineering
                                 </Link>
                             </li>
 
                             <li>
-                                <Link href="/industries/power-grid-utilities">
+                                <Link href="/renewable-green-energy">
                                     <span className="footer-arrow">→</span>
                                     Renewable & Green Energy
                                 </Link>

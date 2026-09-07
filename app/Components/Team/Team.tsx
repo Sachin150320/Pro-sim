@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import CrumbBanner from "@/app/Components/CrumbBanner/CrumbBanner";
 import "./Team.css";
 
-const PHOTO = "/assets/images/team/1.png";
+const IMG = "/assets/images/team";
 
 const SOCIALS = [
   {
@@ -25,33 +25,34 @@ const SOCIALS = [
 ];
 
 const leadership = [
-  { name: "Dr Shamasundar", role: "Managing Director" },
-  { name: "Umesh Chandra", role: "Director" },
-  { name: "Dr Sridhar Mandyam", role: "Lead - Digital Initiatives" },
+  { name: "Dr. S. Shamasundar", role: "Managing Director", image: `${IMG}/1.png` },
+  { name: "Umesh Chandra", role: "Director", image: `${IMG}/2.png` },
+  { name: "Sandeep PS", role: "Head of Business Development", image: `${IMG}/3.png` },
 ];
 
 const team = [
-  { name: "Sandeep PS", role: "Senior Manager - BD" },
-  { name: "Prathik JP", role: "Dy Manager Pre Sales" },
-  { name: "Harsharaj S Ankalkoti", role: "Delivery Head" },
-  { name: "Vishwajeet Raj", role: "Team Lead - FEA" },
-  { name: "Ganesh Bharadwaj H S", role: "Head Of Dept - Piping" },
-  { name: "Sagar S", role: "Team Lead - Piping" },
-  { name: "Srikanth G", role: "Project Manager" },
-  { name: "Shane Stuart", role: "Team Lead - FEA" },
-  { name: "Santosh Mankani", role: "Project Manager" },
-  { name: "Benith Kumar", role: "Team Lead - Piping" },
-  // { name: "Shivakumar Hadagali", role: "Project Manager" },
-  // { name: "Prateek Ranjan", role: "Team Lead - Piping" },
+  { name: "Harsharaj", role: "Head of Delivery", image: `${IMG}/4.png` },
+  { name: "Ganesh Bharadwaj H S", role: "Head of Dept – Piping", image: `${IMG}/5.png` },
+  { name: "Shivakumar Hadagali", role: "Project Manager (Oil & Gas / Nuclear)", image: `${IMG}/6.png` },
+  { name: "Santhosh Mankani", role: "Project Manager (Nuclear)", image: `${IMG}/7.png` },
+  { name: "Prathik JP", role: "Manager – Pre-Sales", image: `${IMG}/8.png` },
+  { name: "Tejas N", role: "Deputy Manager – Business Development", image: `${IMG}/9.png` },
+  { name: "Sagar S", role: "Team Lead – Piping Engineering", image: `${IMG}/10.png` },
+  { name: "Shane Stuart", role: "Team Lead – Mechanical Engineering (FEA)", image: `${IMG}/11.png` },
+  { name: "Vishwajeet Raj", role: "Team Lead – Mechanical Engineering (Digital Twin)", image: `${IMG}/12.png` },
+  { name: "Prateek Ranjan", role: "Team Lead – Mechanical Engineering (Oil & Gas)", image: `${IMG}/13.png` },
+  { name: "Jaya Krishna N", role: "Team Lead – Mechanical Engineering (Nuclear)", image: `${IMG}/14.png` },
+  { name: "Pavan M", role: "Team Lead – Piping Engineering (Oil & Gas)", image: `${IMG}/15.png` },
+  { name: "Rajesh HK", role: "Team Lead – Mechanical Engineering (Nuclear)", image: `${IMG}/16.png` },
 ];
 
-type Member = { name: string; role: string };
+type Member = { name: string; role: string; image: string };
 
 function TeamCard({ person, delay }: { person: Member; delay: number }) {
   return (
     <article className="tm-card" style={{ transitionDelay: `${delay}ms` }}>
       <div className="tm-card-photo">
-        <img src={PHOTO} alt={person.name} loading="lazy" />
+        <img src={person.image} alt={person.name} loading="lazy" />
       </div>
       <h4>{person.name}</h4>
       <p>{person.role}</p>

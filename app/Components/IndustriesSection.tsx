@@ -31,7 +31,7 @@ const industries = [
 
   {
     title: "Petrochemicals & Process Industries",
-    type: "PROCESS INDUSTRIES",
+    type: "Petrochemicals & PROCESS INDUSTRIES",
     href: "/petrochemicals",
     image: "/assets/images/industries/ind-petrochemicals.jpg",
 
@@ -39,15 +39,15 @@ const industries = [
 
   {
     title: "Industrial & Heavy Engineering",
-    type: "HEAVY ENGINEERING",
+    type: "Industrial & HEAVY ENGINEERING",
     href: "/heavy-engineering",
     image: "/assets/images/industries/ind-industrial.jpg",
 
   },
 
   {
-    title: "Power & Utilities",
-    type: "DEFENCE",
+    title: "DEFENCE",
+    type: "DEFENCE & AEROSPACE",
     href: "/power-utilities",
     image: "/assets/images/industries/ind-power-utilities.jpg",
 

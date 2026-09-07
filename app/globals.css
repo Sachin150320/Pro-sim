@@ -5051,6 +5051,26 @@ span.sub-link a {
   transform: rotate(-8deg);
 }
 
+.eng-card-top-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.eng-card-thumb {
+  width: 66px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #dcecf5;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+.eng-horizontal-card:hover .eng-card-thumb {
+  transform: scale(1.05);
+}
+
 /* =========================================
    CARD CONTENT
 ========================================= */
@@ -5071,6 +5091,11 @@ span.sub-link a {
 
 .eng-horizontal-card:hover .eng-card-body h3 {
   color: #0071bc;
+}
+
+.eng-card-body h3 a {
+  color: inherit;
+  text-decoration: none;
 }
 
 .eng-card-body p {

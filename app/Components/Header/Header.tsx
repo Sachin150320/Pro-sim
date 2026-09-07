@@ -28,7 +28,7 @@ export const menuItems: MenuItem[] = [
     children: [
       { name: "About Company", href: "/about-us" },
       { name: "Promoter", href: "/Promoter" },
-      { name: "Vision and Mission", href: "/vision-mission" },
+      // { name: "Vision and Mission", href: "/vision-mission" },
       { name: "Unique Value Proposition", href: "/Unique-Value-Proposition" },
       // { name: "Customer Visits", href: "/Customer-Visits" },
       { name: "Team", href: "/Team" },
@@ -84,10 +84,10 @@ export const menuItems: MenuItem[] = [
     children: [
       { name: "Nuclear Power", href: "/nuclear-power" },
       { name: "Thermal Power", href: "/thermal-power" },
-      { name: "Oil & Gas, Off Shore", href: "/oil-gas-and-offshore" },
+      { name: "Oil & Gas", href: "/oil-gas-and-offshore" },
       { name: "Defence", href: "/defence-systems" },
-      { name: "Heavy Engineering Equipment / General Engineering", href: "#" },
-      { name: "Renewable & Green Energy", href: "#" },
+      { name: "Heavy Engineering Equipment / General Engineering", href: "/heavy-engineering" },
+      { name: "Renewable & Green Energy", href: "/renewable-green-energy" },
     ],
   },
 

@@ -3,19 +3,16 @@
 import React, { useState } from "react";
 import Breadcrumbs from "@/app/Components/Breadcrumbs/Breadcrumbs";
 import ScrollAnimation from "@/app/Components/ScrollAnimation";
+import ProjectsHighlight from "@/app/Components/ProjectsHighlight/ProjectsHighlight";
 import {
   Award,
   BadgeCheck,
-  FlaskConical,
-  Building2,
+  Boxes,
   Ruler,
   Activity,
   Thermometer,
-  Wind,
   GitBranch,
-  Boxes,
   Magnet,
-  RadioTower,
   SearchCheck,
   Timer,
   Download,
@@ -26,117 +23,110 @@ import "./DefenceSystems.css";
 
 const IMG = "/assets/images/industries/defence";
 
+/* Engineering depth — how simulation supports design */
 const certifications = [
-  { icon: Award, text: "An ISO 9001:2008 company" },
-  { icon: BadgeCheck, text: "CEMILAC certified design house" },
-  { icon: FlaskConical, text: "DSIR Recognised R&D Company" },
   {
-    icon: Building2,
-    text: "Registered vendor in several DRDO and Defence manufacturing units",
+    icon: Ruler,
+    text: "Design optimisation — reduce weight while improving performance, life and reliability.",
+  },
+  {
+    icon: Boxes,
+    text: "Model development — build simulation models around the products' actual operating physics.",
+  },
+  {
+    icon: BadgeCheck,
+    text: "Design verification — use simulation to investigate critical load, thermal, vibration and failure cases.",
+  },
+  {
+    icon: Award,
+    text: "Certification support — interface with relevant agencies as part of design and qualification activities.",
   },
 ];
 
+/* Engineering process — a collaborative workflow built around the design problem */
 const process = [
-  "We work in a collaborative engineering mode to assist defence R&D from conceptual design to delivery of design / manufacturing drawings, and interface to obtain certification from the appropriate agencies.",
-  "We use a variety of computer simulation technologies to develop computer models of products / systems / processes — adopting virtual product development, virtual prototyping and virtual testing methodologies.",
-  "Our models are correlated by physical prototypes and tests to check compliance with MIL specs / customer design specs.",
-  "We deliver proven, optimised designs using this robust R&D process — developing defence systems / products / processes faster, better and in a more cost-effective manner.",
+  "Define — translate the requirement, load case, operating envelope and design intent into an engineering problem.",
+  "Model — create the appropriate geometry, material, boundary condition and system-level representation.",
+  "Simulate — apply FEA, CFD, dynamics, thermal, fatigue or multiphysics analysis as appropriate.",
+  "Optimise — turn analysis findings into practical design changes for performance, life, reliability or weight.",
+  "Correlate — where applicable, compare with prototype or test results and close the engineering loop.",
 ];
 
+/* Deep analysis capabilities for complex defence engineering */
 const capabilities: {
   icon: React.ComponentType<{ size?: number; strokeWidth?: number }>;
   title: string;
   desc: string;
 }[] = [
   {
-    icon: Ruler,
-    title: "Design & Optimisation",
-    desc: "Reduce weight and increase performance — life, reliability, stress, thermal, vibration, etc.",
-  },
-  {
     icon: Activity,
-    title: "Finite Element Analysis",
-    desc: "Structural and dynamic analysis (prediction of stress hot spots), impact, crash, shock and non-linear analysis.",
+    title: "Structural & FEA",
+    desc: "Stress, deformation, nonlinear behaviour, impact, crash and shock studies to identify critical load paths and design hot spots.",
   },
   {
     icon: Thermometer,
-    title: "Thermal Analysis",
-    desc: "Prediction of thermal hot spots.",
-  },
-  {
-    icon: Wind,
-    title: "Computational Fluid Dynamics (CFD)",
-    desc: "Prediction of temperature profiles, dead flow zones, pressure / velocity gradients and fluid-solid interaction.",
-  },
-  {
-    icon: Timer,
-    title: "Fatigue, Fracture & Creep Analysis",
-    desc: "Prediction of fatigue hot spots, number of cycles to failure, and probability of failure due to variations in loading / material properties / operational conditions.",
+    title: "Thermal & CFD",
+    desc: "Temperature fields, pressure and velocity gradients, dead zones and fluid-structure interaction for thermal and flow-critical systems.",
   },
   {
     icon: GitBranch,
-    title: "Multi-Body Dynamics",
-    desc: "Flexible bodies included, with linking to control systems.",
+    title: "Dynamics & Vibration",
+    desc: "Modal, transient, multi-body and vibration-related studies, including flexible-body models linked with system behaviour.",
+  },
+  {
+    icon: Timer,
+    title: "Fatigue & Fracture",
+    desc: "Assessment of fatigue hot spots, crack-sensitive regions, life prediction and the influence of operating and material variability.",
   },
   {
     icon: Magnet,
-    title: "Coupled Electro-Magnetic-Thermal-Structural Analysis",
-    desc: "Generators, motors, transformers, switchgears, sensors, etc.",
-  },
-  {
-    icon: RadioTower,
-    title: "EMI / EMC Analysis",
-    desc: "High-frequency analysis.",
+    title: "EMI / EMC & Multiphysics",
+    desc: "Coupled electromagnetic, thermal and structural analysis for generators, motors, sensors, antennas, PCBs and related equipment.",
   },
   {
     icon: SearchCheck,
-    title: "Failure Analysis",
-    desc: "Root-cause identification and corrective engineering.",
+    title: "Failure & Life Assessment",
+    desc: "Failure analysis and remaining-life assessment to support repair, reuse, life-extension and engineering disposition decisions.",
+  },
+];
+
+/* Selected defence experience — problems engineered across the lifecycle */
+const projects = [
+  "Aircraft landing gear & flight-control studies",
+  "Submarine systems & rotating equipment",
+  "Turbine and rotor engineering",
+  "Optimisation of critical defence hardware",
+  "EMI / EMC and thermal design",
+  "Life, reliability and failure-focused engineering",
+];
+
+/* Systems we support — across air, land, naval and defence electronics */
+const domains: { title: string; image: string; desc: string }[] = [
+  {
+    title: "Aerospace & Aero Engines",
+    image: `${IMG}/6.jpg`,
+    desc: "Airframe components, landing systems, aero-engine and flight-control studies.",
   },
   {
-    icon: Boxes,
-    title: "Remaining Life Assessment & Extension",
-    desc: "RLA / RLE for ageing defence assets.",
+    title: "Naval Systems",
+    image: `${IMG}/5.jpg`,
+    desc: "Submarine equipment, rotating systems, HVAC dynamics and related engineering analysis.",
   },
-];
-
-const projects = [
-  "Landing Gear of MIG",
-  "Enhanced Fatigue Meter for Mirage",
-  "Permanent Magnet Generator for Submarine",
-  "Turbine Blade Forging and investment casting for Sukhoi",
-  "Structural optimisation of missile launchers",
-  "Dynamics of air conditioning units for submarines",
-  "Growth of turbine rotor discs",
-  "Fatigue and fracture analysis of turbine rotor shaft",
-  "Optimisation of air intake for UAV",
-  "Structural optimisation of UAV",
-  "Landing flap dynamic studies and optimisation",
-  "EMI / EMC analysis of Antenna, Sensors, PCBs, etc.",
-  "Mechanical and thermal design of aviation electronics systems",
-];
-
-const heroNav = [
-  { title: "R&D Process", id: "process" },
-  { title: "Domains", id: "domains" },
-  { title: "Certifications", id: "certifications" },
-  { title: "Capabilities", id: "capabilities" },
-  { title: "Projects Delivered", id: "projects" },
+  {
+    title: "Land-Based Systems",
+    image: `${IMG}/7.jpg`,
+    desc: "Missile launchers, gun systems, battle-tank-related equipment and drives.",
+  },
+  {
+    title: "UAV & Defence Electronics",
+    image: `${IMG}/4.jpg`,
+    desc: "UAV structure, air-intake optimisation, antennas, sensors, PCBs and electronics thermal design.",
+  },
 ];
 
 const domainIntro = [
-  "We work in a collaborative engineering mode to assist defence R&D from conceptual design to the delivery of design / manufacturing drawings. We interface to get certification from the appropriate agencies.",
-  "We use a variety of computer simulation technologies; we develop computer models of products / systems / processes, adopting virtual product development, virtual prototyping and virtual testing methodologies.",
-  "Fatigue, fracture and creep analysis (prediction of fatigue hot spots — the regions where fatigue damage initiates), number of cycles for failure, and probability of failure due to variations in loading / material properties / operational conditions.",
-];
-
-const domains = [
-  { title: "Missile Systems", image: `${IMG}/3.jpg` },
-  { title: "Defence Electronics", image: `${IMG}/4.jpg` },
-  { title: "Naval Systems", image: `${IMG}/5.jpg` },
-  { title: "Aerospace and Aero Engines", image: `${IMG}/6.jpg` },
-  { title: "Land Based Systems", image: `${IMG}/7.jpg` },
-  { title: "Defence Indigenisation & R&D", image: `${IMG}/8.jpg` },
+  "ProSIM's defence work uses computer models of products, systems and processes for virtual product development, virtual prototyping and virtual testing.",
+  "Where required, analytical models can be correlated with physical prototypes and tests against applicable military or customer specifications.",
 ];
 
 const domainGallery = [`${IMG}/9.jpg`, `${IMG}/10.jpg`, `${IMG}/11.jpg`];
@@ -170,21 +160,21 @@ export default function DefenceSystems() {
 
         <div className="sa-hero-inner">
           <ScrollAnimation className="sa-hero-text">
-      
             <h1>
-              <span>Defence Systems</span> — Indigenous Development &amp; R&amp;D.
+              Engineering confidence into{" "}
+              <span>mission-critical systems.</span>
             </h1>
 
             <p>
-              ProSIM works in a collaborative engineering mode to assist defence
-              R&amp;D from conceptual design to the delivery of design and
-              manufacturing drawings, interfacing with the appropriate agencies
-              for certification.
+              ProSIM supports defence organisations and their vendors with
+              advanced engineering analysis, virtual prototyping, optimisation
+              and R&amp;D — connecting physics-based simulation with practical
+              design decisions.
             </p>
 
             <button type="button" className="dfn-hero-btn" onClick={openForm}>
               <Download size={16} strokeWidth={1.8} />
-              Download PDF
+              Discuss a Defence Project
             </button>
           </ScrollAnimation>
 
@@ -198,106 +188,19 @@ export default function DefenceSystems() {
             </figure>
           </ScrollAnimation>
         </div>
-
-        {/* <div className="sa-hero-inner">
-          <div className="sa-hero-nav">
-            {heroNav.map((item) => (
-              <a href={`#${item.id}`} className="sa-hero-nav-button" key={item.id}>
-                {item.title}
-              </a>
-            ))}
-          </div>
-        </div> */}
       </section>
 
-      {/* R&D PROCESS */}
-      <section className="sa-services" id="process">
-        <div className="sa-container">
-          <ScrollAnimation className="sa-intro">
-            <span className="sa-label">The R&amp;D Process</span>
-            <h2>Virtual Product Development, Correlated by Test</h2>
-          </ScrollAnimation>
-
-          <ScrollAnimation className="dfn-steps">
-            {process.map((p, i) => (
-              <div className="dfn-step" key={p}>
-                <span>{String(i + 1).padStart(2, "0")}</span>
-                <p>{p}</p>
-              </div>
-            ))}
-          </ScrollAnimation>
-        </div>
-      </section>
-
-      {/* DOMAINS */}
-      <section className="sa-ssc" id="domains">
-        <div className="sa-container">
-          <ScrollAnimation>
-            <span className="sa-label">Defence Domains</span>
-            <h2>Domains We Support</h2>
-            <p className="sa-section-intro">
-              Select a domain to see how ProSIM applies its collaborative
-              engineering and simulation-driven R&amp;D process.
-            </p>
-          </ScrollAnimation>
-
-          <ScrollAnimation className="dfn-domain-grid">
-            {domains.map((d, i) => (
-              <button
-                type="button"
-                className="dfn-domain"
-                key={d.title}
-                onClick={() => setActiveDomain(i)}
-              >
-                <span className="dfn-domain-img">
-                  <img src={d.image} alt={d.title} loading="lazy" />
-                </span>
-                <span className="dfn-domain-cap">{d.title}</span>
-              </button>
-            ))}
-          </ScrollAnimation>
-        </div>
-      </section>
-
-      {/* CERTIFICATIONS */}
-      <section className="sa-ssc" id="certifications">
-        <div className="sa-container">
-          <ScrollAnimation>
-            <span className="sa-label">Certifications</span>
-            <h2>Accredited for Defence R&amp;D</h2>
-            <p className="sa-section-intro">
-              ProSIM holds the certifications and recognitions required to work
-              with defence organisations and their vendors.
-            </p>
-
-            <div className="dfn-certs">
-              {certifications.map((c) => {
-                const Icon = c.icon;
-
-                return (
-                  <div className="dfn-cert" key={c.text}>
-                    <span>
-                      <Icon size={22} strokeWidth={1.7} />
-                    </span>
-                    <strong>{c.text}</strong>
-                  </div>
-                );
-              })}
-            </div>
-          </ScrollAnimation>
-        </div>
-      </section>
-
-      {/* CAPABILITIES */}
+      {/* WHAT WE DO — DEEP ANALYSIS CAPABILITIES */}
       <section className="sa-services" id="capabilities">
         <div className="sa-container">
           <ScrollAnimation className="sa-intro">
-            <span className="sa-label">Capabilities</span>
-            <h2>Defence Systems — Indigenous Development / R&amp;D</h2>
+            <span className="sa-label">What We Do</span>
+            <h2>Deep analysis capabilities for complex defence engineering.</h2>
             <p>
-              A full simulation toolkit — structural, thermal, fluid,
-              electromagnetic and dynamics — applied end-to-end across defence
-              products, systems and processes.
+              Our approach combines design understanding, material behaviour,
+              manufacturing considerations and system performance. The objective
+              is not simply to run an analysis, but to help engineers make better
+              design decisions earlier in the lifecycle.
             </p>
           </ScrollAnimation>
 
@@ -322,15 +225,103 @@ export default function DefenceSystems() {
         </div>
       </section>
 
-      {/* PROJECTS */}
+      {/* ENGINEERING DEPTH */}
+      <section className="sa-ssc" id="certifications">
+        <div className="sa-container">
+          <ScrollAnimation>
+            <span className="sa-label">Engineering Depth</span>
+            <h2>Simulation that supports design — not analysis in isolation.</h2>
+            <p className="sa-section-intro">
+              ProSIM&rsquo;s defence work uses computer models of products,
+              systems and processes for virtual product development, virtual
+              prototyping and virtual testing. Where required, analytical models
+              can be correlated with physical prototypes and tests against
+              applicable military or customer specifications.
+            </p>
+
+            <div className="dfn-certs">
+              {certifications.map((c) => {
+                const Icon = c.icon;
+
+                return (
+                  <div className="dfn-cert" key={c.text}>
+                    <span>
+                      <Icon size={22} strokeWidth={1.7} />
+                    </span>
+                    <strong>{c.text}</strong>
+                  </div>
+                );
+              })}
+            </div>
+          </ScrollAnimation>
+        </div>
+      </section>
+
+      {/* SYSTEMS WE SUPPORT */}
+      <section className="sa-ssc" id="domains">
+        <div className="sa-container">
+          <ScrollAnimation>
+            <span className="sa-label">Systems We Support</span>
+            <h2>Across air, land, naval and defence electronics.</h2>
+            <p className="sa-section-intro">
+              Our existing defence portfolio spans mechanical systems,
+              propulsion-related equipment, naval systems, UAVs and defence
+              electronics.
+            </p>
+          </ScrollAnimation>
+
+          <ScrollAnimation className="dfn-domain-grid">
+            {domains.map((d, i) => (
+              <button
+                type="button"
+                className="dfn-domain"
+                key={d.title}
+                onClick={() => setActiveDomain(i)}
+              >
+                <span className="dfn-domain-img">
+                  <img src={d.image} alt={d.title} loading="lazy" />
+                </span>
+                <span className="dfn-domain-cap">{d.title}</span>
+              </button>
+            ))}
+          </ScrollAnimation>
+        </div>
+      </section>
+
+      {/* ENGINEERING PROCESS */}
+      <section className="sa-services" id="process">
+        <div className="sa-container">
+          <ScrollAnimation className="sa-intro">
+            <span className="sa-label">Engineering Process</span>
+            <h2>A collaborative workflow built around the design problem.</h2>
+            <p>
+              The strongest simulation results come from understanding how the
+              component is designed, manufactured, operated and tested. Our
+              engagement model can be aligned to a specific engineering mission
+              or a broader R&amp;D programme.
+            </p>
+          </ScrollAnimation>
+
+          <ScrollAnimation className="dfn-steps">
+            {process.map((p, i) => (
+              <div className="dfn-step" key={p}>
+                <span>{String(i + 1).padStart(2, "0")}</span>
+                <p>{p}</p>
+              </div>
+            ))}
+          </ScrollAnimation>
+        </div>
+      </section>
+
+      {/* SELECTED DEFENCE EXPERIENCE */}
       <section className="sa-ssc" id="projects">
         <div className="sa-container">
           <ScrollAnimation>
-            <span className="sa-label">Track Record</span>
-            <h2>Projects Delivered to Defence Organisations &amp; Vendors</h2>
+            <span className="sa-label">Selected Defence Experience</span>
+            <h2>Problems we&rsquo;ve engineered across the defence lifecycle.</h2>
             <p className="sa-section-intro">
-              A selection of projects ProSIM has delivered to defence
-              organisations and their vendors.
+              Examples from ProSIM&rsquo;s existing defence work demonstrate the
+              breadth of its analysis and R&amp;D capability.
             </p>
           </ScrollAnimation>
 
@@ -352,28 +343,36 @@ export default function DefenceSystems() {
             ))}
           </ScrollAnimation>
 
-          <p className="dfn-more">… and many more</p>
+          <p className="dfn-more">
+            CAE-driven R&amp;D · Structural, dynamic &amp; nonlinear FEA · Flow,
+            thermal &amp; fluid-interaction CFD · Collaborative engineering from
+            concept onward
+          </p>
         </div>
       </section>
 
+      {/* PROJECTS */}
+      <ProjectsHighlight />
+
       {/* CTA */}
-      <section className="dfn-cta">
+      {/* <section className="dfn-cta">
         <div className="sa-container">
           <ScrollAnimation className="dfn-cta-inner">
             <div>
-              <h2>Partner with ProSIM for Defence R&amp;D</h2>
+              <h2>Bring us the difficult engineering problem.</h2>
               <p>
-                Get the ProSIM Defence capabilities document, or talk to our team
-                about your indigenous development programme.
+                Share the system, component, operating condition or qualification
+                challenge. We can discuss the appropriate analysis route,
+                modelling approach and engineering deliverables.
               </p>
             </div>
             <button type="button" className="dfn-cta-btn" onClick={openForm}>
               <Download size={17} strokeWidth={1.8} />
-              Request Capabilities PDF
+              Start a Defence Discussion
             </button>
           </ScrollAnimation>
         </div>
-      </section>
+      </section> */}
 
       {/* DOMAIN DETAIL MODAL */}
       {activeDomain !== null && (
@@ -397,7 +396,7 @@ export default function DefenceSystems() {
               <X size={20} strokeWidth={1.8} />
             </button>
 
-            <span className="sa-label">Defence Domain</span>
+            <span className="sa-label">Systems We Support</span>
             <h3>{domains[activeDomain].title}</h3>
 
             <div className="dfn-domain-shots">
@@ -406,6 +405,7 @@ export default function DefenceSystems() {
               ))}
             </div>
 
+            <p className="dfn-domain-p">{domains[activeDomain].desc}</p>
             {domainIntro.map((p) => (
               <p className="dfn-domain-p" key={p}>
                 {p}
@@ -421,19 +421,19 @@ export default function DefenceSystems() {
               }}
             >
               <Download size={16} strokeWidth={1.8} />
-              Request Full PDF
+              Discuss This Area
             </button>
           </div>
         </div>
       )}
 
-      {/* DOWNLOAD REQUEST MODAL */}
+      {/* ENQUIRY MODAL */}
       {modalOpen && (
         <div
           className="nk-modal-overlay"
           role="dialog"
           aria-modal="true"
-          aria-label="Request download"
+          aria-label="Start a defence engineering discussion"
           onClick={closeForm}
         >
           <div className="nk-modal" onClick={(e) => e.stopPropagation()}>
@@ -451,8 +451,9 @@ export default function DefenceSystems() {
                 <CheckCircle2 size={44} strokeWidth={1.6} />
                 <h3>Thank you</h3>
                 <p>
-                  Your request has been received. Our team will share the ProSIM
-                  Defence capabilities document with you shortly.
+                  Your enquiry has been received. Our defence engineering team
+                  will get back to you shortly — you can also reach us at
+                  enquiry@pro-sim.com.
                 </p>
                 <button type="button" className="nk-modal-submit" onClick={closeForm}>
                   Close
@@ -460,10 +461,11 @@ export default function DefenceSystems() {
               </div>
             ) : (
               <>
-                <span className="sa-label">Request Download</span>
-                <h3>ProSIM Defence — Capabilities PDF</h3>
+                <span className="sa-label">Defence Engineering Enquiry</span>
+                <h3>Bring us the difficult engineering problem</h3>
                 <p className="nk-modal-sub">
-                  Please share your details and we&rsquo;ll send you the document.
+                  Share your details and a short note on the system, component or
+                  qualification challenge — we&rsquo;ll take it from there.
                 </p>
 
                 <form className="nk-form" onSubmit={handleSubmit}>
@@ -509,7 +511,7 @@ export default function DefenceSystems() {
 
                   <button type="submit" className="nk-modal-submit">
                     <Download size={16} strokeWidth={1.8} />
-                    Get Download
+                    Send Enquiry
                   </button>
                 </form>
               </>

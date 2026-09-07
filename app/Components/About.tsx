@@ -34,7 +34,7 @@ export default function EngineeringSection() {
             <div className="engineering-image-wrapper">
               <div className="engineering-main-image">
                 <Image
-                  src="/assets/images/about/1.webp" 
+                  src="/assets/images/about/1.jpeg" 
                   alt="Industrial Plant Engineering"
                   fill
                   style={{ objectFit: "cover" }}

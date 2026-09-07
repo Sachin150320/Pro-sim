@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Breadcrumbs from "@/app/Components/Breadcrumbs/Breadcrumbs";
 import { Gauge, Cpu, Blend, Building2, FlaskConical, Plus, Minus } from "lucide-react";
+import ProjectsHighlight from "@/app/Components/ProjectsHighlight/ProjectsHighlight";
 import "./DigitalTwin.css";
 
 const IMG = "/assets/images/industries/digi-solution";
@@ -130,48 +131,6 @@ const value = [
   },
 ];
 
-const projects = [
-  {
-    tag: "OIL & GAS",
-    date: "Duration · 6 Months",
-    title: "Fitness-for-Service Assessment of a Pipeline During Lifting Operations",
-    description:
-      "Fitness-for-Service assessment of a live pipeline affected by Corrosion Under Pipe Support (CUPS), validating structural integrity during a 50 mm lift for UT inspection. Reusable lifting guidelines were developed defining safe criteria for multiple pipe sizes and configurations.",
-    image: "/assets/images/project/1.jpg",
-  },
-  {
-    tag: "OIL & GAS",
-    date: "Duration · 6 Weeks",
-    title: "Pipe Stress Analysis of a 44-inch Incinerator Line",
-    description:
-      "Static and dynamic pipe stress analysis validating a proposed incinerator piping design modification, enabling the customer to approve and proceed with site modifications while improving incinerator efficiency and minimising the risk of future operational failures.",
-    image: "/assets/images/project/2.jpg",
-  },
-  {
-    tag: "RENEWABLE ENERGY",
-    date: "Duration · 5 Weeks",
-    title: "FEA of a Wind Turbine Generator (WTG) Transformer",
-    description:
-      "FEA-based structural validation of a WTG transformer under transportation, lifting and extreme-wind acceleration loads. Critical stress regions were identified and the lifting arrangement, tie-down configuration and weld design were optimised for a manufacturing-ready design.",
-    image: "/assets/images/project/3.jpg",
-  },
-  {
-    tag: "NUCLEAR",
-    date: "Duration · 5 Weeks",
-    title: "Seismic Qualification of a 3.2 MW Induction Motor for a CCW Pump",
-    description:
-      "Equipment qualification for Operating Basis Earthquake (OBE) loading, giving the customer the confidence to release the motor for manufacturing and supply it to a nuclear power plant site — a decision that could not be made without seismic qualification proof.",
-    image: "/assets/images/project/4.jpg",
-  },
-  {
-    tag: "WATER",
-    date: "Duration · 6 Months",
-    title: "Pipe Stress Analysis of a 40 MLD Desalination Plant",
-    description:
-      "Pipe stress analysis of critical piping systems under operating and environmental loads for a 40 MLD desalination plant, ensuring piping integrity, safety and code compliance to support safe and reliable plant execution.",
-    image: "/assets/images/project/5.jpg",
-  },
-];
 
 const blogPosts = [
   {
@@ -278,167 +237,9 @@ export default function EngineeringAutomationDigitalTwin() {
 
   return (
     <main className="seismic-page">
-      {/* HERO */}
-      <section className="sa-hero">
-        <div className="sa-hero-crumbs">
-          <Breadcrumbs />
-        </div>
-
-        <div className="sa-hero-inner">
-          <div className="sa-hero-text">
-          
-            <h1>
-              <span>Digital Twin</span> Solutions.
-            </h1>
-
-            <p>
-              Modern industrial equipment needs more than just stationary models;
-              it demands active, real-time virtual counterparts. As an industry
-              leader in this space, we deliver solutions that connect real-world
-              operations with virtual insights.
-            </p>
-
-            {/* <p>
-              We combine deep engineering principles with the latest data science
-              and advanced technology to offer services that allow teams to
-              forecast equipment issues, maximize efficiency, and run risk-free
-              operational simulations.
-            </p> */}
-          </div>
-
-          <div className="sa-hero-media">
-            <figure className="sa-hero-media-main">
-              <img
-                src={`${IMG}/1.jpg`}
-                alt="Digital twin — real-time virtual counterpart of industrial equipment"
-                loading="eager"
-              />
-              <figcaption>Digital Twin</figcaption>
-            </figure>
-            <figure className="sa-hero-media-inset">
-              <img
-                src={`${IMG}/2.jpg`}
-                alt="Predictive AI and IIoT dashboard detail"
-                loading="lazy"
-              />
-            </figure>
-          </div>
-        </div>
-
-        <div className="sa-hero-inner">
-          <div className="sa-hero-nav">
-            {heroNav.map((item) => (
-              <a href={`#${item.id}`} className="sa-hero-nav-button" key={item.id}>
-                {item.title}
-              </a>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* SERVICES */}
-      <section className="sa-services">
-        <div className="sa-container">
-          <section className="sa-intro">
-            <span className="sa-label">OUR EXPERTISE</span>
-
-            <h2>Core Digital Twin Capabilities</h2>
-
-            <p>
-              We combine deep engineering principles with the latest data science
-              and advanced technology to offer services that allow teams to
-              forecast equipment issues, maximize efficiency, and run risk-free
-              operational simulations.
-            </p>
-          </section>
-
-          <div className="sa-service-list">
-            {services.map((service, index) => (
-              <article className="sa-service-box" id={service.id} key={service.id}>
-                <div className="sa-service-top">
-                  <div className="sa-service-icon">
-                    {React.createElement(serviceIcons[index], {
-                      size: 25,
-                      strokeWidth: 1.8,
-                    })}
-                  </div>
-
-                  <h2>{service.title}</h2>
-                </div>
-
-                <p>{service.description}</p>
-
-                <div className="sa-point-grid">
-                  {service.points.map((point, i) => (
-                    <div className="sa-point-box" key={point.head ?? point.body}>
-                      <span className="sa-point-num">
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
-                      <div className="sa-point-body">
-                        {point.head && <h4>{point.head}</h4>}
-                        <p>{point.body}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* THE VALUE WE DELIVER */}
-      <section className="sa-advantage" id="value">
-        <div className="sa-container">
-          <span className="sa-label">THE VALUE WE DELIVER</span>
-
-          <h2>Measurable Operational Advantages</h2>
-
-          <p className="sa-section-intro">
-            Deploying an enterprise-grade digital twin architecture creates
-            measurable operational advantages across your organization.
-          </p>
-
-          <div className="sa-adv-grid">
-            {value.map((item) => (
-              <div className="sa-adv-box" key={item.number}>
-                <span className="sa-adv-number">{item.number}</span>
-                <div className="sa-adv-body">
-                  <h3>{item.title}</h3>
-                  <p>{item.text}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* PROJECTS */}
-      <section className="sa-updates" id="projects">
-        <div className="sa-container">
-          <span className="sa-label">Projects</span>
-          <h2>Digital Twin Projects</h2>
-
-          <div className="sa-updates-grid">
-            {projects.map((item) => (
-              <div className="sa-update-card" key={item.title}>
-                <div className="sa-update-image">
-                  <span className="sa-update-tag">{item.tag}</span>
-                  <img src={item.image} alt={item.title} />
-                </div>
-                <div className="sa-update-content">
-                  <span className="sa-update-date">{item.date}</span>
-                  <h3>{item.title}</h3>
-                  <p>{item.description}</p>
-                  <a href="#faq-digital-twins" className="sa-update-link">
-                    Read More &rarr;
-                  </a>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <ProjectsHighlight />
 
       {/* FAQ */}
       <section className="sa-faq" id="faq-digital-twins">

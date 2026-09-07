@@ -2,15 +2,22 @@
 
 "use client";
 import CrumbBanner from "@/app/Components/CrumbBanner/CrumbBanner";
+import ScrollAnimation from "@/app/Components/ScrollAnimation";
 import "./AboutUs.css";
-import {
-    ArrowRight,
-    CheckCircle2,
-    Factory,
-    FlaskConical,
-    Settings2,
-    ShieldCheck,
-} from "lucide-react";
+import { ArrowUpRight, CheckCircle2, Eye, Target } from "lucide-react";
+
+const visionMission = [
+    {
+        icon: Eye,
+        title: "Our Vision",
+        text: "Our vision is to be a leading global engineering R&D solutions company, serving our customers and their customers, with our expertise in simulation.",
+    },
+    {
+        icon: Target,
+        title: "Our Mission",
+        text: "We are driven by a passion to solve large and complex engineering problems. Through continuous learning, collaboration, data integrity, information security and quality, we strive to deliver reliable engineering solutions for our customers.",
+    },
+];
 
 
 const services = [
@@ -43,24 +50,22 @@ export default function AboutSection() {
             <CrumbBanner
                 title="About ProSIM"
                 subtitle="ProSIM R&D delivers simulation-driven engineering — FEA, CFD, pipe stress and structural integrity assessment — for nuclear and non-nuclear industries worldwide."
-                image="/assets/images/about/prosim_enhanced.png"
+                image="/assets/images/about/1.jpeg"
                
                 imageCaption="ProSIM R&D"
             />
 
-            <section className="about-prosim-section">
-
+            {/* =========================================
+                INTRO
+            ========================================= */}
+            <section className="about-block">
                 <div className="about-prosim-container">
-
-                    {/* =========================================
-                    INTRO
-                ========================================= */}
 
                     <div className="about-prosim-intro">
 
                         <div className="about-prosim-image">
                             <img
-                                src="/assets/images/about/3.jpg"
+                                src="/assets/images/about/1.jpeg"
                                 alt="ProSIM Engineering"
                             />
 
@@ -99,10 +104,14 @@ export default function AboutSection() {
                         </div>
                     </div>
 
+                </div>
+            </section>
 
-                    {/* =========================================
-                    CAPABILITIES
-                ========================================= */}
+            {/* =========================================
+                CAPABILITIES
+            ========================================= */}
+            <section className="about-block about-block--alt">
+                <div className="about-prosim-container">
 
                     <div className="about-capabilities">
 
@@ -142,12 +151,14 @@ export default function AboutSection() {
 
                     </div>
 
+                </div>
+            </section>
 
-
-
-                    {/* =========================================
-                    ENGAGEMENT MODELS
-                ========================================= */}
+            {/* =========================================
+                ENGAGEMENT MODELS
+            ========================================= */}
+            <section className="about-block">
+                <div className="about-prosim-container">
 
                     <div className="about-engagement">
 
@@ -183,14 +194,53 @@ export default function AboutSection() {
 
                         </div>
 
-                        
-
                     </div>
 
+                </div>
+            </section>
 
-                    {/* =========================================
-                    CLOSING STATEMENT
-                ========================================= */}
+            {/* =========================================
+                VISION & MISSION
+            ========================================= */}
+            <section className="about-block about-block--alt">
+                <div className="about-prosim-container">
+
+                    <div className="about-vm">
+
+                        <ScrollAnimation className="about-vm-head">
+                            <span className="about-eyebrow">WHAT DRIVES US</span>
+                            <h2>
+                                Vision &amp; <span>Mission</span>
+                            </h2>
+                        </ScrollAnimation>
+
+                        <div className="about-vm-grid">
+                            {visionMission.map((item, index) => {
+                                const Icon = item.icon;
+
+                                return (
+                                    <ScrollAnimation key={item.title} delay={index * 120}>
+                                        <article className="about-vm-card">
+                                            <div className="about-vm-top">
+                                                <span className="about-vm-icon">
+                                                    <Icon size={24} strokeWidth={1.8} />
+                                                </span>
+                                                <span className="about-vm-num">
+                                                    {String(index + 1).padStart(2, "0")}
+                                                </span>
+                                            </div>
+
+                                            <h3>{item.title}</h3>
+                                            <p>{item.text}</p>
+
+                                           
+                                        </article>
+                                    </ScrollAnimation>
+                                );
+                            })}
+                        </div>
+                    </div>
+
 
                     
 

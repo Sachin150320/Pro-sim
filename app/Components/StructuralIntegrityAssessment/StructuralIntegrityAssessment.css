@@ -1316,7 +1316,7 @@ font-weight: 400;
 .sa-updates-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(3, auto);
+  grid-template-rows: repeat(2, auto);
   gap: 24px;
   margin-top: 40px;
 }

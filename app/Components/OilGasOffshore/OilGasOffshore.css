@@ -76,9 +76,12 @@
   --sa-teal-bright: #3cc9dc;
   position: relative;
   padding: 40px 0 70px;
-  background:
-    radial-gradient(90% 120% at 100% 0%, rgba(60, 201, 220, 0.16), transparent 55%),
-    linear-gradient(150deg, #07172a 0%, #0c2137 55%, #123049 100%);
+  background-image:
+    linear-gradient(150deg, #07172ab8, #0c213775 55%, #12304929),
+    url("/assets/images/breadcrum/1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   color: #fff;
   overflow: hidden;
 }
@@ -117,10 +120,7 @@
   position: relative;
   width: min(1180px, calc(100% - 40px));
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
-  gap: 56px;
-  align-items: center;
+  display: block;
 }
 
 .sa-hero-eyebrow {
@@ -209,9 +209,7 @@
 /* Hero media */
 
 .sa-hero-media {
-  position: relative;
-  align-self: stretch;
-  min-height: 320px;
+  display: none;
 }
 
 .sa-hero-media-main {
@@ -2320,4 +2318,104 @@ font-weight: 400;
   border-radius: var(--sa-img-radius);
   border: var(--sa-img-border);
   box-shadow: var(--sa-img-shadow);
+}
+
+/* ============================================================
+   INDUSTRY APPLICATIONS  —  image cards (og-app-*)
+   ============================================================ */
+
+.og-app-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 44px;
+}
+
+.og-app-grid > .scroll-animate {
+  height: 100%;
+}
+
+.og-app-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: #fff;
+  border: 1px solid var(--sa-border);
+  border-radius: var(--sa-img-radius);
+  overflow: hidden;
+  box-shadow: 0 16px 40px -30px rgba(16, 27, 40, 0.3);
+  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.28s ease, border-color 0.28s ease;
+}
+
+.og-app-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(0, 113, 188, 0.35);
+  box-shadow: 0 28px 56px -28px rgba(16, 27, 40, 0.36);
+}
+
+.og-app-img {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--sa-light);
+}
+
+.og-app-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.og-app-card:hover .og-app-img img {
+  transform: scale(1.05);
+}
+
+.og-app-body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px 24px 26px;
+  flex: 1;
+}
+
+.og-app-body h3 {
+  margin: 0;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--sa-dark);
+}
+
+.og-app-body > p {
+  margin: 0;
+  color: var(--sa-text);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.og-app-body ul {
+  margin: 4px 0 0;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.og-app-body li {
+  color: var(--sa-text);
+  font-size: 13.5px;
+  line-height: 1.6;
+}
+
+.og-app-body li::marker {
+  color: var(--sa-red);
+}
+
+@media (max-width: 900px) {
+  .og-app-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
 }
