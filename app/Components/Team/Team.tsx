@@ -33,6 +33,7 @@ const leadership = [
 const team = [
   { name: "Harsharaj", role: "Head of Delivery", image: `${IMG}/4.png` },
   { name: "Ganesh Bharadwaj H S", role: "Head of Dept – Piping", image: `${IMG}/5.png` },
+  { name: "Srikanth Guruswamy", role: "Project Manager", image: `${IMG}/6.5.png` },
   { name: "Shivakumar Hadagali", role: "Project Manager (Oil & Gas / Nuclear)", image: `${IMG}/6.png` },
   { name: "Santhosh Mankani", role: "Project Manager (Nuclear)", image: `${IMG}/7.png` },
   { name: "Prathik JP", role: "Manager – Pre-Sales", image: `${IMG}/8.png` },

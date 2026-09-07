@@ -2,60 +2,106 @@ import Breadcrumbs from "@/app/Components/Breadcrumbs/Breadcrumbs";
 import ScrollAnimation from "@/app/Components/ScrollAnimation";
 import "./ThermalPower.css";
 
-const IMG = "/assets/images/industries/thermal";
-
-const facts = [
-  { label: "Event", value: "IPS 2025 — Techno Galaxy" },
-  { label: "Dates", value: "13–15 February 2025" },
-  { label: "Venue", value: "Raipur" },
-  { label: "Organised By", value: "NTPC" },
+const heroStats = [
+  { label: "Projects Delivered", value: "3000+" },
+  { label: "Years of Engineering", value: "25+" },
+  { label: "Customers", value: "800+" },
 ];
 
-const services = [
-  "Detailed Engineering",
-  "Finite Element Analysis",
-  "Remaining Life Assessment & Extension (RLA / RLE)",
-  "Fitness-for-Service (FFS) Evaluation",
-  "Pipe Stress Analysis",
-  "Structural Integrity Assessment",
-];
-
-const visitors = [
-  { name: "Mr K S Sundaram", role: "Project Director" },
-  { name: "Mr Prasenjit Pal", role: "Executive Director, NTPC Nuclear" },
-  { name: "Mr A P Samal", role: "GM, NTPC Nuclear" },
-  { name: "Mr Ajay Sharma", role: "Head, Engineering" },
-  { name: "Mr A K Das", role: "AGM, R&D, NTPC-NETRA" },
-  { name: "Mr Nagesh", role: "CGM, Engineering" },
-];
-
-const gallery = [
+const capabilities = [
   {
-    src: `${IMG}/1.jpg`,
-    caption:
-      "From left to right: Mr A P Samal, GM NTPC Nuclear, and Mr Prasenjit Pal, Executive Director, NTPC Nuclear, with Dr Shamasundar of ProSIM at the ProSIM stall in IPS 2025.",
+    tag: "Detailed Engineering",
+    title: "Detailed Engineering",
+    desc: "Multidisciplinary engineering for new systems, modifications and plant upgrades — mechanical, civil & structural, electrical & instrumentation and equipment engineering.",
   },
   {
-    src: `${IMG}/2.jpg`,
-    caption:
-      "Dr Shamasundar, MD of ProSIM, explaining the Remaining Life Assessment and Extension strategy for critical pipelines of power plants. The figure shows failure of a pipeline in occasional load cases with stress exceeding 277% of the allowable stress limit — ProSIM has provided engineering solutions to increase life to desired / expected levels.",
+    tag: "Plant Design",
+    title: "Piping & 3D Plant Modelling",
+    desc: "Accurate routing, modelling and as-built digital representation of complex facilities — 3D plant modelling, piping layouts & isometrics, re-routing & optimisation and laser-scan integration.",
   },
   {
-    src: `${IMG}/3.jpg`,
-    caption:
-      "ProSIM presented capabilities for 3D laser scanning to create 3D CAD models of legacy assets, conduct finite element analysis, and carry out a detailed RLA / RLE strategy for turbine components.",
+    tag: "Piping Analysis",
+    title: "Pipe Stress & Flexibility",
+    desc: "Engineering evaluation of piping under thermal, sustained, occasional and dynamic loads — support & hanger design, nozzle loads, dynamic analysis and optimisation.",
+  },
+  {
+    tag: "Advanced CAE",
+    title: "FEA & Multiphysics",
+    desc: "Simulation-led insight for components and systems exposed to complex mechanical and thermal loading — linear / nonlinear FEA, thermo-mechanical analysis, fatigue & creep and fluid-structure interaction.",
+  },
+  {
+    tag: "Flow & Thermal",
+    title: "CFD & Thermal Analysis",
+    desc: "Numerical evaluation of flow, heat transfer and coupled physical phenomena — flow analysis, heat transfer, thermal fields and multiphysics studies.",
+  },
+  {
+    tag: "Engineering Advisory",
+    title: "Decision Support",
+    desc: "Translate analysis results into practical engineering recommendations for repair, reuse, redesign or life extension — failure analysis, design optimisation, engineering judgement and owner's advisory.",
   },
 ];
 
-function initials(name: string) {
-  return name
-    .replace(/^(Mr|Ms|Mrs|Dr)\.?\s+/i, "")
-    .split(" ")
-    .map((w) => w[0])
-    .slice(0, 2)
-    .join("")
-    .toUpperCase();
-}
+const systems = [
+  {
+    title: "Main Steam & Hot Reheat",
+    desc: "Stress, flexibility, support and integrity assessment of critical high-temperature piping.",
+  },
+  {
+    title: "Cold Reheat & Bypass Systems",
+    desc: "Engineering evaluation of CRH, HP bypass and LP bypass systems under operating and occasional conditions.",
+  },
+  {
+    title: "Boiler & Pressure Components",
+    desc: "Structural and thermo-mechanical assessment of pressure-retaining and high-temperature components.",
+  },
+  {
+    title: "Turbines & Hot Parts",
+    desc: "Analysis and remaining-life assessment of critical turbine components and ageing assets.",
+  },
+  {
+    title: "Supports, Hangers & Anchors",
+    desc: "Design, evaluation and optimisation to improve load paths and piping-system behaviour.",
+  },
+  {
+    title: "Plant Modifications",
+    desc: "Engineering for rerouting, replacement, upgrades and brownfield modifications.",
+  },
+];
+
+const analysis = [
+  "Thermo-mechanical",
+  "Fatigue & Creep",
+  "Damage Modelling",
+  "Code Assessment",
+  "Failure Analysis",
+  "Design Optimisation",
+];
+
+const rlaSteps = [
+  {
+    title: "Understand the asset",
+    desc: "Review design basis, operating history, materials and inspection information.",
+  },
+  {
+    title: "Model the condition",
+    desc: "Account for as-is conditions — defects, corrosion and relevant damage mechanisms.",
+  },
+  {
+    title: "Analyse & assess",
+    desc: "Apply FEA, damage mechanics and applicable fitness-for-service requirements.",
+  },
+  {
+    title: "Recommend the action",
+    desc: "Support repair, reuse, replacement or life-extension decisions with engineering evidence.",
+  },
+];
+
+const experienceFacts = [
+  { label: "NTPC Units", value: "35+ in a documented RLA / RLE work order" },
+  { label: "Plant Capacities", value: "120 / 210 / 500 MW" },
+  { label: "FFS Framework", value: "API 579" },
+  { label: "Codes Referenced", value: "ASME B31.1 / B31.3" },
+];
 
 export default function ThermalPower() {
   return (
@@ -69,154 +115,189 @@ export default function ThermalPower() {
 
           <div className="tp-hero-grid">
             <ScrollAnimation>
+              <span className="tp-eyebrow">Thermal Energy Engineering</span>
+
               <h1>
-                <span>ProSIM @ IPS 2025</span>, Raipur — organised by NTPC
+                Engineering the <span>reliability of critical thermal assets.</span>
               </h1>
 
               <p className="tp-hero-lead">
-                ProSIM was invited to exhibit and present its capabilities at the
-                Techno Galaxy of the IPS 2025 conference organised by NTPC, held
-                as part of the celebrations marking 50 years of NTPC operations.
+                From detailed engineering and plant modelling to pipe stress, FEA
+                and remaining-life assessment — ProSIM brings analysis-led
+                engineering to the systems that keep thermal power plants
+                operating.
               </p>
-            </ScrollAnimation>
 
-            <ScrollAnimation className="tp-hero-media" delay={120}>
-              <figure className="tp-hero-media-main">
-                <img src={`${IMG}/4.jpg`} alt="ProSIM stall at IPS 2025, Raipur" />
-                <figcaption>IPS 2025 · Raipur</figcaption>
-              </figure>
-              <figure className="tp-hero-media-inset">
-                <img
-                  src={`${IMG}/5.jpg`}
-                  alt="ProSIM capabilities presentation at IPS 2025"
-                  loading="lazy"
-                />
-              </figure>
+              <div className="tp-hero-meta">
+                {heroStats.map((s) => (
+                  <div key={s.label}>
+                    <b>{s.label}</b>
+                    <span>{s.value}</span>
+                  </div>
+                ))}
+              </div>
             </ScrollAnimation>
           </div>
         </div>
       </section>
 
-      {/* AT A GLANCE */}
+      {/* ENGINEERING DEPTH */}
+      <section className="tp-section">
+        <div className="tp-narrow">
+          <ScrollAnimation>
+            <span className="tp-eyebrow">Built Around Engineering Depth</span>
+            <h2>
+              More than design support. Engineering insight for complex energy
+              assets.
+            </h2>
+
+            <p>
+              ProSIM supports thermal power owners, EPCs and equipment
+              stakeholders across design, modification, operation and life
+              extension.
+            </p>
+
+            <p>
+              Our multidisciplinary capability connects detailed engineering with
+              computational analysis, piping expertise, materials knowledge and
+              structural integrity assessment — helping teams make better
+              engineering decisions before problems become outages.
+            </p>
+          </ScrollAnimation>
+        </div>
+      </section>
+
+      {/* CORE CAPABILITIES */}
+      <section className="tp-section alt">
+        <div className="tp-container">
+          <ScrollAnimation>
+            <span className="tp-eyebrow">Core Capabilities</span>
+            <h2>One engineering partner. Multiple layers of technical depth.</h2>
+            <p>
+              A capability stack designed for high-temperature, high-pressure and
+              safety-critical thermal assets.
+            </p>
+
+            <div className="tp-people tp-stagger">
+              {capabilities.map((c, i) => (
+                <div className="tp-person" key={c.title}>
+                  <span className="tp-person-badge">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <div>
+                    <b>{c.title}</b>
+                    <em>{c.desc}</em>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </ScrollAnimation>
+        </div>
+      </section>
+
+      {/* THERMAL PLANT SYSTEMS */}
       <section className="tp-section">
         <div className="tp-container">
           <ScrollAnimation>
-            <span className="tp-eyebrow">At a Glance</span>
-            <h2>The Conference</h2>
+            <span className="tp-eyebrow">Thermal Plant Systems</span>
+            <h2>Focused on the systems where engineering decisions matter most.</h2>
+
+            <div className="tp-people tp-stagger">
+              {systems.map((s, i) => (
+                <div className="tp-person" key={s.title}>
+                  <span className="tp-person-badge">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <div>
+                    <b>{s.title}</b>
+                    <em>{s.desc}</em>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </ScrollAnimation>
+        </div>
+      </section>
+
+      {/* ADVANCED ANALYSIS */}
+      <section className="tp-section alt">
+        <div className="tp-narrow">
+          <ScrollAnimation>
+            <span className="tp-eyebrow">Advanced Analysis</span>
+            <h2>
+              See the failure mode. Understand the mechanism. Engineer the
+              solution.
+            </h2>
+
+            <p>
+              ProSIM combines FEA, materials and damage modelling with
+              engineering codes and judgement to move beyond a pass / fail
+              answer — thermo-mechanical stress, fatigue and creep, damage
+              modelling, code assessment, failure analysis and design
+              optimisation.
+            </p>
+
+            <div className="tp-chips">
+              {analysis.map((a) => (
+                <i key={a}>{a}</i>
+              ))}
+            </div>
+          </ScrollAnimation>
+        </div>
+      </section>
+
+      {/* ASSET INTEGRITY — RLA / RLE */}
+      <section className="tp-section">
+        <div className="tp-narrow">
+          <ScrollAnimation>
+            <span className="tp-eyebrow">Asset Integrity · RLA / RLE · FFS</span>
+            <h2>From inspection data to an engineering decision.</h2>
+
+            <p>
+              For ageing thermal assets, the question is not simply whether a
+              component has degraded — it is what that degradation means for safe
+              operation and how its useful life can be managed.
+            </p>
+
+            <div className="tp-people tp-stagger">
+              {rlaSteps.map((s, i) => (
+                <div className="tp-person" key={s.title}>
+                  <span className="tp-person-badge">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <div>
+                    <b>{s.title}</b>
+                    <em>{s.desc}</em>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </ScrollAnimation>
+        </div>
+      </section>
+
+      {/* THERMAL POWER EXPERIENCE */}
+      <section className="tp-section alt">
+        <div className="tp-container">
+          <ScrollAnimation>
+            <span className="tp-eyebrow">Thermal Power Experience</span>
+            <h2>Engineering experience that connects directly to plant realities.</h2>
+
+            <p>
+              ProSIM&rsquo;s thermal-power work includes structural integrity,
+              remaining-life assessment and fitness-for-service studies for
+              critical piping and turbine components. Its documented work covers
+              main steam, hot reheat, cold reheat, HP bypass and LP bypass piping
+              systems, combining inspection data, pipe flexibility, FEA and code
+              assessment.
+            </p>
 
             <div className="tp-facts">
-              {facts.map((f) => (
+              {experienceFacts.map((f) => (
                 <div className="tp-fact" key={f.label}>
                   <span>{f.label}</span>
                   <strong>{f.value}</strong>
                 </div>
-              ))}
-            </div>
-          </ScrollAnimation>
-        </div>
-      </section>
-
-      {/* ENGAGEMENT */}
-      <section className="tp-section alt">
-        <div className="tp-narrow">
-          <ScrollAnimation>
-            <span className="tp-eyebrow">The Engagement</span>
-            <h2>ProSIM &amp; NTPC — Asset Integrity &amp; Life Extension</h2>
-
-            <p>
-              ProSIM has been engaged with NTPC for structural integrity
-              assessment, remaining life assessment and life extension (RLA /
-              RLE), and fitness-for-service (FFS) assessment of its assets. ProSIM
-              has provided services to several dozen NTPC plants for critical
-              piping and turbine parts.
-            </p>
-
-            <p>
-              ProSIM is a provider of detailed engineering services, finite
-              element analysis services, remaining life assessment and extension
-              services (RLA / RLE), fitness-for-service (FFS) evaluation, pipe
-              stress analysis services, and more.
-            </p>
-
-            <div className="tp-chips">
-              {services.map((s) => (
-                <i key={s}>{s}</i>
-              ))}
-            </div>
-          </ScrollAnimation>
-        </div>
-      </section>
-
-      {/* NTPC TRANSFORMATION */}
-      <section className="tp-section">
-        <div className="tp-narrow">
-          <ScrollAnimation>
-            <span className="tp-eyebrow">Context</span>
-            <h2>NTPC&rsquo;s Transformation to a Total Energy Company</h2>
-
-            <p>
-              NTPC is transforming from a coal- and gas-based thermal power
-              company into a total energy company encompassing solar, wind,
-              hydel, storage, nuclear and more. NTPC will soon become a global
-              energy behemoth. In this context, discussions and presentations by
-              ProSIM as a high-end engineering and R&amp;D service provider for
-              the energy sector were very timely.
-            </p>
-          </ScrollAnimation>
-
-          {/* <div className="tp-callout">
-            <strong>₹1.81 lakh crore</strong>
-            <span>
-              Current NTPC revenues (~ US $21 billion) — on the path to becoming
-              a global energy behemoth encompassing solar, wind, hydel, storage
-              and nuclear.
-            </span>
-          </div> */}
-        </div>
-      </section>
-
-      {/* VISITORS */}
-      <section className="tp-section alt">
-        <div className="tp-container">
-          <ScrollAnimation>
-            <span className="tp-eyebrow">At the Stall</span>
-            <h2>Visitors to the ProSIM Stall</h2>
-            <p>
-              Several senior executives of NTPC and engineers from various
-              stations visited the ProSIM stall and discussed ProSIM&rsquo;s
-              offerings.
-            </p>
-
-            <div className="tp-people tp-stagger">
-              {visitors.map((v) => (
-                <div className="tp-person" key={v.name}>
-                  <span className="tp-person-badge">{initials(v.name)}</span>
-                  <div>
-                    <b>{v.name}</b>
-                    <em>{v.role}</em>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </ScrollAnimation>
-        </div>
-      </section>
-
-      {/* GALLERY */}
-      <section className="tp-section">
-        <div className="tp-container">
-          <ScrollAnimation>
-            <span className="tp-eyebrow">Gallery</span>
-            <h2>From IPS 2025</h2>
-
-            <div className="tp-gallery tp-stagger">
-              {gallery.map((g) => (
-                <figure className="tp-shot" key={g.src}>
-                  <div className="tp-shot-img">
-                    <img src={g.src} alt={g.caption} loading="lazy" />
-                  </div>
-                  <figcaption>{g.caption}</figcaption>
-                </figure>
               ))}
             </div>
           </ScrollAnimation>

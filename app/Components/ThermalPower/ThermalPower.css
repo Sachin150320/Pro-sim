@@ -344,6 +344,13 @@
   border-radius: var(--tp-radius);
   background: linear-gradient(155deg, var(--tp-navy) 0%, var(--tp-navy-2) 100%);
   color: #fff;
+  text-decoration: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+a.tp-callout:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 26px 54px -28px rgba(10, 28, 46, 0.5);
 }
 
 .tp-callout strong {
