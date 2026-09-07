@@ -16,7 +16,6 @@ import {
   X,
   ArrowUpRight,
 } from "lucide-react";
-import ProjectsHighlight from "@/app/Components/ProjectsHighlight/ProjectsHighlight";
 import "./HeavyEngineering.css";
 
 const IMG = "/assets/images/industries";
@@ -466,9 +465,6 @@ export default function HeavyEngineering() {
           </div>
         </div>
       </section>
-
-      {/* PROJECTS */}
-      <ProjectsHighlight />
 
       {/* ENQUIRY MODAL */}
       {modalOpen && (

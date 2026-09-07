@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import Breadcrumbs from "@/app/Components/Breadcrumbs/Breadcrumbs";
 import ScrollAnimation from "@/app/Components/ScrollAnimation";
-import ProjectsHighlight from "@/app/Components/ProjectsHighlight/ProjectsHighlight";
 import {
   PencilRuler,
   GitBranch,
@@ -390,9 +389,6 @@ export default function OilGasOffshore() {
           </ScrollAnimation>
         </div>
       </section>
-
-      {/* PROJECTS */}
-      <ProjectsHighlight />
 
       {/* ENQUIRY MODAL */}
       {activeDownload && (

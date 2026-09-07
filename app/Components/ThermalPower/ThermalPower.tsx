@@ -1,6 +1,5 @@
 import Breadcrumbs from "@/app/Components/Breadcrumbs/Breadcrumbs";
 import ScrollAnimation from "@/app/Components/ScrollAnimation";
-import ProjectsHighlight from "@/app/Components/ProjectsHighlight/ProjectsHighlight";
 import "./ThermalPower.css";
 
 const IMG = "/assets/images/industries/thermal";
@@ -224,8 +223,6 @@ export default function ThermalPower() {
         </div>
       </section>
 
-      {/* PROJECTS */}
-      <ProjectsHighlight />
     </main>
   );
 }

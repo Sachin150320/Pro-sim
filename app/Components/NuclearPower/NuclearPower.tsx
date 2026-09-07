@@ -25,7 +25,6 @@ import {
   ShieldCheck,
 } from "lucide-react";
 import ScrollAnimation from "@/app/Components/ScrollAnimation";
-import ProjectsHighlight from "@/app/Components/ProjectsHighlight/ProjectsHighlight";
 import "./NuclearPower.css";
 
 const IMG = "/assets/images/industries/nuclear";
@@ -488,9 +487,6 @@ export default function NuclearPower() {
           </div>
         </div>
       </section>
-
-      {/* PROJECTS */}
-      <ProjectsHighlight />
 
       {/* WORK WITH PROSIM */}
       {/* <section className="sa-ssc" id="downloads">

@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import Breadcrumbs from "@/app/Components/Breadcrumbs/Breadcrumbs";
 import ScrollAnimation from "@/app/Components/ScrollAnimation";
-import ProjectsHighlight from "@/app/Components/ProjectsHighlight/ProjectsHighlight";
 import {
   Award,
   BadgeCheck,
@@ -350,9 +349,6 @@ export default function DefenceSystems() {
           </p>
         </div>
       </section>
-
-      {/* PROJECTS */}
-      <ProjectsHighlight />
 
       {/* CTA */}
       {/* <section className="dfn-cta">

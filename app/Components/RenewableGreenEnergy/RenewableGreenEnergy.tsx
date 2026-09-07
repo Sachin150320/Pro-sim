@@ -28,7 +28,6 @@ import {
   X,
   ArrowUpRight,
 } from "lucide-react";
-import ProjectsHighlight from "@/app/Components/ProjectsHighlight/ProjectsHighlight";
 import "./RenewableGreenEnergy.css";
 
 const IMG = "/assets/images/portfolio/modern";
@@ -429,9 +428,6 @@ export default function RenewableGreenEnergy() {
           </div>
         </div>
       </section>
-
-      {/* PROJECTS */}
-      <ProjectsHighlight />
 
       {/* ENQUIRY MODAL */}
       {modalOpen && (
