@@ -115,8 +115,7 @@ export default function ThermalPower() {
 
           <div className="tp-hero-grid">
             <ScrollAnimation>
-              <span className="tp-eyebrow">Thermal Energy Engineering</span>
-
+         
               <h1>
                 Engineering the <span>reliability of critical thermal assets.</span>
               </h1>
@@ -128,14 +127,7 @@ export default function ThermalPower() {
                 operating.
               </p>
 
-              <div className="tp-hero-meta">
-                {heroStats.map((s) => (
-                  <div key={s.label}>
-                    <b>{s.label}</b>
-                    <span>{s.value}</span>
-                  </div>
-                ))}
-              </div>
+              
             </ScrollAnimation>
           </div>
         </div>
