@@ -133,6 +133,35 @@ export default function ThermalPower() {
         </div>
       </section>
 
+ {/* THERMAL POWER EXPERIENCE */}
+      <section className="tp-section alt">
+        <div className="tp-container">
+          <ScrollAnimation>
+            <span className="tp-eyebrow">Thermal Power Experience</span>
+            <h2>Engineering experience that connects directly to plant realities.</h2>
+
+            <p>
+              ProSIM&rsquo;s thermal-power work includes structural integrity,
+              remaining-life assessment and fitness-for-service studies for
+              critical piping and turbine components. Its documented work covers
+              main steam, hot reheat, cold reheat, HP bypass and LP bypass piping
+              systems, combining inspection data, pipe flexibility, FEA and code
+              assessment.
+            </p>
+
+            <div className="tp-facts">
+              {experienceFacts.map((f) => (
+                <div className="tp-fact" key={f.label}>
+                  <span>{f.label}</span>
+                  <strong>{f.value}</strong>
+                </div>
+              ))}
+            </div>
+          </ScrollAnimation>
+        </div>
+      </section>
+
+
       {/* ENGINEERING DEPTH */}
       <section className="tp-section">
         <div className="tp-narrow">
@@ -268,33 +297,7 @@ export default function ThermalPower() {
         </div>
       </section>
 
-      {/* THERMAL POWER EXPERIENCE */}
-      <section className="tp-section alt">
-        <div className="tp-container">
-          <ScrollAnimation>
-            <span className="tp-eyebrow">Thermal Power Experience</span>
-            <h2>Engineering experience that connects directly to plant realities.</h2>
-
-            <p>
-              ProSIM&rsquo;s thermal-power work includes structural integrity,
-              remaining-life assessment and fitness-for-service studies for
-              critical piping and turbine components. Its documented work covers
-              main steam, hot reheat, cold reheat, HP bypass and LP bypass piping
-              systems, combining inspection data, pipe flexibility, FEA and code
-              assessment.
-            </p>
-
-            <div className="tp-facts">
-              {experienceFacts.map((f) => (
-                <div className="tp-fact" key={f.label}>
-                  <span>{f.label}</span>
-                  <strong>{f.value}</strong>
-                </div>
-              ))}
-            </div>
-          </ScrollAnimation>
-        </div>
-      </section>
+     
 
     </main>
   );
