@@ -16,7 +16,7 @@ import {
   X,
   CheckCircle2,
 } from "lucide-react";
-import "./OilGasOffshore.css";
+import "./OilGas.css";
 
 const IMG = "/assets/images/industries/oil-gas";
 
@@ -269,7 +269,7 @@ export default function OilGasOffshore() {
           <ScrollAnimation className="og-cta-card">
             <div className="og-cta-media">
               <img
-                src={`${IMG}/1.jpg`}
+                src={`${IMG}/5.webp`}
                 alt="Oil & gas engineering — piping, structures and asset integrity"
                 loading="lazy"
               />

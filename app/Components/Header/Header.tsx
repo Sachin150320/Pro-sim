@@ -84,7 +84,7 @@ export const menuItems: MenuItem[] = [
     children: [
       { name: "Nuclear Power", href: "/nuclear-power" },
       { name: "Thermal Power", href: "/thermal-power" },
-      { name: "Oil & Gas", href: "/oil-gas-and-offshore" },
+      { name: "Oil & Gas", href: "/oil-gas" },
       { name: "Defence", href: "/defence-systems" },
       { name: "Heavy Engineering Equipment / General Engineering", href: "/heavy-engineering" },
       { name: "Renewable & Green Energy", href: "/renewable-green-energy" },

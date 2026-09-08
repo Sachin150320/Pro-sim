@@ -5408,7 +5408,7 @@ span.sub-link a {
 @media (max-width: 600px) {
 
   .floating-contact {
-    bottom: 15px;
+    bottom: 90px;
 
     padding: 0 15px;
 
@@ -5426,9 +5426,29 @@ span.sub-link a {
 
   .float-whatsapp svg,
   .float-call svg {
-    width: 16px;
-    height: 16px;
+    width: 25px;
+    height: 25px;
   }
+
+
+  .btn-primary {
+    color: #fff;
+    cursor: pointer;
+    background: #0f0c1b padding-box padding-box;
+    border: 1px solid #0000;
+    border-radius: 25px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    min-height: 42px;
+    padding: 0 6px;
+    font-size: 10px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform .3s, box-shadow .3s;
+    display: inline-flex;
+    position: relative;
+}
 
 }
 
@@ -5452,15 +5472,12 @@ span.sub-link a {
     display: none;
   }
 
-  .float-whatsapp,
-  .float-call {
-    width: 44px;
-    height: 44px;
-
-    justify-content: center;
-
-    border-radius: 50%;
-  }
+      .float-whatsapp, .float-call {
+        border-radius: 50%;
+        justify-content: center;
+        width: 29px;
+        height: 29px;
+    }
 
 }
 

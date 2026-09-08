@@ -76,12 +76,9 @@
   --sa-teal-bright: #3cc9dc;
   position: relative;
   padding: 40px 0 70px;
-  background-image:
-
-    linear-gradient(96deg, rgba(6, 20, 36, 0.96) 0%, rgba(8, 24, 42, 0.88) 36%, rgba(10, 30, 50, 0.55) 70%, rgba(12, 36, 58, 0.34) 100%),
-    url("/assets/images/breadcrum/7.jpg");
+  background-image:linear-gradient(122deg, #07172a, #0c21376e 55%, #1230490d), url("/assets/images/breadcrum/7.png");
   background-size: cover;
-  background-position: center right;
+  background-position: center center;
   background-repeat: no-repeat;
   color: #fff;
   overflow: hidden;
