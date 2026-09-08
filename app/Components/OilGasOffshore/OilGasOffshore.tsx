@@ -264,25 +264,33 @@ export default function OilGasOffshore() {
       </section>
 
       {/* CTA */}
-      <section className="sa-ssc" id="downloads">
+      <section className="og-cta">
         <div className="sa-container">
-          <ScrollAnimation>
-            <span className="sa-label">Work with ProSIM</span>
-            <h2>Have a complex Oil &amp; Gas engineering problem?</h2>
-            <p className="sa-section-intro">
-              Share your project scope, engineering deliverables or technical
-              challenge. ProSIM can help determine the right analysis and
-              simulation approach.
-            </p>
+          <ScrollAnimation className="og-cta-card">
+            <div className="og-cta-media">
+              <img
+                src={`${IMG}/1.jpg`}
+                alt="Oil & gas engineering — piping, structures and asset integrity"
+                loading="lazy"
+              />
+            </div>
 
-            <div className="nk-downloads">
+            <div className="og-cta-body">
+              <span className="sa-label">Work with ProSIM</span>
+              <h2>Have a complex Oil &amp; Gas engineering problem?</h2>
+              <p>
+                Share your project scope, engineering deliverables or technical
+                challenge. ProSIM can help determine the right analysis and
+                simulation approach.
+              </p>
+
               <button
                 type="button"
-                className="nk-download"
+                className="og-cta-btn"
                 onClick={() => openForm("Oil & Gas Engineering Enquiry")}
               >
-                <Download size={17} strokeWidth={1.8} />
                 Talk to ProSIM
+                <span aria-hidden="true">&rarr;</span>
               </button>
             </div>
           </ScrollAnimation>

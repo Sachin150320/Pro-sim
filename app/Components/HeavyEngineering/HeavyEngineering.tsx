@@ -366,13 +366,7 @@ export default function HeavyEngineering() {
             ))}
           </ScrollAnimation>
 
-          <ScrollAnimation className="he-loop">
-            <strong>Simulation-led design loop</strong>
-            <span className="he-loop-steps">
-              Model <i>&rarr;</i> Load <i>&rarr;</i> Solve <i>&rarr;</i> Interpret{" "}
-              <i>&rarr;</i> Modify <i>&rarr;</i> Verify
-            </span>
-          </ScrollAnimation>
+        
         </div>
       </section>
 

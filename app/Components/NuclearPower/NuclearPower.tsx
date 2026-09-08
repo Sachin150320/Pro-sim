@@ -455,32 +455,29 @@ export default function NuclearPower() {
             </p>
           </section>
 
-          <div className="sa-service-list">
+          <div className="nk-support-grid">
             {whyProsim.map((block) => {
               const Icon = block.icon;
+              const wide = block.points.length > 2;
 
               return (
-                <article className="sa-service-box" id={block.id} key={block.id}>
-                  <div className="sa-service-top">
-                    <div className="sa-service-icon">
-                      <Icon size={25} strokeWidth={1.8} />
-                    </div>
-
-                    <h2>{block.title}</h2>
+                <article
+                  className={`nk-support-card${wide ? " is-wide" : ""}`}
+                  id={block.id}
+                  key={block.id}
+                >
+                  <div className="nk-support-top">
+                    <span className="nk-support-icon">
+                      <Icon size={22} strokeWidth={1.8} />
+                    </span>
+                    <h3>{block.title}</h3>
                   </div>
 
-                  <div className="sa-point-grid">
-                    {block.points.map((point, i) => (
-                      <div className="sa-point-box" key={point}>
-                        <span className="sa-point-num">
-                          {String(i + 1).padStart(2, "0")}
-                        </span>
-                        <div className="sa-point-body">
-                          <p>{point}</p>
-                        </div>
-                      </div>
+                  <ul>
+                    {block.points.map((point) => (
+                      <li key={point}>{point}</li>
                     ))}
-                  </div>
+                  </ul>
                 </article>
               );
             })}

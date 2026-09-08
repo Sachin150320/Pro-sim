@@ -7,7 +7,7 @@ const clients = [
   { name: "Petronet LNG", logo: "/assets/images/clients/4.png" },
   { name: "Reliance Infrastructure", logo: "/assets/images/clients/5.png" },
   { name: "Thermax", logo: "/assets/images/clients/6.png" },
-  { name: "ISGEC", logo: "/assets/images/clients/7.png" },
+  // { name: "ISGEC", logo: "/assets/images/clients/7.png" },
   { name: "Powerica", logo: "/assets/images/clients/8.png" },
   { name: "Engage", logo: "/assets/images/clients/9.png" },
   { name: "Kirloskar", logo: "/assets/images/clients/10.png" },

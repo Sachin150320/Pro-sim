@@ -935,7 +935,7 @@ body {
 }
 
 .engineering-header {
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 .engineering-subtitle {
@@ -5993,4 +5993,14 @@ span.sub-link a {
     .hq-image-section {
         height: 220px;
     }
+}
+
+.nav__item-link:hover {
+    color: #59c9db;
+}
+.dropdown-menu li a:hover {
+    color: #59c9db;
+}
+.site-header.scrolled .nav__item-link:hover {
+    color: #59c9db;
 }

@@ -2,6 +2,8 @@ import Breadcrumbs from "@/app/Components/Breadcrumbs/Breadcrumbs";
 import ScrollAnimation from "@/app/Components/ScrollAnimation";
 import "./ThermalPower.css";
 
+const IMG = "/assets/images/industries/thermal";
+
 const heroStats = [
   { label: "Projects Delivered", value: "3000+" },
   { label: "Years of Engineering", value: "25+" },
@@ -164,27 +166,37 @@ export default function ThermalPower() {
 
       {/* ENGINEERING DEPTH */}
       <section className="tp-section">
-        <div className="tp-narrow">
-          <ScrollAnimation>
-            <span className="tp-eyebrow">Built Around Engineering Depth</span>
-            <h2>
-              More than design support. Engineering insight for complex energy
-              assets.
-            </h2>
+        <div className="tp-container">
+          <div className="tp-depth-grid">
+            <ScrollAnimation className="tp-depth-body">
+              <span className="tp-eyebrow">Built Around Engineering Depth</span>
+              <h2>
+                More than design support. Engineering insight for complex energy
+                assets.
+              </h2>
 
-            <p>
-              ProSIM supports thermal power owners, EPCs and equipment
-              stakeholders across design, modification, operation and life
-              extension.
-            </p>
+              <p>
+                ProSIM supports thermal power owners, EPCs and equipment
+                stakeholders across design, modification, operation and life
+                extension.
+              </p>
 
-            <p>
-              Our multidisciplinary capability connects detailed engineering with
-              computational analysis, piping expertise, materials knowledge and
-              structural integrity assessment — helping teams make better
-              engineering decisions before problems become outages.
-            </p>
-          </ScrollAnimation>
+              <p>
+                Our multidisciplinary capability connects detailed engineering
+                with computational analysis, piping expertise, materials
+                knowledge and structural integrity assessment — helping teams
+                make better engineering decisions before problems become outages.
+              </p>
+            </ScrollAnimation>
+
+            <ScrollAnimation className="tp-depth-media" delay={120}>
+              <img
+                src={`${IMG}/6.jpg`}
+                alt="Thermal power plant engineering and analysis"
+                loading="lazy"
+              />
+            </ScrollAnimation>
+          </div>
         </div>
       </section>
 
@@ -268,9 +280,9 @@ export default function ThermalPower() {
       </section>
 
       {/* ASSET INTEGRITY — RLA / RLE */}
-      <section className="tp-section">
-        <div className="tp-narrow">
-          <ScrollAnimation>
+      <section className="tp-section" id="asset-integrity">
+        <div className="tp-container">
+          <ScrollAnimation className="tp-rla-head">
             <span className="tp-eyebrow">Asset Integrity · RLA / RLE · FFS</span>
             <h2>From inspection data to an engineering decision.</h2>
 
@@ -279,8 +291,18 @@ export default function ThermalPower() {
               component has degraded — it is what that degradation means for safe
               operation and how its useful life can be managed.
             </p>
+          </ScrollAnimation>
 
-            <div className="tp-people tp-stagger">
+          <div className="tp-rla-grid">
+            <ScrollAnimation className="tp-rla-media">
+              <img
+                src={`${IMG}/7.jpg`}
+                alt="Asset integrity and remaining-life assessment of thermal power components"
+                loading="lazy"
+              />
+            </ScrollAnimation>
+
+            <ScrollAnimation className="tp-rla-steps" delay={120}>
               {rlaSteps.map((s, i) => (
                 <div className="tp-person" key={s.title}>
                   <span className="tp-person-badge">
@@ -292,8 +314,8 @@ export default function ThermalPower() {
                   </div>
                 </div>
               ))}
-            </div>
-          </ScrollAnimation>
+            </ScrollAnimation>
+          </div>
         </div>
       </section>
 
