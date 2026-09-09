@@ -15,6 +15,12 @@ import {
   CheckCircle2,
   X,
   ArrowUpRight,
+  PencilRuler,
+  Grid3x3,
+  ShieldCheck,
+  Gauge,
+  Activity,
+  Flame,
 } from "lucide-react";
 import "./HeavyEngineering.css";
 
@@ -29,31 +35,37 @@ const heroNav = [
 
 const capabilities = [
   {
+    icon: PencilRuler,
     title: "Detailed Engineering",
     desc: "Engineering development for heavy equipment, structures, assemblies and industrial systems, including design detailing and model-based engineering support.",
     tags: ["3D modelling", "Design development", "Engineering documentation"],
   },
   {
+    icon: Grid3x3,
     title: "Finite Element Analysis",
     desc: "Static, modal, dynamic and non-linear analyses selected to suit the design question, loading environment and required level of fidelity.",
     tags: ["Linear static", "Modal", "Dynamic", "Non-linear"],
   },
   {
+    icon: ShieldCheck,
     title: "Design Verification",
     desc: "Verification of strength and stiffness under relevant operating and qualification load cases, with engineering interpretation of stress, displacement and structural response.",
     tags: ["Allowable stress", "Deflection", "Load cases", "Qualification"],
   },
   {
+    icon: Gauge,
     title: "Design Optimisation",
     desc: "Use simulation feedback to refine section sizes, geometry, material distribution and other design parameters for better structural efficiency.",
     tags: ["Sizing", "Shape", "Topology", "Parametric"],
   },
   {
+    icon: Activity,
     title: "Structural Integrity",
     desc: "Assessment of existing equipment and components where operating history, defects, damage or ageing create an engineering decision point.",
     tags: ["RLA / RLE", "FFS", "Fatigue", "Failure analysis"],
   },
   {
+    icon: Flame,
     title: "Multi-Physics Engineering",
     desc: "Coupled engineering problems where structural behaviour interacts with thermal, fluid or other physical effects.",
     tags: ["Thermal-mechanical", "CFD", "FSI", "Heat transfer"],
@@ -252,22 +264,29 @@ export default function HeavyEngineering() {
           </ScrollAnimation>
 
           <div className="he-grid">
-            {capabilities.map((c, i) => (
-              <ScrollAnimation key={c.title} delay={(i % 2) * 90}>
-                <article className="he-card">
-                  <span className="he-card-num">
-                    {String(i + 1).padStart(2, "0")} / {capabilities.length}
-                  </span>
-                  <h3>{c.title}</h3>
-                  <p>{c.desc}</p>
-                  <div className="he-tags">
-                    {c.tags.map((t) => (
-                      <span key={t}>{t}</span>
-                    ))}
-                  </div>
-                </article>
-              </ScrollAnimation>
-            ))}
+            {capabilities.map((c, i) => {
+              const Icon = c.icon;
+              return (
+                <ScrollAnimation key={c.title} delay={(i % 2) * 90}>
+                  <article className="he-card">
+                   
+                    <div className="he-card-head">
+                      <span className="he-card-icon">
+                        <Icon size={30} strokeWidth={1.7} />
+                      </span>
+                     
+                    </div>
+                    <h3>{c.title}</h3>
+                    <p>{c.desc}</p>
+                    <div className="he-tags">
+                      {c.tags.map((t) => (
+                        <span key={t}>{t}</span>
+                      ))}
+                    </div>
+                  </article>
+                </ScrollAnimation>
+              );
+            })}
           </div>
         </div>
       </section>
