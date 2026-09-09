@@ -27,9 +27,9 @@ export const menuItems: MenuItem[] = [
     href: "#",
     children: [
       { name: "About Company", href: "/about-us" },
-      { name: "Promoter", href: "/Promoter" },
+      // { name: "Promoter", href: "/Promoter" },
       // { name: "Vision and Mission", href: "/vision-mission" },
-      { name: "Unique Value Proposition", href: "/Unique-Value-Proposition" },
+      // { name: "Unique Value Proposition", href: "/Unique-Value-Proposition" },
       // { name: "Customer Visits", href: "/Customer-Visits" },
       { name: "Team", href: "/Team" },
       { name: "Gallery", href: "/Gallery" },
@@ -85,9 +85,9 @@ export const menuItems: MenuItem[] = [
       { name: "Nuclear Power", href: "/nuclear-power" },
       { name: "Thermal Power", href: "/thermal-power" },
       { name: "Oil & Gas", href: "/oil-gas" },
-      { name: "Defence", href: "/defence-systems" },
+      { name: "Aerospace & Defence", href: "/defence-systems" },
       { name: "Heavy Engineering Equipment / General Engineering", href: "/heavy-engineering" },
-      { name: "Renewable & Green Energy", href: "/renewable-green-energy" },
+      // { name: "Renewable & Green Energy", href: "/renewable-green-energy" },
     ],
   },
 

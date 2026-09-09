@@ -168,6 +168,7 @@
 }
 
 .tm-card p {
+  text-align: center !important;
   margin: 0 0 8px;
   font-size: 12.5px;
   line-height: 1.5;

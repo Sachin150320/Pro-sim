@@ -20,6 +20,12 @@ body {
   max-width: 100vw;
 }
 
+p{
+  text-align: justify !important;
+}
+
+
+
 /* ================= HEADER ================= */
 .site-header {
   position: fixed;
@@ -525,7 +531,9 @@ body {
     text-decoration: none;
     display: inline-flex;
     position: relative;
-    background: #0f0c1b; /* Inner background color */
+    
+    background: #3872b8;
+    /* background: #0f0c1b;  */
     border: 1px solid transparent;
     background-clip: padding-box;
     cursor: pointer;
@@ -538,14 +546,16 @@ body {
     position: absolute;
     inset: -1px;
     border-radius: 25px;
-    background: linear-gradient(90deg, #d946ef, #8b5cf6, #3b82f6);
+    /* background: linear-gradient(90deg, #d946ef, #8b5cf6, #3b82f6); */
     z-index: -1;
     transition: opacity 0.3s ease;
 }
 
 .btn-primary:hover {
+  background: linear-gradient(135deg, #145da0d9, #0d9488d9);
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(139, 92, 246, 0.3);
+    /* box-shadow: 0 6px 20px rgba(139, 92, 246, 0.3); */
+    box-shadow: 0 6px 20px #f9f9f94d;
 }
 
 .btn-primary svg,

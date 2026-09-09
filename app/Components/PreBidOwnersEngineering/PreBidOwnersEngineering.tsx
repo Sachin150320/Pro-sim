@@ -234,7 +234,7 @@ export default function PreBidOwnersEngineering() {
           <div className="sa-hero-media">
             <figure className="sa-hero-media-main">
               <img
-                src={`${IMG}/1.jpg`}
+                src={`${IMG}/2.jpg`}
                 alt="Owner's engineering — independent technical oversight"
                 loading="eager"
               />
@@ -242,7 +242,7 @@ export default function PreBidOwnersEngineering() {
             </figure>
             <figure className="sa-hero-media-inset">
               <img
-                src={`${IMG}/2.jpg`}
+                src={`${IMG}/4.png`}
                 alt="Advisory and design review detail"
                 loading="lazy"
               />

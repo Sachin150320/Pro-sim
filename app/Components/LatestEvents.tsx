@@ -12,7 +12,7 @@ const eventsData = [
     description:
       "Get-IIT Bombay training program on simulator for nuclear power plant - 15 to 17 April",
     title: "SIMULATORS FOR NUCLEAR POWER PLANTS",
-    url: "#",
+    url: "/events",
   },
   {
     id: 2,
@@ -21,14 +21,14 @@ const eventsData = [
       "The nuclear energy sector in India is expected to grow multifold.",
     title:
       "The Role Of ISO 19443 In Supporting India's Expanding Nuclear Energy Program",
-    url: "#",
+    url: "/events",
   },
   {
     id: 3,
     image: "/assets/images/portfolio/modern/3.webp",
     description: "29-30 May 2026, IIT-Bombay, Mumbai",
     title: "India Nuclear Energy Forum 2026",
-    url: "#",
+    url: "/events",
   },
 ];
 

@@ -110,7 +110,7 @@ export default function AboutSection() {
             {/* =========================================
                 CAPABILITIES
             ========================================= */}
-            <section className="about-block about-block--alt">
+            {/* <section className="about-block about-block--alt">
                 <div className="about-prosim-container">
 
                     <div className="about-capabilities">
@@ -152,7 +152,7 @@ export default function AboutSection() {
                     </div>
 
                 </div>
-            </section>
+            </section> */}
 
             {/* =========================================
                 ENGAGEMENT MODELS
@@ -225,9 +225,9 @@ export default function AboutSection() {
                                                 <span className="about-vm-icon">
                                                     <Icon size={24} strokeWidth={1.8} />
                                                 </span>
-                                                <span className="about-vm-num">
+                                                {/* <span className="about-vm-num">
                                                     {String(index + 1).padStart(2, "0")}
-                                                </span>
+                                                </span> */}
                                             </div>
 
                                             <h3>{item.title}</h3>

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import Breadcrumbs from "@/app/Components/Breadcrumbs/Breadcrumbs";
 import ScrollAnimation from "@/app/Components/ScrollAnimation";
 import {
@@ -9,12 +9,10 @@ import {
   Factory,
   Plus,
   Minus,
-  X,
-  CheckCircle2,
   GraduationCap,
   Users,
   Sparkles,
-  Mail,
+  ArrowRight,
 } from "lucide-react";
 import "./CareersPage.css";
 
@@ -29,7 +27,7 @@ type Job = {
   requirements: string[];
 };
 
-const jobs: Job[] = [
+export const jobs: Job[] = [
   {
     title: "Pipe Stress Engineer (CAESAR II)",
     location: "Bengaluru",
@@ -184,24 +182,10 @@ const culture = [
   },
 ];
 
-const emptyForm = { name: "", email: "", phone: "", company: "" };
+const applyHref = (role: string) => `/apply?role=${encodeURIComponent(role)}`;
 
 export default function CareersPage() {
   const [openJob, setOpenJob] = useState<number | null>(0);
-  const [applyRole, setApplyRole] = useState<string | null>(null);
-  const [form, setForm] = useState(emptyForm);
-  const [submitted, setSubmitted] = useState(false);
-
-  const openApply = (role: string) => {
-    setApplyRole(role);
-    setForm(emptyForm);
-    setSubmitted(false);
-  };
-  const closeApply = () => setApplyRole(null);
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setSubmitted(true);
-  };
 
   return (
     <main className="seismic-page">
@@ -313,13 +297,10 @@ export default function CareersPage() {
                         </div>
                       </div>
 
-                      <button
-                        type="button"
-                        className="cr-apply"
-                        onClick={() => openApply(job.title)}
-                      >
+                      <a className="cr-apply" href={applyHref(job.title)}>
                         Apply for this Position
-                      </button>
+                        <ArrowRight size={16} strokeWidth={2} />
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -357,108 +338,17 @@ export default function CareersPage() {
             <div>
               <h3>Apply Now</h3>
               <p>
-                Send your CV and a short note about the role you&rsquo;re
-                interested in.
+                Fill in the application form with your details and CV — our HR
+                team will get back to you.
               </p>
             </div>
-            <a href="mailto:HR@pro-sim.com" className="cr-cta-btn">
-              <Mail size={17} strokeWidth={1.9} />
-              HR@pro-sim.com
+            <a href="/apply" className="cr-cta-btn">
+              Open Application Form
+              <ArrowRight size={17} strokeWidth={1.9} />
             </a>
           </ScrollAnimation>
         </div>
       </section>
-
-      {/* APPLY MODAL */}
-      {applyRole && (
-        <div
-          className="nk-modal-overlay"
-          role="dialog"
-          aria-modal="true"
-          aria-label="Apply for position"
-          onClick={closeApply}
-        >
-          <div className="nk-modal" onClick={(e) => e.stopPropagation()}>
-            <button
-              type="button"
-              className="nk-modal-close"
-              aria-label="Close"
-              onClick={closeApply}
-            >
-              <X size={20} strokeWidth={1.8} />
-            </button>
-
-            {submitted ? (
-              <div className="nk-modal-done">
-                <CheckCircle2 size={44} strokeWidth={1.6} />
-                <h3>Application received</h3>
-                <p>
-                  Thank you for applying for <strong>{applyRole}</strong>. Our HR
-                  team will review your details and get back to you. You can also
-                  email your CV to HR@pro-sim.com.
-                </p>
-                <button type="button" className="nk-modal-submit" onClick={closeApply}>
-                  Close
-                </button>
-              </div>
-            ) : (
-              <>
-                <span className="sa-label">Apply</span>
-                <h3>{applyRole}</h3>
-                <p className="nk-modal-sub">
-                  Share your details and our HR team will be in touch. Email your
-                  CV to HR@pro-sim.com.
-                </p>
-
-                <form className="nk-form" onSubmit={handleSubmit}>
-                  <label>
-                    <span>Full Name</span>
-                    <input
-                      type="text"
-                      required
-                      value={form.name}
-                      onChange={(e) => setForm({ ...form, name: e.target.value })}
-                    />
-                  </label>
-
-                  <label>
-                    <span>Email Address</span>
-                    <input
-                      type="email"
-                      required
-                      value={form.email}
-                      onChange={(e) => setForm({ ...form, email: e.target.value })}
-                    />
-                  </label>
-
-                  <label>
-                    <span>Phone Number</span>
-                    <input
-                      type="tel"
-                      required
-                      value={form.phone}
-                      onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                    />
-                  </label>
-
-                  <label>
-                    <span>Current / Most Recent Company</span>
-                    <input
-                      type="text"
-                      value={form.company}
-                      onChange={(e) => setForm({ ...form, company: e.target.value })}
-                    />
-                  </label>
-
-                  <button type="submit" className="nk-modal-submit">
-                    Submit Application
-                  </button>
-                </form>
-              </>
-            )}
-          </div>
-        </div>
-      )}
     </main>
   );
 }
