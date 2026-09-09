@@ -221,19 +221,16 @@ export default function AboutSection() {
                                 return (
                                     <ScrollAnimation key={item.title} delay={index * 120}>
                                         <article className="about-vm-card">
-                                            <div className="about-vm-top">
-                                                <span className="about-vm-icon">
-                                                    <Icon size={24} strokeWidth={1.8} />
-                                                </span>
-                                                {/* <span className="about-vm-num">
-                                                    {String(index + 1).padStart(2, "0")}
-                                                </span> */}
-                                            </div>
+                                            <span className="about-vm-icon">
+                                                <Icon size={24} strokeWidth={1.8} />
+                                            </span>
 
                                             <h3>{item.title}</h3>
                                             <p>{item.text}</p>
 
-                                           
+                                            <span className="about-vm-watermark" aria-hidden="true">
+                                                <Icon size={128} strokeWidth={1} />
+                                            </span>
                                         </article>
                                     </ScrollAnimation>
                                 );

@@ -26,7 +26,7 @@ export default function Home() {
       <Clients />
 
       <EventsSection />
-      <LatestEvents />
+      {/* <LatestEvents /> */}
       <ContactSection />
     </main>
   );

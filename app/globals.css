@@ -650,6 +650,7 @@ p{
 }
 
 .stat-card p {
+  text-align: start !important;
   margin: 9px 0 0;
   font-size: 14px;
   color: rgba(255, 255, 255, 0.65);
@@ -4204,7 +4205,7 @@ span.sub-link a {
 
 .contact-section {
   color: #1a2530;
-  background: #f5f6f7;
+  background: #ffffff;
   width: 100%;
   padding: 60px 0;
 }

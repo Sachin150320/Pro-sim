@@ -86,13 +86,13 @@ export const menuItems: MenuItem[] = [
       { name: "Thermal Power", href: "/thermal-power" },
       { name: "Oil & Gas", href: "/oil-gas" },
       { name: "Aerospace & Defence", href: "/defence-systems" },
-      { name: "Heavy Engineering Equipment / General Engineering", href: "/heavy-engineering" },
+      { name: " Industrial & Heavy Engineering", href: "/heavy-engineering" },
       // { name: "Renewable & Green Energy", href: "/renewable-green-energy" },
     ],
   },
 
   { name: "Projects", href: "/projects" },
-    { name: "Events", href: "/events" },
+    // { name: "Events", href: "/events" },
   { name: "Careers", href: "/careers" },
   { name: "Contact Us", href: "/contact-us" },
 ];

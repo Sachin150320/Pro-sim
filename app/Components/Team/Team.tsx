@@ -25,8 +25,8 @@ const SOCIALS = [
 ];
 
 const leadership = [
-  { name: "Dr. S. Shamasundar", role: "Managing Director", group: "Leadership", image: `${IMG}/1.png` },
-  { name: "Umesh Chandra", role: "Director", group: "Leadership", image: `${IMG}/2.png` },
+  { name: "Dr. S. Shamasundar", role: "", group: "Managing Director", image: `${IMG}/1.png` },
+  { name: "Umesh Chandra", role: "", group: "Director", image: `${IMG}/2.png` },
   { name: "Sandeep PS", role: "Head of Business Development", group: "Business Development", image: `${IMG}/3.png` },
 
   { name: "Harsharaj", role: "Head of Delivery", group: "Delivery", image: `${IMG}/4.png` },
@@ -34,19 +34,19 @@ const leadership = [
 ];
 
 const team = [
- { name: "Ganesh Bharadwaj H S", role: "Head of Dept – Piping", group: "Piping Team", image: `${IMG}/5.png` },
-  { name: "Srikanth Guruswamy", role: "Project Manager ( Nuclear, Thermal, O&G & General Engineering )", group: "Project Management", image: `${IMG}/6.5.png` },
-  { name: "Shivakumar Hadagali", role: "Project Manager (Oil & Gas / Nuclear)", group: "Project Management", image: `${IMG}/6.png` },
-  { name: "Santhosh Mankani", role: "Project Manager (Nuclear)", group: "Project Management", image: `${IMG}/7.png` },
-  { name: "Prathik JP", role: "Manager – Pre-Sales", group: "Pre-Sales", image: `${IMG}/8.png` },
-  { name: "Tejas N", role: "Deputy Manager – Business Development", group: "Business Development", image: `${IMG}/9.png` },
-  { name: "Sagar S", role: "Team Lead – Piping Engineering", group: "Piping Team", image: `${IMG}/10.png` },
-  { name: "Shane Stuart", role: "Team Lead – Mechanical Engineering (FEA)", group: "FEA Team", image: `${IMG}/11.png` },
-  { name: "Vishwajeet Raj", role: "Team Lead – Mechanical Engineering (Digital Twin)", group: "Digital Twin", image: `${IMG}/12.png` },
-  { name: "Prateek Ranjan", role: "Team Lead – Mechanical Engineering (Oil & Gas)", group: "Mechanical Team", image: `${IMG}/13.png` },
-  { name: "Jaya Krishna N", role: "Team Lead – Mechanical Engineering (Nuclear)", group: "Mechanical Team", image: `${IMG}/14.png` },
-  { name: "Pavan M", role: "Team Lead – Piping Engineering (Oil & Gas)", group: "Piping Team", image: `${IMG}/15.png` },
-  { name: "Rajesh HK", role: "Team Lead – Mechanical Engineering (Nuclear)", group: "Mechanical Team", image: `${IMG}/16.png` },
+ { name: "Ganesh Bharadwaj H S", role: "Head of Dept", group: "Piping Team", image: `${IMG}/5.png` },
+  { name: "Srikanth Guruswamy", role: "Project Manager ", group: "Nuclear, Thermal, O&G & General Engineering", image: `${IMG}/6.5.png` },
+  { name: "Shivakumar Hadagali", role: "Project Manager ", group: "Oil & Gas / Nuclear", image: `${IMG}/6.png` },
+  { name: "Santhosh Mankani", role: "Project Manager ", group: "Nuclear", image: `${IMG}/7.png` },
+  { name: "Prathik JP", role: "Manager", group: "Pre-Sales", image: `${IMG}/8.png` },
+  { name: "Tejas N", role: "Deputy Manager ", group: "Business Development", image: `${IMG}/9.png` },
+  { name: "Sagar S", role: "Team Lead ", group: "Piping Engineering", image: `${IMG}/10.png` },
+  { name: "Shane Stuart", role: "Team Lead – Mechanical Engineering ", group: "FEA", image: `${IMG}/11.png` },
+  { name: "Vishwajeet Raj", role: "Team Lead – Mechanical Engineering ", group: "Digital Twin", image: `${IMG}/12.png` },
+  { name: "Prateek Ranjan", role: "Team Lead – Mechanical Engineering ", group: "Oil & Gas", image: `${IMG}/13.png` },
+  { name: "Jaya Krishna N", role: "Team Lead – Mechanical Engineering ", group: "Nuclear", image: `${IMG}/14.png` },
+  { name: "Pavan M", role: "Team Lead – Piping Engineering ", group: "Oil & Gas", image: `${IMG}/15.png` },
+  { name: "Rajesh HK", role: "Team Lead – Mechanical Engineering ", group: "Nuclear", image: `${IMG}/16.png` },
 ];
 
 type Member = { name: string; role: string; group: string; image: string };
@@ -111,8 +111,8 @@ export default function Team() {
       <CrumbBanner
         title="Our Team"
         subtitle="The people behind ProSIM's success!"
-        image="/assets/images/about/prosim_enhanced.png"
-        imageInset="/assets/images/about/1.webp"
+        image="/assets/images/team/team.jpeg"
+   
         imageCaption="Our people"
       />
 
