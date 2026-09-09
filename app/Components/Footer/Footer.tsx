@@ -252,7 +252,7 @@ export default function Footer() {
                             <li>
                                 <Link href="/heavy-engineering">
                                     <span className="footer-arrow">→</span>
-                                     Heavy Engineering Equipment / General Engineering
+                                    Industrial & Heavy Engineering
                                 </Link>
                             </li>
 {/* 
