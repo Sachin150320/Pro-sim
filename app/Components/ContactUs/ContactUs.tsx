@@ -135,7 +135,7 @@ export default function ContactUs() {
             {/* FORM */}
             <ScrollAnimation className="ct2-form-wrap">
               <span className="sa-label">Send a Message</span>
-              <h2>Say Hello to Us</h2>
+              <h2>Looking for a Reliable Design Engineering Partner?</h2>
 
               {submitted ? (
                 <div className="ct2-done">

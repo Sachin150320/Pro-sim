@@ -272,9 +272,51 @@
   }
 }
 
-@media (max-width: 420px) {
-  .tm-grid,
-  .tm-grid-lead {
-    grid-template-columns: 1fr 1fr;
-  }
+@media (max-width: 450px) {
+      .tm-grid, .tm-grid-lead {
+        grid-template-columns: 1fr;
+    }
+  .team-page .crumb-banner-media-main {
+    width: 90% !important;
+    position: relative;
+    top: auto;
+    right: auto;
+    transform: none;
+}
+}
+
+/* ============================================================
+   TEAM PAGE — breadcrumb hero: full-width, fully-visible photo
+   ============================================================ */
+
+.team-page .crumb-banner-grid.has-media {
+  
+  gap: 38px;
+}
+
+.team-page .crumb-banner-media {
+  position: relative;
+  align-self: auto;
+  min-height: 0;
+  width: 100%;
+  max-width: none;
+}
+
+.team-page .crumb-banner-media-main {
+  position: relative;
+  top: auto;
+  right: auto;
+  transform: none;
+  width: 100%;
+}
+
+.team-page .crumb-banner-media-main img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: auto;
+  object-fit: contain;
+}
+
+.team-page .crumb-banner-media-main:hover img {
+  transform: none;
 }
