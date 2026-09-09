@@ -317,7 +317,7 @@ export default function EngineeringAutomationDigitalTwin() {
             </figure>
             <figure className="sa-hero-media-inset">
               <img
-                src={`${IMG}/2.jpg`}
+                src={`${IMG}/3.png`}
                 alt="Predictive AI and IIoT dashboard detail"
                 loading="lazy"
               />

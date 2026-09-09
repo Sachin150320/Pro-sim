@@ -110,7 +110,7 @@ export default function Team() {
     <main className="team-page">
       <CrumbBanner
         title="Our Team"
-        subtitle="The people behind ProSIM's engineering, delivery and project management."
+        subtitle="The people behind ProSIM's success!"
         image="/assets/images/about/prosim_enhanced.png"
         imageInset="/assets/images/about/1.webp"
         imageCaption="Our people"

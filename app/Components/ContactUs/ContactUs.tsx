@@ -38,16 +38,16 @@ const socials = [
     href: "#",
     path: "M6.94 8.5H3.5V20h3.44V8.5zM5.22 3A2.02 2.02 0 1 0 5.22 7.04 2.02 2.02 0 0 0 5.22 3zM20.5 13.42c0-3.47-1.85-5.08-4.32-5.08-1.99 0-2.88 1.1-3.38 1.87V8.5H9.36V20h3.44v-5.69c0-1.5.28-2.95 2.14-2.95 1.83 0 1.85 1.71 1.85 3.05V20h3.44l.27-6.58z",
   },
-  {
-    label: "Facebook",
-    href: "#",
-    path: "M13.5 21v-8h2.75l.42-3h-3.17V8.08c0-.87.24-1.46 1.5-1.46h1.8V3.94c-.31-.04-1.38-.14-2.62-.14-2.59 0-4.36 1.58-4.36 4.49V10H7.9v3h2.72v8h2.88z",
-  },
-  {
-    label: "YouTube",
-    href: "#",
-    path: "M21.6 7.2a2.5 2.5 0 0 0-1.76-1.77C18.25 5 12 5 12 5s-6.25 0-7.84.43A2.5 2.5 0 0 0 2.4 7.2 26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.76 1.77C5.75 19 12 19 12 19s6.25 0 7.84-.43a2.5 2.5 0 0 0 1.76-1.77A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.8zM10 15V9l5.2 3-5.2 3z",
-  },
+  // {
+  //   label: "Facebook",
+  //   href: "#",
+  //   path: "M13.5 21v-8h2.75l.42-3h-3.17V8.08c0-.87.24-1.46 1.5-1.46h1.8V3.94c-.31-.04-1.38-.14-2.62-.14-2.59 0-4.36 1.58-4.36 4.49V10H7.9v3h2.72v8h2.88z",
+  // },
+  // {
+  //   label: "YouTube",
+  //   href: "#",
+  //   path: "M21.6 7.2a2.5 2.5 0 0 0-1.76-1.77C18.25 5 12 5 12 5s-6.25 0-7.84.43A2.5 2.5 0 0 0 2.4 7.2 26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.76 1.77C5.75 19 12 19 12 19s6.25 0 7.84-.43a2.5 2.5 0 0 0 1.76-1.77A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.8zM10 15V9l5.2 3-5.2 3z",
+  // },
 ];
 
 const emptyForm = { name: "", email: "", subject: "", message: "" };
@@ -74,10 +74,10 @@ export default function ContactUs() {
            <h1>
               <span>Let&rsquo;s Talk</span> About Your Engineering Challenge.
             </h1>
-            <p>
+            {/* <p>
               Reach the ProSIM R&amp;D team in Bengaluru — for project enquiries,
               partnerships, or simply to say hello.
-            </p>
+            </p> */}
           </ScrollAnimation>
 
           <ScrollAnimation className="sa-hero-media" delay={120}>

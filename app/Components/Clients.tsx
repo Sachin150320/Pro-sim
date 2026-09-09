@@ -77,7 +77,7 @@ export default function Clients() {
 
           
           <h2>
-            Trusted by <span className="highlight">1000+ customers</span> worldwide
+            Trusted by <span className="highlight">1200+ customers</span> worldwide
           </h2>
           <div className="title-underline" />
           <p className="clients-description">

@@ -73,7 +73,7 @@ export default function Footer() {
                                 </a>
 
                                 {/* Facebook */}
-                                <a
+                                {/* <a
                                     href="https://www.facebook.com/"
                                     target="_blank"
                                     rel="noopener noreferrer"
@@ -88,10 +88,10 @@ export default function Footer() {
                                     >
                                         <path d="M13.5 21v-8h2.75l.42-3h-3.17V8.08c0-.87.24-1.46 1.5-1.46h1.8V3.94c-.31-.04-1.38-.14-2.62-.14-2.59 0-4.36 1.58-4.36 4.49V10H7.9v3h2.72v8h2.88z" />
                                     </svg>
-                                </a>
+                                </a> */}
 
-                                {/* Instagram */}
-                                <a
+                         
+                                {/* <a
                                     href="https://www.instagram.com/"
                                     target="_blank"
                                     rel="noopener noreferrer"
@@ -124,7 +124,7 @@ export default function Footer() {
                                     </svg>
                                 </a>
 
-                                {/* YouTube */}
+                            
                                 <a
                                     href="https://www.youtube.com/"
                                     target="_blank"
@@ -140,7 +140,7 @@ export default function Footer() {
                                     >
                                         <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.55 3.5 12 3.5 12 3.5s-7.55 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.85.6 9.4.6 9.4.6s7.55 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.9V8.1l6.5 3.9-6.5 3.9z" />
                                     </svg>
-                                </a>
+                                </a> */}
 
                             </div>
                         </div>
@@ -245,23 +245,23 @@ export default function Footer() {
                             <li>
                                 <Link href="/defence-systems">
                                     <span className="footer-arrow">→</span>
-                                    Defence
+                                    Aerospace & Defence.
                                 </Link>
                             </li>
 
                             <li>
                                 <Link href="/heavy-engineering">
                                     <span className="footer-arrow">→</span>
-                                    Heavy Engineering Equipment / General Engineering
+                                     Heavy Engineering Equipment / General Engineering
                                 </Link>
                             </li>
-
+{/* 
                             <li>
                                 <Link href="/renewable-green-energy">
                                     <span className="footer-arrow">→</span>
                                     Renewable & Green Energy
                                 </Link>
-                            </li>
+                            </li> */}
                         </ul>
                     </div>
 
@@ -378,7 +378,7 @@ export default function Footer() {
                 <div className="footer-bottom-container">
 
                     <p>
-                        © 2026 <strong>ProSIM R&amp;D Center</strong>.
+                        © 2026 <strong>ProSIM R&D Pvt Ltd</strong>.
                         All Rights Reserved.
                     </p>
 

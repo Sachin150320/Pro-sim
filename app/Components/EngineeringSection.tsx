@@ -152,9 +152,9 @@ export default function EngineeringSection() {
                                     }`}
                                 >
                                     <div className="eng-card-top">
-                                        <span className="eng-card-number">
+                                        {/* <span className="eng-card-number">
                                             {service.number}
-                                        </span>
+                                        </span> */}
 
                                         <div className="eng-card-icon">
                                             <Icon size={25} strokeWidth={1.5} />
