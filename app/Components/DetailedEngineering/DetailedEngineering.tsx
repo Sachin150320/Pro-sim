@@ -402,7 +402,7 @@ export default function DetailedEngineering() {
           <div className="sa-hero-media">
             <figure className="sa-hero-media-main">
               <img
-                src="/assets/images/industries/detail-engineering.png"
+                src="/assets/images/Offerings/Detailed-Engineering/Detailed Engineering Service.png"
                 alt="Detailed engineering — 3D plant model and process plant"
                 loading="eager"
               />
@@ -410,7 +410,7 @@ export default function DetailedEngineering() {
             </figure>
             <figure className="sa-hero-media-inset">
               <img
-                src="/assets/images/portfolio/modern/6.webp"
+                src="/assets/images/Offerings/Detailed-Engineering/Detailed Engineering Service 1.png"
                 alt="3D plant and piping model detail"
                 loading="lazy"
               />
@@ -519,40 +519,48 @@ export default function DetailedEngineering() {
                   ))}
                 </div>
 
+ {/* GALLERY */}
+                {index === 0 && (
+                  <div className="sa-gallery">
+                    <div className="sa-gallery-card">
+                      <img
+                        src="/assets/images/Offerings/Detailed-Engineering/Process engineering.png"
+                        alt="Process plant 3D model developed from PFD / P&amp;ID"
+                      />
+                    </div>
+
+                   
+                  </div>
+                )}
+
+
+
                 {/* GALLERY */}
                 {index === 1 && (
                   <div className="sa-gallery">
                     <div className="sa-gallery-card">
                       <img
-                        src="assets/images/industries/detail-engg-1.png"
-                        alt="Mechanical Engineering"
+                        src="/assets/images/Offerings/Detailed-Engineering/Mechanical design.png"
+                        alt="Process plant 3D model developed from PFD / P&amp;ID"
                       />
                     </div>
 
-                    <div className="sa-gallery-card">
-                      <img
-                        src="assets/images/industries/detail-engg-2.png"
-                        alt="Mechanical Design"
-                      />
-                    </div>
+                   
                   </div>
                 )}
 
-                {index === 2 && (
+               
+
+                {index === 3 && (
                   <div className="sa-gallery">
                     <div className="sa-gallery-card">
                       <img
-                        src="assets/images/industries/detail-engg-3.png"
+                        src="/assets/images/Offerings/Detailed-Engineering/Civil & Structural.png"
                         alt="3D Plant Modelling"
                       />
                     </div>
 
-                    <div className="sa-gallery-card">
-                      <img
-                        src="assets/images/industries/detail-engg-4.png"
-                        alt="Piping Engineering"
-                      />
-                    </div>
+                   
                   </div>
                 )}
 
@@ -560,7 +568,7 @@ export default function DetailedEngineering() {
                   <div className="sa-gallery single">
                     <div className="sa-gallery-card">
                       <img
-                        src="assets/images/industries/detail-engg-5.png"
+                        src="/assets/images/Offerings/Detailed-Engineering/Electrical, Instrumentation & Control (E&I) Engineering.png"
                         alt="Electrical Instrumentation"
                       />
                     </div>
