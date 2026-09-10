@@ -266,8 +266,7 @@ export default function OnsiteDeputation() {
               return (
                 <ScrollAnimation key={c.title} delay={(i % 3) * 90}>
                   <article className="od-cap-card">
-                    <span className="od-cap-count">{String(i + 1).padStart(2, "0")}</span>
-
+                 
                     <span className="od-cap-icon">
                       <Icon size={23} strokeWidth={1.7} />
                     </span>
