@@ -387,7 +387,7 @@ export default function SeismicAnalysis() {
           <div className="sa-hero-media">
             <figure className="sa-hero-media-main">
               <img
-                src="/assets/images/industries/seismic-analysis-and-qualification/pipping.jpg"
+                src="/assets/images/Offerings/Seismic-Analysis-&-Qualification/Seismic Analysis & Qualification.png"
                 alt="Nuclear piping — seismic analysis and qualification"
                 loading="eager"
               />
@@ -395,7 +395,7 @@ export default function SeismicAnalysis() {
             </figure>
             <figure className="sa-hero-media-inset">
               <img
-                src="/assets/images/industries/seismic-analysis-and-qualification/1.png"
+                src="/assets/images/Offerings/Seismic-Analysis-&-Qualification/Seismic Analysis & Qualification 1.png"
                 alt="FEA seismic model detail"
                 loading="lazy"
               />
@@ -463,16 +463,11 @@ export default function SeismicAnalysis() {
                   <div className="sa-gallery">
                     <div className="sa-gallery-card">
                       <img
-                        src="/assets/images/industries/seismic-analysis-and-qualification/1.png"
+                        src="/assets/images/Offerings/Seismic-Analysis-&-Qualification/Seismic Analysis, Evaluation & Qualification.png"
                         alt="Seismic FEA analysis"
                       />
                     </div>
-                    <div className="sa-gallery-card">
-                      <img
-                        src="/assets/images/industries/seismic-analysis-and-qualification/2.png"
-                        alt="Shake table testing"
-                      />
-                    </div>
+                    
                   </div>
                 )}
 
@@ -480,16 +475,11 @@ export default function SeismicAnalysis() {
                   <div className="sa-gallery">
                     <div className="sa-gallery-card">
                       <img
-                        src="/assets/images/industries/seismic-analysis-and-qualification/3.png"
+                        src="/assets/images/Offerings/Seismic-Analysis-&-Qualification/Piping Engineering.png"
                         alt="Piping engineering"
                       />
                     </div>
-                    <div className="sa-gallery-card">
-                      <img
-                        src="/assets/images/industries/seismic-analysis-and-qualification/4.png"
-                        alt="Pipe stress analysis"
-                      />
-                    </div>
+                    
                   </div>
                 )}
               </article>

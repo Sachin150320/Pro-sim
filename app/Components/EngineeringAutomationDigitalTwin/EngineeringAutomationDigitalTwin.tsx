@@ -6,6 +6,7 @@ import { Gauge, Cpu, Blend, Building2, FlaskConical, Plus, Minus } from "lucide-
 import "./DigitalTwin.css";
 
 const IMG = "/assets/images/industries/digi-solution";
+const CAP_IMG = "/assets/images/Offerings/Engineering-Automation-and-Digital-Twin";
 
 type Point = { head?: string; body: string };
 
@@ -14,12 +15,16 @@ const services: {
   title: string;
   description: string;
   points: Point[];
+  image: string;
+  imageAlt: string;
 }[] = [
   {
     id: "rom-development",
     title: "1. Reduced Order Model (ROM) Development",
     description:
       "While highly detailed simulations such as CFD and FEA offer exceptional accuracy, their immense computational demands make them impractical for continuous monitoring. We overcome this hurdle by developing Reduced Order Models utilizing purpose-built software.",
+    image: `${CAP_IMG}/ROM%20Development.png`,
+    imageAlt: "CFD and FEA results distilled into a Reduced Order Model for real-time simulation and edge/cloud deployment",
     points: [
       {
         head: "Real-Time Simulation",
@@ -36,6 +41,8 @@ const services: {
     title: "2. AI/ML & IIoT Model Implementation",
     description:
       "Turn unprocessed industrial data into clear, actionable insights using our powerful and reliable platform.",
+    image: `${CAP_IMG}/AIML%20&%20IIOT.png`,
+    imageAlt: "IIoT sensors feeding an AI/ML engine for anomaly detection, predictive maintenance and remote monitoring",
     points: [
       {
         head: "Industrial IoT Integration",
@@ -52,6 +59,8 @@ const services: {
     title: "3. Hybrid Modeling (Physics-Based + Data-Driven)",
     description:
       "Experience the ultimate balance of two methodologies. Relying solely on data ignores fundamental physical laws, whereas strict physics models overlook actual daily wear and tear. Our hybrid models successfully merge these two approaches.",
+    image: `${CAP_IMG}/Hybrid%20Modelling.png`,
+    imageAlt: "Physics-based modelling fused with data-driven modelling into a hybrid digital twin with actionable insights",
     points: [
       {
         head: "The Hybrid Advantage",
@@ -68,6 +77,8 @@ const services: {
     title: "4. Building Information Modeling (BIM) Integration",
     description:
       "Maximize the lifecycle value of your equipment information — from the drafting table through years of active use — using a comprehensive enterprise architecture.",
+    image: `${CAP_IMG}/BIM%20Integration.png`,
+    imageAlt: "BIM model linked to live asset information, CMMS, ERP and EAM systems with an on-site AR view",
     points: [
       {
         head: "As-Built Digital Threads",
@@ -84,6 +95,8 @@ const services: {
     title: "5. Advanced Digital Twin R&D",
     description:
       "Keep your business at the forefront of technological advancement by partnering with our expert innovation and consulting teams.",
+    image: `${CAP_IMG}/Engineering%20Automation%20and%20Digital%20Twin.png`,
+    imageAlt: "Engineer's workspace with a full digital twin platform — 3D viewer, P&ID, live data and analytics",
     points: [
       {
         head: "Custom Framework Prototyping",
@@ -309,7 +322,7 @@ export default function EngineeringAutomationDigitalTwin() {
           <div className="sa-hero-media">
             <figure className="sa-hero-media-main">
               <img
-                src={`${IMG}/1.jpg`}
+                src={`/assets/images/Offerings/Engineering-Automation-and-Digital-Twin/Engineering Automation and Digital Twin.png`}
                 alt="Digital twin — real-time virtual counterpart of industrial equipment"
                 loading="eager"
               />
@@ -317,7 +330,7 @@ export default function EngineeringAutomationDigitalTwin() {
             </figure>
             <figure className="sa-hero-media-inset">
               <img
-                src={`${IMG}/3.png`}
+                src={`/assets/images/Offerings/Engineering-Automation-and-Digital-Twin/AIML & IIOT.png`}
                 alt="Predictive AI and IIoT dashboard detail"
                 loading="lazy"
               />
@@ -380,6 +393,12 @@ export default function EngineeringAutomationDigitalTwin() {
                       </div>
                     </div>
                   ))}
+                </div>
+
+                <div className="sa-gallery single">
+                  <div className="sa-gallery-card">
+                    <img src={service.image} alt={service.imageAlt} loading="lazy" />
+                  </div>
                 </div>
               </article>
             ))}

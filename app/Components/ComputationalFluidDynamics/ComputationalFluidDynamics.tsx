@@ -53,8 +53,7 @@ const services: {
       },
     ],
     images: [
-      { src: `${IMG}/1.png`, alt: "CFD flow simulation result" },
-      { src: `${IMG}/2.png`, alt: "Fluid-structure interaction analysis" },
+      { src: `/assets/images/Offerings/CFD-Multi-Physics-Simulation-Service/CFD-&-FSI-1.png`, alt: "CFD flow simulation result" },
     ],
   },
   {
@@ -73,8 +72,8 @@ const services: {
       },
     ],
     images: [
-      { src: `${IMG}/3.png`, alt: "Thermal-structural damage model" },
-      { src: `${IMG}/4.png`, alt: "Fracture mechanics crack growth model" },
+      { src: `/assets/images/Offerings/CFD-Multi-Physics-Simulation-Service/Damage-&-Life-Assessment-1.png`, alt: "Thermal-structural damage model" },
+    
     ],
   },
   {
@@ -92,7 +91,10 @@ const services: {
         body: "By transferring these precise dynamic forces directly into subsequent fatigue and structural models, we achieve unparalleled levels of physical accuracy.",
       },
     ],
-    images: [{ src: `${IMG}/1.png`, alt: "Multi-body dynamics assembly simulation" }],
+    images: [
+      { src: `/assets/images/Offerings/CFD-Multi-Physics-Simulation-Service/Multi-body-Dynamics-1.png`, alt: "Thermal-structural damage model" },
+    
+    ],
   },
   {
     id: "coupled-multiphysics",
@@ -104,6 +106,10 @@ const services: {
         head: "Electro-Magnetic-Thermal-Structural-Flow Coupling",
         body: "We model interconnected systems where electrical currents produce heat, which in turn alters cooling performance and triggers structural expansion. Typical applications include busbars, electrical transformers, and electric vehicle powertrains — where our comprehensive fluid simulations are essential for assessing and optimizing overall thermal management.",
       },
+    ],
+     images: [
+      { src: `/assets/images/Offerings/CFD-Multi-Physics-Simulation-Service/Coupled-Multiphysics-1.png`, alt: "Thermal-structural damage model" },
+    
     ],
   },
 ];
@@ -351,7 +357,7 @@ export default function ComputationalFluidDynamics() {
           <div className="sa-hero-media">
             <figure className="sa-hero-media-main">
               <img
-                src={`${IMG}/1.png`}
+                src={`/assets/images/Offerings/CFD-Multi-Physics-Simulation-Service/CFD Multi-Physics Simulation Service 1.png`}
                 alt="Computational fluid dynamics simulation result"
                 loading="eager"
               />
@@ -359,7 +365,7 @@ export default function ComputationalFluidDynamics() {
             </figure>
             <figure className="sa-hero-media-inset">
               <img
-                src={`${IMG}/3.png`}
+                src={`/assets/images/Offerings/CFD-Multi-Physics-Simulation-Service/CFD Multi-Physics Simulation Service 2.png`}
                 alt="Multi-physics thermal-structural detail"
                 loading="lazy"
               />
@@ -505,7 +511,7 @@ export default function ComputationalFluidDynamics() {
             <div className="sa-ind-media">
               <figure className="sa-ind-photo">
                 <img
-                  src={`${IMG}/4.png`}
+                  src={`/assets/images/Offerings/CFD-Multi-Physics-Simulation-Service/CFD-&-FSI-2.png`}
                   alt="Industrial fluid dynamics application"
                   loading="lazy"
                 />

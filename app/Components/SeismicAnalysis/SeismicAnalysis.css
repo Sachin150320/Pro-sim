@@ -637,12 +637,13 @@ font-weight: 400;
 
 .sa-gallery {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   gap: 20px;
   margin-top: 40px;
 }
 
 .sa-gallery-card {
+  padding: 15px;
   overflow: hidden;
   border: 1px solid var(--sa-border);
   background: #fff;
