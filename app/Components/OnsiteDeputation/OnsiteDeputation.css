@@ -449,116 +449,99 @@
    ============================================================ */
 
 .od-cap {
-  padding: 84px 0;
-  background: #fff;
+  padding: 60px 0;
+  background: white;
 }
 
 .od-cap-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 22px;
-  margin-top: 46px;
+  gap: 26px;
+  margin-top: 48px;
 }
 
 .od-cap-card {
   position: relative;
   display: flex;
   flex-direction: column;
-  padding: 28px 26px 24px;
-  background: var(--sa-light);
+  padding: 36px 32px 30px;
+  background: #fff;
   border: 1px solid var(--sa-border);
-  border-radius: 16px;
+  border-radius: 18px;
   overflow: hidden;
-  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease,
-    border-color 0.3s ease, background 0.3s ease;
+  box-shadow: 0 16px 40px -32px rgba(16, 27, 40, 0.22);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease,
+    border-color 0.35s ease;
 }
 
+/* left accent bar — faint by default, full brand colour on hover */
 .od-cap-card::before {
   content: "";
   position: absolute;
   left: 0;
-  right: 0;
-  top: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--sa-red), var(--sa-teal-bright));
-  transform: scaleX(0);
-  transform-origin: left;
+  top: 26px;
+  bottom: 26px;
+  width: 3px;
+  border-radius: 0 3px 3px 0;
+  background: linear-gradient(180deg, var(--sa-red), var(--sa-teal-bright));
+  transform: scaleY(0);
+  transform-origin: top;
   transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .od-cap-card:hover {
-  transform: translateY(-6px);
-  background: #fff;
-  border-color: rgba(0, 113, 188, 0.32);
-  box-shadow: 0 30px 56px -30px rgba(16, 27, 40, 0.3);
+  transform: translateY(-8px);
+  border-color: rgba(0, 113, 188, 0.3);
+  box-shadow: 0 36px 70px -30px rgba(16, 27, 40, 0.32);
 }
 
 .od-cap-card:hover::before {
-  transform: scaleX(1);
+  transform: scaleY(1);
 }
 
-.od-cap-ghost {
+.od-cap-count {
   position: absolute;
-  top: -10px;
-  right: 4px;
-  font-size: 72px;
+  top: 22px;
+  right: 24px;
+  z-index: 1;
+  font-size: 12px;
   font-weight: 800;
-  line-height: 1;
-  letter-spacing: -2px;
-  color: rgba(0, 113, 188, 0.055);
-  pointer-events: none;
+  letter-spacing: 1px;
+  color: #c2ccd3;
   font-variant-numeric: tabular-nums;
+  transition: color 0.3s ease;
 }
 
-.od-cap-head {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 16px;
+.od-cap-card:hover .od-cap-count {
+  color: var(--sa-red);
 }
 
 .od-cap-icon {
+  position: relative;
+  z-index: 1;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 42px;
-  height: 42px;
-  border-radius: 12px;
-  background: rgba(0, 113, 188, 0.09);
+  width: 54px;
+  height: 54px;
+  margin-bottom: 22px;
+  border-radius: 15px;
+  background: linear-gradient(150deg, rgba(0, 113, 188, 0.1), rgba(60, 201, 220, 0.1));
   color: var(--sa-red);
-  transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+  transition: background 0.35s ease, color 0.35s ease, transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .od-cap-card:hover .od-cap-icon {
-  background: var(--sa-red);
+  background: linear-gradient(150deg, var(--sa-red), #0f8090);
   color: #fff;
-  transform: rotate(-6deg);
-}
-
-.od-cap-num {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 3px;
-  font-size: 13px;
-  font-weight: 800;
-  color: var(--sa-dark);
-  font-variant-numeric: tabular-nums;
-}
-
-.od-cap-num i {
-  font-style: normal;
-  font-size: 10.5px;
-  font-weight: 700;
-  color: #9aa6b0;
+  transform: rotate(-6deg) scale(1.05);
 }
 
 .od-cap-card h3 {
   position: relative;
   z-index: 1;
-  margin: 0 0 9px;
-  font-size: 17.5px;
+  margin: 0 0 10px;
+  font-size: 18.5px;
   font-weight: 700;
   color: var(--sa-dark);
 }
@@ -566,23 +549,30 @@
 .od-cap-card > p {
   position: relative;
   z-index: 1;
-  margin: 0 0 18px;
+  margin: 0 0 22px;
   color: var(--sa-text);
-  font-size: 13.5px;
-  line-height: 1.68;
+  font-size: 13.8px;
+  line-height: 1.75;
 }
 
 .od-cap-tags {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-wrap: wrap;
-  gap: 7px;
+  gap: 8px;
   margin-top: auto;
+  padding-top: 20px;
+  border-top: 1px solid var(--sa-border);
 }
 
 .od-cap-tags span {
-  padding: 5px 11px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
   border-radius: 999px;
-  background: #fff;
+  background: var(--sa-light);
   border: 1px solid var(--sa-border);
   color: var(--sa-text);
   font-size: 11.5px;
@@ -591,10 +581,35 @@
   transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
 }
 
+.od-cap-tags span::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.55;
+}
+
 .od-cap-card:hover .od-cap-tags span {
   background: rgba(0, 113, 188, 0.07);
   border-color: rgba(0, 113, 188, 0.22);
   color: var(--sa-red);
+}
+
+/* large faint icon watermark bleeding out of the bottom-right corner */
+.od-cap-watermark {
+  position: absolute;
+  right: -20px;
+  bottom: -22px;
+  z-index: 0;
+  color: rgba(0, 113, 188, 0.05);
+  pointer-events: none;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), color 0.35s ease;
+}
+
+.od-cap-card:hover .od-cap-watermark {
+  color: rgba(0, 113, 188, 0.08);
+  transform: translate(-4px, -4px) rotate(-4deg);
 }
 
 /* ============================================================
@@ -602,7 +617,7 @@
    ============================================================ */
 
 .od-process {
-  padding: 84px 0;
+  padding: 60px 0;
   background: var(--sa-light);
 }
 
@@ -723,7 +738,7 @@
    ============================================================ */
 
 .od-benefits {
-  padding: 88px 0;
+  padding: 60px 0;
   background: #fff;
 }
 
@@ -824,7 +839,7 @@
 
 .od-engage {
   position: relative;
-  padding: 88px 0;
+  padding: 60px 0;
   background:
     linear-gradient(150deg, rgba(7, 23, 42, 0.94) 0%, rgba(12, 33, 55, 0.94) 55%, rgba(18, 48, 73, 0.94) 100%),
     url("/assets/images/onsite/image_03.png");
@@ -1100,6 +1115,10 @@
 
   .od-why-card {
     padding: 30px 26px 28px;
+  }
+
+  .od-cap-card {
+    padding: 30px 26px 26px;
   }
 
   .od-benefits-media-inset {
