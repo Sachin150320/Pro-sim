@@ -32,8 +32,8 @@ const services: {
       },
     ],
     images: [
-      { src: `${IMG}/1.png`, alt: "Level-3 Fitness for Service assessment model" },
-      { src: `${IMG}/2.png`, alt: "Structural soundness evaluation" },
+      { src: `/assets/images/Offerings/RLA-RLE-Fitness-for-service-(FFS)/FFS-(1).png`, alt: "Level-3 Fitness for Service assessment model" },
+      
     ],
   },
   {
@@ -52,8 +52,8 @@ const services: {
       },
     ],
     images: [
-      { src: `${IMG}/3.png`, alt: "Remaining life assessment of high-temperature piping" },
-      { src: `${IMG}/4.png`, alt: "Section strength evaluation model" },
+      { src: `/assets/images/Offerings/RLA-RLE-Fitness-for-service-(FFS)/FFS-(4).png`, alt: "Level-3 Fitness for Service assessment model" },
+      
     ],
   },
   {
@@ -98,6 +98,10 @@ const services: {
         head: "Digital Transformation",
         body: "Guiding clients in upgrading their asset management strategies by integrating AI/ML Digital Twins, Cloud computing, and the Industrial Internet of Things (IIoT).",
       },
+    ],
+    images: [
+      { src: `/assets/images/Offerings/RLA-RLE-Fitness-for-service-(FFS)/FFS-(6).png`, alt: "Level-3 Fitness for Service assessment model" },
+      
     ],
   },
 ];
@@ -299,7 +303,7 @@ export default function StructuralIntegrityAssessment() {
           <div className="sa-hero-media">
             <figure className="sa-hero-media-main">
               <img
-                src={`${IMG}/1.png`}
+                src={`/assets/images/Offerings/RLA-RLE-Fitness-for-service-(FFS)/FFS (3).png`}
                 alt="Structural integrity assessment — Fitness for Service model"
                 loading="eager"
               />
@@ -307,7 +311,7 @@ export default function StructuralIntegrityAssessment() {
             </figure>
             <figure className="sa-hero-media-inset">
               <img
-                src={`${IMG}/3.png`}
+                src={`/assets/images/Offerings/RLA-RLE-Fitness-for-service-(FFS)/FFS (7).png`}
                 alt="Remaining life assessment detail"
                 loading="lazy"
               />

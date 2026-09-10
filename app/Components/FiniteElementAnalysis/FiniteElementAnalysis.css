@@ -1724,7 +1724,7 @@ font-weight: 400;
 
 /* single image: keep it to one column (half width), left aligned */
 .sa-gallery.single {
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(1, 1fr);
 }
 
 @media (max-width: 768px) {

@@ -31,10 +31,7 @@ const services: {
         body: "Our expert consultants design tailored layouts that adhere strictly to the hazardous zone classifications, spatial limitations, and specific regulatory standards required by refineries, thermal power plants, and nuclear installations.",
       },
     ],
-    images: [
-      { src: `${IMG}/1.png`, alt: "3D equipment and structural model" },
-      { src: `${IMG}/2.png`, alt: "Plant structural framework model" },
-    ],
+   
   },
   {
     id: "piping-routing",
@@ -52,9 +49,8 @@ const services: {
       },
     ],
     images: [
-      { src: `${IMG}/3.png`, alt: "Spec-driven 3D piping routing" },
-      { src: `${IMG}/4.png`, alt: "Piping isometric extraction" },
-    ],
+      { src: `/assets/images/Offerings/three-D-Plant-Modelling-Services/Spec-Driven-piping-&-Routing-1.png`, alt: "Spec-driven 3D piping routing" },
+   ],
   },
   {
     id: "clash-resolution",
@@ -71,7 +67,7 @@ const services: {
         body: "Our teams rely on Autodesk Navisworks and Aveva Review to perform automated clash detection, advanced interference mapping, and final conflict resolution.",
       },
     ],
-    images: [{ src: `${IMG}/5.png`, alt: "Multi-discipline clash detection model" }],
+    images: [{ src: `/assets/images/Offerings/three-D-Plant-Modelling-Services/Multi-Discipline-Clash-Resolution-1.png`, alt: "Multi-discipline clash detection model" }],
   },
   {
     id: "technical-expertise",
@@ -304,7 +300,7 @@ export default function ThreeDPlantModelling() {
           <div className="sa-hero-media">
             <figure className="sa-hero-media-main">
               <img
-                src={`${IMG}/1.png`}
+                src="/assets/images/Offerings/three-D-Plant-Modelling-Services/three-dd-2.png"
                 alt="3D plant model — equipment and structural framework"
                 loading="eager"
               />
@@ -312,7 +308,7 @@ export default function ThreeDPlantModelling() {
             </figure>
             <figure className="sa-hero-media-inset">
               <img
-                src={`${IMG}/3.png`}
+                src="/assets/images/Offerings/three-D-Plant-Modelling-Services/three-d-1.png"
                 alt="Spec-driven piping routing detail"
                 loading="lazy"
               />

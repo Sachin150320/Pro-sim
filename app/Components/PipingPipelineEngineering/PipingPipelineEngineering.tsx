@@ -44,8 +44,8 @@ const services: {
       },
     ],
     images: [
-      { src: `${IMG}/1.png`, alt: "Piping design and detailed engineering" },
-      { src: `${IMG}/2.png`, alt: "Piping layout and 3D plant model" },
+      { src: `/assets/images/Offerings/Piping-&-Pipeline-Engineering-Services/Design-&-detailed-Engineering-1.png`, alt: "Piping design and detailed engineering" },
+      
     ],
   },
   {
@@ -67,9 +67,9 @@ const services: {
         body: "The structural enhancement, qualification, and design of baseplates and anchorage mechanisms.",
       },
     ],
-    images: [
-      { src: `${IMG}/3.png`, alt: "Pipe stress analysis model" },
-      { src: `${IMG}/4.png`, alt: "Piping flexibility and support analysis" },
+     images: [
+      { src: `/assets/images/Offerings/Piping-&-Pipeline-Engineering-Services/Stress-&-Flexibility-Analysis-1.png`, alt: "Piping design and detailed engineering" },
+      
     ],
   },
   {
@@ -88,7 +88,7 @@ const services: {
         body: "Rigorous pipeline checking and code qualification in strict accordance with international frameworks and DNVGL standards.",
       },
     ],
-    images: [{ src: `${IMG}/5.png`, alt: "Onshore and offshore pipeline engineering" }],
+    images: [{ src: `/assets/images/Offerings/Piping-&-Pipeline-Engineering-Services/Pipeline-engineering-(Onshoreoffshore)-1.png`, alt: "Onshore and offshore pipeline engineering" }],
   },
   {
     id: "brownfield-maintenance",
@@ -355,7 +355,7 @@ export default function PipingPipelineEngineering() {
           <div className="sa-hero-media">
             <figure className="sa-hero-media-main">
               <img
-                src={`${IMG}/1.png`}
+                src="/assets/images/Offerings/Piping-&-Pipeline-Engineering-Services/Piping & Pipeline Engineering Services 1.png"
                 alt="Piping and pipeline engineering — 3D plant model"
                 loading="eager"
               />
@@ -363,7 +363,7 @@ export default function PipingPipelineEngineering() {
             </figure>
             <figure className="sa-hero-media-inset">
               <img
-                src={`${IMG}/3.png`}
+                src="/assets/images/Offerings/Piping-&-Pipeline-Engineering-Services/Piping & Pipeline Engineering Services 2.png"
                 alt="Pipe stress analysis detail"
                 loading="lazy"
               />

@@ -63,10 +63,7 @@ const services: {
         body: "Modifying international product blueprints to comply with regional manufacturing rules and regulatory demands.",
       },
     ],
-    images: [
-      { src: `${IMG}/1.png`, alt: "Finite element analysis stress model" },
-      { src: `${IMG}/2.png`, alt: "Multi-physics simulation result" },
-    ],
+   
   },
   {
     id: "technical-capabilities",
@@ -96,8 +93,8 @@ const services: {
       },
     ],
     images: [
-      { src: `${IMG}/3.png`, alt: "Non-linear FEA contact analysis" },
-      { src: `${IMG}/4.png`, alt: "Modal and dynamic analysis result" },
+      { src: `/assets/images/Offerings/Finite-Element-Analysis-Service/Finite-Element-Analysis-Services -(3).png`, alt: "Non-linear FEA contact analysis" },
+      
     ],
   },
   {
@@ -123,6 +120,12 @@ const services: {
         body: "Processing the simulation solvers and interpreting the resulting data to yield strategic, actionable advice.",
       },
     ],
+
+    images: [
+      { src: `/assets/images/Offerings/Finite-Element-Analysis-Service/Finite-Element-Analysis-Services-(5).png`, alt: "Non-linear FEA contact analysis" },
+      
+    ],
+  
   },
   {
     id: "onsite-consulting",
@@ -376,7 +379,7 @@ export default function FiniteElementAnalysis() {
           <div className="sa-hero-media">
             <figure className="sa-hero-media-main">
               <img
-                src={`${IMG}/1.png`}
+                src={`/assets/images/Offerings/Finite-Element-Analysis-Service/Finite-Element-Analysis-Services (8).png`}
                 alt="Finite element analysis — stress and multi-physics results"
                 loading="eager"
               />
@@ -384,7 +387,7 @@ export default function FiniteElementAnalysis() {
             </figure>
             <figure className="sa-hero-media-inset">
               <img
-                src={`${IMG}/3.png`}
+                src={`/assets/images/Offerings/Finite-Element-Analysis-Service/Finite-Element-Analysis-Services (1).png`}
                 alt="Non-linear FEA model detail"
                 loading="lazy"
               />
@@ -537,7 +540,7 @@ export default function FiniteElementAnalysis() {
             <div className="sa-ind-media">
               <figure className="sa-ind-photo">
                 <img
-                  src={`${IMG}/2.png`}
+                  src={`/assets/images/Offerings/Finite-Element-Analysis-Service/Finite-Element-Analysis-Services-(7).png`}
                   alt="Multi-physics simulation result"
                   loading="lazy"
                 />
