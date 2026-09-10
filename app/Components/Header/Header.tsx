@@ -91,6 +91,7 @@ export const menuItems: MenuItem[] = [
     ],
   },
 
+   { name: "Onsite Deputation", href: "/onsite-deputation" },
   { name: "Projects", href: "/projects" },
     // { name: "Events", href: "/events" },
   { name: "Careers", href: "/careers" },
