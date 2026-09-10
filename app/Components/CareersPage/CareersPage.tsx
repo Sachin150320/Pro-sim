@@ -197,21 +197,18 @@ export default function CareersPage() {
 
         <div className="sa-hero-inner">
           <ScrollAnimation className="sa-hero-text">
-          
+
             <h1>
               <span>Build Your Engineering Career</span> with ProSIM.
             </h1>
 
             <p>
-              At ProSIM, solving complex engineering challenges requires
-              exceptional talent, technical expertise and continuous innovation.
-              For over two decades we have delivered world-class engineering,
-              design, simulation and digital engineering solutions across Oil
-              &amp; Gas, Water Technology, Petrochemical, Power, Infrastructure
-              and other industrial sectors.
+              At ProSIM, we believe that solving complex engineering challenges requires exceptional talent, technical expertise, and continuous innovation. For over two decades, we have been delivering world-class engineering, design, simulation, and digital engineering solutions across Oil & Gas, Water Technology, Petrochemical, Power, Infrastructure, and other industrial sectors.
+            </p>
+            <p>Whether you're an experienced professional or an engineer looking to take the next step in your career, ProSIM offers opportunities to work on challenging global projects alongside highly skilled engineering professionals. Join us and become part of a collaborative, technology-driven organization committed to engineering excellence
             </p>
 
-           
+
           </ScrollAnimation>
 
           <ScrollAnimation className="sa-hero-media" delay={120}>

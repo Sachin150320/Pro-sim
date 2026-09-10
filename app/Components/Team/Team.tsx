@@ -47,9 +47,10 @@ const team = [
   { name: "Jaya Krishna N", role: "Team Lead – Mechanical Engineering ", group: "Nuclear", image: `${IMG}/14.png` },
   { name: "Pavan M", role: "Team Lead – Piping Engineering ", group: "Oil & Gas", image: `${IMG}/15.png` },
   { name: "Rajesh H K", role: "Team Lead – Mechanical Engineering ", group: "Nuclear", image: `${IMG}/16.png` },
- { name: "Varshitha K", role: "Assistant  ", group: "Human Resource", image: `${IMG}/17.png` },
- { name: "Kavitha", role: "Sr Accountant ", group: "Accounts and Finance", image: `${IMG}/18.png` },
-  { name: "Lokesh V N", role: "Team Lead  ", group: "Mechanical Engineering", image: `${IMG}/19.png` },
+   { name: "Lokesh V N", role: "Team Lead  ", group: "Mechanical Engineering", image: `${IMG}/19.png` },
+   { name: "Kavitha", role: "Sr Accountant  ", group: "Accounts and Finance ", image: `${IMG}/17.png` },
+
+   { name: "Varshitha K", role: "Assistant  ", group: "Human Resource", image: `${IMG}/18.png` },
 
 ];
 
