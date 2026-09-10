@@ -266,25 +266,24 @@ export default function OnsiteDeputation() {
               return (
                 <ScrollAnimation key={c.title} delay={(i % 3) * 90}>
                   <article className="od-cap-card">
-                    <span className="od-cap-ghost" aria-hidden="true">
-                      {String(i + 1).padStart(2, "0")}
+                    <span className="od-cap-count">{String(i + 1).padStart(2, "0")}</span>
+
+                    <span className="od-cap-icon">
+                      <Icon size={23} strokeWidth={1.7} />
                     </span>
-                    <div className="od-cap-head">
-                      <span className="od-cap-icon">
-                        <Icon size={21} strokeWidth={1.7} />
-                      </span>
-                      <span className="od-cap-num">
-                        {String(i + 1).padStart(2, "0")}
-                        <i>/ {String(capabilities.length).padStart(2, "0")}</i>
-                      </span>
-                    </div>
+
                     <h3>{c.title}</h3>
                     <p>{c.desc}</p>
+
                     <div className="od-cap-tags">
                       {c.tags.map((t) => (
                         <span key={t}>{t}</span>
                       ))}
                     </div>
+
+                    <span className="od-cap-watermark" aria-hidden="true">
+                      <Icon size={108} strokeWidth={1} />
+                    </span>
                   </article>
                 </ScrollAnimation>
               );
@@ -338,55 +337,7 @@ export default function OnsiteDeputation() {
         </div>
       </section>
 
-      {/* BENEFITS */}
-      <section className="od-benefits" id="benefits">
-        <div className="sa-container">
-          <div className="od-benefits-grid">
-            <ScrollAnimation className="od-benefits-media">
-              <figure className="od-benefits-media-main">
-                <img
-                  src={`${IMG}/image_18.png`}
-                  alt="ProSIM engineers working with global teams"
-                  loading="lazy"
-                />
-              </figure>
-              <figure className="od-benefits-media-inset">
-                <img
-                  src={`${IMG}/image_20.png`}
-                  alt="Global engineering footprint"
-                  loading="lazy"
-                />
-              </figure>
-            </ScrollAnimation>
-
-            <div>
-              <ScrollAnimation className="sa-intro">
-                <span className="sa-label">Why Engineers Choose ProSIM</span>
-                <h2>Built for engineers who want more than a desk job.</h2>
-              </ScrollAnimation>
-
-              <div className="od-benefits-list">
-                {benefits.map((b, i) => {
-                  const Icon = b.icon;
-                  return (
-                    <ScrollAnimation key={b.title} delay={i * 90}>
-                      <div className="od-benefit-item">
-                        <span className="od-benefit-icon">
-                          <Icon size={19} strokeWidth={1.8} />
-                        </span>
-                        <div>
-                          <h4>{b.title}</h4>
-                          <p>{b.desc}</p>
-                        </div>
-                      </div>
-                    </ScrollAnimation>
-                  );
-                })}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      
 
       {/* ENGAGEMENT MODELS */}
       <section className="od-engage" id="engagement-models">
