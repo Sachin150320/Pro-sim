@@ -36,7 +36,13 @@ const galleryData: GalleryItem[] = [
   { id: 18, image: "/assets/images/Gallery/gallery-13.jpg", title: "ProSIM Gallery" },
   { id: 19, image: "/assets/images/Gallery/gallery-14.jpg", title: "ProSIM Gallery" },
   { id: 20, image: "/assets/images/Gallery/gallery-15.jpg", title: "ProSIM Gallery" },
-  
+  { id: 21, image: "/assets/images/Gallery/gallery-16.jpg", title: "ProSIM Gallery" },
+  { id: 22, image: "/assets/images/Gallery/gallery-17.jpg", title: "ProSIM Gallery" },
+  { id: 23, image: "/assets/images/Gallery/gallery-18.jpg", title: "ProSIM Gallery" },
+  { id: 24, image: "/assets/images/Gallery/gallery-19.jpg", title: "ProSIM Gallery" },
+  { id: 25, image: "/assets/images/Gallery/gallery-20.jpg", title: "ProSIM Gallery" },
+ 
+
   { id: 7, image: "/assets/images/Gallery/gallery-02.jpg", title: "ProSIM Gallery" },
   { id: 8, image: "/assets/images/Gallery/gallery-03.jpg", title: "ProSIM Gallery" },
   { id: 9, image: "/assets/images/Gallery/gallery-04.jpg", title: "ProSIM Gallery" },
