@@ -219,7 +219,7 @@ export default function ContactUs() {
                   {socials.map((s) => (
                     <a
                       key={s.label}
-                      href={s.href}
+                      href={"https://www.linkedin.com/company/prosimrnd/"}
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={s.label}

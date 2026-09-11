@@ -56,7 +56,7 @@ export default function Footer() {
 
                                 {/* LinkedIn */}
                                 <a
-                                    href="https://www.linkedin.com/"
+                                    href="https://www.linkedin.com/company/prosimrnd/"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     aria-label="LinkedIn"
