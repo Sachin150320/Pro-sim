@@ -28,13 +28,11 @@ const leadership = [
   { name: "Dr. S. Shamasundar", role: "", group: "Managing Director", image: `${IMG}/1.png` },
   { name: "Umesh Chandra", role: "", group: "Director", image: `${IMG}/2.png` },
   { name: "Sandeep PS", role: "Head of Business Development", group: "Business Development", image: `${IMG}/3.png` },
-
   { name: "Harsharaj", role: "Head of Delivery", group: "Delivery", image: `${IMG}/4.png` },
- 
 ];
 
 const team = [
- { name: "Ganesh Bharadwaj H S", role: "Head of Dept", group: "Piping Team", image: `${IMG}/5.png` },
+  { name: "Ganesh Bharadwaj H S", role: "Head of Dept", group: "Piping Team", image: `${IMG}/5.png` },
   { name: "Srikanth Guruswamy", role: "Project Manager ", group: "Nuclear, Thermal, O&G & General Engineering", image: `${IMG}/6.5.png` },
   { name: "Shivakumar Hadagali", role: "Project Manager ", group: "Oil & Gas / Nuclear", image: `${IMG}/6.png` },
   { name: "Santhosh Mankani", role: "Project Manager ", group: "Nuclear", image: `${IMG}/7.png` },
@@ -47,11 +45,9 @@ const team = [
   { name: "Jaya Krishna N", role: "Team Lead – Mechanical Engineering ", group: "Nuclear", image: `${IMG}/14.png` },
   { name: "Pavan M", role: "Team Lead – Piping Engineering ", group: "Oil & Gas", image: `${IMG}/15.png` },
   { name: "Rajesh H K", role: "Team Lead – Mechanical Engineering ", group: "Nuclear", image: `${IMG}/16.png` },
-   { name: "Lokesh V N", role: "Team Lead  ", group: "Mechanical Engineering", image: `${IMG}/19.png` },
-   { name: "Kavitha", role: "Sr Accountant  ", group: "Accounts and Finance ", image: `${IMG}/17.png` },
-
-   { name: "Varshitha K", role: "Assistant  ", group: "Human Resource", image: `${IMG}/18.png` },
-
+  { name: "Lokesh V N", role: "Team Lead  ", group: "Mechanical Engineering", image: `${IMG}/19.png` },
+  { name: "Kavitha", role: "Sr Accountant  ", group: "Accounts and Finance ", image: `${IMG}/17.png` },
+  { name: "Varshitha K", role: "Assistant  ", group: "Human Resource", image: `${IMG}/18.png` },
 ];
 
 type Member = { name: string; role: string; group: string; image: string };
@@ -117,7 +113,6 @@ export default function Team() {
         title="Our Team"
         subtitle="The people behind ProSIM's success!"
         image="/assets/images/team/team.jpeg"
-   
         imageCaption="Our people"
       />
 

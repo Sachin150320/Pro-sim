@@ -71,21 +71,21 @@ export default function CustomerVisits() {
 
 
 
-        
-        
+
+
 
         <div className="visits-container">
 
 
 
-<div className="visits-hero-content">
+          <div className="visits-hero-content">
 
             <span className="visits-label">
               CUSTOMER VISITS
             </span>
             <h1>
-             Customer
-        
+              Customer
+
               <strong> Partner Visits</strong>
             </h1>
 
@@ -98,7 +98,7 @@ export default function CustomerVisits() {
           </div>
 
 
-          
+
 
 
           <div className="visits-list">
@@ -106,9 +106,8 @@ export default function CustomerVisits() {
             {visits.map((visit, index) => (
 
               <article
-                className={`visit-card ${
-                  index % 2 === 1 ? "visit-reverse" : ""
-                }`}
+                className={`visit-card ${index % 2 === 1 ? "visit-reverse" : ""
+                  }`}
                 key={visit.number}
               >
 
@@ -150,7 +149,7 @@ export default function CustomerVisits() {
                     {visit.text}
                   </p>
 
-                  
+
 
                 </div>
 

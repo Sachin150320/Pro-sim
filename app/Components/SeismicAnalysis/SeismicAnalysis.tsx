@@ -387,7 +387,7 @@ export default function SeismicAnalysis() {
           <div className="sa-hero-media">
             <figure className="sa-hero-media-main">
               <img
-                src="/assets/images/Offerings/Seismic-Analysis-&-Qualification/Seismic Analysis & Qualification.png"
+                src="/assets/images/industries/detail-indutsries-1.png"
                 alt="Nuclear piping — seismic analysis and qualification"
                 loading="eager"
               />

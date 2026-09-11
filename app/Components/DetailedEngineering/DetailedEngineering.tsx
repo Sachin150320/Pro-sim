@@ -380,7 +380,7 @@ export default function DetailedEngineering() {
 
         <div className="sa-hero-inner">
           <div className="sa-hero-text">
-          
+
             <h1>
               <span>Detailed Engineering</span> Services.
             </h1>
@@ -395,8 +395,8 @@ export default function DetailedEngineering() {
               from blueprint to commissioning.
             </p>
 
-          
-          
+
+
           </div>
 
           <div className="sa-hero-media">
@@ -469,22 +469,22 @@ export default function DetailedEngineering() {
 </section> */}
 
       {/* INTRO */}
-     
+
 
       {/* SERVICES */}
       <section className="sa-services">
         <div className="sa-container">
-           <section className="sa-intro">
-         <span className="sa-label">OUR EXPERTISE</span>
+          <section className="sa-intro">
+            <span className="sa-label">OUR EXPERTISE</span>
 
-          <h2>Our Core Engineering Disciplines</h2>
+            <h2>Our Core Engineering Disciplines</h2>
 
-          <p>
-            As a specialized detailed engineering company, our expertise
-            covers a broad spectrum of technical requirements.
-          </p>
-      </section>
-         
+            <p>
+              As a specialized detailed engineering company, our expertise
+              covers a broad spectrum of technical requirements.
+            </p>
+          </section>
+
           <div className="sa-service-list">
             {services.map((service, index) => (
               <article
@@ -519,7 +519,7 @@ export default function DetailedEngineering() {
                   ))}
                 </div>
 
- {/* GALLERY */}
+                {/* GALLERY */}
                 {index === 0 && (
                   <div className="sa-gallery">
                     <div className="sa-gallery-card">
@@ -528,8 +528,6 @@ export default function DetailedEngineering() {
                         alt="Process plant 3D model developed from PFD / P&amp;ID"
                       />
                     </div>
-
-                   
                   </div>
                 )}
 
@@ -544,13 +542,8 @@ export default function DetailedEngineering() {
                         alt="Process plant 3D model developed from PFD / P&amp;ID"
                       />
                     </div>
-
-                   
                   </div>
                 )}
-
-               
-
                 {index === 3 && (
                   <div className="sa-gallery">
                     <div className="sa-gallery-card">
@@ -560,7 +553,7 @@ export default function DetailedEngineering() {
                       />
                     </div>
 
-                   
+
                   </div>
                 )}
 
@@ -617,15 +610,13 @@ export default function DetailedEngineering() {
             <div className="sa-ind-media">
               <figure className="sa-ind-photo">
                 <img
-                  src="/assets/images/industries/detail-indutsries.jpg"
+                  src="/assets/images/industries/detail-indutsries-2.png"
                   alt="Oil &amp; gas processing facility at dusk"
                   loading="lazy"
                 />
               </figure>
-              
             </div>
           </div>
-
           <p className="sa-section-intro" style={{ marginTop: "40px" }}>
             In every sector we serve, our engineering design consultants provide
             unmatched technical oversight and innovation.

@@ -379,7 +379,7 @@ export default function FiniteElementAnalysis() {
           <div className="sa-hero-media">
             <figure className="sa-hero-media-main">
               <img
-                src={`/assets/images/Offerings/Finite-Element-Analysis-Service/Finite-Element-Analysis-Services (8).png`}
+                src={`/assets/images/Offerings/Finite-Element-Analysis-Service/Finite-Element-Analysis-Services-(9).png`}
                 alt="Finite element analysis — stress and multi-physics results"
                 loading="eager"
               />
