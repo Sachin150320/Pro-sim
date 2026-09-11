@@ -167,6 +167,18 @@ export default function OilGasOffshore() {
   const closeForm = () => setActiveDownload(null);
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    const body = [
+      `Name: ${form.name}`,
+      `Phone: ${form.phone}`,
+      `Email: ${form.email}`,
+      `Company: ${form.company}`,
+    ].join("\n");
+
+    window.location.href = `mailto:enquiry@pro-sim.com?subject=${encodeURIComponent(
+      activeDownload || "Oil & Gas Engineering Enquiry"
+    )}&body=${encodeURIComponent(body)}`;
+
     setSubmitted(true);
   };
 

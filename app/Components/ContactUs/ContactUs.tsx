@@ -58,6 +58,19 @@ export default function ContactUs() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    const body = [
+      `Name: ${form.name}`,
+      `Email: ${form.email}`,
+      `Subject: ${form.subject}`,
+      "",
+      form.message,
+    ].join("\n");
+
+    window.location.href = `mailto:enquiry@pro-sim.com?subject=${encodeURIComponent(
+      form.subject || "Website Enquiry"
+    )}&body=${encodeURIComponent(body)}`;
+
     setSubmitted(true);
   };
 

@@ -84,8 +84,21 @@ export default function IndustriesSection() {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    // Replace this with your API/PHP form submission.
-    alert("Thank you! Your application has been submitted.");
+    const data = new FormData(event.currentTarget);
+    const body = [
+      `Name: ${data.get("name") ?? ""}`,
+      `Company: ${data.get("company") ?? ""}`,
+      `Email: ${data.get("email") ?? ""}`,
+      `Phone: ${data.get("phone") ?? ""}`,
+      `Industry: ${data.get("industry") ?? ""}`,
+      "",
+      "Application details:",
+      String(data.get("message") ?? "-"),
+    ].join("\n");
+
+    window.location.href = `mailto:enquiry@pro-sim.com?subject=${encodeURIComponent(
+      "Discuss Your Application"
+    )}&body=${encodeURIComponent(body)}`;
 
     setShowPopup(false);
   };

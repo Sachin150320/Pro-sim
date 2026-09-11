@@ -199,6 +199,18 @@
   transform: translateY(-2px);
 }
 
+.ap-submit-note {
+  margin: 12px 0 0;
+  color: var(--ap-text);
+  font-size: 12.5px;
+  line-height: 1.6;
+}
+
+.ap-submit-note strong {
+  color: var(--ap-dark);
+  font-weight: 700;
+}
+
 /* ---- done ---- */
 .ap-done {
   padding: 56px 40px;
