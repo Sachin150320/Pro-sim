@@ -303,7 +303,7 @@ export default function StructuralIntegrityAssessment() {
           <div className="sa-hero-media">
             <figure className="sa-hero-media-main">
               <img
-                src={`/assets/images/Offerings/RLA-RLE-Fitness-for-service-(FFS)/FFS (3).png`}
+                src={`/assets/images/Offerings/RLA-RLE-Fitness-for-service-(FFS)/FFS (7).png`}
                 alt="Structural integrity assessment — Fitness for Service model"
                 loading="eager"
               />
@@ -311,7 +311,7 @@ export default function StructuralIntegrityAssessment() {
             </figure>
             <figure className="sa-hero-media-inset">
               <img
-                src={`/assets/images/Offerings/RLA-RLE-Fitness-for-service-(FFS)/FFS (7).png`}
+                src={`/assets/images/Offerings/RLA-RLE-Fitness-for-service-(FFS)/FFS (3).png`}
                 alt="Remaining life assessment detail"
                 loading="lazy"
               />

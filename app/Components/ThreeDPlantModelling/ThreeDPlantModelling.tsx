@@ -31,6 +31,9 @@ const services: {
         body: "Our expert consultants design tailored layouts that adhere strictly to the hazardous zone classifications, spatial limitations, and specific regulatory standards required by refineries, thermal power plants, and nuclear installations.",
       },
     ],
+     images: [
+      { src: `/assets/images/Offerings/three-D-Plant-Modelling-Services/Multi-Discipline-Clash-Resolution-2.png`, alt: "Spec-driven 3D piping routing" },
+   ],
    
   },
   {
