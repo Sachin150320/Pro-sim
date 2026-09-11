@@ -106,28 +106,9 @@
   display: block;
 }
 
-.sa-hero-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 18px;
-  color: var(--sa-teal-bright);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 2.4px;
-  text-transform: uppercase;
-}
-
-.sa-hero-eyebrow::before {
-  content: "";
-  width: 22px;
-  height: 2px;
-  background: currentColor;
-}
-
 .sa-hero-text h1 {
   margin: 0 0 24px;
-  max-width: 620px;
+  max-width: 760px;
   font-size: clamp(38px, 5vw, 54px);
   line-height: 1.08;
   font-weight: 600;
@@ -139,58 +120,14 @@
 }
 
 .sa-hero-text p {
-  max-width: 520px;
-  margin: 0 0 32px;
+  max-width: 760px;
+  margin: 0;
   color: rgba(255, 255, 255, 0.74);
   font-size: 16px;
   line-height: 1.8;
 }
 
-.sa-hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
-}
-
-.sa-hero-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
-  padding: 14px 26px;
-  border-radius: 9px;
-  font-size: 14.5px;
-  font-weight: 600;
-  letter-spacing: 0.2px;
-  text-decoration: none;
-  cursor: pointer;
-  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
-}
-
-.sa-hero-btn--solid {
-  background: var(--sa-teal);
-  color: #fff;
-  border: 1.5px solid var(--sa-teal);
-}
-
-.sa-hero-btn--solid:hover {
-  transform: translateY(-2px);
-  background: #0f8090;
-  border-color: #0f8090;
-}
-
-.sa-hero-btn--ghost {
-  background: transparent;
-  color: #fff;
-  border: 1.5px solid rgba(255, 255, 255, 0.35);
-}
-
-.sa-hero-btn--ghost:hover {
-  border-color: #fff;
-  background: rgba(255, 255, 255, 0.08);
-}
-
-/* Hero media */
-
+/* Hero media (kept in markup, hidden — breadcrumb bg image carries the hero) */
 .sa-hero-media {
   display: none;
 }
@@ -252,16 +189,6 @@
   border-radius: 7px;
 }
 
-.od-hero-note {
-  grid-column: 1 / -1;
-  margin: 34px 0 0;
-  padding-top: 22px;
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
-  color: rgba(255, 255, 255, 0.56);
-  font-size: 13.5px;
-  letter-spacing: 0.2px;
-}
-
 @media (max-width: 900px) {
   .sa-hero {
     padding: 26px 0 56px;
@@ -274,7 +201,6 @@
 
 .sa-intro {
   padding: 0 0 6px;
-
 }
 
 .sa-intro h2 {
@@ -290,14 +216,6 @@
   color: var(--sa-text);
   font-size: 16px;
   line-height: 1.8;
-}
-
-.sa-intro--dark h2 {
-  color: #fff;
-}
-
-.sa-intro--dark p {
-  color: rgba(255, 255, 255, 0.68);
 }
 
 /* ============================================================
@@ -355,7 +273,7 @@
 }
 
 /* ============================================================
-   WHY PROSIM  —  od-why-*
+   WHY ONSITE DEPUTATION  —  od-why-*
    ============================================================ */
 
 .od-why {
@@ -365,14 +283,14 @@
 
 .od-why-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 24px;
   margin-top: 46px;
 }
 
 .od-why-card {
   position: relative;
-  padding: 38px 36px 34px;
+  padding: 38px 34px 34px;
   background: #fff;
   border: 1px solid var(--sa-border);
   border-radius: 16px;
@@ -408,55 +326,31 @@
 
 .od-why-card h3 {
   margin: 0 0 12px;
-  font-size: 21px;
+  font-size: 19px;
   font-weight: 700;
   color: var(--sa-dark);
 }
 
 .od-why-card > p {
-  margin: 0 0 22px;
+  margin: 0;
   color: var(--sa-text);
   font-size: 14.5px;
   line-height: 1.75;
 }
 
-.od-why-card ul {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  padding-top: 20px;
-  border-top: 1px solid var(--sa-border);
-}
-
-.od-why-card li {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  color: var(--sa-dark);
-  font-size: 13.5px;
-  line-height: 1.5;
-}
-
-.od-why-card li svg {
-  flex-shrink: 0;
-  margin-top: 1px;
-  color: #00a651;
-}
-
 /* ============================================================
-   CORE CAPABILITIES  —  od-cap-*
+   DEPLOYMENT CAPABILITIES  —  od-cap-*
    ============================================================ */
 
 .od-cap {
-  padding: 60px 0;
-  background: white;
+  padding: 84px 0;
+  background: #fff;
 }
 
 .od-cap-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 26px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
   margin-top: 48px;
 }
 
@@ -464,83 +358,62 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  padding: 36px 32px 30px;
-  background: #fff;
+  padding: 32px 30px 28px;
+  background: var(--sa-light);
   border: 1px solid var(--sa-border);
-  border-radius: 18px;
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 16px 40px -32px rgba(16, 27, 40, 0.22);
-  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease,
-    border-color 0.35s ease;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease,
+    border-color 0.3s ease, background 0.3s ease;
 }
 
-/* left accent bar — faint by default, full brand colour on hover */
 .od-cap-card::before {
   content: "";
   position: absolute;
   left: 0;
-  top: 26px;
-  bottom: 26px;
-  width: 3px;
-  border-radius: 0 3px 3px 0;
-  background: linear-gradient(180deg, var(--sa-red), var(--sa-teal-bright));
-  transform: scaleY(0);
-  transform-origin: top;
+  right: 0;
+  top: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--sa-red), var(--sa-teal-bright));
+  transform: scaleX(0);
+  transform-origin: left;
   transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .od-cap-card:hover {
-  transform: translateY(-8px);
-  border-color: rgba(0, 113, 188, 0.3);
-  box-shadow: 0 36px 70px -30px rgba(16, 27, 40, 0.32);
+  transform: translateY(-6px);
+  background: #fff;
+  border-color: rgba(0, 113, 188, 0.32);
+  box-shadow: 0 30px 56px -30px rgba(16, 27, 40, 0.3);
 }
 
 .od-cap-card:hover::before {
-  transform: scaleY(1);
-}
-
-.od-cap-count {
-  position: absolute;
-  top: 22px;
-  right: 24px;
-  z-index: 1;
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 1px;
-  color: #c2ccd3;
-  font-variant-numeric: tabular-nums;
-  transition: color 0.3s ease;
-}
-
-.od-cap-card:hover .od-cap-count {
-  color: var(--sa-red);
+  transform: scaleX(1);
 }
 
 .od-cap-icon {
-  position: relative;
-  z-index: 1;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 54px;
-  height: 54px;
-  margin-bottom: 22px;
-  border-radius: 15px;
-  background: linear-gradient(150deg, rgba(0, 113, 188, 0.1), rgba(60, 201, 220, 0.1));
+  width: 46px;
+  height: 46px;
+  margin-bottom: 18px;
+  border-radius: 13px;
+  background: rgba(0, 113, 188, 0.09);
   color: var(--sa-red);
-  transition: background 0.35s ease, color 0.35s ease, transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
 }
 
 .od-cap-card:hover .od-cap-icon {
-  background: linear-gradient(150deg, var(--sa-red), #0f8090);
+  background: var(--sa-red);
   color: #fff;
-  transform: rotate(-6deg) scale(1.05);
+  transform: rotate(-6deg);
 }
 
 .od-cap-card h3 {
   position: relative;
   z-index: 1;
-  margin: 0 0 10px;
+  margin: 0 0 9px;
   font-size: 18.5px;
   font-weight: 700;
   color: var(--sa-dark);
@@ -549,10 +422,10 @@
 .od-cap-card > p {
   position: relative;
   z-index: 1;
-  margin: 0 0 22px;
+  margin: 0 0 18px;
   color: var(--sa-text);
   font-size: 13.8px;
-  line-height: 1.75;
+  line-height: 1.7;
 }
 
 .od-cap-tags {
@@ -562,32 +435,18 @@
   flex-wrap: wrap;
   gap: 8px;
   margin-top: auto;
-  padding-top: 20px;
-  border-top: 1px solid var(--sa-border);
 }
 
 .od-cap-tags span {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 5px 12px;
+  padding: 6px 13px;
   border-radius: 999px;
-  background: var(--sa-light);
+  background: #fff;
   border: 1px solid var(--sa-border);
   color: var(--sa-text);
-  font-size: 11.5px;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.2px;
   transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
-}
-
-.od-cap-tags span::before {
-  content: "";
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: currentColor;
-  opacity: 0.55;
 }
 
 .od-cap-card:hover .od-cap-tags span {
@@ -596,7 +455,6 @@
   color: var(--sa-red);
 }
 
-/* large faint icon watermark bleeding out of the bottom-right corner */
 .od-cap-watermark {
   position: absolute;
   right: -20px;
@@ -612,12 +470,61 @@
   transform: translate(-4px, -4px) rotate(-4deg);
 }
 
+/* client-specific preparation callout */
+.od-prep {
+  margin-top: 30px;
+  padding: 38px 40px 34px;
+  background: var(--sa-light);
+  border: 1px solid var(--sa-border);
+  border-radius: 18px;
+}
+
+.od-prep .sa-label {
+  margin-bottom: 10px;
+}
+
+.od-prep h3 {
+  margin: 0 0 10px;
+  font-size: 23px;
+  font-weight: 700;
+  color: var(--sa-dark);
+}
+
+.od-prep > p {
+  margin: 0 0 24px;
+  max-width: 720px;
+  color: var(--sa-text);
+  font-size: 14.5px;
+  line-height: 1.75;
+}
+
+.od-prep-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px 32px;
+  list-style: none;
+}
+
+.od-prep-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--sa-dark);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.od-prep-list li svg {
+  flex-shrink: 0;
+  color: #00a651;
+}
+
 /* ============================================================
    HOW IT WORKS  —  od-process-*
    ============================================================ */
 
 .od-process {
-  padding: 60px 0;
+  padding: 84px 0;
   background: var(--sa-light);
 }
 
@@ -671,11 +578,6 @@
   box-shadow: 0 28px 54px -30px rgba(16, 27, 40, 0.3);
 }
 
-/* connecting line across the row */
-.od-process-grid::before {
-  content: none;
-}
-
 .od-process-card:not(:last-child)::after {
   content: "";
   position: absolute;
@@ -693,11 +595,11 @@
 .od-process-num {
   display: block;
   margin-bottom: 16px;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 800;
   letter-spacing: 1px;
-  color: rgba(0, 113, 188, 0.35);
-  font-variant-numeric: tabular-nums;
+  color: var(--sa-red);
+  text-transform: uppercase;
 }
 
 .od-process-icon {
@@ -734,16 +636,16 @@
 }
 
 /* ============================================================
-   BENEFITS  —  od-benefits-*
+   WHEN IT MAKES SENSE  —  od-benefits-*
    ============================================================ */
 
 .od-benefits {
-  padding: 60px 0;
+  padding: 88px 0;
   background: #fff;
 }
 
 .od-benefits-grid {
-  display: grid;
+
   grid-template-columns: 0.85fr 1.15fr;
   gap: 60px;
   align-items: center;
@@ -834,117 +736,6 @@
 }
 
 /* ============================================================
-   ENGAGEMENT MODELS (dark)  —  od-engage-*
-   ============================================================ */
-
-.od-engage {
-  position: relative;
-  padding: 60px 0;
-  background:
-    linear-gradient(150deg, rgba(7, 23, 42, 0.94) 0%, rgba(12, 33, 55, 0.94) 55%, rgba(18, 48, 73, 0.94) 100%),
-    url("/assets/images/onsite/image_03.png");
-  background-size: cover;
-  background-position: center;
-  color: #fff;
-}
-
-.od-engage-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
-  margin-top: 46px;
-}
-
-.od-engage-card {
-  display: flex;
-  flex-direction: column;
-  border-radius: 16px;
-  overflow: hidden;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.3s ease,
-    box-shadow 0.3s ease;
-}
-
-.od-engage-card:hover {
-  transform: translateY(-6px);
-  border-color: rgba(60, 201, 220, 0.4);
-  box-shadow: 0 30px 60px -28px rgba(0, 0, 0, 0.5);
-}
-
-.od-engage-media {
-  position: relative;
-  height: 190px;
-  overflow: hidden;
-}
-
-.od-engage-media img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.od-engage-card:hover .od-engage-media img {
-  transform: scale(1.06);
-}
-
-.od-engage-media::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(7, 23, 42, 0) 40%, rgba(7, 23, 42, 0.85) 100%);
-}
-
-.od-engage-num {
-  position: absolute;
-  top: 16px;
-  left: 18px;
-  z-index: 1;
-  padding: 5px 11px;
-  background: rgba(255, 255, 255, 0.92);
-  color: var(--sa-dark);
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 1px;
-  border-radius: 5px;
-}
-
-.od-engage-body {
-  position: relative;
-  padding: 26px 28px 30px;
-}
-
-.od-engage-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 42px;
-  height: 42px;
-  margin-top: -46px;
-  margin-bottom: 16px;
-  border-radius: 12px;
-  background: var(--sa-teal-bright);
-  color: #07172a;
-  box-shadow: 0 10px 24px -8px rgba(60, 201, 220, 0.6);
-}
-
-.od-engage-body h3 {
-  margin: 0 0 10px;
-  font-size: 21px;
-  font-weight: 700;
-  color: #fff;
-}
-
-.od-engage-body p {
-  margin: 0;
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 14.5px;
-  line-height: 1.75;
-}
-
-/* ============================================================
    CTA  —  od-cta-*
    ============================================================ */
 
@@ -987,6 +778,12 @@
   line-height: 1.8;
 }
 
+.od-cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
 .od-cta-btn {
   display: inline-flex;
   align-items: center;
@@ -998,12 +795,23 @@
   font-size: 14.5px;
   font-weight: 600;
   text-decoration: none;
-  transition: background 0.2s ease, transform 0.2s ease;
+  transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease,
+    color 0.2s ease;
 }
 
 .od-cta-btn:hover {
   background: #005a96;
   transform: translateY(-2px);
+}
+
+.od-cta-btn--ghost {
+  background: transparent;
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+}
+
+.od-cta-btn--ghost:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: #fff;
 }
 
 .od-cta-btn svg {
@@ -1033,7 +841,6 @@
    ============================================================ */
 
 @media (max-width: 980px) {
-  .od-cap-grid,
   .od-process-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1055,7 +862,7 @@
 
 @media (max-width: 860px) {
   .od-why-grid,
-  .od-engage-grid,
+  .od-cap-grid,
   .od-process-top {
     grid-template-columns: 1fr;
   }
@@ -1098,7 +905,6 @@
 @media (max-width: 700px) {
   .od-why,
   .od-cap,
-  .od-engage,
   .od-process,
   .od-benefits {
     padding: 58px 0;
@@ -1108,7 +914,6 @@
     padding: 50px 0 64px;
   }
 
-  .od-cap-grid,
   .od-process-grid {
     grid-template-columns: 1fr;
   }
@@ -1117,8 +922,12 @@
     padding: 30px 26px 28px;
   }
 
-  .od-cap-card {
-    padding: 30px 26px 26px;
+  .od-prep {
+    padding: 28px 24px 26px;
+  }
+
+  .od-prep-list {
+    grid-template-columns: 1fr;
   }
 
   .od-benefits-media-inset {

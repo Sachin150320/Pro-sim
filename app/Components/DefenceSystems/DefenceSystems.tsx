@@ -146,6 +146,18 @@ export default function DefenceSystems() {
   const closeForm = () => setModalOpen(false);
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    const body = [
+      `Name: ${form.name}`,
+      `Phone: ${form.phone}`,
+      `Email: ${form.email}`,
+      `Company: ${form.company}`,
+    ].join("\n");
+
+    window.location.href = `mailto:enquiry@pro-sim.com?subject=${encodeURIComponent(
+      "Defence Engineering Enquiry"
+    )}&body=${encodeURIComponent(body)}`;
+
     setSubmitted(true);
   };
 
@@ -417,7 +429,7 @@ export default function DefenceSystems() {
               }}
             >
               <Download size={16} strokeWidth={1.8} />
-              Discuss This Area
+             Send Enquiry
             </button>
           </div>
         </div>

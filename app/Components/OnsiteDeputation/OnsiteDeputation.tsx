@@ -4,93 +4,32 @@ import React from "react";
 import Breadcrumbs from "@/app/Components/Breadcrumbs/Breadcrumbs";
 import ScrollAnimation from "@/app/Components/ScrollAnimation";
 import {
-  UserCheck,
-  Users,
   CheckCircle2,
-  Workflow,
-  Boxes,
-  Grid3x3,
-  Layers,
-  Blocks,
-  ClipboardCheck,
-  Plane,
-  Briefcase,
   ArrowRight,
   Award,
   Globe2,
   BarChart3,
+  Users,
+  Zap,
+  Target,
+  Workflow,
+  Boxes,
+  Grid3x3,
+  Layers,
   MessageSquareText,
-  Rocket,
-  LifeBuoy,
+  UserCheck,
   GraduationCap,
-  HeartHandshake,
+  Plane,
+  TrendingUp,
+  Puzzle,
+  Gauge,
+  Clock,
 } from "lucide-react";
 import "./OnsiteDeputation.css";
 
 const IMG = "/assets/images/onsite";
 
-const whyProsim = [
-  {
-    icon: UserCheck,
-    title: "Specialised Engineering Expertise",
-    desc: "Access experienced professionals with domain knowledge across analysis, modelling, simulation and detailed engineering functions.",
-    points: [
-      "Experienced engineering professionals",
-      "Project-specific skill and software requirements",
-      "Flexible resource deployment based on workload",
-    ],
-  },
-  {
-    icon: Users,
-    title: "Customised Engineering Teams",
-    desc: "Build a dedicated team for a defined work package or augment your existing engineering organisation with resources deployed at your location.",
-    points: [
-      "Single-engineer or multi-disciplinary deployment",
-      "Onsite deputation or project-based execution",
-      "Teams trained for your processes and deliverables",
-    ],
-  },
-];
-
-const capabilities = [
-  {
-    icon: Workflow,
-    title: "Pipe Stress Engineering",
-    desc: "Engineering professionals for piping flexibility and stress analysis activities.",
-    tags: ["CAESAR II"],
-  },
-  {
-    icon: Boxes,
-    title: "3D Plant Modelling",
-    desc: "Plant modelling support across common engineering design and modelling platforms.",
-    tags: ["AutoCAD Plant 3D", "E3D", "SP3D"],
-  },
-  {
-    icon: Grid3x3,
-    title: "Finite Element Analysis",
-    desc: "FEA resources for structural, mechanical and engineering analysis requirements.",
-    tags: ["ANSYS", "Abaqus", "OptiStruct"],
-  },
-  {
-    icon: Layers,
-    title: "Meshing",
-    desc: "Dedicated meshing support for simulation and analysis workflows.",
-    tags: ["Altair HyperMesh"],
-  },
-  {
-    icon: Blocks,
-    title: "Additional Disciplines",
-    desc: "Engineering resources can be developed for other disciplines based on your project scope.",
-    tags: ["Customised", "Project-specific"],
-  },
-  {
-    icon: ClipboardCheck,
-    title: "Dedicated Project Support",
-    desc: "Resources aligned to your workflows, project controls, reporting and deliverables.",
-    tags: ["Team Augmentation", "Execution Support"],
-  },
-];
-
+/* STATS STRIP */
 const stats = [
   { icon: Award, value: "15+", label: "Years of Engineering Experience" },
   { icon: Globe2, value: "10+", label: "Countries Served" },
@@ -98,64 +37,111 @@ const stats = [
   { icon: Users, value: "100+", label: "Engineers Deployment-Ready" },
 ];
 
-const processSteps = [
+/* WHY ONSITE DEPUTATION */
+const whyDeputation = [
   {
-    icon: MessageSquareText,
-    title: "Requirement Discussion",
-    desc: "Understand your project scope, engineering disciplines, software stack and deployment timeline.",
-  },
-  {
-    icon: UserCheck,
-    title: "Engineer / Team Selection",
-    desc: "Match experienced engineers or build a dedicated team aligned to your specific requirement.",
-  },
-  {
-    icon: Rocket,
-    title: "Onboarding & Deployment",
-    desc: "Engineers are onboarded to your processes and tools, then deployed onsite or project-based.",
-  },
-  {
-    icon: LifeBuoy,
-    title: "Ongoing Engagement Support",
-    desc: "ProSIM tracks performance and deliverables, providing continuity support through the engagement.",
-  },
-];
-
-const benefits = [
-  {
-    icon: Globe2,
-    title: "Global Exposure",
-    desc: "Work on international projects across nuclear, oil & gas, thermal and power sectors.",
+    icon: Zap,
+    title: "Immediate Capacity",
+    desc: "Add engineers around an active project, work package or workload peak.",
   },
   {
     icon: Users,
-    title: "Diverse Engineering Teams",
-    desc: "Collaborate with cross-functional, multidisciplinary engineering teams at client locations.",
+    title: "Direct Team Integration",
+    desc: "Resources work alongside your engineering and project teams at your location.",
   },
   {
-    icon: GraduationCap,
-    title: "Skill & Career Growth",
-    desc: "Gain hands-on experience with leading design, analysis and simulation tools.",
-  },
-  {
-    icon: HeartHandshake,
-    title: "Structured Support",
-    desc: "Continuous support from ProSIM throughout onboarding, deployment and the engagement.",
+    icon: Target,
+    title: "Project-Specific Fit",
+    desc: "Resource selection can be aligned to your discipline, tools, standards and scope.",
   },
 ];
 
-const engagementModels = [
+/* DEPLOYMENT CAPABILITIES */
+const capabilities = [
   {
-    icon: Plane,
-    title: "Onsite Deputation",
-    desc: "Deploy experienced ProSIM engineers at your location to work with your engineering, project and execution teams.",
-    image: `${IMG}/image_06.png`,
+    icon: Workflow,
+    title: "Pipe Stress Engineers",
+    desc: "Engineers supporting piping flexibility and stress analysis activities for project requirements.",
+    tag: "CAESAR II",
   },
   {
-    icon: Briefcase,
-    title: "Project-Based Engagement",
-    desc: "Assign defined engineering work packages to a dedicated ProSIM team for execution from our engineering office.",
-    image: `${IMG}/image_08.png`,
+    icon: Boxes,
+    title: "3D Plant Modellers",
+    desc: "Plant modelling professionals who can work within your modelling environment and project workflows.",
+    tag: "AVEVA E3D · AutoCAD Plant 3D · SP3D",
+  },
+  {
+    icon: Grid3x3,
+    title: "FEA Engineers",
+    desc: "Finite element analysis resources supporting mechanical and structural engineering requirements.",
+    tag: "ANSYS · Abaqus · OptiStruct",
+  },
+  {
+    icon: Layers,
+    title: "HyperMesh / CAE Engineers",
+    desc: "CAE professionals supporting preprocessing, meshing and simulation preparation activities.",
+    tag: "Altair HyperMesh",
+  },
+];
+
+const preparationPoints = [
+  "Engineering standards & procedures",
+  "Preferred software practices",
+  "Project workflows & controls",
+  "Documentation & deliverables",
+  "Design codes & project requirements",
+  "QA/QC expectations",
+];
+
+/* HOW IT WORKS */
+const steps = [
+  {
+    icon: MessageSquareText,
+    tag: "01 — Requirement",
+    title: "Define the need",
+    desc: "Share the project scope, discipline, software environment, experience level and deployment requirement.",
+  },
+  {
+    icon: UserCheck,
+    tag: "02 — Selection",
+    title: "Identify the engineer",
+    desc: "ProSIM proposes suitable engineering resources based on the role and project expectations.",
+  },
+  {
+    icon: GraduationCap,
+    tag: "03 — Prepare",
+    title: "Align to your team",
+    desc: "Where required, engineers are prepared on client-specific tools, standards, workflows and deliverables.",
+  },
+  {
+    icon: Plane,
+    tag: "04 — Deploy",
+    title: "Join the project",
+    desc: "The selected engineer is deployed at your location and works directly with the project team.",
+  },
+];
+
+/* WHEN IT MAKES SENSE */
+const fitCases = [
+  {
+    icon: TrendingUp,
+    title: "Project ramp-up",
+    desc: "Increase engineering capacity when a new project or work package moves into execution.",
+  },
+  {
+    icon: Puzzle,
+    title: "Specialist skill gap",
+    desc: "Add a specific analysis, modelling or simulation capability to an existing team.",
+  },
+  {
+    icon: Gauge,
+    title: "Peak workload",
+    desc: "Support delivery during periods of high workload without permanently expanding the team.",
+  },
+  {
+    icon: Clock,
+    title: "Longer-term support",
+    desc: "Maintain dedicated engineering resources at your location for continuing project requirements.",
   },
 ];
 
@@ -170,18 +156,16 @@ export default function OnsiteDeputation() {
 
         <div className="sa-hero-inner">
           <div className="sa-hero-text">
-       
             <h1>
-              Experienced engineers. <span>Flexible deployment. </span>
+              Experienced engineers. <span>Deployed around your project.</span>
             </h1>
 
             <p>
-              ProSIM provides experienced engineering professionals and
-              customised engineering teams to support client requirements
-              through project-based engagements or deputation at client
-              locations.
+              Add proven engineering professionals to your team without
+              waiting to build capacity internally. ProSIM deputes skilled
+              engineers to work at your location, aligned to your project
+              scope, software environment, standards and ways of working.
             </p>
-
           </div>
 
           <div className="sa-hero-media">
@@ -202,26 +186,25 @@ export default function OnsiteDeputation() {
             </figure>
           </div>
         </div>
-
-       
       </section>
 
       
-      {/* WHY PROSIM */}
-      <section className="od-why" id="why-prosim">
+
+      {/* WHY ONSITE DEPUTATION */}
+      <section className="od-why" id="why-deputation">
         <div className="sa-container">
           <ScrollAnimation className="sa-intro">
-            <span className="sa-label">Why ProSIM</span>
-            <h2>Engineering resources built around your requirement.</h2>
+            <span className="sa-label">Why Onsite Deputation</span>
+            <h2>Add engineering capacity where the work happens.</h2>
             <p>
-              From a specialist engineer to a dedicated project team, ProSIM
-              can scale the right engineering capability around your project
-              needs.
+              Onsite deputation gives your project team direct access to
+              experienced engineering resources when workload, schedules or
+              specialist requirements call for additional capacity.
             </p>
           </ScrollAnimation>
 
           <div className="od-why-grid">
-            {whyProsim.map((item, i) => {
+            {whyDeputation.map((item, i) => {
               const Icon = item.icon;
               return (
                 <ScrollAnimation key={item.title} delay={i * 100}>
@@ -231,14 +214,6 @@ export default function OnsiteDeputation() {
                     </span>
                     <h3>{item.title}</h3>
                     <p>{item.desc}</p>
-                    <ul>
-                      {item.points.map((pt) => (
-                        <li key={pt}>
-                          <CheckCircle2 size={16} strokeWidth={2} />
-                          <span>{pt}</span>
-                        </li>
-                      ))}
-                    </ul>
                   </article>
                 </ScrollAnimation>
               );
@@ -247,16 +222,15 @@ export default function OnsiteDeputation() {
         </div>
       </section>
 
-      {/* CORE CAPABILITIES */}
-      <section className="od-cap" id="capabilities">
+      {/* DEPLOYMENT CAPABILITIES */}
+      <section className="od-cap" id="deployment-capabilities">
         <div className="sa-container">
           <ScrollAnimation className="sa-intro">
-            <span className="sa-label">Core Capabilities</span>
-            <h2>Engineering disciplines and tools.</h2>
+            <span className="sa-label">Deployment Capabilities</span>
+            <h2>Bring the right engineering specialists into your team.</h2>
             <p>
-              Resources can be trained and deployed across the following key
-              engineering areas, with additional disciplines available based
-              on project requirements.
+              ProSIM can deploy experienced professionals across core
+              analysis, modelling and simulation functions.
             </p>
           </ScrollAnimation>
 
@@ -264,9 +238,8 @@ export default function OnsiteDeputation() {
             {capabilities.map((c, i) => {
               const Icon = c.icon;
               return (
-                <ScrollAnimation key={c.title} delay={(i % 3) * 90}>
+                <ScrollAnimation key={c.title} delay={(i % 2) * 100}>
                   <article className="od-cap-card">
-                 
                     <span className="od-cap-icon">
                       <Icon size={23} strokeWidth={1.7} />
                     </span>
@@ -275,9 +248,7 @@ export default function OnsiteDeputation() {
                     <p>{c.desc}</p>
 
                     <div className="od-cap-tags">
-                      {c.tags.map((t) => (
-                        <span key={t}>{t}</span>
-                      ))}
+                      <span>{c.tag}</span>
                     </div>
 
                     <span className="od-cap-watermark" aria-hidden="true">
@@ -288,6 +259,26 @@ export default function OnsiteDeputation() {
               );
             })}
           </div>
+
+          <ScrollAnimation delay={120}>
+            <div className="od-prep">
+              <span className="sa-label">Client-Specific Preparation</span>
+              <h3>Train for your engineering environment.</h3>
+              <p>
+                Where required, selected engineers can be prepared before
+                deployment so they are familiar with the way your team works.
+              </p>
+
+              <ul className="od-prep-list">
+                {preparationPoints.map((pt) => (
+                  <li key={pt}>
+                    <CheckCircle2 size={16} strokeWidth={2} />
+                    <span>{pt}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </ScrollAnimation>
         </div>
       </section>
 
@@ -297,11 +288,10 @@ export default function OnsiteDeputation() {
           <div className="od-process-top">
             <ScrollAnimation className="sa-intro">
               <span className="sa-label">How It Works</span>
-              <h2>From requirement to a deployed engineering team.</h2>
+              <h2>A straightforward path from requirement to deployment.</h2>
               <p>
-                A structured, transparent process to get the right engineers
-                or team working on your project — onsite or from our
-                engineering office.
+                The engagement is structured around your actual project need,
+                with the resource profile defined before deployment.
               </p>
             </ScrollAnimation>
 
@@ -315,14 +305,12 @@ export default function OnsiteDeputation() {
           </div>
 
           <div className="od-process-grid">
-            {processSteps.map((step, i) => {
+            {steps.map((step, i) => {
               const Icon = step.icon;
               return (
                 <ScrollAnimation key={step.title} delay={i * 100}>
                   <article className="od-process-card">
-                    <span className="od-process-num">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
+                    <span className="od-process-num">{step.tag}</span>
                     <span className="od-process-icon">
                       <Icon size={22} strokeWidth={1.7} />
                     </span>
@@ -336,43 +324,42 @@ export default function OnsiteDeputation() {
         </div>
       </section>
 
-      
-
-      {/* ENGAGEMENT MODELS */}
-      <section className="od-engage" id="engagement-models">
+      {/* WHEN IT MAKES SENSE */}
+      <section className="od-benefits" id="when-it-makes-sense">
         <div className="sa-container">
-          <ScrollAnimation className="sa-intro sa-intro--dark">
-            <span className="sa-label">Engagement Models</span>
-            <h2>Support that fits the way you work.</h2>
-            <p>
-              Choose the model that best matches your project timeline,
-              resource needs and execution strategy.
-            </p>
-          </ScrollAnimation>
+          <div className="od-benefits-grid">
+        
 
-          <div className="od-engage-grid">
-            {engagementModels.map((m, i) => {
-              const Icon = m.icon;
-              return (
-                <ScrollAnimation key={m.title} delay={i * 110}>
-                  <article className="od-engage-card">
-                    <div className="od-engage-media">
-                      <img src={m.image} alt={m.title} loading="lazy" />
-                      <span className="od-engage-num">
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
-                    </div>
-                    <div className="od-engage-body">
-                      <span className="od-engage-icon">
-                        <Icon size={20} strokeWidth={1.8} />
-                      </span>
-                      <h3>{m.title}</h3>
-                      <p>{m.desc}</p>
-                    </div>
-                  </article>
-                </ScrollAnimation>
-              );
-            })}
+            <div>
+              <ScrollAnimation className="sa-intro">
+                <span className="sa-label">When It Makes Sense</span>
+                <h2>Built for changing project demands.</h2>
+                <p>
+                  Onsite deputation is suited to situations where the
+                  requirement is specific, time-sensitive or difficult to
+                  cover with existing resources.
+                </p>
+              </ScrollAnimation>
+
+              <div className="od-benefits-list">
+                {fitCases.map((item, i) => {
+                  const Icon = item.icon;
+                  return (
+                    <ScrollAnimation key={item.title} delay={i * 90}>
+                      <div className="od-benefit-item">
+                        <span className="od-benefit-icon">
+                          <Icon size={19} strokeWidth={1.8} />
+                        </span>
+                        <div>
+                          <h4>{item.title}</h4>
+                          <p>{item.desc}</p>
+                        </div>
+                      </div>
+                    </ScrollAnimation>
+                  );
+                })}
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -382,16 +369,19 @@ export default function OnsiteDeputation() {
         <div className="sa-container">
           <ScrollAnimation className="od-cta-card">
             <div className="od-cta-body">
-              <span className="sa-label">Work with ProSIM</span>
-              <h2>Need the right engineering team for your next project?</h2>
+              <span className="sa-label">Let&rsquo;s Discuss Your Requirement</span>
+              <h2>Need an experienced engineer at your location?</h2>
               <p>
-                Share your engineering scope, disciplines, software
-                requirements and deployment needs. ProSIM can help structure
-                the right resource model around your project.
+                Share the discipline, project scope, software environment and
+                expected deployment duration. ProSIM can help identify the
+                right engineering resource for your team.
               </p>
-              <a href="/contact-us" className="od-cta-btn">
-                Talk to ProSIM <ArrowRight size={17} strokeWidth={1.9} />
-              </a>
+              <div className="od-cta-actions">
+                <a href="/contact-us" className="od-cta-btn">
+                  Talk to ProSIM <ArrowRight size={17} strokeWidth={1.9} />
+                </a>
+                
+              </div>
             </div>
             <div className="od-cta-media">
               <img

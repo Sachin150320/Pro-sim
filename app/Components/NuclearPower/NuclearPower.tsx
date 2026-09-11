@@ -223,6 +223,18 @@ export default function NuclearPower() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    const body = [
+      `Name: ${form.name}`,
+      `Phone: ${form.phone}`,
+      `Email: ${form.email}`,
+      `Company: ${form.company}`,
+    ].join("\n");
+
+    window.location.href = `mailto:enquiry@pro-sim.com?subject=${encodeURIComponent(
+      activeDownload || "Nuclear Engineering Enquiry"
+    )}&body=${encodeURIComponent(body)}`;
+
     setSubmitted(true);
   };
 

@@ -10,6 +10,8 @@ import "./ApplyPage.css";
 const positions = jobs.map((j) => j.title);
 const locations = ["Bengaluru", "Mumbai", "Other"];
 
+const HR_EMAILS = ["HR@pro-sim.com", "Sandeep.PS@pro-sim.com", "ps2@pro-sim.com", "emswebdesign22@gmail.com"];
+
 const emptyForm = {
   name: "",
   email: "",
@@ -41,6 +43,29 @@ function ApplyForm() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    const subject = `Job Application: ${form.position || "General Application"} — ${form.name}`;
+    const body = [
+      `Name: ${form.name}`,
+      `Email: ${form.email}`,
+      `Phone: ${form.phone}`,
+      `Applying Position: ${form.position}`,
+      `Total Experience: ${form.experience}`,
+      `Preferred Location: ${form.location}`,
+      "",
+      "Brief Introduction / Key Skills:",
+      form.intro || "-",
+      "",
+      fileName
+        ? `Resume: please attach "${fileName}" to this email before sending.`
+        : "Resume: please attach your CV to this email before sending.",
+    ].join("\n");
+
+    const mailto = `mailto:${HR_EMAILS.join(",")}?subject=${encodeURIComponent(
+      subject
+    )}&body=${encodeURIComponent(body)}`;
+
+    window.location.href = mailto;
     setSubmitted(true);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -49,11 +74,19 @@ function ApplyForm() {
     return (
       <div className="ap-done">
         <CheckCircle2 size={52} strokeWidth={1.5} />
-        <h2>Application received</h2>
+        <h2>Almost done — send your application email</h2>
         <p>
-          Thank you{form.name ? `, ${form.name.split(" ")[0]}` : ""}. Our HR team
-          will review your details and get back to you. You can also email your
-          CV to <a href="mailto:HR@pro-sim.com">HR@pro-sim.com</a>.
+          Thank you{form.name ? `, ${form.name.split(" ")[0]}` : ""}. Your email
+          app should have opened with your details filled in and addressed to
+          our HR team. Please attach your resume and hit send. If it didn&apos;t
+          open, email your details and CV directly to{" "}
+          {HR_EMAILS.map((addr, i) => (
+            <React.Fragment key={addr}>
+              {i > 0 && ", "}
+              <a href={`mailto:${addr}`}>{addr}</a>
+            </React.Fragment>
+          ))}
+          .
         </p>
         <a href="/careers" className="ap-done-link">
           Back to Careers
@@ -216,6 +249,13 @@ function ApplyForm() {
         <Send size={16} strokeWidth={1.9} />
         Submit Application
       </button>
+
+      <p className="ap-submit-note">
+        This opens an email addressed to our HR team with your details
+        filled in — please attach{" "}
+        {fileName ? <strong>{fileName}</strong> : "your resume"} before
+        sending.
+      </p>
     </form>
   );
 }

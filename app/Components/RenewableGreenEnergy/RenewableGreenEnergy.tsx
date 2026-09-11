@@ -219,6 +219,18 @@ export default function RenewableGreenEnergy() {
   const closeForm = () => setModalOpen(false);
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    const body = [
+      `Name: ${form.name}`,
+      `Phone: ${form.phone}`,
+      `Email: ${form.email}`,
+      `Company: ${form.company}`,
+    ].join("\n");
+
+    window.location.href = `mailto:enquiry@pro-sim.com?subject=${encodeURIComponent(
+      "Renewable & Green Energy Enquiry"
+    )}&body=${encodeURIComponent(body)}`;
+
     setSubmitted(true);
   };
 

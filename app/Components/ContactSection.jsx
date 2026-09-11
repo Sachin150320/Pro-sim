@@ -23,6 +23,23 @@ export default function ContactSection() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        const body = [
+            `Full Name: ${formData.fullName}`,
+            `Work Email: ${formData.workEmail}`,
+            `Company / Organization: ${formData.company}`,
+            `Industry Domain: ${formData.industryDomain}`,
+            `Primary Service Discipline: ${formData.serviceDiscipline}`,
+            `Target Project Timeline: ${formData.timeline}`,
+            "",
+            "Technical Scope Details / Load Conditions:",
+            formData.technicalScope || "-",
+        ].join("\n");
+
+        window.location.href = `mailto:enquiry@pro-sim.com?subject=${encodeURIComponent(
+            "Engineering Partner Enquiry"
+        )}&body=${encodeURIComponent(body)}`;
+
         setSubmitted(true);
     };
 
