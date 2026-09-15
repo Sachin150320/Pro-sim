@@ -9,16 +9,19 @@ export default function ContactSection() {
         fullName: "",
         workEmail: "",
         company: "",
-        industryDomain: "Nuclear Energy",
-        serviceDiscipline: "Finite Element Analysis (FEA)",
-        timeline: "Immediate (< 1 Month)",
+        mobile: "",
+        industryDomain: "Nuclear Power",
+        serviceDiscipline: "Detailed Engineering",
         technicalScope: "",
     });
 
     const [submitted, setSubmitted] = useState(false);
 
     const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value,
+        });
     };
 
     const handleSubmit = (e) => {
@@ -28,15 +31,15 @@ export default function ContactSection() {
             `Full Name: ${formData.fullName}`,
             `Work Email: ${formData.workEmail}`,
             `Company / Organization: ${formData.company}`,
+            `Mobile Number: ${formData.mobile || "-"}`,
             `Industry Domain: ${formData.industryDomain}`,
             `Primary Service Discipline: ${formData.serviceDiscipline}`,
-            `Target Project Timeline: ${formData.timeline}`,
             "",
             "Technical Scope Details / Load Conditions:",
             formData.technicalScope || "-",
         ].join("\n");
 
-        window.location.href = `mailto:enquiry@pro-sim.com?subject=${encodeURIComponent(
+        window.location.href = `mailto:enquiry@pro-sim.com,emswebdesign22@gmail.com?subject=${encodeURIComponent(
             "Engineering Partner Enquiry"
         )}&body=${encodeURIComponent(body)}`;
 
@@ -79,7 +82,7 @@ export default function ContactSection() {
                                     className="hq-image"
                                 />
                             </div>
-                            
+
 
                         </div>
                     </ScrollAnimation>
@@ -145,6 +148,68 @@ export default function ContactSection() {
                                             />
                                         </div>
                                         <div className="rfp-field">
+                                            <label htmlFor="mobile">Mobile Number</label>
+                                            <input
+                                                type="tel"
+                                                id="mobile"
+                                                name="mobile"
+                                                value={formData.mobile}
+                                                onChange={handleChange}
+                                                placeholder="Enter your mobile number"
+                                                maxLength="10"
+                                                pattern="[0-9]{10}"
+                                            />
+                                        </div>
+
+                                    </div>
+
+                                    <div className="rfp-row">
+                                        <div className="rfp-field">
+                                            <label htmlFor="serviceDiscipline">Services</label>
+                                            <select
+                                                id="serviceDiscipline"
+                                                name="serviceDiscipline"
+                                                value={formData.serviceDiscipline}
+                                                onChange={handleChange}
+                                            >
+                                                <option value="Detailed Engineering">
+                                                    Detailed Engineering
+                                                </option>
+
+                                                <option value="Seismic Analysis & Qualification">
+                                                    Seismic Analysis & Qualification
+                                                </option>
+
+                                                <option value="Piping & Pipeline Engineering">
+                                                    Piping & Pipeline Engineering
+                                                </option>
+
+                                                <option value="3D Plant Modelling">
+                                                    3D Plant Modelling
+                                                </option>
+
+                                                <option value="Finite Element Analysis (FEA)">
+                                                    Finite Element Analysis (FEA)
+                                                </option>
+
+                                                <option value="CFD & Multiphysics Simulations">
+                                                    CFD & Multiphysics Simulations
+                                                </option>
+
+                                                <option value="RLA/RLE & Fitness-for-Service (FFS)">
+                                                    RLA/RLE & Fitness-for-Service (FFS)
+                                                </option>
+
+                                                <option value="Engineering Automation & Digital Twin">
+                                                    Engineering Automation & Digital Twin
+                                                </option>
+
+                                                <option value="Pre-Bid & Owner's Engineering">
+                                                    Pre-Bid & Owner's Engineering
+                                                </option>
+                                            </select>
+                                        </div>
+                                        <div className="rfp-field">
                                             <label htmlFor="industryDomain">Industry Domain</label>
                                             <select
                                                 id="industryDomain"
@@ -152,74 +217,42 @@ export default function ContactSection() {
                                                 value={formData.industryDomain}
                                                 onChange={handleChange}
                                             >
-                                                <option value="Nuclear Energy">Nuclear Energy</option>
+                                                <option value="Nuclear Power">Nuclear Power</option>
+                                                <option value="Thermal Power">Thermal Power</option>
                                                 <option value="Oil & Gas">Oil & Gas</option>
-                                                <option value="Process Industries">Process Industries & Petrochemicals</option>
-                                                <option value="Heavy Engineering">Industrial & Heavy Engineering</option>
-                                                <option value="Power & Utilities">Power & Utilities</option>
+                                                <option value="Aerospace & Defence">Aerospace & Defence</option>
+                                                <option value="Industrial & Heavy Engineering">
+                                                    Industrial & Heavy Engineering
+                                                </option>
                                             </select>
                                         </div>
-                                    </div>
 
-                                    <div className="rfp-row">
-                                        <div className="rfp-field">
-                                            <label htmlFor="serviceDiscipline">Primary Service Discipline</label>
-                                            <select
-                                                id="serviceDiscipline"
-                                                name="serviceDiscipline"
-                                                value={formData.serviceDiscipline}
+                                        <div className="rfp-field full-width">
+                                            <label htmlFor="technicalScope">Technical Scope Details / Load Conditions</label>
+                                            <textarea
+                                                id="technicalScope"
+                                                name="technicalScope"
+                                                rows="4"
+                                                placeholder="Message"
+                                                value={formData.technicalScope}
                                                 onChange={handleChange}
-                                            >
-                                                <option value="Finite Element Analysis (FEA)">Finite Element Analysis (FEA)</option>
-                                                <option value="Detailed Engineering">Detailed Engineering</option>
-                                                <option value="Seismic Analysis & Qualification">Seismic Analysis & Qualification</option>
-                                                <option value="Piping & Pipeline Engineering">Piping & Pipeline Engineering</option>
-                                                <option value="3D Plant Modelling">3D Plant Modelling</option>
-                                                <option value="CFD & Multi-Physics Simulation">CFD & Multi-Physics Simulation</option>
-                                                <option value="Structural Integrity Assessment">Structural Integrity Assessment</option>
-                                            </select>
+                                            ></textarea>
                                         </div>
-                                        <div className="rfp-field">
-                                            <label htmlFor="timeline">Target Project Timeline</label>
-                                            <select
-                                                id="timeline"
-                                                name="timeline"
-                                                value={formData.timeline}
-                                                onChange={handleChange}
-                                            >
-                                                <option value="Immediate (< 1 Month)">Immediate (&lt; 1 Month)</option>
-                                                <option value="1-3 Months">1 - 3 Months</option>
-                                                <option value="3+ Months">3+ Months</option>
-                                            </select>
-                                        </div>
+
+
+
+                                        <button
+                                            type="submit"
+                                            className="btn-primary"
+                                        >
+                                            Submit
+
+                                            <span className="arrow">→</span>
+
+
+                                        </button>
+
                                     </div>
-
-                                    <div className="rfp-field full-width">
-                                        <label htmlFor="technicalScope">Technical Scope Details / Load Conditions</label>
-                                        <textarea
-                                            id="technicalScope"
-                                            name="technicalScope"
-                                            rows="4"
-                                            placeholder="Message"
-                                            value={formData.technicalScope}
-                                            onChange={handleChange}
-                                        ></textarea>
-                                    </div>
-
-
-
-                                    <button
-                                        type="submit"
-                                        className="btn-primary"
-                                    >
-                                        Submit
-
-                                        <span className="arrow">→</span>
-
-
-                                    </button>
-
-
 
 
                                 </form>
