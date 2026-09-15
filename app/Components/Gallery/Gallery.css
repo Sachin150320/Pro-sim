@@ -417,3 +417,82 @@
     gap: 14px;
   }
 }
+
+
+/* ============================================================
+   LIGHTBOX — multi-image support (added)
+============================================================ */
+
+.gl-story-body p {
+  margin: 0 0 22px;
+  color: var(--gl-body);
+  font-size: 14.5px;
+  line-height: 1.8;
+
+  /* truncate preview text on the card — full text shows in popup */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+.ps-lightbox-content {
+  overflow-y: auto;
+}
+
+.ps-lightbox-thumbs {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.ps-lightbox-thumb {
+  flex: 0 0 auto;
+  width: 84px;
+  height: 60px;
+  padding: 0;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  background: none;
+  opacity: 0.6;
+  transition: opacity 0.25s ease, border-color 0.25s ease;
+}
+
+.ps-lightbox-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.ps-lightbox-thumb:hover {
+  opacity: 0.9;
+}
+
+.ps-lightbox-thumb.active {
+  opacity: 1;
+  border-color: #0071bc;
+}
+
+.ps-lightbox-cat {
+  display: inline-block;
+  margin-bottom: 8px;
+  color: #38bdf8;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+@media (max-width: 700px) {
+  .ps-lightbox-thumb {
+    width: 64px;
+    height: 46px;
+  }
+}

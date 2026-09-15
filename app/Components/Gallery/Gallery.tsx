@@ -8,12 +8,37 @@ import CrumbBanner from "@/app/Components/CrumbBanner/CrumbBanner";
 type GalleryItem = {
   id: number;
   image: string;
+  images?: string[]; // optional: multiple images for a single story (shown in popup)
   title: string;
   category?: string;
   description?: string;
 };
 
 const galleryData: GalleryItem[] = [
+
+ {
+    id: 6,
+    image: "/assets/images/Gallery/gallery-30.jpg",
+    images: [
+      "/assets/images/Gallery/gallery-30.jpg",
+      "/assets/images/Gallery/gallery-23.jpg",
+      "/assets/images/Gallery/gallery-24.jpg",
+      "/assets/images/Gallery/gallery-25.jpg",
+      "/assets/images/Gallery/gallery-26.jpg",
+      "/assets/images/Gallery/gallery-27.jpg",
+      "/assets/images/Gallery/gallery-28.jpg",
+      "/assets/images/Gallery/gallery-29.jpg",
+      "/assets/images/Gallery/gallery-22.jpg",
+      "/assets/images/Gallery/gallery-31.jpg",
+    ],
+    title: "6th International Climate Summit 2026 – PHD Chamber of Commerce & Industry",
+    category: "Nuclear Energy & Policy",
+    description:
+      "Dr S Shamasundar, Managing Director of ProSIM, delivered a lecture and was a panelist in the session on \"India's Nuclear Energy and SMR Roadmap\" during the 6th International Climate Summit 2026, organised by PHD Chamber of Commerce & Industry in Delhi on 2nd September 2026. He spoke on the importance of nuclear energy in India's energy transition and the need to develop an energy mix comprising Nuclear Energy, Bio Energy, and locally available coal, and noted how the path-changing SHANTI Act positions India to become a global nuclear energy powerhouse with participation of private players. During the panel discussion on India's Nuclear Energy and SMR Roadmap, he interacted with Dr A K Nayak (former Head, NCPW, DAE), Dr Ravi Sharma (Inflexion, Singapore), Mr Mukesh Rustagi (Co-Chair, Environment and Climate Change Subcommittee, PHDCCI), Prof Kamal Bajoria (formerly professor at IIT Bombay and Cambridge University), Mr Prasenjit Pal (Former ED, NTPC Nuclear Division) and Mr Sudhir Thorwe (Reliance), and also met Dr Anil Kakodkar, former Chairman of the Atomic Energy Commission, who was the chief guest and delivered the inaugural address.",
+  },
+
+
+
 
   {
     id: 4,
@@ -31,6 +56,7 @@ const galleryData: GalleryItem[] = [
     description:
       "Dr Shamasundar, ProSIM, visited the factories of FRAMATOME at St. Marcel and Le Creusot in France, along with select delegates of the CORDEL workshop.",
   },
+ 
   { id: 16, image: "/assets/images/Gallery/gallery-11.jpg", title: "ProSIM Gallery" },
   { id: 17, image: "/assets/images/Gallery/gallery-12.jpg", title: "ProSIM Gallery" },
   { id: 18, image: "/assets/images/Gallery/gallery-13.jpg", title: "ProSIM Gallery" },
@@ -57,6 +83,12 @@ const photos = galleryData.filter((item) => !item.description);
 
 export default function Gallery() {
   const [selectedImage, setSelectedImage] = useState<GalleryItem | null>(null);
+  const [activeImageIndex, setActiveImageIndex] = useState(0);
+
+  /* Reset to first image whenever a new item is opened */
+  useEffect(() => {
+    setActiveImageIndex(0);
+  }, [selectedImage]);
 
   /* Lock body scroll when popup is open */
   useEffect(() => {
@@ -179,32 +211,64 @@ export default function Gallery() {
       </section>
 
       {/* LIGHTBOX */}
-      {selectedImage && (
-        <div className="ps-lightbox" onClick={() => setSelectedImage(null)}>
-          <button
-            type="button"
-            className="ps-lightbox-close"
-            onClick={() => setSelectedImage(null)}
-            aria-label="Close"
-          >
-            ×
-          </button>
+      {selectedImage &&
+        (() => {
+          const imageList =
+            selectedImage.images && selectedImage.images.length > 0
+              ? selectedImage.images
+              : [selectedImage.image];
 
-          <div
-            className="ps-lightbox-content"
-            onClick={(event) => event.stopPropagation()}
-          >
-            <img src={selectedImage.image} alt={selectedImage.title} />
+          return (
+            <div className="ps-lightbox" onClick={() => setSelectedImage(null)}>
+              <button
+                type="button"
+                className="ps-lightbox-close"
+                onClick={() => setSelectedImage(null)}
+                aria-label="Close"
+              >
+                ×
+              </button>
 
-            {(selectedImage.description || selectedImage.title) && (
-              <div className="ps-lightbox-caption">
-                <h3>{selectedImage.title}</h3>
-                {selectedImage.description && <p>{selectedImage.description}</p>}
+              <div
+                className="ps-lightbox-content"
+                onClick={(event) => event.stopPropagation()}
+              >
+                <img
+                  src={imageList[activeImageIndex]}
+                  alt={`${selectedImage.title} ${activeImageIndex + 1}`}
+                />
+
+                {imageList.length > 1 && (
+                  <div className="ps-lightbox-thumbs">
+                    {imageList.map((img, idx) => (
+                      <button
+                        key={idx}
+                        type="button"
+                        className={`ps-lightbox-thumb${
+                          idx === activeImageIndex ? " active" : ""
+                        }`}
+                        onClick={() => setActiveImageIndex(idx)}
+                        aria-label={`View image ${idx + 1}`}
+                      >
+                        <img src={img} alt={`${selectedImage.title} thumbnail ${idx + 1}`} />
+                      </button>
+                    ))}
+                  </div>
+                )}
+
+                {(selectedImage.description || selectedImage.title) && (
+                  <div className="ps-lightbox-caption">
+                    {selectedImage.category && (
+                      <span className="ps-lightbox-cat">{selectedImage.category}</span>
+                    )}
+                    <h3>{selectedImage.title}</h3>
+                    {selectedImage.description && <p>{selectedImage.description}</p>}
+                  </div>
+                )}
               </div>
-            )}
-          </div>
-        </div>
-      )}
+            </div>
+          );
+        })()}
     </>
   );
 }
