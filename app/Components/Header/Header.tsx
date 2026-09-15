@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import Fuse from "fuse.js";
 import {
   Search,
   X,
@@ -10,6 +11,7 @@ import {
   PhoneCall,
   Menu,
 } from "lucide-react";
+import { searchIndex, SearchItem } from "@/lib/searchData";
 
 type MenuItem = {
   name: string;
@@ -27,57 +29,52 @@ export const menuItems: MenuItem[] = [
     href: "#",
     children: [
       { name: "About Company", href: "/about-us" },
-      // { name: "Promoter", href: "/Promoter" },
-      // { name: "Vision and Mission", href: "/vision-mission" },
-      // { name: "Unique Value Proposition", href: "/Unique-Value-Proposition" },
-      // { name: "Customer Visits", href: "/Customer-Visits" },
       { name: "Team", href: "/Team" },
       { name: "Gallery", href: "/Gallery" },
-      // { name: "Our Customer Benefits", href: "Customer-Benefits" },
     ],
   },
- {
+  {
     name: "Offerings",
     href: "#",
     children: [
-        {
-            name: "Detailed Engineering services",
-            href: "/Detailed-Engineering-services",
-        },
-        {
-            name: "Seismic Analysis & Qualification",
-            href: "/Seismic-analysis-and-qualification",
-        },
-        {
-            name: "Piping & Pipeline Engineering Services",
-            href: "/Piping-&-pipeline-engineering-services",
-        },
-        {
-            name: "3D Plant Modelling Services",
-            href: "/Three-D-plant-modelling-services",
-        },
-        {
-            name: "Finite Element Analysis Services",
-            href: "/finite-element-analysis-services",
-        },
-        {
-            name: "CFD & Multiphysics Simulations Services",
-            href: "/Computational-fluid-dynamics-services",
-        },
-        {
-            name: "RLA/RLE & Fitness-for-Service (FFS)",
-            href: "/structural-integrity-assessments",
-        },
-        {
-            name: "Engineering Automation & Digital Twin",
-            href: "/Engineering-Automation-&-Digital-Twin",
-        },
-        {
-            name: "Pre-Bid & Owner’s Engineering",
-            href: "/Pre-Bid-&-Owners-Engineering",
-        },
+      {
+        name: "Detailed Engineering services",
+        href: "/Detailed-Engineering-services",
+      },
+      {
+        name: "Seismic Analysis & Qualification",
+        href: "/Seismic-analysis-and-qualification",
+      },
+      {
+        name: "Piping & Pipeline Engineering Services",
+        href: "/Piping-&-pipeline-engineering-services",
+      },
+      {
+        name: "3D Plant Modelling Services",
+        href: "/Three-D-plant-modelling-services",
+      },
+      {
+        name: "Finite Element Analysis Services",
+        href: "/finite-element-analysis-services",
+      },
+      {
+        name: "CFD & Multiphysics Simulations Services",
+        href: "/Computational-fluid-dynamics-services",
+      },
+      {
+        name: "RLA/RLE & Fitness-for-Service (FFS)",
+        href: "/structural-integrity-assessments",
+      },
+      {
+        name: "Engineering Automation & Digital Twin",
+        href: "/Engineering-Automation-&-Digital-Twin",
+      },
+      {
+        name: "Pre-Bid & Owner's Engineering",
+        href: "/Pre-Bid-&-Owners-Engineering",
+      },
     ],
-},
+  },
   {
     name: "Industries",
     href: "#",
@@ -87,13 +84,10 @@ export const menuItems: MenuItem[] = [
       { name: "Oil & Gas", href: "/oil-gas" },
       { name: "Aerospace & Defence", href: "/defence-systems" },
       { name: " Industrial & Heavy Engineering", href: "/heavy-engineering" },
-      // { name: "Renewable & Green Energy", href: "/renewable-green-energy" },
     ],
   },
-
-   { name: "Onsite Deputation", href: "/onsite-deputation" },
+  { name: "Onsite Deputation", href: "/onsite-deputation" },
   { name: "Projects", href: "/projects" },
-    // { name: "Events", href: "/events" },
   { name: "Careers", href: "/careers" },
   { name: "Contact Us", href: "/contact-us" },
 ];
@@ -102,6 +96,24 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [openMobileDropdown, setOpenMobileDropdown] = useState<string | null>(null);
+
+  // --- Search state ---
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [query, setQuery] = useState("");
+
+  const fuse = useMemo(
+    () =>
+      new Fuse(searchIndex, {
+        keys: ["title", "excerpt", "category"],
+        threshold: 0.35,
+      }),
+    []
+  );
+
+  const results: SearchItem[] = useMemo(() => {
+    if (!query.trim()) return [];
+    return fuse.search(query).map((r) => r.item).slice(0, 8);
+  }, [query, fuse]);
 
   // Handle header background switch on scroll
   useEffect(() => {
@@ -113,17 +125,22 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Lock body scroll when mobile menu is active
+  // Lock body scroll when mobile menu or search is active
   useEffect(() => {
-    document.body.style.overflow = menuOpen ? "hidden" : "";
+    document.body.style.overflow = menuOpen || searchOpen ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
     };
-  }, [menuOpen]);
+  }, [menuOpen, searchOpen]);
 
   const closeMenu = () => {
     setMenuOpen(false);
     setOpenMobileDropdown(null);
+  };
+
+  const closeSearch = () => {
+    setSearchOpen(false);
+    setQuery("");
   };
 
   const toggleMobileDropdown = (name: string) => {
@@ -135,7 +152,6 @@ export default function Header() {
       <header className={`site-header ${scrolled ? "scrolled" : ""}`}>
         <div className="header-container">
           {/* Logo */}
-         {/* Logo */}
           <div className="logo">
             <Link href="/">
               <img
@@ -145,6 +161,7 @@ export default function Header() {
               />
             </Link>
           </div>
+
           {/* Desktop Navigation */}
           <nav className="desktop-nav">
             <ul>
@@ -177,7 +194,12 @@ export default function Header() {
 
           {/* Header Actions */}
           <div className="header-actions">
-            <button type="button" className="search-btn" aria-label="Search">
+            <button
+              type="button"
+              className="search-btn"
+              aria-label="Search"
+              onClick={() => setSearchOpen(true)}
+            >
               <Search size={20} />
             </button>
 
@@ -199,6 +221,46 @@ export default function Header() {
         </div>
       </header>
 
+      {/* --- Search Overlay --- */}
+      <div
+        className={`search-overlay ${searchOpen ? "active" : ""}`}
+        onClick={closeSearch}
+      >
+        <div className="search-panel" onClick={(e) => e.stopPropagation()}>
+          <div className="search-input-row">
+            <Search size={20} />
+            <input
+              type="text"
+              autoFocus
+              placeholder="Search the site..."
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+            />
+            <button type="button" onClick={closeSearch} aria-label="Close search">
+              <X size={20} />
+            </button>
+          </div>
+
+          {query.trim() && (
+            <ul className="search-results">
+              {results.length > 0 ? (
+                results.map((item) => (
+                  <li key={item.href}>
+                    <Link href={item.href} onClick={closeSearch}>
+                      <span className="search-result-category">{item.category}</span>
+                      <span className="search-result-title">{item.title}</span>
+                      <span className="search-result-excerpt">{item.excerpt}</span>
+                    </Link>
+                  </li>
+                ))
+              ) : (
+                <li className="search-no-results">No results found for "{query}"</li>
+              )}
+            </ul>
+          )}
+        </div>
+      </div>
+
       {/* Mobile Menu Overlay */}
       <div
         className={`mobile-menu-overlay ${menuOpen ? "active" : ""}`}
@@ -209,15 +271,15 @@ export default function Header() {
       <div className={`mobile-menu ${menuOpen ? "active" : ""}`}>
         <div className="mobile-menu-header">
           <div className="mobile-logo">
-             <div className="logo">
-            <Link href="/">
-              <img
-                src={"/assets/images/logo/logo-dark.webp"}
-                alt="ProSIM Logo"
-                className="logo-image"
-              />
-            </Link>
-          </div>
+            <div className="logo">
+              <Link href="/">
+                <img
+                  src={"/assets/images/logo/logo-dark.webp"}
+                  alt="ProSIM Logo"
+                  className="logo-image"
+                />
+              </Link>
+            </div>
           </div>
           <button
             type="button"
