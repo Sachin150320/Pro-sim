@@ -15,6 +15,10 @@ import "./ContactUs.css";
 
 const P = "/assets/images/portfolio/modern";
 
+/* =========================================================
+   CONTACT CARDS
+========================================================= */
+
 const contactCards = [
   {
     icon: MapPin,
@@ -29,15 +33,20 @@ const contactCards = [
       href: "https://www.google.com/maps?cid=163320593820900988&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAMYASAF&hl=en-US&source=embed",
     },
   },
+
   {
     icon: Phone,
     label: "Call Us",
-    lines: ["080 68160000", "Mon – Sat, 9:30 – 18:30 IST"],
+    lines: [
+      "080 68160000",
+      "Mon – Sat, 9:30 – 18:30 IST",
+    ],
     action: {
       text: "080 68160000",
       href: "tel:08068160000",
     },
   },
+
   {
     icon: Mail,
     label: "Email Us",
@@ -52,6 +61,10 @@ const contactCards = [
   },
 ];
 
+/* =========================================================
+   SOCIAL MEDIA
+========================================================= */
+
 const socials = [
   {
     label: "LinkedIn",
@@ -59,6 +72,10 @@ const socials = [
     path: "M6.94 8.5H3.5V20h3.44V8.5zM5.22 3A2.02 2.02 0 1 0 5.22 7.04 2.02 2.02 0 0 0 5.22 3zM20.5 13.42c0-3.47-1.85-5.08-4.32-5.08-1.99 0-2.88 1.1-3.38 1.87V8.5H9.36V20h3.44v-5.69c0-1.5.28-2.95 2.14-2.95 1.83 0 1.85 1.71 1.85 3.05V20h3.44l.27-6.58z",
   },
 ];
+
+/* =========================================================
+   EMPTY FORM
+========================================================= */
 
 const emptyForm = {
   fullName: "",
@@ -70,154 +87,350 @@ const emptyForm = {
   technicalScope: "",
 };
 
+/* =========================================================
+   COMPONENT
+========================================================= */
+
 export default function ContactUs() {
   const [formData, setFormData] = useState(emptyForm);
+
   const [submitted, setSubmitted] = useState(false);
+
+  const [sending, setSending] = useState(false);
+
+  /* =======================================================
+     HANDLE INPUT CHANGE
+  ======================================================= */
 
   const handleChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
     >
   ) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+    const { name, value } = e.target;
+
+    setFormData((previousData) => ({
+      ...previousData,
+      [name]: value,
+    }));
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  /* =======================================================
+     HANDLE FORM SUBMIT
+  ======================================================= */
+
+  const handleSubmit = async (
+    e: React.FormEvent<HTMLFormElement>
+  ) => {
     e.preventDefault();
 
-    const body = [
-      `Full Name: ${formData.fullName}`,
-      `Work Email: ${formData.workEmail}`,
-      `Company / Organization: ${formData.company}`,
-      `Mobile Number: ${formData.mobile || "-"}`,
-      `Industry Domain: ${formData.industryDomain}`,
-      `Primary Service Discipline: ${formData.serviceDiscipline}`,
-      "",
-      "Technical Scope Details / Load Conditions:",
-      formData.technicalScope || "-",
-    ].join("\n");
+    if (sending) {
+      return;
+    }
 
-    window.location.href = `mailto:enquiry@pro-sim.com,emswebdesign22@gmail.com?subject=${encodeURIComponent(
-      "Engineering Partner Enquiry"
-    )}&body=${encodeURIComponent(body)}`;
+    setSending(true);
 
-    setSubmitted(true);
+    try {
+      /* ---------------------------------------------------
+         CREATE FORM DATA
+      --------------------------------------------------- */
+
+      const data = new FormData();
+
+      data.append("fullName", formData.fullName);
+      data.append("workEmail", formData.workEmail);
+      data.append("company", formData.company);
+      data.append("mobile", formData.mobile);
+      data.append(
+        "industryDomain",
+        formData.industryDomain
+      );
+      data.append(
+        "serviceDiscipline",
+        formData.serviceDiscipline
+      );
+      data.append(
+        "technicalScope",
+        formData.technicalScope
+      );
+
+      /* ---------------------------------------------------
+         SEND TO PHP
+      --------------------------------------------------- */
+
+      const response = await fetch(
+        "https://pro-sim.com/demo1/send-enquiry.php",
+        {
+          method: "POST",
+          body: data,
+        }
+      );
+
+      /* ---------------------------------------------------
+         CHECK RESPONSE
+      --------------------------------------------------- */
+
+      let result;
+
+      try {
+        result = await response.json();
+      } catch {
+        throw new Error(
+          "The server returned an invalid response."
+        );
+      }
+
+      /* ---------------------------------------------------
+         CHECK PHP RESULT
+      --------------------------------------------------- */
+
+      if (!response.ok || !result.success) {
+        throw new Error(
+          result.message ||
+          "Unable to send enquiry."
+        );
+      }
+
+      /* ---------------------------------------------------
+         SUCCESS
+      --------------------------------------------------- */
+
+      setSubmitted(true);
+
+      setFormData({
+        fullName: "",
+        workEmail: "",
+        company: "",
+        mobile: "",
+        industryDomain: "Nuclear Power",
+        serviceDiscipline: "Detailed Engineering",
+        technicalScope: "",
+      });
+
+    } catch (error) {
+      console.error(
+        "Contact form error:",
+        error
+      );
+
+      const errorMessage =
+        error instanceof Error
+          ? error.message
+          : "Unable to send enquiry. Please try again.";
+
+      alert(errorMessage);
+
+    } finally {
+      setSending(false);
+    }
   };
+
+  /* =======================================================
+     JSX
+  ======================================================= */
 
   return (
     <main className="seismic-page">
 
-      {/* HERO */}
+      {/* ===================================================
+          HERO
+      =================================================== */}
+
       <section className="sa-hero">
+
         <div className="sa-hero-crumbs">
           <Breadcrumbs />
         </div>
 
         <div className="sa-hero-inner">
+
+          {/* HERO TEXT */}
+
           <ScrollAnimation className="sa-hero-text">
+
             <h1>
-              <span>Let&rsquo;s Talk</span> About Your Engineering Challenge.
+              <span>
+                Let&rsquo;s Talk
+              </span>{" "}
+              About Your Engineering Challenge.
             </h1>
+
           </ScrollAnimation>
 
-          <ScrollAnimation className="sa-hero-media" delay={120}>
+
+          {/* HERO IMAGES */}
+
+          <ScrollAnimation
+            className="sa-hero-media"
+            delay={120}
+          >
+
             <figure className="sa-hero-media-main">
+
               <img
                 src={`${P}/2.webp`}
                 alt="ProSIM R&D team and facility"
                 loading="eager"
               />
-              <figcaption>Bengaluru</figcaption>
+
+              <figcaption>
+                Bengaluru
+              </figcaption>
+
             </figure>
 
+
             <figure className="sa-hero-media-inset">
+
               <img
                 src={`${P}/6.webp`}
                 alt="Engineering collaboration"
                 loading="lazy"
               />
+
             </figure>
+
           </ScrollAnimation>
+
         </div>
+
       </section>
 
 
-      {/* CONTACT CARDS */}
+      {/* ===================================================
+          CONTACT CARDS
+      =================================================== */}
+
       <section className="ct2-cards-sec">
+
         <div className="sa-container">
+
           <div className="ct2-cards">
 
-            {contactCards.map((c, i) => {
-              const Icon = c.icon;
+            {contactCards.map((card, index) => {
+
+              const Icon = card.icon;
 
               return (
-                <ScrollAnimation key={c.label} delay={i * 80}>
+
+                <ScrollAnimation
+                  key={card.label}
+                  delay={index * 80}
+                >
+
                   <div className="ct2-card">
 
+                    {/* ICON */}
+
                     <span className="ct2-card-ic">
-                      <Icon size={22} strokeWidth={1.8} />
+
+                      <Icon
+                        size={22}
+                        strokeWidth={1.8}
+                      />
+
                     </span>
 
-                    <h3>{c.label}</h3>
+
+                    {/* TITLE */}
+
+                    <h3>
+                      {card.label}
+                    </h3>
+
+
+                    {/* DETAILS */}
 
                     <div className="ct2-card-lines">
-                      {c.lines.map((line) => (
-                        <p key={line}>{line}</p>
+
+                      {card.lines.map((line) => (
+
+                        <p key={line}>
+                          {line}
+                        </p>
+
                       ))}
+
                     </div>
 
+
+                    {/* ACTION */}
+
                     <a
-                      href={c.action.href}
+                      href={card.action.href}
                       className="ct2-card-link"
                       target={
-                        c.action.href.startsWith("http")
+                        card.action.href.startsWith(
+                          "http"
+                        )
                           ? "_blank"
                           : undefined
                       }
                       rel={
-                        c.action.href.startsWith("http")
+                        card.action.href.startsWith(
+                          "http"
+                        )
                           ? "noopener noreferrer"
                           : undefined
                       }
                     >
-                      {c.action.text}
+
+                      {card.action.text}
 
                       <ArrowUpRight
                         size={16}
                         strokeWidth={2}
                       />
+
                     </a>
 
                   </div>
+
                 </ScrollAnimation>
+
               );
+
             })}
 
           </div>
+
         </div>
+
       </section>
 
 
-      {/* FORM + MAP */}
+      {/* ===================================================
+          FORM + MAP
+      =================================================== */}
+
       <section className="ct2-main">
+
         <div className="sa-container">
 
           <div className="ct2-split">
 
-            {/* FORM */}
-            <ScrollAnimation className="ct2-form-wrap">
+
+            {/* =================================================
+                FORM
+            ================================================= */}
+
+            <ScrollAnimation
+              className="ct2-form-wrap"
+            >
 
               <span className="sa-label">
                 Send a Message
               </span>
 
+
               <h2>
                 Looking for a Reliable Design Engineering Partner?
               </h2>
 
+
+              {/* =================================================
+                  SUCCESS MESSAGE
+              ================================================= */}
 
               {submitted ? (
 
@@ -233,22 +446,33 @@ export default function ContactUs() {
                   </h3>
 
                   <p>
-                    Thank you for reaching out. Our team will get back
-                    to you shortly — you can also email us at
-                    enquiry@pro-sim.com.
+                    Thank you for reaching out.
+                    Our team will get back to you
+                    shortly — you can also email us
+                    at enquiry@pro-sim.com.
                   </p>
 
                 </div>
 
               ) : (
 
+                /* =================================================
+                   FORM
+                ================================================= */
+
                 <form
                   onSubmit={handleSubmit}
                   className="rfp-form"
                 >
 
-                  {/* NAME + EMAIL */}
+
+                  {/* =================================================
+                      NAME + EMAIL
+                  ================================================= */}
+
                   <div className="rfp-row">
+
+                    {/* NAME */}
 
                     <div className="rfp-field">
 
@@ -268,6 +492,8 @@ export default function ContactUs() {
 
                     </div>
 
+
+                    {/* EMAIL */}
 
                     <div className="rfp-field">
 
@@ -290,8 +516,13 @@ export default function ContactUs() {
                   </div>
 
 
-                  {/* COMPANY + MOBILE */}
+                  {/* =================================================
+                      COMPANY + MOBILE
+                  ================================================= */}
+
                   <div className="rfp-row">
+
+                    {/* COMPANY */}
 
                     <div className="rfp-field">
 
@@ -311,6 +542,8 @@ export default function ContactUs() {
 
                     </div>
 
+
+                    {/* MOBILE */}
 
                     <div className="rfp-field">
 
@@ -334,8 +567,13 @@ export default function ContactUs() {
                   </div>
 
 
-                  {/* SERVICES + INDUSTRY */}
+                  {/* =================================================
+                      SERVICES + INDUSTRY
+                  ================================================= */}
+
                   <div className="rfp-row">
+
+                    {/* SERVICES */}
 
                     <div className="rfp-field">
 
@@ -346,7 +584,9 @@ export default function ContactUs() {
                       <select
                         id="serviceDiscipline"
                         name="serviceDiscipline"
-                        value={formData.serviceDiscipline}
+                        value={
+                          formData.serviceDiscipline
+                        }
                         onChange={handleChange}
                       >
 
@@ -391,6 +631,8 @@ export default function ContactUs() {
                     </div>
 
 
+                    {/* INDUSTRY */}
+
                     <div className="rfp-field">
 
                       <label htmlFor="industryDomain">
@@ -400,7 +642,9 @@ export default function ContactUs() {
                       <select
                         id="industryDomain"
                         name="industryDomain"
-                        value={formData.industryDomain}
+                        value={
+                          formData.industryDomain
+                        }
                         onChange={handleChange}
                       >
 
@@ -431,7 +675,10 @@ export default function ContactUs() {
                   </div>
 
 
-                  {/* TECHNICAL SCOPE */}
+                  {/* =================================================
+                      TECHNICAL SCOPE
+                  ================================================= */}
+
                   <div className="rfp-field full-width">
 
                     <label htmlFor="technicalScope">
@@ -443,23 +690,34 @@ export default function ContactUs() {
                       name="technicalScope"
                       rows={4}
                       placeholder="Tell us about your project, technical requirements, load conditions, or enquiry..."
-                      value={formData.technicalScope}
+                      value={
+                        formData.technicalScope
+                      }
                       onChange={handleChange}
                     />
 
                   </div>
 
 
-                  {/* SUBMIT */}
+                  {/* =================================================
+                      SUBMIT BUTTON
+                  ================================================= */}
+
                   <button
                     type="submit"
                     className="btn-primary"
+                    disabled={sending}
                   >
-                    Submit
 
-                    <span className="arrow">
-                      →
-                    </span>
+                    {sending
+                      ? "Sending..."
+                      : "Submit"}
+
+                    {!sending && (
+                      <span className="arrow">
+                        →
+                      </span>
+                    )}
 
                   </button>
 
@@ -468,23 +726,27 @@ export default function ContactUs() {
               )}
 
 
-              {/* SOCIAL */}
+              {/* =================================================
+                  SOCIAL
+              ================================================= */}
+
               <div className="ct2-social">
 
                 <span>
                   Follow us
                 </span>
 
+
                 <div>
 
-                  {socials.map((s) => (
+                  {socials.map((social) => (
 
                     <a
-                      key={s.label}
-                      href={s.href}
+                      key={social.label}
+                      href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      aria-label={s.label}
+                      aria-label={social.label}
                     >
 
                       <svg
@@ -493,7 +755,11 @@ export default function ContactUs() {
                         viewBox="0 0 24 24"
                         fill="currentColor"
                       >
-                        <path d={s.path} />
+
+                        <path
+                          d={social.path}
+                        />
+
                       </svg>
 
                     </a>
@@ -507,7 +773,10 @@ export default function ContactUs() {
             </ScrollAnimation>
 
 
-            {/* MAP */}
+            {/* =================================================
+                MAP
+            ================================================= */}
+
             <ScrollAnimation
               className="ct2-map-wrap"
               delay={120}
@@ -522,6 +791,7 @@ export default function ContactUs() {
                   referrerPolicy="no-referrer-when-downgrade"
                 />
 
+
                 <div className="ct2-map-badge">
 
                   <MapPin
@@ -529,7 +799,8 @@ export default function ContactUs() {
                     strokeWidth={2}
                   />
 
-                  ProSIM R &amp; D Pvt. Ltd., Peenya, Bengaluru
+                  ProSIM R &amp; D Pvt. Ltd.,
+                  Peenya, Bengaluru
 
                 </div>
 
@@ -538,9 +809,12 @@ export default function ContactUs() {
             </ScrollAnimation>
 
           </div>
+
         </div>
+
       </section>
 
     </main>
   );
 }
+

@@ -10,7 +10,12 @@ import "./ApplyPage.css";
 const positions = jobs.map((j) => j.title);
 const locations = ["Bengaluru", "Mumbai", "Other"];
 
-const HR_EMAILS = ["HR@pro-sim.com", "Sandeep.PS@pro-sim.com", "ps2@pro-sim.com", "emswebdesign22@gmail.com"];
+const HR_EMAILS = [
+  "HR@pro-sim.com",
+  "Sandeep.PS@pro-sim.com",
+  "ps2@pro-sim.com",
+  "emswebdesign22@gmail.com",
+];
 
 const emptyForm = {
   name: "",
@@ -30,64 +35,133 @@ function ApplyForm() {
     ...emptyForm,
     position: positions.includes(preRole) ? preRole : "",
   });
+
+  const [file, setFile] = useState<File | null>(null);
   const [fileName, setFileName] = useState("");
   const [dragging, setDragging] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
 
-  const set = (key: keyof typeof form, value: string) =>
-    setForm((f) => ({ ...f, [key]: value }));
-
-  const takeFile = (file?: File | null) => {
-    if (file) setFileName(file.name);
+  const set = (key: keyof typeof form, value: string) => {
+    setForm((f) => ({
+      ...f,
+      [key]: value,
+    }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const takeFile = (selectedFile?: File | null) => {
+    if (!selectedFile) return;
+
+    const allowedTypes = [
+      "application/pdf",
+      "application/msword",
+      "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+    ];
+
+    const maxSize = 5 * 1024 * 1024;
+
+    if (!allowedTypes.includes(selectedFile.type)) {
+      setError("Please upload only PDF, DOC or DOCX files.");
+      return;
+    }
+
+    if (selectedFile.size > maxSize) {
+      setError("Resume file must be 5MB or smaller.");
+      return;
+    }
+
+    setError("");
+    setFile(selectedFile);
+    setFileName(selectedFile.name);
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const subject = `Job Application: ${form.position || "General Application"} — ${form.name}`;
-    const body = [
-      `Name: ${form.name}`,
-      `Email: ${form.email}`,
-      `Phone: ${form.phone}`,
-      `Applying Position: ${form.position}`,
-      `Total Experience: ${form.experience}`,
-      `Preferred Location: ${form.location}`,
-      "",
-      "Brief Introduction / Key Skills:",
-      form.intro || "-",
-      "",
-      fileName
-        ? `Resume: please attach "${fileName}" to this email before sending.`
-        : "Resume: please attach your CV to this email before sending.",
-    ].join("\n");
+    if (sending) return;
 
-    const mailto = `mailto:${HR_EMAILS.join(",")}?subject=${encodeURIComponent(
-      subject
-    )}&body=${encodeURIComponent(body)}`;
+    if (!file) {
+      setError("Please upload your resume / CV.");
+      return;
+    }
 
-    window.location.href = mailto;
-    setSubmitted(true);
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    setSending(true);
+    setError("");
+
+    try {
+      const data = new FormData();
+
+      data.append("name", form.name);
+      data.append("email", form.email);
+      data.append("phone", form.phone);
+      data.append("position", form.position);
+      data.append("experience", form.experience);
+      data.append("location", form.location);
+      data.append("intro", form.intro);
+
+      // Resume file
+      data.append("resume", file);
+
+      const response = await fetch(
+        "https://pro-sim.com/demo1/send-career.php",
+        {
+          method: "POST",
+          body: data,
+        }
+      );
+
+      let result;
+
+      try {
+        result = await response.json();
+      } catch {
+        throw new Error("The server returned an invalid response.");
+      }
+
+      if (!response.ok || !result.success) {
+        throw new Error(
+          result.message || "Unable to submit your application."
+        );
+      }
+
+      setSubmitted(true);
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    } catch (error) {
+      console.error("Career application error:", error);
+
+      setError(
+        error instanceof Error
+          ? error.message
+          : "Unable to submit your application. Please try again."
+      );
+    } finally {
+      setSending(false);
+    }
   };
 
   if (submitted) {
     return (
       <div className="ap-done">
         <CheckCircle2 size={52} strokeWidth={1.5} />
-        <h2>Almost done — send your application email</h2>
+
+        <h2>Application Submitted Successfully</h2>
+
         <p>
-          Thank you{form.name ? `, ${form.name.split(" ")[0]}` : ""}. Your email
-          app should have opened with your details filled in and addressed to
-          our HR team. Please attach your resume and hit send. If it didn&apos;t
-          open, email your details and CV directly to{" "}
-          {HR_EMAILS.map((addr, i) => (
-            <React.Fragment key={addr}>
-              {i > 0 && ", "}
-              <a href={`mailto:${addr}`}>{addr}</a>
-            </React.Fragment>
-          ))}
-          .
+          Thank you
+          {form.name ? `, ${form.name.split(" ")[0]}` : ""}. Your application
+          has been sent to our HR team. We will review your profile and get
+          back to you if your experience matches the position.
         </p>
+
+        <p>
+          Applied Position: <strong>{form.position}</strong>
+        </p>
+
         <a href="/careers" className="ap-done-link">
           Back to Careers
         </a>
@@ -99,17 +173,35 @@ function ApplyForm() {
     <form className="ap-form" onSubmit={handleSubmit}>
       <div className="ap-form-head">
         <h2>Apply Now</h2>
+
         <p>
-          Take the next step in your career. Submit your details below and our HR
-          team will get back to you.
+          Take the next step in your career. Submit your details and CV below
+          and our HR team will get back to you.
         </p>
       </div>
+
+      {error && (
+        <div
+          style={{
+            marginBottom: "20px",
+            padding: "14px 16px",
+            borderRadius: "8px",
+            background: "#fff1f1",
+            border: "1px solid #f0b5b5",
+            color: "#b00020",
+            fontSize: "14px",
+          }}
+        >
+          {error}
+        </div>
+      )}
 
       <div className="ap-grid">
         <label className="ap-field">
           <span>
             Full Name <i>*</i>
           </span>
+
           <input
             type="text"
             required
@@ -123,6 +215,7 @@ function ApplyForm() {
           <span>
             Email Address <i>*</i>
           </span>
+
           <input
             type="email"
             required
@@ -136,6 +229,7 @@ function ApplyForm() {
           <span>
             Phone Number <i>*</i>
           </span>
+
           <input
             type="tel"
             required
@@ -149,6 +243,7 @@ function ApplyForm() {
           <span>
             Applying Position <i>*</i>
           </span>
+
           <select
             required
             value={form.position}
@@ -157,11 +252,13 @@ function ApplyForm() {
             <option value="" disabled>
               Select a role…
             </option>
+
             {positions.map((p) => (
               <option key={p} value={p}>
                 {p}
               </option>
             ))}
+
             <option value="General Application">
               General Application / Other
             </option>
@@ -172,6 +269,7 @@ function ApplyForm() {
           <span>
             Total Experience (Years) <i>*</i>
           </span>
+
           <input
             type="text"
             required
@@ -185,6 +283,7 @@ function ApplyForm() {
           <span>
             Preferred Location <i>*</i>
           </span>
+
           <select
             required
             value={form.location}
@@ -193,6 +292,7 @@ function ApplyForm() {
             <option value="" disabled>
               Select location…
             </option>
+
             {locations.map((l) => (
               <option key={l} value={l}>
                 {l}
@@ -203,6 +303,7 @@ function ApplyForm() {
 
         <label className="ap-field ap-field--full">
           <span>Brief Introduction / Key Skills</span>
+
           <textarea
             rows={4}
             placeholder="Mention software competencies, current CTC, notice period, or brief summary…"
@@ -216,6 +317,7 @@ function ApplyForm() {
         <span className="ap-upload-title">
           Upload Resume / CV <i>*</i>
         </span>
+
         <label
           className={`ap-upload${dragging ? " is-drag" : ""}${
             fileName ? " has-file" : ""
@@ -237,24 +339,31 @@ function ApplyForm() {
             accept=".pdf,.doc,.docx"
             onChange={(e) => takeFile(e.target.files?.[0])}
           />
+
           <UploadCloud size={24} strokeWidth={1.7} />
+
           <strong>
             {fileName || "Click to Upload or Drag & Drop Resume"}
           </strong>
-          <em>Supported formats: PDF, DOC, DOCX (Max 5MB)</em>
+
+          <em>
+            Supported formats: PDF, DOC, DOCX (Max 5MB)
+          </em>
         </label>
       </div>
 
-      <button type="submit" className="ap-submit">
+      <button
+        type="submit"
+        className="ap-submit"
+        disabled={sending}
+      >
         <Send size={16} strokeWidth={1.9} />
-        Submit Application
+
+        {sending ? "Submitting..." : "Submit Application"}
       </button>
 
       <p className="ap-submit-note">
-        This opens an email addressed to our HR team with your details
-        filled in — please attach{" "}
-        {fileName ? <strong>{fileName}</strong> : "your resume"} before
-        sending.
+        Your application and resume will be securely submitted to our HR team.
       </p>
     </form>
   );

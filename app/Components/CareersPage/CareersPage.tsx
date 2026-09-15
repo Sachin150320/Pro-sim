@@ -294,7 +294,7 @@ export default function CareersPage() {
                         </div>
                       </div>
 
-                      <a className="cr-apply" href={applyHref(job.title)}>
+                      <a className="cr-apply" href="/apply">
                         Apply for this Position
                         <ArrowRight size={16} strokeWidth={2} />
                       </a>

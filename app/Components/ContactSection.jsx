@@ -24,27 +24,56 @@ export default function ContactSection() {
         });
     };
 
-    const handleSubmit = (e) => {
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const body = [
-            `Full Name: ${formData.fullName}`,
-            `Work Email: ${formData.workEmail}`,
-            `Company / Organization: ${formData.company}`,
-            `Mobile Number: ${formData.mobile || "-"}`,
-            `Industry Domain: ${formData.industryDomain}`,
-            `Primary Service Discipline: ${formData.serviceDiscipline}`,
-            "",
-            "Technical Scope Details / Load Conditions:",
-            formData.technicalScope || "-",
-        ].join("\n");
+        try {
+            const data = new FormData();
 
-        window.location.href = `mailto:enquiry@pro-sim.com,emswebdesign22@gmail.com?subject=${encodeURIComponent(
-            "Engineering Partner Enquiry"
-        )}&body=${encodeURIComponent(body)}`;
+            data.append("fullName", formData.fullName);
+            data.append("workEmail", formData.workEmail);
+            data.append("company", formData.company);
+            data.append("mobile", formData.mobile);
+            data.append("industryDomain", formData.industryDomain);
+            data.append("serviceDiscipline", formData.serviceDiscipline);
+            data.append("technicalScope", formData.technicalScope);
 
-        setSubmitted(true);
+            const response = await fetch(
+                "https://pro-sim.com/demo1/send-enquiry.php",
+                {
+                    method: "POST",
+                    body: data,
+                }
+            );
+
+            const result = await response.json();
+
+            if (result.success) {
+                setSubmitted(true);
+
+                setFormData({
+                    fullName: "",
+                    workEmail: "",
+                    company: "",
+                    mobile: "",
+                    industryDomain: "Nuclear Power",
+                    serviceDiscipline: "Detailed Engineering",
+                    technicalScope: "",
+                });
+            } else {
+                alert(result.message || "Unable to send enquiry.");
+            }
+
+        } catch (error) {
+            console.error("Email error:", error);
+
+            alert(
+                "Unable to send enquiry. Please check your internet connection and try again."
+            );
+        }
     };
+
 
     return (
         <section className="contact-section">
