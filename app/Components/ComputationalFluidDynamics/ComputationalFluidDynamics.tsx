@@ -17,7 +17,7 @@ import {
   Minus,
 } from "lucide-react";
 import "./cfd.css";
-
+import Link from "next/link";
 const IMG = "/assets/images/industries/computational-fluid-dynamics-services";
 
 type Point = { head?: string; body: string };
@@ -538,9 +538,9 @@ export default function ComputationalFluidDynamics() {
                   <span className="sa-update-date">{item.date}</span>
                   <h3>{item.title}</h3>
                   <p>{item.description}</p>
-                  <a href="/projects" className="sa-update-link">
-                    Read More &rarr;
-                  </a>
+                <Link href="/projects" className="sa-update-link">
+  Read More &rarr;
+</Link>
                 </div>
               </div>
             ))}

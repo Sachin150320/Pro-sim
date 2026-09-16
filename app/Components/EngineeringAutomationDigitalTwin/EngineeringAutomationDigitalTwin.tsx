@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Breadcrumbs from "@/app/Components/Breadcrumbs/Breadcrumbs";
 import { Gauge, Cpu, Blend, Building2, FlaskConical, Plus, Minus } from "lucide-react";
 import "./DigitalTwin.css";
-
+import Link from "next/link";
 const IMG = "/assets/images/industries/digi-solution";
 const CAP_IMG = "/assets/images/Offerings/Engineering-Automation-and-Digital-Twin";
 
@@ -449,9 +449,9 @@ export default function EngineeringAutomationDigitalTwin() {
                   <span className="sa-update-date">{item.date}</span>
                   <h3>{item.title}</h3>
                   <p>{item.description}</p>
-                  <a href="/projects" className="sa-update-link">
-                    Read More &rarr;
-                  </a>
+                  <Link href="/projects" className="sa-update-link">
+  Read More &rarr;
+</Link>
                 </div>
               </div>
             ))}

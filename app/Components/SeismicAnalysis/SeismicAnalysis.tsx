@@ -1,5 +1,5 @@
 "use client";
-
+import Link from "next/link";
 import React, { useState } from "react";
 import Breadcrumbs from "@/app/Components/Breadcrumbs/Breadcrumbs";
 import {
@@ -612,9 +612,9 @@ export default function SeismicAnalysis() {
                   <span className="sa-update-date">{item.date}</span>
                   <h3>{item.title}</h3>
                   <p>{item.description}</p>
-                  <a href="/projects" className="sa-update-link">
-                    Read More &rarr;
-                  </a>
+                 <Link href="/projects" className="sa-update-link">
+  Read More &rarr;
+</Link>
                 </div>
               </div>
             ))}

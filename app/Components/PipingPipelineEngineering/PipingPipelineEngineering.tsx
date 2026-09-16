@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Breadcrumbs from "@/app/Components/Breadcrumbs/Breadcrumbs";
 import { Cog, Wrench, Boxes, Building2, Zap, Plus, Minus } from "lucide-react";
 import "./PipingPipelineEngineering.css";
-
+import Link from "next/link";
 const IMG = "/assets/images/industries/Piping-&-Pipeline-Engineering-Services";
 
 type Point = { head?: string; body: string };
@@ -16,122 +16,122 @@ const services: {
   points: Point[];
   images?: { src: string; alt: string }[];
 }[] = [
-  {
-    id: "detailed-design",
-    title: "Design & Detailed Engineering",
-    description:
-      "We provide precise, fully code-compliant detailed and basic piping design services, all executed with rapid turnaround times. As your strategic ally for piping design service outsourcing, we offer:",
-    points: [
-      {
-        head: "Pipe Sizing & Flow Calculations",
-        body: "First-principles approaches to calculate pressure drops and determine hydraulic pipe sizing.",
-      },
-      {
-        head: "Layout & Routing",
-        body: "The expert creation of piping layouts, smart re-routing solutions, and extensive piping modeling services.",
-      },
-      {
-        head: "Intelligent Documentation",
-        body: "The creation and continuous updating of 3D plant models, PFDs, and P&IDs.",
-      },
-      {
-        head: "Production Deliverables",
-        body: "The efficient extraction and preparation of Material Take-Offs (MTO), Bills of Quantities (BoQ), Isometrics (ISOs), and Piping General Arrangement (GA) drawings.",
-      },
-      {
-        head: "Modular Designs",
-        body: "Targeted optimization, design, and engineering specifically tailored for skid-mounted piping infrastructure.",
-      },
-    ],
-    images: [
-      { src: `/assets/images/Offerings/Piping-&-Pipeline-Engineering-Services/Design-&-detailed-Engineering-1.png`, alt: "Piping design and detailed engineering" },
-      
-    ],
-  },
-  {
-    id: "stress-analysis",
-    title: "Advanced Pipe Stress & Flexibility Analysis",
-    description:
-      "Operating as top-tier pipe stress analysis consultants, our team specializes in verifying complex, high-pressure, and high-temperature piping networks against rigorous dynamic and static operational loads. ProSIM stands out as a leading pipe stress analysis consultant in Bangalore, delivering a dependable pipe stress analysis service that addresses both dynamic and static project demands:",
-    points: [
-      {
-        head: "Comprehensive Loading Analysis",
-        body: "Detailed mathematical assessments covering sustained forces like pressure and dead weight, alongside thermal expansion and intermittent stresses such as ocean currents, steam or water hammer, ice, wind, and seismic events. Furthermore, our dynamic pipe stress analysis accurately measures transient load scenarios and intricate vibration patterns.",
-      },
-      {
-        head: "Pipe Support Engineering",
-        body: "The structural optimization, code verification, design, and thorough evaluation of dynamic snubbers, hangers, and piping supports.",
-      },
-      {
-        head: "Anchorage Systems",
-        body: "The structural enhancement, qualification, and design of baseplates and anchorage mechanisms.",
-      },
-    ],
-     images: [
-      { src: `/assets/images/Offerings/Piping-&-Pipeline-Engineering-Services/Stress-&-Flexibility-Analysis-1.png`, alt: "Piping design and detailed engineering" },
-      
-    ],
-  },
-  {
-    id: "pipeline-engineering",
-    title: "Pipeline Engineering (Onshore & Offshore)",
-    description:
-      "Moving well beyond standard plant boundaries, our team provides full-spectrum pipeline engineering services for extensive transportation networks:",
-    points: [
-      {
-        body: "Extensive expertise handling submerged, offshore, and onshore (both buried and above-ground) pipelines designed to transport refined products, natural gas, and crude oil.",
-      },
-      {
-        body: "The professional review, evaluation, and authoring of Design Basis Reports (DBR).",
-      },
-      {
-        body: "Rigorous pipeline checking and code qualification in strict accordance with international frameworks and DNVGL standards.",
-      },
-    ],
-    images: [{ src: `/assets/images/Offerings/Piping-&-Pipeline-Engineering-Services/Pipeline-engineering-(Onshoreoffshore)-1.png`, alt: "Onshore and offshore pipeline engineering" }],
-  },
-  {
-    id: "brownfield-maintenance",
-    title: "Brownfield Maintenance & Fitness-for-Service (FFS)",
-    description:
-      "We actively assist facility operators throughout maintenance and turnaround phases to guarantee regulatory adherence and maintain structural integrity:",
-    points: [
-      {
-        body: "Engineering support for In-Service Inspections (ISI) combined with thorough structural integrity assessments for plant assets.",
-      },
-      {
-        body: "Comprehensive Fitness-for-Service (FFS) reviews and Remaining Life Assessments (RLA).",
-      },
-      {
-        body: "Detailed Engineering Critical Analysis (ECA) that delivers objective, data-backed recommendations on whether to retire, reuse, or repair aging piping infrastructure.",
-      },
-    ],
-  },
-  {
-    id: "code-compliance",
-    title: "Unrivaled Technical Mastery & Code Compliance",
-    description:
-      "ProSIM distinguishes itself by seamlessly connecting sophisticated 3D Finite Element Analysis (FEA) with conventional 1D piping software. Should your next initiative require a specialized CAESAR pipe stress analysis service, our dedicated engineers stand ready to execute the task.",
-    points: [
-      {
-        head: "Industry-Standard Software",
-        body: "Comprehensive proficiency in utilizing CAEPIPE, PEPS (PIPESTRESS), and CAESAR-II.",
-      },
-      {
-        head: "Advanced Sub-Modeling Linkage",
-        body: "Beyond our strong practical and academic foundation in the 1D element topology typical of standard pipe stress applications, we frequently build highly detailed, localized 3D FEA models using ABAQUS and ANSYS to resolve exceptionally complex challenges. We rely on a mathematically precise, proprietary sub-modeling technique to smoothly integrate 3D FEA models with 1D pipe elements. It is exactly this profound level of technical proficiency that leads so many organizations to rely on our dynamic pipe stress analysis service.",
-      },
-      {
-        head: "Global Code Conversion — ASME",
-        body: "B&PV Codes, alongside B31.2 (Fuel Gas Piping), B31.3 (Process Piping), and B31.1 (Power Piping).",
-      },
-      {
-        head: "Global Code Conversion — International Codes",
-        body: "IS, EN, ISO, RCC, API, and DNVGL standards.",
-      },
-    ],
-  },
-];
+    {
+      id: "detailed-design",
+      title: "Design & Detailed Engineering",
+      description:
+        "We provide precise, fully code-compliant detailed and basic piping design services, all executed with rapid turnaround times. As your strategic ally for piping design service outsourcing, we offer:",
+      points: [
+        {
+          head: "Pipe Sizing & Flow Calculations",
+          body: "First-principles approaches to calculate pressure drops and determine hydraulic pipe sizing.",
+        },
+        {
+          head: "Layout & Routing",
+          body: "The expert creation of piping layouts, smart re-routing solutions, and extensive piping modeling services.",
+        },
+        {
+          head: "Intelligent Documentation",
+          body: "The creation and continuous updating of 3D plant models, PFDs, and P&IDs.",
+        },
+        {
+          head: "Production Deliverables",
+          body: "The efficient extraction and preparation of Material Take-Offs (MTO), Bills of Quantities (BoQ), Isometrics (ISOs), and Piping General Arrangement (GA) drawings.",
+        },
+        {
+          head: "Modular Designs",
+          body: "Targeted optimization, design, and engineering specifically tailored for skid-mounted piping infrastructure.",
+        },
+      ],
+      images: [
+        { src: `/assets/images/Offerings/Piping-&-Pipeline-Engineering-Services/Design-&-detailed-Engineering-1.png`, alt: "Piping design and detailed engineering" },
+
+      ],
+    },
+    {
+      id: "stress-analysis",
+      title: "Advanced Pipe Stress & Flexibility Analysis",
+      description:
+        "Operating as top-tier pipe stress analysis consultants, our team specializes in verifying complex, high-pressure, and high-temperature piping networks against rigorous dynamic and static operational loads. ProSIM stands out as a leading pipe stress analysis consultant in Bangalore, delivering a dependable pipe stress analysis service that addresses both dynamic and static project demands:",
+      points: [
+        {
+          head: "Comprehensive Loading Analysis",
+          body: "Detailed mathematical assessments covering sustained forces like pressure and dead weight, alongside thermal expansion and intermittent stresses such as ocean currents, steam or water hammer, ice, wind, and seismic events. Furthermore, our dynamic pipe stress analysis accurately measures transient load scenarios and intricate vibration patterns.",
+        },
+        {
+          head: "Pipe Support Engineering",
+          body: "The structural optimization, code verification, design, and thorough evaluation of dynamic snubbers, hangers, and piping supports.",
+        },
+        {
+          head: "Anchorage Systems",
+          body: "The structural enhancement, qualification, and design of baseplates and anchorage mechanisms.",
+        },
+      ],
+      images: [
+        { src: `/assets/images/Offerings/Piping-&-Pipeline-Engineering-Services/Stress-&-Flexibility-Analysis-1.png`, alt: "Piping design and detailed engineering" },
+
+      ],
+    },
+    {
+      id: "pipeline-engineering",
+      title: "Pipeline Engineering (Onshore & Offshore)",
+      description:
+        "Moving well beyond standard plant boundaries, our team provides full-spectrum pipeline engineering services for extensive transportation networks:",
+      points: [
+        {
+          body: "Extensive expertise handling submerged, offshore, and onshore (both buried and above-ground) pipelines designed to transport refined products, natural gas, and crude oil.",
+        },
+        {
+          body: "The professional review, evaluation, and authoring of Design Basis Reports (DBR).",
+        },
+        {
+          body: "Rigorous pipeline checking and code qualification in strict accordance with international frameworks and DNVGL standards.",
+        },
+      ],
+      images: [{ src: `/assets/images/Offerings/Piping-&-Pipeline-Engineering-Services/Pipeline-engineering-(Onshoreoffshore)-1.png`, alt: "Onshore and offshore pipeline engineering" }],
+    },
+    {
+      id: "brownfield-maintenance",
+      title: "Brownfield Maintenance & Fitness-for-Service (FFS)",
+      description:
+        "We actively assist facility operators throughout maintenance and turnaround phases to guarantee regulatory adherence and maintain structural integrity:",
+      points: [
+        {
+          body: "Engineering support for In-Service Inspections (ISI) combined with thorough structural integrity assessments for plant assets.",
+        },
+        {
+          body: "Comprehensive Fitness-for-Service (FFS) reviews and Remaining Life Assessments (RLA).",
+        },
+        {
+          body: "Detailed Engineering Critical Analysis (ECA) that delivers objective, data-backed recommendations on whether to retire, reuse, or repair aging piping infrastructure.",
+        },
+      ],
+    },
+    {
+      id: "code-compliance",
+      title: "Unrivaled Technical Mastery & Code Compliance",
+      description:
+        "ProSIM distinguishes itself by seamlessly connecting sophisticated 3D Finite Element Analysis (FEA) with conventional 1D piping software. Should your next initiative require a specialized CAESAR pipe stress analysis service, our dedicated engineers stand ready to execute the task.",
+      points: [
+        {
+          head: "Industry-Standard Software",
+          body: "Comprehensive proficiency in utilizing CAEPIPE, PEPS (PIPESTRESS), and CAESAR-II.",
+        },
+        {
+          head: "Advanced Sub-Modeling Linkage",
+          body: "Beyond our strong practical and academic foundation in the 1D element topology typical of standard pipe stress applications, we frequently build highly detailed, localized 3D FEA models using ABAQUS and ANSYS to resolve exceptionally complex challenges. We rely on a mathematically precise, proprietary sub-modeling technique to smoothly integrate 3D FEA models with 1D pipe elements. It is exactly this profound level of technical proficiency that leads so many organizations to rely on our dynamic pipe stress analysis service.",
+        },
+        {
+          head: "Global Code Conversion — ASME",
+          body: "B&PV Codes, alongside B31.2 (Fuel Gas Piping), B31.3 (Process Piping), and B31.1 (Power Piping).",
+        },
+        {
+          head: "Global Code Conversion — International Codes",
+          body: "IS, EN, ISO, RCC, API, and DNVGL standards.",
+        },
+      ],
+    },
+  ];
 
 const serviceIcons = [Cog, Wrench, Boxes, Building2, Zap];
 
@@ -330,7 +330,7 @@ export default function PipingPipelineEngineering() {
 
         <div className="sa-hero-inner">
           <div className="sa-hero-text">
-         
+
             <h1>
               <span>Piping &amp; Pipeline</span> Engineering Services.
             </h1>
@@ -431,9 +431,8 @@ export default function PipingPipelineEngineering() {
 
                 {service.images && (
                   <div
-                    className={`sa-gallery ${
-                      service.images.length === 1 ? "single" : ""
-                    }`}
+                    className={`sa-gallery ${service.images.length === 1 ? "single" : ""
+                      }`}
                   >
                     {service.images.map((image) => (
                       <div className="sa-gallery-card" key={image.src}>
@@ -491,9 +490,9 @@ export default function PipingPipelineEngineering() {
                   <span className="sa-update-date">{item.date}</span>
                   <h3>{item.title}</h3>
                   <p>{item.description}</p>
-                  <a href="/projects" className="sa-update-link">
+                  <Link href="/projects" className="sa-update-link">
                     Read More &rarr;
-                  </a>
+                  </Link>
                 </div>
               </div>
             ))}

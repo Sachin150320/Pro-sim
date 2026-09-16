@@ -1,4 +1,3 @@
-// components/ContactSection.jsx
 "use client";
 
 import React, { useState } from "react";
@@ -16,6 +15,7 @@ export default function ContactSection() {
     });
 
     const [submitted, setSubmitted] = useState(false);
+    const [loading, setLoading] = useState(false); // Added loading state for better UX
 
     const handleChange = (e) => {
         setFormData({
@@ -24,9 +24,9 @@ export default function ContactSection() {
         });
     };
 
-
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setLoading(true);
 
         try {
             const data = new FormData();
@@ -51,7 +51,6 @@ export default function ContactSection() {
 
             if (result.success) {
                 setSubmitted(true);
-
                 setFormData({
                     fullName: "",
                     workEmail: "",
@@ -64,31 +63,28 @@ export default function ContactSection() {
             } else {
                 alert(result.message || "Unable to send enquiry.");
             }
-
         } catch (error) {
             console.error("Email error:", error);
-
             alert(
                 "Unable to send enquiry. Please check your internet connection and try again."
             );
+        } finally {
+            setLoading(false);
         }
     };
-
 
     return (
         <section className="contact-section">
             <div className="contact-wrapper">
 
                 {/* =========================================
-            CENTERED SECTION HEADER INTRO
-        ========================================= */}
+                    CENTERED SECTION HEADER INTRO
+                ========================================= */}
                 <ScrollAnimation>
                     <div className="contact-section-intro">
                         <span className="contact-section-subtitle">Talk to Our Engineers</span>
 
-                        <h2 className="engineering-title">Looking for a  Engineering Partner?</h2>
-
-
+                        <h2 className="engineering-title">Looking for an Engineering Partner?</h2>
 
                         <div className="title-underline-center" />
                         <p className="contact-section-desc">
@@ -100,8 +96,8 @@ export default function ContactSection() {
                 <div className="contact-grid-layout">
 
                     {/* =========================================
-              LEFT COLUMN: HEADQUARTERS & INFO CARDS
-          ========================================= */}
+                        LEFT COLUMN: HEADQUARTERS & INFO CARDS
+                    ========================================= */}
                     <ScrollAnimation>
                         <div className="hq-info-column">
                             <div className="hq-image-section">
@@ -111,15 +107,12 @@ export default function ContactSection() {
                                     className="hq-image"
                                 />
                             </div>
-
-
                         </div>
                     </ScrollAnimation>
 
-
                     {/* =========================================
-              RIGHT COLUMN: REQUEST TECHNICAL CONSULTATION / RFP FORM
-          ========================================= */}
+                        RIGHT COLUMN: REQUEST TECHNICAL CONSULTATION / RFP FORM
+                    ========================================= */}
                     <ScrollAnimation delay={100}>
                         <div className="rfp-form-container">
 
@@ -184,12 +177,9 @@ export default function ContactSection() {
                                                 name="mobile"
                                                 value={formData.mobile}
                                                 onChange={handleChange}
-                                                placeholder="Enter your mobile number"
-                                                maxLength="10"
-                                                pattern="[0-9]{10}"
+                                                placeholder="e.g. +91 98765 43210"
                                             />
                                         </div>
-
                                     </div>
 
                                     <div className="rfp-row">
@@ -204,35 +194,27 @@ export default function ContactSection() {
                                                 <option value="Detailed Engineering">
                                                     Detailed Engineering
                                                 </option>
-
                                                 <option value="Seismic Analysis & Qualification">
                                                     Seismic Analysis & Qualification
                                                 </option>
-
                                                 <option value="Piping & Pipeline Engineering">
                                                     Piping & Pipeline Engineering
                                                 </option>
-
                                                 <option value="3D Plant Modelling">
                                                     3D Plant Modelling
                                                 </option>
-
                                                 <option value="Finite Element Analysis (FEA)">
                                                     Finite Element Analysis (FEA)
                                                 </option>
-
                                                 <option value="CFD & Multiphysics Simulations">
                                                     CFD & Multiphysics Simulations
                                                 </option>
-
                                                 <option value="RLA/RLE & Fitness-for-Service (FFS)">
                                                     RLA/RLE & Fitness-for-Service (FFS)
                                                 </option>
-
                                                 <option value="Engineering Automation & Digital Twin">
                                                     Engineering Automation & Digital Twin
                                                 </option>
-
                                                 <option value="Pre-Bid & Owner's Engineering">
                                                     Pre-Bid & Owner's Engineering
                                                 </option>
@@ -268,21 +250,16 @@ export default function ContactSection() {
                                             ></textarea>
                                         </div>
 
-
-
                                         <button
                                             type="submit"
                                             className="btn-primary"
+                                            disabled={loading}
                                         >
-                                            Submit
-
+                                            {loading ? "Sending..." : "Submit"}
                                             <span className="arrow">→</span>
-
-
                                         </button>
 
                                     </div>
-
 
                                 </form>
                             )}

@@ -1,23 +1,32 @@
 "use client";
 
-import React, { Suspense, useState } from "react";
-import { useSearchParams } from "next/navigation";
+import React, { FormEvent, useMemo, useState } from "react";
 import CrumbBanner from "@/app/Components/CrumbBanner/CrumbBanner";
-import { UploadCloud, CheckCircle2, Send } from "lucide-react";
+import {
+  UploadCloud,
+  CheckCircle2,
+  Send,
+} from "lucide-react";
 import { jobs } from "@/app/Components/CareersPage/CareersPage";
 import "./ApplyPage.css";
 
-const positions = jobs.map((j) => j.title);
-const locations = ["Bengaluru", "Mumbai", "Other"];
+type FormState = {
+  name: string;
+  email: string;
+  phone: string;
+  position: string;
+  experience: string;
+  location: string;
+  intro: string;
+};
 
-const HR_EMAILS = [
-  "HR@pro-sim.com",
-  "Sandeep.PS@pro-sim.com",
-  "ps2@pro-sim.com",
-  "emswebdesign22@gmail.com",
+const locations = [
+  "Bengaluru",
+  "Mumbai",
+  "Other",
 ];
 
-const emptyForm = {
+const emptyForm: FormState = {
   name: "",
   email: "",
   phone: "",
@@ -27,81 +36,158 @@ const emptyForm = {
   intro: "",
 };
 
-function ApplyForm() {
-  const params = useSearchParams();
-  const preRole = params.get("role") ?? "";
+const MAX_FILE_SIZE = 5 * 1024 * 1024;
 
-  const [form, setForm] = useState({
-    ...emptyForm,
-    position: positions.includes(preRole) ? preRole : "",
-  });
+const ALLOWED_EXTENSIONS = [
+  ".pdf",
+  ".doc",
+  ".docx",
+];
 
-  const [file, setFile] = useState<File | null>(null);
-  const [fileName, setFileName] = useState("");
-  const [dragging, setDragging] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
-  const [sending, setSending] = useState(false);
-  const [error, setError] = useState("");
+const ALLOWED_FILE_TYPES = [
+  "application/pdf",
+  "application/msword",
+  "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+];
 
-  const set = (key: keyof typeof form, value: string) => {
-    setForm((f) => ({
-      ...f,
-      [key]: value,
+export default function ApplyPage() {
+  const positions = useMemo(
+    () => jobs.map((job) => job.title),
+    []
+  );
+
+  const [form, setForm] = useState<FormState>(emptyForm);
+  const [resume, setResume] = useState<File | null>(null);
+  const [fileError, setFileError] = useState("");
+  const [submitError, setSubmitError] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleChange = (
+    event: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
+    const { name, value } = event.target;
+
+    setForm((current) => ({
+      ...current,
+      [name]: value,
     }));
+
+    setSubmitError("");
   };
 
-  const takeFile = (selectedFile?: File | null) => {
-    if (!selectedFile) return;
+  const validateFile = (file: File) => {
+    const fileName = file.name.toLowerCase();
 
-    const allowedTypes = [
-      "application/pdf",
-      "application/msword",
-      "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-    ];
+    const validExtension = ALLOWED_EXTENSIONS.some(
+      (extension) => fileName.endsWith(extension)
+    );
 
-    const maxSize = 5 * 1024 * 1024;
+    const validMime =
+      !file.type ||
+      ALLOWED_FILE_TYPES.includes(file.type);
 
-    if (!allowedTypes.includes(selectedFile.type)) {
-      setError("Please upload only PDF, DOC or DOCX files.");
-      return;
+    if (!validExtension || !validMime) {
+      return "Please upload a PDF, DOC, or DOCX file.";
     }
 
-    if (selectedFile.size > maxSize) {
-      setError("Resume file must be 5MB or smaller.");
-      return;
+    if (file.size > MAX_FILE_SIZE) {
+      return "Resume size must be 5 MB or less.";
     }
 
-    setError("");
-    setFile(selectedFile);
-    setFileName(selectedFile.name);
+    return "";
   };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const handleFileChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const file = event.target.files?.[0];
 
-    if (sending) return;
+    setFileError("");
 
     if (!file) {
-      setError("Please upload your resume / CV.");
+      setResume(null);
       return;
     }
 
-    setSending(true);
-    setError("");
+    const error = validateFile(file);
+
+    if (error) {
+      setResume(null);
+      setFileError(error);
+      event.target.value = "";
+      return;
+    }
+
+    setResume(file);
+    setSubmitError("");
+  };
+
+  const handleSubmit = async (
+    event: FormEvent<HTMLFormElement>
+  ) => {
+    event.preventDefault();
+
+    setSubmitError("");
+    setSuccessMessage("");
+
+    if (!form.name.trim()) {
+      setSubmitError("Please enter your name.");
+      return;
+    }
+
+    if (!form.email.trim()) {
+      setSubmitError("Please enter your email address.");
+      return;
+    }
+
+    if (!form.phone.trim()) {
+      setSubmitError("Please enter your phone number.");
+      return;
+    }
+
+    if (!form.position) {
+      setSubmitError("Please select a position.");
+      return;
+    }
+
+    if (!form.experience.trim()) {
+      setSubmitError("Please enter your experience.");
+      return;
+    }
+
+    if (!form.location) {
+      setSubmitError("Please select your preferred location.");
+      return;
+    }
+
+    if (!resume) {
+      setSubmitError("Please upload your resume.");
+      return;
+    }
+
+    const fileErrorMessage = validateFile(resume);
+
+    if (fileErrorMessage) {
+      setSubmitError(fileErrorMessage);
+      return;
+    }
 
     try {
+      setIsSubmitting(true);
+
       const data = new FormData();
 
-      data.append("name", form.name);
-      data.append("email", form.email);
-      data.append("phone", form.phone);
+      data.append("name", form.name.trim());
+      data.append("email", form.email.trim());
+      data.append("phone", form.phone.trim());
       data.append("position", form.position);
-      data.append("experience", form.experience);
+      data.append("experience", form.experience.trim());
       data.append("location", form.location);
-      data.append("intro", form.intro);
-
-      // Resume file
-      data.append("resume", file);
+      data.append("intro", form.intro.trim());
+      data.append("resume", resume);
 
       const response = await fetch(
         "https://pro-sim.com/demo1/send-career.php",
@@ -111,279 +197,349 @@ function ApplyForm() {
         }
       );
 
-      let result;
+      const responseText = await response.text();
+
+      let result: {
+        success?: boolean;
+        message?: string;
+      };
 
       try {
-        result = await response.json();
+        result = JSON.parse(responseText);
       } catch {
-        throw new Error("The server returned an invalid response.");
+        console.error(
+          "Invalid PHP response:",
+          responseText
+        );
+
+        throw new Error(
+          "The server returned an invalid response. Please try again later."
+        );
       }
 
       if (!response.ok || !result.success) {
         throw new Error(
-          result.message || "Unable to submit your application."
+          result.message ||
+            "Unable to submit your application. Please try again."
         );
       }
 
-      setSubmitted(true);
+      setSuccessMessage(
+        result.message ||
+          "Your application has been submitted successfully."
+      );
+
+      setForm(emptyForm);
+      setResume(null);
+      setFileError("");
+
+      const fileInput = document.getElementById(
+        "ap-resume"
+      ) as HTMLInputElement | null;
+
+      if (fileInput) {
+        fileInput.value = "";
+      }
 
       window.scrollTo({
         top: 0,
         behavior: "smooth",
       });
     } catch (error) {
-      console.error("Career application error:", error);
+      console.error(
+        "Application submission error:",
+        error
+      );
 
-      setError(
+      setSubmitError(
         error instanceof Error
           ? error.message
-          : "Unable to submit your application. Please try again."
+          : "Something went wrong while submitting your application."
       );
     } finally {
-      setSending(false);
+      setIsSubmitting(false);
     }
   };
 
-  if (submitted) {
-    return (
-      <div className="ap-done">
-        <CheckCircle2 size={52} strokeWidth={1.5} />
-
-        <h2>Application Submitted Successfully</h2>
-
-        <p>
-          Thank you
-          {form.name ? `, ${form.name.split(" ")[0]}` : ""}. Your application
-          has been sent to our HR team. We will review your profile and get
-          back to you if your experience matches the position.
-        </p>
-
-        <p>
-          Applied Position: <strong>{form.position}</strong>
-        </p>
-
-        <a href="/careers" className="ap-done-link">
-          Back to Careers
-        </a>
-      </div>
-    );
-  }
-
-  return (
-    <form className="ap-form" onSubmit={handleSubmit}>
-      <div className="ap-form-head">
-        <h2>Apply Now</h2>
-
-        <p>
-          Take the next step in your career. Submit your details and CV below
-          and our HR team will get back to you.
-        </p>
-      </div>
-
-      {error && (
-        <div
-          style={{
-            marginBottom: "20px",
-            padding: "14px 16px",
-            borderRadius: "8px",
-            background: "#fff1f1",
-            border: "1px solid #f0b5b5",
-            color: "#b00020",
-            fontSize: "14px",
-          }}
-        >
-          {error}
-        </div>
-      )}
-
-      <div className="ap-grid">
-        <label className="ap-field">
-          <span>
-            Full Name <i>*</i>
-          </span>
-
-          <input
-            type="text"
-            required
-            placeholder="e.g. Rahul Sharma"
-            value={form.name}
-            onChange={(e) => set("name", e.target.value)}
-          />
-        </label>
-
-        <label className="ap-field">
-          <span>
-            Email Address <i>*</i>
-          </span>
-
-          <input
-            type="email"
-            required
-            placeholder="name@example.com"
-            value={form.email}
-            onChange={(e) => set("email", e.target.value)}
-          />
-        </label>
-
-        <label className="ap-field">
-          <span>
-            Phone Number <i>*</i>
-          </span>
-
-          <input
-            type="tel"
-            required
-            placeholder="+91 98765 43210"
-            value={form.phone}
-            onChange={(e) => set("phone", e.target.value)}
-          />
-        </label>
-
-        <label className="ap-field">
-          <span>
-            Applying Position <i>*</i>
-          </span>
-
-          <select
-            required
-            value={form.position}
-            onChange={(e) => set("position", e.target.value)}
-          >
-            <option value="" disabled>
-              Select a role…
-            </option>
-
-            {positions.map((p) => (
-              <option key={p} value={p}>
-                {p}
-              </option>
-            ))}
-
-            <option value="General Application">
-              General Application / Other
-            </option>
-          </select>
-        </label>
-
-        <label className="ap-field">
-          <span>
-            Total Experience (Years) <i>*</i>
-          </span>
-
-          <input
-            type="text"
-            required
-            placeholder="e.g. 4 Years"
-            value={form.experience}
-            onChange={(e) => set("experience", e.target.value)}
-          />
-        </label>
-
-        <label className="ap-field">
-          <span>
-            Preferred Location <i>*</i>
-          </span>
-
-          <select
-            required
-            value={form.location}
-            onChange={(e) => set("location", e.target.value)}
-          >
-            <option value="" disabled>
-              Select location…
-            </option>
-
-            {locations.map((l) => (
-              <option key={l} value={l}>
-                {l}
-              </option>
-            ))}
-          </select>
-        </label>
-
-        <label className="ap-field ap-field--full">
-          <span>Brief Introduction / Key Skills</span>
-
-          <textarea
-            rows={4}
-            placeholder="Mention software competencies, current CTC, notice period, or brief summary…"
-            value={form.intro}
-            onChange={(e) => set("intro", e.target.value)}
-          />
-        </label>
-      </div>
-
-      <div className="ap-field ap-field--full">
-        <span className="ap-upload-title">
-          Upload Resume / CV <i>*</i>
-        </span>
-
-        <label
-          className={`ap-upload${dragging ? " is-drag" : ""}${
-            fileName ? " has-file" : ""
-          }`}
-          onDragOver={(e) => {
-            e.preventDefault();
-            setDragging(true);
-          }}
-          onDragLeave={() => setDragging(false)}
-          onDrop={(e) => {
-            e.preventDefault();
-            setDragging(false);
-            takeFile(e.dataTransfer.files?.[0]);
-          }}
-        >
-          <input
-            type="file"
-            required
-            accept=".pdf,.doc,.docx"
-            onChange={(e) => takeFile(e.target.files?.[0])}
-          />
-
-          <UploadCloud size={24} strokeWidth={1.7} />
-
-          <strong>
-            {fileName || "Click to Upload or Drag & Drop Resume"}
-          </strong>
-
-          <em>
-            Supported formats: PDF, DOC, DOCX (Max 5MB)
-          </em>
-        </label>
-      </div>
-
-      <button
-        type="submit"
-        className="ap-submit"
-        disabled={sending}
-      >
-        <Send size={16} strokeWidth={1.9} />
-
-        {sending ? "Submitting..." : "Submit Application"}
-      </button>
-
-      <p className="ap-submit-note">
-        Your application and resume will be securely submitted to our HR team.
-      </p>
-    </form>
-  );
-}
-
-export default function ApplyPage() {
   return (
     <main className="ap-page">
-      <CrumbBanner
-        title="Apply Now"
-        subtitle="Take the next step in your career — submit your details and our HR team will get back to you."
-      />
+
+      <CrumbBanner title="Apply Now" />
 
       <section className="ap-section">
         <div className="ap-container">
-          <Suspense fallback={null}>
-            <ApplyForm />
-          </Suspense>
+
+          <div className="ap-header">
+            <span className="ap-label">
+              CAREERS
+            </span>
+
+            <h1>
+              Join ProSIM
+            </h1>
+
+            <p>
+              Take the next step in your engineering
+              career. Fill in the application form below
+              and upload your latest resume.
+            </p>
+          </div>
+
+          {successMessage && (
+            <div
+              className="ap-success"
+              role="alert"
+            >
+              <CheckCircle2
+                size={24}
+                strokeWidth={2}
+              />
+
+              <div>
+                <strong>
+                  Application Submitted
+                </strong>
+
+                <p>
+                  {successMessage}
+                </p>
+              </div>
+            </div>
+          )}
+
+          {submitError && (
+            <div
+              className="ap-error"
+              role="alert"
+            >
+              <strong>
+                Unable to submit application
+              </strong>
+
+              <p>
+                {submitError}
+              </p>
+            </div>
+          )}
+
+          <form
+            className="ap-form"
+            onSubmit={handleSubmit}
+            noValidate
+          >
+
+            {/* FIXED: changed ap-form-grid to ap-grid */}
+            <div className="ap-grid">
+
+              <div className="ap-field">
+                <label htmlFor="ap-name">
+                  Full Name <span>*</span>
+                </label>
+
+                <input
+                  id="ap-name"
+                  name="name"
+                  type="text"
+                  value={form.name}
+                  onChange={handleChange}
+                  placeholder="Enter your full name"
+                  autoComplete="name"
+                  required
+                />
+              </div>
+
+              <div className="ap-field">
+                <label htmlFor="ap-email">
+                  Email Address <span>*</span>
+                </label>
+
+                <input
+                  id="ap-email"
+                  name="email"
+                  type="email"
+                  value={form.email}
+                  onChange={handleChange}
+                  placeholder="Enter your email address"
+                  autoComplete="email"
+                  required
+                />
+              </div>
+
+              <div className="ap-field">
+                <label htmlFor="ap-phone">
+                  Phone Number <span>*</span>
+                </label>
+
+                <input
+                  id="ap-phone"
+                  name="phone"
+                  type="tel"
+                  value={form.phone}
+                  onChange={handleChange}
+                  placeholder="Enter your phone number"
+                  autoComplete="tel"
+                  required
+                />
+              </div>
+
+              <div className="ap-field">
+                <label htmlFor="ap-position">
+                  Position Applying For <span>*</span>
+                </label>
+
+                <select
+                  id="ap-position"
+                  name="position"
+                  value={form.position}
+                  onChange={handleChange}
+                  required
+                >
+                  <option value="">
+                    Select a position
+                  </option>
+
+                  {positions.map((position) => (
+                    <option
+                      key={position}
+                      value={position}
+                    >
+                      {position}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              <div className="ap-field">
+                <label htmlFor="ap-experience">
+                  Experience <span>*</span>
+                </label>
+
+                <input
+                  id="ap-experience"
+                  name="experience"
+                  type="text"
+                  value={form.experience}
+                  onChange={handleChange}
+                  placeholder="e.g. 3 years"
+                  required
+                />
+              </div>
+
+              <div className="ap-field">
+                <label htmlFor="ap-location">
+                  Preferred Location <span>*</span>
+                </label>
+
+                <select
+                  id="ap-location"
+                  name="location"
+                  value={form.location}
+                  onChange={handleChange}
+                  required
+                >
+                  <option value="">
+                    Select location
+                  </option>
+
+                  {locations.map((location) => (
+                    <option
+                      key={location}
+                      value={location}
+                    >
+                      {location}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+            </div>
+
+            {/* FIXED: changed ap-field-full to ap-field--full */}
+            <div className="ap-field ap-field--full">
+              <label htmlFor="ap-intro">
+                Brief Introduction
+              </label>
+
+              <textarea
+                id="ap-intro"
+                name="intro"
+                value={form.intro}
+                onChange={handleChange}
+                placeholder="Tell us briefly about yourself, your experience, or why you are interested in this position."
+                rows={6}
+              />
+            </div>
+
+            {/* FIXED: changed ap-field-full to ap-field--full */}
+            <div className="ap-field ap-field--full">
+              <label htmlFor="ap-resume">
+                Resume / CV <span>*</span>
+              </label>
+
+              <label
+                htmlFor="ap-resume"
+                className={`ap-upload ${
+                  resume ? "has-file" : ""
+                }`}
+              >
+                <UploadCloud
+                  size={30}
+                  strokeWidth={1.7}
+                />
+
+                <span className="ap-upload-title">
+                  {resume
+                    ? resume.name
+                    : "Click to upload your resume"}
+                </span>
+
+                <span className="ap-upload-info">
+                  PDF, DOC or DOCX — Maximum 5 MB
+                </span>
+
+                <input
+                  id="ap-resume"
+                  type="file"
+                  accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                  onChange={handleFileChange}
+                />
+              </label>
+
+              {fileError && (
+                <p className="ap-file-error">
+                  {fileError}
+                </p>
+              )}
+            </div>
+
+            <div className="ap-submit">
+              <button
+                type="submit"
+                className="ap-submit-btn"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? (
+                  <>
+                    <span className="ap-submit-spinner" />
+                    Submitting...
+                  </>
+                ) : (
+                  <>
+                    Submit Application
+                    <Send
+                      size={17}
+                      strokeWidth={2}
+                    />
+                  </>
+                )}
+              </button>
+            </div>
+
+          </form>
+
         </div>
       </section>
+
     </main>
   );
 }

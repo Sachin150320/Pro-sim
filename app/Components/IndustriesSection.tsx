@@ -8,7 +8,7 @@ const industries = [
   {
     title: "Nuclear Energy",
     type: " NUCLEAR ENERGY",
-    href: "/nuclear-energy",
+    href: "/nuclear-power",
     image: "/assets/images/industries/ind-nuclear.jpg",
 
   },
@@ -16,7 +16,7 @@ const industries = [
   {
     title: "Thermal Energy",
     type: "THERMAL ENERGY",
-    href: "/thermal-energy",
+    href: "/thermal-power",
     image: "/assets/images/industries/ind-thermal.jpg",
 
   },
@@ -32,7 +32,7 @@ const industries = [
   {
     title: "Petrochemicals & Process Industries",
     type: "Petrochemicals & PROCESS INDUSTRIES",
-    href: "/petrochemicals",
+    href: "/oil-gas",
     image: "/assets/images/industries/ind-petrochemicals.jpg",
 
   },
@@ -48,7 +48,7 @@ const industries = [
   {
     title: "DEFENCE",
     type: "DEFENCE & AEROSPACE",
-    href: "/power-utilities",
+    href: "/defence-systems",
     image: "/assets/images/industries/ind-power-utilities.jpg",
 
   },
@@ -167,11 +167,13 @@ export default function IndustriesSection() {
                 delay={index * 100}
               >
 
-                <div className="industry-card">
+                <Link
+                  href={item.href}
+                  className="industry-card"
+                  style={{ cursor: "pointer" }}
+                >
 
-                  {/* Background Image */}
                   <div className="card-bg-image">
-
                     <Image
                       src={item.image}
                       alt={item.title}
@@ -182,7 +184,6 @@ export default function IndustriesSection() {
                     />
 
                     <div className="card-gradient-overlay" />
-
                   </div>
 
                   {/* Angled Frame */}
@@ -206,22 +207,15 @@ export default function IndustriesSection() {
                       </span>
 
                       <span className="sub-link">
-                        <Link
-                          href={item.href}
-                          className="sub-link"
-                          onClick={(e) => e.stopPropagation()}
-                        >
-                          View engineering scope
-                          <span className="scope-arrow">→</span>
-                        </Link>
-
+                        View engineering scope
+                        <span className="scope-arrow">→</span>
                       </span>
 
                     </div>
 
                   </div>
 
-                </div>
+                </Link>
 
               </ScrollAnimation>
             ))}

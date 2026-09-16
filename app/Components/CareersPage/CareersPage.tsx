@@ -1,6 +1,8 @@
+
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import Breadcrumbs from "@/app/Components/Breadcrumbs/Breadcrumbs";
 import ScrollAnimation from "@/app/Components/ScrollAnimation";
 import {
@@ -48,6 +50,7 @@ export const jobs: Job[] = [
       "Strong analytical and communication skills.",
     ],
   },
+
   {
     title: "Structural Engineer (STAAD.Pro & Tekla)",
     location: "Bengaluru",
@@ -67,6 +70,7 @@ export const jobs: Job[] = [
       "Knowledge of RC and structural steel design.",
     ],
   },
+
   {
     title: "Structural Engineer (SACS)",
     location: "Bengaluru",
@@ -86,6 +90,7 @@ export const jobs: Job[] = [
       "Proficiency in Bentley SACS.",
     ],
   },
+
   {
     title: "Revit Structural Engineer",
     location: "Bengaluru",
@@ -105,6 +110,7 @@ export const jobs: Job[] = [
       "Knowledge of IS Codes.",
     ],
   },
+
   {
     title: "Plant Piping Engineer (AVEVA E3D)",
     location: "Bengaluru",
@@ -124,6 +130,7 @@ export const jobs: Job[] = [
       "Familiarity with ASME piping codes.",
     ],
   },
+
   {
     title: "Sr. Electrical Engineer",
     location: "Mumbai",
@@ -143,6 +150,7 @@ export const jobs: Job[] = [
       "Mumbai-based candidates preferred.",
     ],
   },
+
   {
     title: "S3D Electrical Designer / Engineer",
     location: "Mumbai",
@@ -182,20 +190,21 @@ const culture = [
   },
 ];
 
-const applyHref = (role: string) => `/apply?role=${encodeURIComponent(role)}`;
-
 export default function CareersPage() {
   const [openJob, setOpenJob] = useState<number | null>(0);
 
   return (
     <main className="seismic-page">
+
       {/* HERO */}
       <section className="sa-hero">
+
         <div className="sa-hero-crumbs">
           <Breadcrumbs />
         </div>
 
         <div className="sa-hero-inner">
+
           <ScrollAnimation className="sa-hero-text">
 
             <h1>
@@ -203,149 +212,371 @@ export default function CareersPage() {
             </h1>
 
             <p>
-              At ProSIM, we believe that solving complex engineering challenges requires exceptional talent, technical expertise, and continuous innovation. For over two decades, we have been delivering world-class engineering, design, simulation, and digital engineering solutions across Oil & Gas, Water Technology, Petrochemical, Power, Infrastructure, and other industrial sectors.
-            </p>
-            <p>Whether you're an experienced professional or an engineer looking to take the next step in your career, ProSIM offers opportunities to work on challenging global projects alongside highly skilled engineering professionals. Join us and become part of a collaborative, technology-driven organization committed to engineering excellence
+              At ProSIM, we believe that solving complex engineering
+              challenges requires exceptional talent, technical expertise,
+              and continuous innovation. For over two decades, we have been
+              delivering world-class engineering, design, simulation, and
+              digital engineering solutions across Oil & Gas, Water
+              Technology, Petrochemical, Power, Infrastructure, and other
+              industrial sectors.
             </p>
 
+            <p>
+              Whether you're an experienced professional or an engineer
+              looking to take the next step in your career, ProSIM offers
+              opportunities to work on challenging global projects alongside
+              highly skilled engineering professionals. Join us and become
+              part of a collaborative, technology-driven organization
+              committed to engineering excellence.
+            </p>
 
           </ScrollAnimation>
 
-          <ScrollAnimation className="sa-hero-media" delay={120}>
+
+          <ScrollAnimation
+            className="sa-hero-media"
+            delay={120}
+          >
+
             <figure className="sa-hero-media-main">
-              <img src={`${IMG}/2.webp`} alt="Engineering careers at ProSIM" loading="eager" />
-              <figcaption>Join ProSIM</figcaption>
+
+              <img
+                src={`${IMG}/2.webp`}
+                alt="Engineering careers at ProSIM"
+                loading="eager"
+              />
+
+              <figcaption>
+                Join ProSIM
+              </figcaption>
+
             </figure>
+
+
             <figure className="sa-hero-media-inset">
-              <img src={`${IMG}/6.webp`} alt="ProSIM engineering team" loading="lazy" />
+
+              <img
+                src={`${IMG}/6.webp`}
+                alt="ProSIM engineering team"
+                loading="lazy"
+              />
+
             </figure>
+
           </ScrollAnimation>
+
         </div>
+
       </section>
 
+
       {/* CURRENT OPENINGS */}
-      <section className="sa-services" id="openings">
+      <section
+        className="sa-services"
+        id="openings"
+      >
+
         <div className="sa-container">
+
           <ScrollAnimation className="sa-intro">
-            <span className="sa-label">Current Openings</span>
-            <h2>Open Roles at ProSIM</h2>
+
+            <span className="sa-label">
+              Current Openings
+            </span>
+
+            <h2>
+              Open Roles at ProSIM
+            </h2>
+
             <p>
-              {jobs.length} positions across Bengaluru and Mumbai. Expand a role
-              to see the details and apply.
+              {jobs.length} positions across Bengaluru and Mumbai.
+              Expand a role to see the details and apply.
             </p>
+
           </ScrollAnimation>
 
+
           <ScrollAnimation className="cr-accordion">
+
             {jobs.map((job, i) => {
+
               const isOpen = openJob === i;
 
               return (
-                <div className={`cr-item ${isOpen ? "active" : ""}`} key={job.title}>
+                <div
+                  className={`cr-item ${
+                    isOpen ? "active" : ""
+                  }`}
+                  key={job.title}
+                >
+
+                  {/* JOB HEADER */}
                   <button
                     type="button"
                     className="cr-head"
-                    onClick={() => setOpenJob(isOpen ? null : i)}
+                    onClick={() =>
+                      setOpenJob(
+                        isOpen ? null : i
+                      )
+                    }
                     aria-expanded={isOpen}
                   >
+
                     <div className="cr-head-main">
-                      <h3>{job.title}</h3>
+
+                      <h3>
+                        {job.title}
+                      </h3>
+
+
                       <div className="cr-badges">
+
                         <span className="cr-badge cr-badge--loc">
-                          <MapPin size={13} strokeWidth={2} />
+
+                          <MapPin
+                            size={13}
+                            strokeWidth={2}
+                          />
+
                           {job.location}
+
                         </span>
+
+
                         <span className="cr-badge cr-badge--exp">
-                          <Clock size={13} strokeWidth={2} />
+
+                          <Clock
+                            size={13}
+                            strokeWidth={2}
+                          />
+
                           {job.exp}
+
                         </span>
+
+
                         <span className="cr-badge cr-badge--ind">
-                          <Factory size={13} strokeWidth={2} />
+
+                          <Factory
+                            size={13}
+                            strokeWidth={2}
+                          />
+
                           {job.industry}
+
                         </span>
+
                       </div>
+
                     </div>
+
+
                     <span className="cr-toggle">
+
                       {isOpen ? (
-                        <Minus size={18} strokeWidth={2} />
+                        <Minus
+                          size={18}
+                          strokeWidth={2}
+                        />
                       ) : (
-                        <Plus size={18} strokeWidth={2} />
+                        <Plus
+                          size={18}
+                          strokeWidth={2}
+                        />
                       )}
+
                     </span>
+
                   </button>
 
-                  <div className={`cr-body ${isOpen ? "show" : ""}`}>
+
+                  {/* JOB DETAILS */}
+                  <div
+                    className={`cr-body ${
+                      isOpen ? "show" : ""
+                    }`}
+                  >
+
                     <div className="cr-body-inner">
+
                       <div className="cr-cols">
+
+                        {/* RESPONSIBILITIES */}
                         <div>
-                          <h4>Key Responsibilities</h4>
+
+                          <h4>
+                            Key Responsibilities
+                          </h4>
+
                           <ul>
-                            {job.responsibilities.map((r) => (
-                              <li key={r}>{r}</li>
-                            ))}
+
+                            {job.responsibilities.map(
+                              (responsibility) => (
+                                <li
+                                  key={responsibility}
+                                >
+                                  {responsibility}
+                                </li>
+                              )
+                            )}
+
                           </ul>
+
                         </div>
+
+
+                        {/* REQUIREMENTS */}
                         <div>
-                          <h4>Requirements</h4>
+
+                          <h4>
+                            Requirements
+                          </h4>
+
                           <ul>
-                            {job.requirements.map((r) => (
-                              <li key={r}>{r}</li>
-                            ))}
+
+                            {job.requirements.map(
+                              (requirement) => (
+                                <li
+                                  key={requirement}
+                                >
+                                  {requirement}
+                                </li>
+                              )
+                            )}
+
                           </ul>
+
                         </div>
+
                       </div>
 
-                      <a className="cr-apply" href="/apply">
-                        Apply for this Position
-                        <ArrowRight size={16} strokeWidth={2} />
-                      </a>
+
+                      {/* APPLY BUTTON */}
+                      <Link
+                        href="/apply"
+                        className="cr-apply"
+                      >
+
+                        Open Application Form
+
+                        <ArrowRight
+                          size={17}
+                          strokeWidth={1.9}
+                        />
+
+                      </Link>
+
                     </div>
+
                   </div>
+
                 </div>
               );
+
             })}
+
           </ScrollAnimation>
+
         </div>
+
       </section>
 
+
       {/* CULTURE */}
-      <section className="sa-ssc" id="culture">
+      <section
+        className="sa-ssc"
+        id="culture"
+      >
+
         <div className="sa-container">
+
           <ScrollAnimation>
-            <span className="sa-label">Life at ProSIM</span>
-            <h2>Career Growth &amp; Collaborative Culture</h2>
+
+            <span className="sa-label">
+              Life at ProSIM
+            </span>
+
+            <h2>
+              Career Growth &amp; Collaborative Culture
+            </h2>
+
           </ScrollAnimation>
 
+
           <ScrollAnimation className="cr-culture">
+
             {culture.map((c) => {
+
               const Icon = c.icon;
 
               return (
-                <div className="cr-culture-card" key={c.title}>
+                <div
+                  className="cr-culture-card"
+                  key={c.title}
+                >
+
                   <span>
-                    <Icon size={22} strokeWidth={1.7} />
+
+                    <Icon
+                      size={22}
+                      strokeWidth={1.7}
+                    />
+
                   </span>
-                  <h3>{c.title}</h3>
-                  <p>{c.body}</p>
+
+                  <h3>
+                    {c.title}
+                  </h3>
+
+                  <p>
+                    {c.body}
+                  </p>
+
                 </div>
               );
+
             })}
+
           </ScrollAnimation>
 
+
+          {/* BOTTOM APPLY CTA */}
           <ScrollAnimation className="cr-cta">
+
             <div>
-              <h3>Apply Now</h3>
+
+              <h3>
+                Apply Now
+              </h3>
+
               <p>
-                Fill in the application form with your details and CV — our HR
-                team will get back to you.
+                Fill in the application form with your details
+                and CV — our HR team will get back to you.
               </p>
+
             </div>
-            <a href="/apply" className="cr-cta-btn">
+
+
+            <Link
+              href="/apply"
+              className="cr-cta-btn"
+            >
+
               Open Application Form
-              <ArrowRight size={17} strokeWidth={1.9} />
-            </a>
+
+              <ArrowRight
+                size={17}
+                strokeWidth={1.9}
+              />
+
+            </Link>
+
           </ScrollAnimation>
+
         </div>
+
       </section>
+
     </main>
   );
 }

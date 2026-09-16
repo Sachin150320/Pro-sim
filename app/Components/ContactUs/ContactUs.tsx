@@ -159,12 +159,12 @@ export default function ContactUs() {
       --------------------------------------------------- */
 
       const response = await fetch(
-        "https://pro-sim.com/demo1/send-enquiry.php",
-        {
-          method: "POST",
-          body: data,
-        }
-      );
+    "https://pro-sim.com/send-enquiry.php",
+    {
+        method: "POST",
+        body: data,
+    }
+);
 
       /* ---------------------------------------------------
          CHECK RESPONSE

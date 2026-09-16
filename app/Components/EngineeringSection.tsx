@@ -1,5 +1,5 @@
 "use client";
-
+import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 import {
     Box,
@@ -22,7 +22,7 @@ const engineeringServices = [
         description:
             "Comprehensive engineering solutions developed with accuracy, practicality and project-specific requirements in mind.",
         icon: Box,
-        href: "/Detailed-Engineering-services",
+        href: "/detailed-engineering-services",
     },
     {
         number: "02",
@@ -30,7 +30,7 @@ const engineeringServices = [
         description:
             "Engineering analysis and qualification solutions for systems and components subjected to seismic loading.",
         icon: Activity,
-        href: "/Seismic-analysis-and-qualification",
+        href: "/seismic-analysis-and-qualification",
     },
     {
         number: "03",
@@ -38,7 +38,7 @@ const engineeringServices = [
         description:
             "Complete piping and pipeline engineering solutions focused on safety, reliability, constructability and performance.",
         icon: Network,
-        href: "/Piping-&-pipeline-engineering-services",
+        href: "/piping-and-pipeline-engineering-services",
     },
     {
         number: "04",
@@ -46,7 +46,7 @@ const engineeringServices = [
         description:
             "Detailed 3D plant modelling for improved visualization, coordination, clash detection and engineering accuracy.",
         icon: Layers,
-        href: "/Three-D-plant-modelling-services",
+        href: "/three-d-plant-modelling-services",
     },
     {
         number: "05",
@@ -62,7 +62,7 @@ const engineeringServices = [
         description:
             "Simulation-driven engineering using CFD and multiphysics methods to understand complex operating conditions.",
         icon: Workflow,
-        href: "/Computational-fluid-dynamics-services",
+        href: "/computational-fluid-dynamics-services",
     },
     {
         number: "07",
@@ -78,7 +78,7 @@ const engineeringServices = [
         description:
             "Digital engineering and automation solutions that improve engineering workflows, monitoring and asset performance.",
         icon: Settings2,
-        href: "/Engineering-Automation-&-Digital-Twin",
+        href: "/engineering-automation-and-digital-twin",
     },
     {
         number: "09",
@@ -86,7 +86,7 @@ const engineeringServices = [
         description:
             "Technical support, engineering evaluation and owner’s engineering services for effective project planning and execution.",
         icon: ClipboardCheck,
-        href: "/Pre-Bid-&-Owners-Engineering",
+        href: "/pre-bid-and-owners-engineering",
     },
 ];
 
@@ -163,15 +163,15 @@ export default function EngineeringSection() {
 
                                     <div className="eng-card-body">
                                         <h3>
-                                            <a href={service.href}>
+                                            <Link href={service.href}>
                                                 {service.title}
-                                            </a>
+                                            </Link>
                                         </h3>
 
                                         <p>{service.description}</p>
                                     </div>
 
-                                    <a
+                                    <Link
                                         href={service.href}
                                         className="eng-card-action"
                                     >
@@ -180,7 +180,7 @@ export default function EngineeringSection() {
                                         <span className="eng-card-arrow">
                                             <ArrowUpRight size={17} />
                                         </span>
-                                    </a>
+                                    </Link>
 
                                     <span className="eng-card-bg-number">
                                         {service.number}

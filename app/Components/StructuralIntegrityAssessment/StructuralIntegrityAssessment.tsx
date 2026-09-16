@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Breadcrumbs from "@/app/Components/Breadcrumbs/Breadcrumbs";
 import { ShieldCheck, ClipboardCheck, Recycle, Cpu, Plus, Minus } from "lucide-react";
 import "./StructuralIntegrityAssessment.css";
-
+import Link from "next/link";
 const IMG = "/assets/images/industries/structural-integrity-assessments";
 
 type Point = { head?: string; body: string };
@@ -412,9 +412,9 @@ export default function StructuralIntegrityAssessment() {
                   <span className="sa-update-date">{item.date}</span>
                   <h3>{item.title}</h3>
                   <p>{item.description}</p>
-                  <a href="/projects" className="sa-update-link">
-                    Read More &rarr;
-                  </a>
+                 <Link href="/projects" className="sa-update-link">
+  Read More &rarr;
+</Link>
                 </div>
               </div>
             ))}
