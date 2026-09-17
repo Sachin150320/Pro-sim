@@ -48,6 +48,111 @@ export default function Footer() {
                             through detailed engineering and analysis.
                         </p>
 
+
+                        <div className="footer-column footer-contact">
+
+
+                            {/* PHONE */}
+                            <a
+                                href="tel:+918023477000"
+                                className="contact-item"
+                            >
+                                <div className="contact-icon">
+                                    <svg
+                                        width="19"
+                                        height="19"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        strokeWidth="1.6"
+                                    >
+                                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.8 19.8 0 0 1 3.08 5.18 2 2 0 0 1 5.06 3h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.62 2.63a2 2 0 0 1-.45 2.11L9 10.73a16 16 0 0 0 4.27 4.27l1.27-1.27a2 2 0 0 1 2.11-.45c.85.29 1.73.5 2.63.62A2 2 0 0 1 21 15.9l1 .02z" />
+                                    </svg>
+                                </div>
+
+                                <div>
+                                    <small>Call Us</small>
+                                    <strong>080 68160000</strong>
+                                </div>
+                            </a>
+
+                            {/* EMAIL */}
+                            <a
+                                href="mailto:info@prosim.co.in"
+                                className="contact-item"
+                            >
+                                <div className="contact-icon">
+                                    <svg
+                                        width="19"
+                                        height="19"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        strokeWidth="1.6"
+                                    >
+                                        <rect
+                                            x="3"
+                                            y="5"
+                                            width="18"
+                                            height="14"
+                                            rx="2"
+                                        />
+
+                                        <path d="M3 7l9 6 9-6" />
+                                    </svg>
+                                </div>
+
+                                <div>
+                                    <small> Email Us</small>
+                                    <strong>enquiry@pro-sim.com</strong>
+                                </div>
+                            </a>
+
+                            {/* ADDRESS */}
+                            <div className="contact-item">
+                                <div className="contact-icon">
+                                    <svg
+                                        width="19"
+                                        height="19"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        strokeWidth="1.6"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                    >
+                                        <path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0z" />
+                                        <circle cx="12" cy="10" r="2.5" />
+                                    </svg>
+                                </div>
+
+                                <div>
+                                    <small>Address</small>
+
+                                    <strong>  ProSIM R & D Pvt Ltd.
+                                    </strong>
+                                    <strong>   B-378/1, Ring Road,</strong><strong>  1st Stage, Peenya, Bangalore 560058.
+                                    </strong>
+                                    <a
+                                        href={mapUrl}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="hq-direction-btn"
+                                    >
+                                        <svg
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            strokeWidth="1.5"
+                                        >
+                                            <path d="M5 12h14M12 5l7 7-7 7" />
+                                        </svg>
+
+                                        Get Directions
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                         {/* SOCIAL MEDIA */}
                         <div className="footer-social">
                             <strong>Follow Us</strong>
@@ -72,149 +177,60 @@ export default function Footer() {
                                     </svg>
                                 </a>
 
-                                {/* Facebook */}
-                                {/* <a
-                                    href="https://www.facebook.com/"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    aria-label="Facebook"
-                                    className="social-icon"
-                                >
-                                    <svg
-                                        width="18"
-                                        height="18"
-                                        viewBox="0 0 24 24"
-                                        fill="currentColor"
-                                    >
-                                        <path d="M13.5 21v-8h2.75l.42-3h-3.17V8.08c0-.87.24-1.46 1.5-1.46h1.8V3.94c-.31-.04-1.38-.14-2.62-.14-2.59 0-4.36 1.58-4.36 4.49V10H7.9v3h2.72v8h2.88z" />
-                                    </svg>
-                                </a> */}
 
-                         
-                                {/* <a
-                                    href="https://www.instagram.com/"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    aria-label="Instagram"
-                                    className="social-icon"
-                                >
-                                    <svg
-                                        width="18"
-                                        height="18"
-                                        viewBox="0 0 24 24"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        strokeWidth="1.8"
-                                    >
-                                        <rect
-                                            x="3"
-                                            y="3"
-                                            width="18"
-                                            height="18"
-                                            rx="5"
-                                        />
-                                        <circle cx="12" cy="12" r="4" />
-                                        <circle
-                                            cx="17.5"
-                                            cy="6.5"
-                                            r="1"
-                                            fill="currentColor"
-                                            stroke="none"
-                                        />
-                                    </svg>
-                                </a>
 
-                            
-                                <a
-                                    href="https://www.youtube.com/"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    aria-label="YouTube"
-                                    className="social-icon"
-                                >
-                                    <svg
-                                        width="18"
-                                        height="18"
-                                        viewBox="0 0 24 24"
-                                        fill="currentColor"
-                                    >
-                                        <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.55 3.5 12 3.5 12 3.5s-7.55 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.85.6 9.4.6 9.4.6s7.55 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.9V8.1l6.5 3.9-6.5 3.9z" />
-                                    </svg>
-                                </a> */}
+
 
                             </div>
+
                         </div>
                     </div>
-
-                    {/* OFFERINGS */}
-                    <div className="footer-column">
-                        <h3>Offerings</h3>
-
+{/* QUICK CONNECT */}
+                    <div className="footer-column footer-contact">
+                        <h3>Quick Connect</h3>
                         <ul>
-                            <li>
-                                <Link href="/Detailed-Engineering-services">
-                                    <span className="footer-arrow">→</span>
-                                    Detailed Engineering
-                                </Link>
-                            </li>
+                          
 
                             <li>
-                                <Link href="/Seismic-analysis-and-qualification">
-                                    <span className="footer-arrow">→</span>
-                                    Seismic Analysis & Qualification
-                                </Link>
+                                <Link href="/">
+                                    <span className="footer-arrow">→</span>Home </Link>
+                            </li>
+                           
+                             <li>
+                                <Link href="/about-us">
+                                    <span className="footer-arrow">→</span>   About Us </Link>
+                            </li>
+                             <li>
+                                <Link href="/onsite-deputation">
+                                    <span className="footer-arrow">→</span> Onsite Deputation </Link>
+                            </li>
+                             <li>
+                                <Link href="/projects">
+                                    <span className="footer-arrow">→</span>Projects </Link>
+                            </li>
+                             <li>
+                                <Link href="/">
+                                    <span className="footer-arrow">→</span>Blogs</Link>
+                            </li>
+                            <li>
+                                <Link href="/">
+                                    <span className="footer-arrow">→</span>Events</Link>
+                            </li>
+                             <li>
+                                <Link href="/careers">
+                                    <span className="footer-arrow">→</span>Careers </Link>
+                            </li>
+                             <li>
+                                <Link href="/contact-us">
+                                    <span className="footer-arrow">→</span> Contact Us </Link>
                             </li>
 
-                            <li>
-                                <Link href="/Piping-&-pipeline-engineering-services">
-                                    <span className="footer-arrow">→</span>
-                                    Piping & Pipeline Engineering
-                                </Link>
-                            </li>
+                          
 
-                            <li>
-                                <Link href="/Three-D-plant-modelling-services">
-                                    <span className="footer-arrow">→</span>
-                                    3D Plant Modelling
-                                </Link>
-                            </li>
 
-                            <li>
-                                <Link href="/finite-element-analysis-services">
-                                    <span className="footer-arrow">→</span>
-                                    Finite Element Analysis (FEA)
-                                </Link>
-                            </li>
-
-                            <li>
-                                <Link href="/Computational-fluid-dynamics-services">
-                                    <span className="footer-arrow">→</span>
-                                    CFD & Multiphysics Simulations
-                                </Link>
-                            </li>
-
-                            <li>
-                                <Link href="/structural-integrity-assessments">
-                                    <span className="footer-arrow">→</span>
-                                    RLA/RLE & Fitness-for-Service (FFS)
-                                </Link>
-                            </li>
-
-                            <li>
-                                <Link href="/Engineering-Automation-&-Digital-Twin">
-                                    <span className="footer-arrow">→</span>
-                                    Engineering Automation & Digital Twin
-                                </Link>
-                            </li>
-
-                            <li>
-                                <Link href="/Pre-Bid-&-Owners-Engineering">
-                                    <span className="footer-arrow">→</span>
-                                    Pre-Bid & Owner&apos;s Engineering
-                                </Link>
-                            </li>
                         </ul>
                     </div>
+                    
 
                     {/* INDUSTRIES */}
                     <div className="footer-column">
@@ -236,7 +252,7 @@ export default function Footer() {
                             </li>
 
                             <li>
-                                <Link href="/oil-gas-and-offshore">
+                                <Link href="/oil-gas">
                                     <span className="footer-arrow">→</span>
                                     Oil & Gas
                                 </Link>
@@ -255,7 +271,7 @@ export default function Footer() {
                                     Industrial & Heavy Engineering
                                 </Link>
                             </li>
-{/* 
+                            {/* 
                             <li>
                                 <Link href="/renewable-green-energy">
                                     <span className="footer-arrow">→</span>
@@ -264,112 +280,76 @@ export default function Footer() {
                             </li> */}
                         </ul>
                     </div>
+{/* OFFERINGS */}
+                    <div className="footer-column">
+                        <h3>Offerings</h3>
 
-                    {/* QUICK CONNECT */}
-                    <div className="footer-column footer-contact">
-                        <h3>Quick Connect</h3>
+                        <ul>
+                            <li>
+                                <Link href="/detailed-engineering-services">
+                                    <span className="footer-arrow">→</span>
+                                    Detailed Engineering
+                                </Link>
+                            </li>
 
-                        {/* PHONE */}
-                        <a
-                            href="tel:+918023477000"
-                            className="contact-item"
-                        >
-                            <div className="contact-icon">
-                                <svg
-                                    width="19"
-                                    height="19"
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    strokeWidth="1.6"
-                                >
-                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.8 19.8 0 0 1 3.08 5.18 2 2 0 0 1 5.06 3h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.62 2.63a2 2 0 0 1-.45 2.11L9 10.73a16 16 0 0 0 4.27 4.27l1.27-1.27a2 2 0 0 1 2.11-.45c.85.29 1.73.5 2.63.62A2 2 0 0 1 21 15.9l1 .02z" />
-                                </svg>
-                            </div>
+                            <li>
+                                <Link href="/seismic-analysis-and-qualification">
+                                    <span className="footer-arrow">→</span>
+                                    Seismic Analysis & Qualification
+                                </Link>
+                            </li>
 
-                            <div>
-                                <small>Call Us</small>
-                                <strong>080 68160000</strong>
-                            </div>
-                        </a>
+                            <li>
+                                <Link href="/piping-and-pipeline-engineering-services">
+                                    <span className="footer-arrow">→</span>
+                                    Piping & Pipeline Engineering
+                                </Link>
+                            </li>
 
-                        {/* EMAIL */}
-                        <a
-                            href="mailto:info@prosim.co.in"
-                            className="contact-item"
-                        >
-                            <div className="contact-icon">
-                                <svg
-                                    width="19"
-                                    height="19"
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    strokeWidth="1.6"
-                                >
-                                    <rect
-                                        x="3"
-                                        y="5"
-                                        width="18"
-                                        height="14"
-                                        rx="2"
-                                    />
+                            <li>
+                                <Link href="/three-d-plant-modelling-services">
+                                    <span className="footer-arrow">→</span>
+                                    3D Plant Modelling
+                                </Link>
+                            </li>
 
-                                    <path d="M3 7l9 6 9-6" />
-                                </svg>
-                            </div>
+                            <li>
+                                <Link href="/finite-element-analysis-services">
+                                    <span className="footer-arrow">→</span>
+                                    Finite Element Analysis (FEA)
+                                </Link>
+                            </li>
 
-                            <div>
-                                <small> Email Us</small>
-                                <strong>enquiry@pro-sim.com</strong>
-                            </div>
-                        </a>
+                            <li>
+                                <Link href="/computational-fluid-dynamics-services">
+                                    <span className="footer-arrow">→</span>
+                                    CFD & Multiphysics Simulations
+                                </Link>
+                            </li>
 
-                        {/* ADDRESS */}
-                        <div className="contact-item">
-                            <div className="contact-icon">
-                                <svg
-                                    width="19"
-                                    height="19"
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    strokeWidth="1.6"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                >
-                                    <path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0z" />
-                                    <circle cx="12" cy="10" r="2.5" />
-                                </svg>
-                            </div>
+                            <li>
+                                <Link href="/structural-integrity-assessments">
+                                    <span className="footer-arrow">→</span>
+                                    RLA/RLE & Fitness-for-Service (FFS)
+                                </Link>
+                            </li>
 
-                            <div>
-                                <small>Address</small>
+                            <li>
+                                <Link href="/engineering-automation-and-digital-twin">
+                                    <span className="footer-arrow">→</span>
+                                    Engineering Automation & Digital Twin
+                                </Link>
+                            </li>
 
-                                <strong>  ProSIM R & D Pvt Ltd.
-                                </strong>
-<strong>   B-378/1, Ring Road,</strong><strong>  1st Stage, Peenya, Bangalore 560058.
-                                </strong>
-                                <a
-                                    href={mapUrl}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="hq-direction-btn"
-                                >
-                                    <svg
-                                        viewBox="0 0 24 24"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        strokeWidth="1.5"
-                                    >
-                                        <path d="M5 12h14M12 5l7 7-7 7" />
-                                    </svg>
-
-                                    Get Directions
-                                </a>
-                            </div>
-                        </div>
+                            <li>
+                                <Link href="/pre-bid-and-owners-engineering">
+                                    <span className="footer-arrow">→</span>
+                                    Pre-Bid & Owner&apos;s Engineering
+                                </Link>
+                            </li>
+                        </ul>
                     </div>
+                    
                 </div>
             </div>
 

@@ -1,13 +1,22 @@
 "use client";
 
-import React, { FormEvent, useMemo, useState } from "react";
+import React, {
+  FormEvent,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
+
 import CrumbBanner from "@/app/Components/CrumbBanner/CrumbBanner";
+
 import {
   UploadCloud,
   CheckCircle2,
   Send,
 } from "lucide-react";
+
 import { jobs } from "@/app/Components/CareersPage/CareersPage";
+
 import "./ApplyPage.css";
 
 type FormState = {
@@ -44,28 +53,62 @@ const ALLOWED_EXTENSIONS = [
   ".docx",
 ];
 
-const ALLOWED_FILE_TYPES = [
-  "application/pdf",
-  "application/msword",
-  "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-];
-
 export default function ApplyPage() {
   const positions = useMemo(
     () => jobs.map((job) => job.title),
     []
   );
 
-  const [form, setForm] = useState<FormState>(emptyForm);
-  const [resume, setResume] = useState<File | null>(null);
-  const [fileError, setFileError] = useState("");
-  const [submitError, setSubmitError] = useState("");
-  const [successMessage, setSuccessMessage] = useState("");
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [form, setForm] =
+    useState<FormState>(emptyForm);
+
+  const [resume, setResume] =
+    useState<File | null>(null);
+
+  const [fileError, setFileError] =
+    useState("");
+
+  const [submitError, setSubmitError] =
+    useState("");
+
+  const [successMessage, setSuccessMessage] =
+    useState("");
+
+  const [isSubmitting, setIsSubmitting] =
+    useState(false);
+
+  /* =========================
+     GET POSITION FROM URL
+  ========================= */
+
+  useEffect(() => {
+    const params = new URLSearchParams(
+      window.location.search
+    );
+
+    const position =
+      params.get("position") || "";
+
+    if (
+      position &&
+      positions.includes(position.trim())
+    ) {
+      setForm((current) => ({
+        ...current,
+        position: position.trim(),
+      }));
+    }
+  }, [positions]);
+
+  /* =========================
+     INPUT CHANGE
+  ========================= */
 
   const handleChange = (
     event: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+      HTMLInputElement |
+      HTMLTextAreaElement |
+      HTMLSelectElement
     >
   ) => {
     const { name, value } = event.target;
@@ -76,20 +119,23 @@ export default function ApplyPage() {
     }));
 
     setSubmitError("");
+    setSuccessMessage("");
   };
 
+  /* =========================
+     FILE VALIDATION
+  ========================= */
+
   const validateFile = (file: File) => {
-    const fileName = file.name.toLowerCase();
+    const fileName =
+      file.name.toLowerCase();
 
-    const validExtension = ALLOWED_EXTENSIONS.some(
-      (extension) => fileName.endsWith(extension)
-    );
+    const validExtension =
+      ALLOWED_EXTENSIONS.some((extension) =>
+        fileName.endsWith(extension)
+      );
 
-    const validMime =
-      !file.type ||
-      ALLOWED_FILE_TYPES.includes(file.type);
-
-    if (!validExtension || !validMime) {
+    if (!validExtension) {
       return "Please upload a PDF, DOC, or DOCX file.";
     }
 
@@ -100,10 +146,15 @@ export default function ApplyPage() {
     return "";
   };
 
+  /* =========================
+     FILE CHANGE
+  ========================= */
+
   const handleFileChange = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
-    const file = event.target.files?.[0];
+    const file =
+      event.target.files?.[0];
 
     setFileError("");
 
@@ -112,7 +163,8 @@ export default function ApplyPage() {
       return;
     }
 
-    const error = validateFile(file);
+    const error =
+      validateFile(file);
 
     if (error) {
       setResume(null);
@@ -123,7 +175,12 @@ export default function ApplyPage() {
 
     setResume(file);
     setSubmitError("");
+    setSuccessMessage("");
   };
+
+  /* =========================
+     SUBMIT
+  ========================= */
 
   const handleSubmit = async (
     event: FormEvent<HTMLFormElement>
@@ -133,61 +190,120 @@ export default function ApplyPage() {
     setSubmitError("");
     setSuccessMessage("");
 
+    /* Required fields */
+
     if (!form.name.trim()) {
-      setSubmitError("Please enter your name.");
+      setSubmitError(
+        "Please enter your name."
+      );
       return;
     }
 
     if (!form.email.trim()) {
-      setSubmitError("Please enter your email address.");
+      setSubmitError(
+        "Please enter your email address."
+      );
       return;
     }
 
     if (!form.phone.trim()) {
-      setSubmitError("Please enter your phone number.");
+      setSubmitError(
+        "Please enter your phone number."
+      );
       return;
     }
 
     if (!form.position) {
-      setSubmitError("Please select a position.");
+      setSubmitError(
+        "Please select a position."
+      );
       return;
     }
 
     if (!form.experience.trim()) {
-      setSubmitError("Please enter your experience.");
+      setSubmitError(
+        "Please enter your experience."
+      );
       return;
     }
 
     if (!form.location) {
-      setSubmitError("Please select your preferred location.");
+      setSubmitError(
+        "Please select your preferred location."
+      );
       return;
     }
 
     if (!resume) {
-      setSubmitError("Please upload your resume.");
+      setSubmitError(
+        "Please upload your resume."
+      );
       return;
     }
 
-    const fileErrorMessage = validateFile(resume);
+    /* Check resume */
 
-    if (fileErrorMessage) {
-      setSubmitError(fileErrorMessage);
+    const error =
+      validateFile(resume);
+
+    if (error) {
+      setSubmitError(error);
       return;
     }
 
     try {
       setIsSubmitting(true);
 
+      /* =========================
+         FORM DATA
+      ========================= */
+
       const data = new FormData();
 
-      data.append("name", form.name.trim());
-      data.append("email", form.email.trim());
-      data.append("phone", form.phone.trim());
-      data.append("position", form.position);
-      data.append("experience", form.experience.trim());
-      data.append("location", form.location);
-      data.append("intro", form.intro.trim());
-      data.append("resume", resume);
+      data.append(
+        "name",
+        form.name.trim()
+      );
+
+      data.append(
+        "email",
+        form.email.trim()
+      );
+
+      data.append(
+        "phone",
+        form.phone.trim()
+      );
+
+      data.append(
+        "position",
+        form.position
+      );
+
+      data.append(
+        "experience",
+        form.experience.trim()
+      );
+
+      data.append(
+        "location",
+        form.location
+      );
+
+      data.append(
+        "intro",
+        form.intro.trim()
+      );
+
+      data.append(
+        "resume",
+        resume,
+        resume.name
+      );
+
+      /* =========================
+         SEND TO PHP
+      ========================= */
 
       const response = await fetch(
         "https://pro-sim.com/demo1/send-career.php",
@@ -197,45 +313,36 @@ export default function ApplyPage() {
         }
       );
 
-      const responseText = await response.text();
+      const result =
+        await response.json();
 
-      let result: {
-        success?: boolean;
-        message?: string;
-      };
+      /* =========================
+         RESULT
+      ========================= */
 
-      try {
-        result = JSON.parse(responseText);
-      } catch {
-        console.error(
-          "Invalid PHP response:",
-          responseText
-        );
-
-        throw new Error(
-          "The server returned an invalid response. Please try again later."
-        );
-      }
-
-      if (!response.ok || !result.success) {
+      if (!result.success) {
         throw new Error(
           result.message ||
-            "Unable to submit your application. Please try again."
+            "Unable to submit application."
         );
       }
 
+      /* =========================
+         SUCCESS
+      ========================= */
+
       setSuccessMessage(
-        result.message ||
-          "Your application has been submitted successfully."
+        "Application submitted successfully."
       );
 
       setForm(emptyForm);
       setResume(null);
       setFileError("");
 
-      const fileInput = document.getElementById(
-        "ap-resume"
-      ) as HTMLInputElement | null;
+      const fileInput =
+        document.getElementById(
+          "ap-resume"
+        ) as HTMLInputElement | null;
 
       if (fileInput) {
         fileInput.value = "";
@@ -245,16 +352,17 @@ export default function ApplyPage() {
         top: 0,
         behavior: "smooth",
       });
+
     } catch (error) {
       console.error(
-        "Application submission error:",
+        "Application error:",
         error
       );
 
       setSubmitError(
         error instanceof Error
           ? error.message
-          : "Something went wrong while submitting your application."
+          : "Unable to submit application."
       );
     } finally {
       setIsSubmitting(false);
@@ -264,12 +372,22 @@ export default function ApplyPage() {
   return (
     <main className="ap-page">
 
+      {/* =========================
+          BANNER
+      ========================= */}
+
       <CrumbBanner title="Apply Now" />
 
       <section className="ap-section">
+
         <div className="ap-container">
 
+          {/* =========================
+              HEADER
+          ========================= */}
+
           <div className="ap-header">
+
             <span className="ap-label">
               CAREERS
             </span>
@@ -283,19 +401,25 @@ export default function ApplyPage() {
               career. Fill in the application form below
               and upload your latest resume.
             </p>
+
           </div>
+
+          {/* =========================
+              SUCCESS
+          ========================= */}
 
           {successMessage && (
             <div
               className="ap-success"
               role="alert"
             >
+
               <CheckCircle2
                 size={24}
-                strokeWidth={2}
               />
 
               <div>
+
                 <strong>
                   Application Submitted
                 </strong>
@@ -303,15 +427,22 @@ export default function ApplyPage() {
                 <p>
                   {successMessage}
                 </p>
+
               </div>
+
             </div>
           )}
+
+          {/* =========================
+              ERROR
+          ========================= */}
 
           {submitError && (
             <div
               className="ap-error"
               role="alert"
             >
+
               <strong>
                 Unable to submit application
               </strong>
@@ -319,8 +450,13 @@ export default function ApplyPage() {
               <p>
                 {submitError}
               </p>
+
             </div>
           )}
+
+          {/* =========================
+              FORM
+          ========================= */}
 
           <form
             className="ap-form"
@@ -328,10 +464,16 @@ export default function ApplyPage() {
             noValidate
           >
 
-            {/* FIXED: changed ap-form-grid to ap-grid */}
+            {/* =========================
+                GRID
+            ========================= */}
+
             <div className="ap-grid">
 
+              {/* NAME */}
+
               <div className="ap-field">
+
                 <label htmlFor="ap-name">
                   Full Name <span>*</span>
                 </label>
@@ -346,9 +488,13 @@ export default function ApplyPage() {
                   autoComplete="name"
                   required
                 />
+
               </div>
 
+              {/* EMAIL */}
+
               <div className="ap-field">
+
                 <label htmlFor="ap-email">
                   Email Address <span>*</span>
                 </label>
@@ -363,9 +509,13 @@ export default function ApplyPage() {
                   autoComplete="email"
                   required
                 />
+
               </div>
 
+              {/* PHONE */}
+
               <div className="ap-field">
+
                 <label htmlFor="ap-phone">
                   Phone Number <span>*</span>
                 </label>
@@ -380,9 +530,13 @@ export default function ApplyPage() {
                   autoComplete="tel"
                   required
                 />
+
               </div>
 
+              {/* POSITION */}
+
               <div className="ap-field">
+
                 <label htmlFor="ap-position">
                   Position Applying For <span>*</span>
                 </label>
@@ -394,22 +548,30 @@ export default function ApplyPage() {
                   onChange={handleChange}
                   required
                 >
+
                   <option value="">
                     Select a position
                   </option>
 
-                  {positions.map((position) => (
-                    <option
-                      key={position}
-                      value={position}
-                    >
-                      {position}
-                    </option>
-                  ))}
+                  {positions.map(
+                    (position) => (
+                      <option
+                        key={position}
+                        value={position}
+                      >
+                        {position}
+                      </option>
+                    )
+                  )}
+
                 </select>
+
               </div>
 
+              {/* EXPERIENCE */}
+
               <div className="ap-field">
+
                 <label htmlFor="ap-experience">
                   Experience <span>*</span>
                 </label>
@@ -423,9 +585,13 @@ export default function ApplyPage() {
                   placeholder="e.g. 3 years"
                   required
                 />
+
               </div>
 
+              {/* LOCATION */}
+
               <div className="ap-field">
+
                 <label htmlFor="ap-location">
                   Preferred Location <span>*</span>
                 </label>
@@ -437,25 +603,34 @@ export default function ApplyPage() {
                   onChange={handleChange}
                   required
                 >
+
                   <option value="">
                     Select location
                   </option>
 
-                  {locations.map((location) => (
-                    <option
-                      key={location}
-                      value={location}
-                    >
-                      {location}
-                    </option>
-                  ))}
+                  {locations.map(
+                    (location) => (
+                      <option
+                        key={location}
+                        value={location}
+                      >
+                        {location}
+                      </option>
+                    )
+                  )}
+
                 </select>
+
               </div>
 
             </div>
 
-            {/* FIXED: changed ap-field-full to ap-field--full */}
+            {/* =========================
+                INTRO
+            ========================= */}
+
             <div className="ap-field ap-field--full">
+
               <label htmlFor="ap-intro">
                 Brief Introduction
               </label>
@@ -468,10 +643,15 @@ export default function ApplyPage() {
                 placeholder="Tell us briefly about yourself, your experience, or why you are interested in this position."
                 rows={6}
               />
+
             </div>
 
-            {/* FIXED: changed ap-field-full to ap-field--full */}
+            {/* =========================
+                RESUME
+            ========================= */}
+
             <div className="ap-field ap-field--full">
+
               <label htmlFor="ap-resume">
                 Resume / CV <span>*</span>
               </label>
@@ -482,15 +662,18 @@ export default function ApplyPage() {
                   resume ? "has-file" : ""
                 }`}
               >
+
                 <UploadCloud
                   size={30}
                   strokeWidth={1.7}
                 />
 
                 <span className="ap-upload-title">
+
                   {resume
                     ? resume.name
                     : "Click to upload your resume"}
+
                 </span>
 
                 <span className="ap-upload-info">
@@ -500,9 +683,10 @@ export default function ApplyPage() {
                 <input
                   id="ap-resume"
                   type="file"
-                  accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                  accept=".pdf,.doc,.docx"
                   onChange={handleFileChange}
                 />
+
               </label>
 
               {fileError && (
@@ -510,34 +694,38 @@ export default function ApplyPage() {
                   {fileError}
                 </p>
               )}
+
             </div>
 
+            {/* =========================
+                SUBMIT
+            ========================= */}
+
             <div className="ap-submit">
+
               <button
                 type="submit"
-                className="ap-submit-btn"
-                disabled={isSubmitting}
+                className="ap-submit"
+                
               >
-                {isSubmitting ? (
-                  <>
-                    <span className="ap-submit-spinner" />
-                    Submitting...
-                  </>
-                ) : (
-                  <>
+
+                
                     Submit Application
+
                     <Send
                       size={17}
-                      strokeWidth={2}
                     />
-                  </>
-                )}
+               
+                
+
               </button>
+
             </div>
 
           </form>
 
         </div>
+
       </section>
 
     </main>

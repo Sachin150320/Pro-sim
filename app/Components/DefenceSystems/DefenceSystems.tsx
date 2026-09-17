@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 import Breadcrumbs from "@/app/Components/Breadcrumbs/Breadcrumbs";
 import ScrollAnimation from "@/app/Components/ScrollAnimation";
 import {
@@ -16,7 +17,6 @@ import {
   Timer,
   Download,
   X,
-  CheckCircle2,
 } from "lucide-react";
 import "./DefenceSystems.css";
 
@@ -130,36 +130,8 @@ const domainIntro = [
 
 const domainGallery = [`${IMG}/9.jpg`, `${IMG}/10.jpg`, `${IMG}/11.jpg`];
 
-const emptyForm = { name: "", phone: "", email: "", company: "" };
-
 export default function DefenceSystems() {
-  const [modalOpen, setModalOpen] = useState(false);
-  const [form, setForm] = useState(emptyForm);
-  const [submitted, setSubmitted] = useState(false);
   const [activeDomain, setActiveDomain] = useState<number | null>(null);
-
-  const openForm = () => {
-    setForm(emptyForm);
-    setSubmitted(false);
-    setModalOpen(true);
-  };
-  const closeForm = () => setModalOpen(false);
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-
-    const body = [
-      `Name: ${form.name}`,
-      `Phone: ${form.phone}`,
-      `Email: ${form.email}`,
-      `Company: ${form.company}`,
-    ].join("\n");
-
-    window.location.href = `mailto:enquiry@pro-sim.com?subject=${encodeURIComponent(
-      "Defence Engineering Enquiry"
-    )}&body=${encodeURIComponent(body)}`;
-
-    setSubmitted(true);
-  };
 
   return (
     <main className="seismic-page">
@@ -183,10 +155,10 @@ export default function DefenceSystems() {
               design decisions.
             </p>
 
-            <button type="button" className="dfn-hero-btn" onClick={openForm}>
+            <Link href="/contact-us" className="dfn-hero-btn">
               <Download size={16} strokeWidth={1.8} />
               Discuss a Defence Project
-            </button>
+            </Link>
           </ScrollAnimation>
 
           <ScrollAnimation className="sa-hero-media" delay={120}>
@@ -374,10 +346,10 @@ export default function DefenceSystems() {
                 modelling approach and engineering deliverables.
               </p>
             </div>
-            <button type="button" className="dfn-cta-btn" onClick={openForm}>
+            <Link href="/contact-us" className="dfn-cta-btn">
               <Download size={17} strokeWidth={1.8} />
               Start a Defence Discussion
-            </button>
+            </Link>
           </ScrollAnimation>
         </div>
       </section> */}
@@ -420,110 +392,10 @@ export default function DefenceSystems() {
               </p>
             ))}
 
-            <button
-              type="button"
-              className="nk-modal-submit"
-              onClick={() => {
-                setActiveDomain(null);
-                openForm();
-              }}
-            >
+            <Link href="/contact-us" className="nk-modal-submit">
               <Download size={16} strokeWidth={1.8} />
-             Send Enquiry
-            </button>
-          </div>
-        </div>
-      )}
-
-      {/* ENQUIRY MODAL */}
-      {modalOpen && (
-        <div
-          className="nk-modal-overlay"
-          role="dialog"
-          aria-modal="true"
-          aria-label="Start a defence engineering discussion"
-          onClick={closeForm}
-        >
-          <div className="nk-modal" onClick={(e) => e.stopPropagation()}>
-            <button
-              type="button"
-              className="nk-modal-close"
-              aria-label="Close"
-              onClick={closeForm}
-            >
-              <X size={20} strokeWidth={1.8} />
-            </button>
-
-            {submitted ? (
-              <div className="nk-modal-done">
-                <CheckCircle2 size={44} strokeWidth={1.6} />
-                <h3>Thank you</h3>
-                <p>
-                  Your enquiry has been received. Our defence engineering team
-                  will get back to you shortly — you can also reach us at
-                  enquiry@pro-sim.com.
-                </p>
-                <button type="button" className="nk-modal-submit" onClick={closeForm}>
-                  Close
-                </button>
-              </div>
-            ) : (
-              <>
-                <span className="sa-label">Defence Engineering Enquiry</span>
-                <h3>Bring us the difficult engineering problem</h3>
-                <p className="nk-modal-sub">
-                  Share your details and a short note on the system, component or
-                  qualification challenge — we&rsquo;ll take it from there.
-                </p>
-
-                <form className="nk-form" onSubmit={handleSubmit}>
-                  <label>
-                    <span>Name</span>
-                    <input
-                      type="text"
-                      required
-                      value={form.name}
-                      onChange={(e) => setForm({ ...form, name: e.target.value })}
-                    />
-                  </label>
-
-                  <label>
-                    <span>Phone Number</span>
-                    <input
-                      type="tel"
-                      required
-                      value={form.phone}
-                      onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                    />
-                  </label>
-
-                  <label>
-                    <span>Email Address</span>
-                    <input
-                      type="email"
-                      required
-                      value={form.email}
-                      onChange={(e) => setForm({ ...form, email: e.target.value })}
-                    />
-                  </label>
-
-                  <label>
-                    <span>Company / Organisation</span>
-                    <input
-                      type="text"
-                      required
-                      value={form.company}
-                      onChange={(e) => setForm({ ...form, company: e.target.value })}
-                    />
-                  </label>
-
-                  <button type="submit" className="nk-modal-submit">
-                    <Download size={16} strokeWidth={1.8} />
-                    Send Enquiry
-                  </button>
-                </form>
-              </>
-            )}
+              Send Enquiry
+            </Link>
           </div>
         </div>
       )}

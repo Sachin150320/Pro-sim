@@ -4,7 +4,7 @@ import "./globals.css";
 import Header from "@/app/Components/Header/Header";
 import Footer from "@/app/Components/Footer/Footer";
 
-
+import Script from "next/script";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -50,6 +50,22 @@ export default function RootLayout({
 
         {children}
 
+
+  {/* Google Analytics */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=UA-153697714-1"
+          strategy="afterInteractive"
+        />
+
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){window.dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-153697714-1');
+          `}
+        </Script>
         <Footer />
       </body>
     </html>

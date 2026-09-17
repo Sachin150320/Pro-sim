@@ -6,6 +6,8 @@ import ScrollAnimation from "@/app/Components/ScrollAnimation";
 import "./AboutUs.css";
 import { ArrowUpRight, CheckCircle2, Eye, Target } from "lucide-react";
 
+
+
 const visionMission = [
     {
         icon: Eye,
@@ -21,24 +23,24 @@ const visionMission = [
 
 
 const services = [
-   
- "Computer Aided Engineering (CAE) outsourcing /offshoring Services for Finite element analysis (FEA) outsourcing / offshoring services",
- "Pipeline modeling and pipe stress Analysis outsourcing / offshoring services (including support and embedded parts design and analysis)",
- "Structural Integrity Analysis and assessment including",
- "Seismic evaluation services using FEA",
- "We do this for nuclear and non-nuclear applications for variety of structures, systems, and components (SSCs)",
- "Remaining Life Assessment / Extension (RLA/RLE) services",
- "Fitness for Service (FFS) services as per API-579",
- "Provide re-use/ repair/ reuse / retire judgements for asset usage",
+
+    "Computer Aided Engineering (CAE) outsourcing /offshoring Services for Finite element analysis (FEA) outsourcing / offshoring services",
+    "Pipeline modeling and pipe stress Analysis outsourcing / offshoring services (including support and embedded parts design and analysis)",
+    "Structural Integrity Analysis and assessment including",
+    "Seismic evaluation services using FEA",
+    "We do this for nuclear and non-nuclear applications for variety of structures, systems, and components (SSCs)",
+    "Remaining Life Assessment / Extension (RLA/RLE) services",
+    "Fitness for Service (FFS) services as per API-579",
+    "Provide re-use/ repair/ reuse / retire judgements for asset usage",
 ];
 
 const engagementModels = [
 
 
-"   Outsourced / off-shored projects",
-"Provide onsite consulting.",
-"Creating cross-functional and collaborative R&D teams between customer and ProSIM teams to accomplish specific design / development objective",
-"Create off-shore engineering development centers",
+    "   Outsourced / off-shored projects",
+    "Provide onsite consulting.",
+    "Creating cross-functional and collaborative R&D teams between customer and ProSIM teams to accomplish specific design / development objective",
+    "Create off-shore engineering development centers",
 ];
 
 export default function AboutSection() {
@@ -51,7 +53,7 @@ export default function AboutSection() {
                 title="About ProSIM"
                 subtitle="ProSIM R&D delivers simulation-driven engineering — FEA, CFD, pipe stress and structural integrity assessment — for nuclear and non-nuclear industries worldwide."
                 image="/assets/images/about/1.jpeg"
-               
+
                 imageCaption="ProSIM R&D"
             />
 
@@ -169,10 +171,10 @@ export default function AboutSection() {
                             </span>
 
                             <h3>
-                               We work out flexible business engagement models to suit our customer needs.
+                                We work out flexible business engagement models to suit our customer needs.
                             </h3>
 
-                          
+
 
                             <div className="about-engagement-list">
 
@@ -239,7 +241,7 @@ export default function AboutSection() {
                     </div>
 
 
-                    
+
 
                 </div>
             </section>
