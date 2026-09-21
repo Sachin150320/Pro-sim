@@ -96,7 +96,7 @@ export const menuItems: MenuItem[] = [
     href: "#",
     children: [
       { name: "News", href: "/" },
-      { name: "Events", href: "/" },
+      { name: "Events", href: "/events" },
       { name: "Blogs", href: "https://www.pro-sim.com/blog/" },
       
     ],

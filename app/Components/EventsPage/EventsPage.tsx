@@ -143,14 +143,14 @@ export default function EventsPage() {
                     )}
 
                     {/* DIRECT PDF DOWNLOAD */}
-                    <button
+                    {/* <button
                       type="button"
                       className="ev-dl"
                       onClick={downloadPDF}
                     >
                       <Download size={16} strokeWidth={1.8} />
                       Download PDF
-                    </button>
+                    </button> */}
                   </div>
                 </article>
               </ScrollAnimation>
