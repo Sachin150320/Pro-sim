@@ -38,7 +38,7 @@ export default function RootLayout({
       lang="en"
       className={`${dmSans.variable} ${geistSans.variable} ${geistMono.variable}`}
     >
- <head>
+      <head>
         <link
           rel="icon"
           href="/assets/images/favicon/favicon.webp"
@@ -48,11 +48,13 @@ export default function RootLayout({
 
       <body>
         <Header />
- <ImagePriority />
+        <ImagePriority />
+
+       
         {children}
 
 
-  {/* Google Analytics */}
+        {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=UA-153697714-1"
           strategy="afterInteractive"
