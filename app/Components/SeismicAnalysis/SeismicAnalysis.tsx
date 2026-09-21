@@ -389,7 +389,9 @@ export default function SeismicAnalysis() {
               <img
                 src="/assets/images/industries/detail-indutsries-1.png"
                 alt="Nuclear piping — seismic analysis and qualification"
-                loading="eager"
+                  loading="eager"
+      fetchPriority="high"
+      decoding="async"
               />
               <figcaption>Seismic Qualification</figcaption>
             </figure>
@@ -397,7 +399,9 @@ export default function SeismicAnalysis() {
               <img
                 src="/assets/images/Offerings/Seismic-Analysis-&-Qualification/Seismic Analysis & Qualification 1.png"
                 alt="FEA seismic model detail"
-                loading="lazy"
+                  loading="eager"
+      fetchPriority="high"
+      decoding="async"
               />
             </figure>
           </div>
@@ -464,7 +468,7 @@ export default function SeismicAnalysis() {
                     <div className="sa-gallery-card">
                       <img
                         src="/assets/images/Offerings/Seismic-Analysis-&-Qualification/Seismic Analysis, Evaluation & Qualification.png"
-                        alt="Seismic FEA analysis"
+                        alt="Seismic FEA analysis"  fetchPriority="high"
                       />
                     </div>
                     
@@ -476,7 +480,7 @@ export default function SeismicAnalysis() {
                     <div className="sa-gallery-card">
                       <img
                         src="/assets/images/Offerings/Seismic-Analysis-&-Qualification/Piping Engineering.png"
-                        alt="Piping engineering"
+                        alt="Piping engineering"  fetchPriority="high"
                       />
                     </div>
                     
@@ -587,7 +591,7 @@ export default function SeismicAnalysis() {
                 <img
                   src="/assets\images/industries/seismic-analysis-and-qualification/seismic.png"
                   alt="Nuclear power infrastructure"
-                  loading="lazy"
+                   fetchPriority="high"
                 />
               </figure>
             </div>
@@ -606,7 +610,7 @@ export default function SeismicAnalysis() {
               <div className="sa-update-card" key={item.title}>
                 <div className="sa-update-image">
                   <span className="sa-update-tag">{item.tag}</span>
-                  <img src={item.image} alt={item.title} />
+                  <img src={item.image} alt={item.title}  fetchPriority="high" />
                 </div>
                 <div className="sa-update-content">
                   <span className="sa-update-date">{item.date}</span>
@@ -692,7 +696,7 @@ export default function SeismicAnalysis() {
                 aria-hidden={index >= blogPosts.length}
               >
                 <div className="sa-blog-image">
-                  <img src={post.image} alt={post.title} loading="lazy" />
+                  <img src={post.image} alt={post.title}  fetchPriority="high" />
                 </div>
                 <div className="sa-blog-body">
                   <h3>{post.title}</h3>

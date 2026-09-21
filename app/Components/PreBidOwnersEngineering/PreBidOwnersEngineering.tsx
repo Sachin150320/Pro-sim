@@ -236,7 +236,9 @@ export default function PreBidOwnersEngineering() {
               <img
                 src={`/assets/images/Offerings/PreBid/prebid (1).png`}
                 alt="Owner's engineering — independent technical oversight"
-                loading="eager"
+                 loading="eager"
+      fetchPriority="high"
+      decoding="async"
               />
               <figcaption>Owner&rsquo;s Engineering</figcaption>
             </figure>
@@ -244,7 +246,9 @@ export default function PreBidOwnersEngineering() {
               <img
                 src={`/assets/images/Offerings/PreBid/prebid (2).png`}
                 alt="Advisory and design review detail"
-                loading="lazy"
+                 loading="eager"
+      fetchPriority="high"
+      decoding="async"
               />
             </figure>
           </div>

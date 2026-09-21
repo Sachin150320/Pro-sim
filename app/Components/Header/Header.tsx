@@ -89,7 +89,19 @@ export const menuItems: MenuItem[] = [
   { name: "Onsite Deputation", href: "/onsite-deputation" },
   { name: "Projects", href: "/projects" },
   { name: "Careers", href: "/careers" },
-  { name: "Contact Us", href: "/contact-us" },
+ 
+
+ {
+    name: "News & Updates",
+    href: "#",
+    children: [
+      { name: "News", href: "/" },
+      { name: "Events", href: "/" },
+      { name: "Blogs", href: "https://www.pro-sim.com/blog/" },
+      
+    ],
+  },
+
 ];
 
 export default function Header() {
@@ -157,7 +169,7 @@ export default function Header() {
               <img
                 src={scrolled ? "/assets/images/logo/logo-dark.webp" : "/assets/images/logo/logo.webp"}
                 alt="ProSIM Logo"
-                className="logo-image"
+                className="logo-image" fetchPriority="high"
               />
             </Link>
           </div>

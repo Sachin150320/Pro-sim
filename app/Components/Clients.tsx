@@ -99,6 +99,7 @@ export default function Clients() {
                   width={130}
                   height={50}
                   style={{ objectFit: "contain", width: "100%", height: "100%" }}
+                   fetchPriority="high"
                 />
               </div>
             </div>
@@ -113,6 +114,7 @@ export default function Clients() {
                   width={130}
                   height={50}
                   style={{ objectFit: "contain", width: "100%", height: "100%" }}
+                   fetchPriority="high"
                 />
               </div>
             </div>

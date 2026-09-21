@@ -357,7 +357,9 @@ export default function PipingPipelineEngineering() {
               <img
                 src="/assets/images/Offerings/Piping-&-Pipeline-Engineering-Services/Piping & Pipeline Engineering Services 1.png"
                 alt="Piping and pipeline engineering — 3D plant model"
-                loading="eager"
+                 loading="eager"
+      fetchPriority="high"
+      decoding="async"
               />
               <figcaption>Piping Engineering</figcaption>
             </figure>
@@ -365,7 +367,9 @@ export default function PipingPipelineEngineering() {
               <img
                 src="/assets/images/Offerings/Piping-&-Pipeline-Engineering-Services/Piping & Pipeline Engineering Services 2.png"
                 alt="Pipe stress analysis detail"
-                loading="lazy"
+                 loading="eager"
+      fetchPriority="high"
+      decoding="async"
               />
             </figure>
           </div>
@@ -436,7 +440,7 @@ export default function PipingPipelineEngineering() {
                   >
                     {service.images.map((image) => (
                       <div className="sa-gallery-card" key={image.src}>
-                        <img src={image.src} alt={image.alt} />
+                        <img src={image.src} alt={image.alt}  fetchPriority="high" />
                       </div>
                     ))}
                   </div>
@@ -484,7 +488,7 @@ export default function PipingPipelineEngineering() {
               <div className="sa-update-card" key={item.title}>
                 <div className="sa-update-image">
                   <span className="sa-update-tag">{item.tag}</span>
-                  <img src={item.image} alt={item.title} />
+                  <img src={item.image} alt={item.title}   fetchPriority="high"/>
                 </div>
                 <div className="sa-update-content">
                   <span className="sa-update-date">{item.date}</span>
@@ -579,7 +583,7 @@ export default function PipingPipelineEngineering() {
                 aria-hidden={index >= blogPosts.length}
               >
                 <div className="sa-blog-image">
-                  <img src={post.image} alt={post.title} loading="lazy" />
+                  <img src={post.image} alt={post.title}  fetchPriority="high" />
                 </div>
                 <div className="sa-blog-body">
                   <h3>{post.title}</h3>

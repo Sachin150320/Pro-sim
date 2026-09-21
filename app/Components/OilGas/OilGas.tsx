@@ -216,7 +216,7 @@ export default function OilGasOffshore() {
               <img
                 src={`${IMG}/4.jpeg`}
                 alt="Oil & gas processing facility"
-                loading="eager"
+                fetchPriority="high"
               />
               <figcaption>Oil &amp; Gas · Offshore</figcaption>
             </figure>
@@ -224,7 +224,7 @@ export default function OilGasOffshore() {
               <img
                 src={`${IMG}/5.webp`}
                 alt="Offshore platform engineering"
-                loading="lazy"
+                 fetchPriority="high"
               />
             </figure>
           </ScrollAnimation>
@@ -283,7 +283,7 @@ export default function OilGasOffshore() {
               <img
                 src={`${IMG}/5.webp`}
                 alt="Oil & gas engineering — piping, structures and asset integrity"
-                loading="lazy"
+                 fetchPriority="high"
               />
             </div>
 
@@ -355,7 +355,7 @@ export default function OilGasOffshore() {
               <ScrollAnimation key={a.title} delay={i * 90}>
                 <article className="og-app-card">
                   <div className="og-app-img">
-                    <img src={a.image} alt={a.title} loading="lazy" />
+                    <img src={a.image} alt={a.title}  fetchPriority="high" />
                   </div>
                   <div className="og-app-body">
                     <h3>{a.title}</h3>

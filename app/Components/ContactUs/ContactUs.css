@@ -156,6 +156,7 @@
 }
 
 .sa-hero-text p {
+  text-align: justify;
   max-width: 520px;
   margin: 0 0 32px;
   color: rgba(255, 255, 255, 0.74);

@@ -36,7 +36,7 @@ export default function Footer() {
                             <img
                                 src="/assets/images/logo/logo-dark.webp"
                                 alt="ProSIM Logo"
-                                className="logo-image"
+                                className="logo-image" fetchPriority="high"
                             />
                         </Link>
 
@@ -153,6 +153,52 @@ export default function Footer() {
                                 </div>
                             </div>
                         </div>
+                        
+                    </div>
+{/* QUICK CONNECT */}
+                    <div className="footer-column footer-contact">
+                        <h3>Quick Connect</h3>
+                        <ul>
+                          
+
+                            <li>
+                                <Link href="/">
+                                    <span className="footer-arrow">→</span>Home </Link>
+                            </li>
+                           
+                             <li>
+                                <Link href="/about-us">
+                                    <span className="footer-arrow">→</span>   About Us </Link>
+                            </li>
+                             <li>
+                                <Link href="/onsite-deputation">
+                                    <span className="footer-arrow">→</span> Onsite Deputation </Link>
+                            </li>
+                             <li>
+                                <Link href="/projects">
+                                    <span className="footer-arrow">→</span>Projects </Link>
+                            </li>
+                             <li>
+                                <Link href="https://www.pro-sim.com/blog/">
+                                    <span className="footer-arrow">→</span>Blogs</Link>
+                            </li>
+                            <li>
+                                <Link href="/">
+                                    <span className="footer-arrow">→</span>Events</Link>
+                            </li>
+                             <li>
+                                <Link href="/careers">
+                                    <span className="footer-arrow">→</span>Careers </Link>
+                            </li>
+                             <li>
+                                <Link href="/contact-us">
+                                    <span className="footer-arrow">→</span> Contact Us </Link>
+                            </li>
+
+                          
+
+
+                        </ul>
                         {/* SOCIAL MEDIA */}
                         <div className="footer-social">
                             <strong>Follow Us</strong>
@@ -184,51 +230,6 @@ export default function Footer() {
                             </div>
 
                         </div>
-                    </div>
-{/* QUICK CONNECT */}
-                    <div className="footer-column footer-contact">
-                        <h3>Quick Connect</h3>
-                        <ul>
-                          
-
-                            <li>
-                                <Link href="/">
-                                    <span className="footer-arrow">→</span>Home </Link>
-                            </li>
-                           
-                             <li>
-                                <Link href="/about-us">
-                                    <span className="footer-arrow">→</span>   About Us </Link>
-                            </li>
-                             <li>
-                                <Link href="/onsite-deputation">
-                                    <span className="footer-arrow">→</span> Onsite Deputation </Link>
-                            </li>
-                             <li>
-                                <Link href="/projects">
-                                    <span className="footer-arrow">→</span>Projects </Link>
-                            </li>
-                             <li>
-                                <Link href="/">
-                                    <span className="footer-arrow">→</span>Blogs</Link>
-                            </li>
-                            <li>
-                                <Link href="/">
-                                    <span className="footer-arrow">→</span>Events</Link>
-                            </li>
-                             <li>
-                                <Link href="/careers">
-                                    <span className="footer-arrow">→</span>Careers </Link>
-                            </li>
-                             <li>
-                                <Link href="/contact-us">
-                                    <span className="footer-arrow">→</span> Contact Us </Link>
-                            </li>
-
-                          
-
-
-                        </ul>
                     </div>
                     
 

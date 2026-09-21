@@ -106,6 +106,7 @@ export default function IndustriesSection() {
                       sizes="(max-width: 767px) 100vw, (max-width: 1100px) 50vw, 33vw"
                       className="industry-image"
                       priority={index < 3}
+                       fetchPriority="high"
                     />
                     <div className="card-gradient-overlay" />
                   </div>

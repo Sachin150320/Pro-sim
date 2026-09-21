@@ -34,12 +34,12 @@ export default function CrumbBanner({
           {image && (
             <div className="crumb-banner-media">
               <figure className="crumb-banner-media-main">
-                <img src={image} alt={title || "ProSIM"} loading="eager" />
+                <img src={image} alt={title || "ProSIM"} fetchPriority="high" />
                 {imageCaption && <figcaption>{imageCaption}</figcaption>}
               </figure>
               {imageInset && (
                 <figure className="crumb-banner-media-inset">
-                  <img src={imageInset} alt="" loading="lazy" />
+                  <img src={imageInset} alt="" fetchPriority="high" />
                 </figure>
               )}
             </div>

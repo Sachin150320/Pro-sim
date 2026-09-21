@@ -278,7 +278,7 @@ export default function NuclearPower() {
               <img
                 src={`${IMG}/nuclear-1.jpg`}
                 alt="Nuclear power plant — engineering and seismic qualification"
-                loading="eager"
+                 fetchPriority="high"
               />
               <figcaption>Nuclear Power</figcaption>
             </figure>
@@ -286,7 +286,7 @@ export default function NuclearPower() {
               <img
                 src={`${IMG}/nuclear-2.jpg`}
                 alt="Nuclear systems, structures and components"
-                loading="lazy"
+                fetchPriority="high"
               />
             </figure>
           </div>
@@ -444,7 +444,7 @@ export default function NuclearPower() {
                 <img
                   src={`${IMG}/1.jpg`}
                   alt="Nuclear power infrastructure"
-                  loading="lazy"
+                   fetchPriority="high"
                 />
               </figure>
             </div>

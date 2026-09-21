@@ -302,7 +302,7 @@ function CaseCard({ project, delay }: { project: Project; delay: number }) {
 
         {/* full-width image */}
         <div className="pr-case-media">
-          <img src={project.image} alt={project.title} loading="lazy" />
+          <img src={project.image} alt={project.title} fetchPriority="high"  />
         </div>
 
         <div className="pr-case-body">
@@ -404,11 +404,11 @@ export default function ProjectsPage() {
 
           <div className="sa-hero-media">
             <figure className="sa-hero-media-main">
-              <img src={`${P}/1.webp`} alt="ProSIM engineering project" loading="eager" />
+              <img src={`${P}/1.webp`} alt="ProSIM engineering project"  fetchPriority="high" />
               <figcaption>Projects</figcaption>
             </figure>
             <figure className="sa-hero-media-inset">
-              <img src={`${P}/4.webp`} alt="Simulation and analysis" loading="lazy" />
+              <img src={`${P}/4.webp`} alt="Simulation and analysis"  fetchPriority="high" />
             </figure>
           </div>
         </div>

@@ -69,11 +69,11 @@ const galleryData: GalleryItem[] = [
   { id: 25, image: "/assets/images/Gallery/gallery-20.jpg", title: "ProSIM Gallery" },
  
 
-  { id: 7, image: "/assets/images/Gallery/gallery-02.jpg", title: "ProSIM Gallery" },
-  { id: 8, image: "/assets/images/Gallery/gallery-03.jpg", title: "ProSIM Gallery" },
+
+ 
   { id: 9, image: "/assets/images/Gallery/gallery-04.jpg", title: "ProSIM Gallery" },
   { id: 10, image: "/assets/images/Gallery/gallery-05.jpg", title: "ProSIM Gallery" },
-  { id: 11, image: "/assets/images/Gallery/gallery-06.jpg", title: "ProSIM Gallery" },
+
 
 
 ];
@@ -153,7 +153,7 @@ export default function Gallery() {
                   onClick={() => setSelectedImage(item)}
                 >
                   <div className="gl-story-media">
-                    <img src={item.image} alt={item.title} loading="lazy" />
+                    <img src={item.image} alt={item.title} fetchPriority="high" />
                     <span className="gl-story-index">
                       {String(index + 1).padStart(2, "0")}
                     </span>
@@ -200,7 +200,7 @@ export default function Gallery() {
                 onClick={() => setSelectedImage(item)}
                 aria-label={`View ${item.title}`}
               >
-                <img src={item.image} alt={item.title} loading="lazy" />
+                <img src={item.image} alt={item.title} fetchPriority="high" />
                 <span className="gl-photo-overlay" aria-hidden="true">
                   <span className="gl-view-btn">+</span>
                 </span>
@@ -235,7 +235,7 @@ export default function Gallery() {
               >
                 <img
                   src={imageList[activeImageIndex]}
-                  alt={`${selectedImage.title} ${activeImageIndex + 1}`}
+                  alt={`${selectedImage.title} ${activeImageIndex + 1}` } fetchPriority="high"
                 />
 
                 {imageList.length > 1 && (
@@ -250,7 +250,7 @@ export default function Gallery() {
                         onClick={() => setActiveImageIndex(idx)}
                         aria-label={`View image ${idx + 1}`}
                       >
-                        <img src={img} alt={`${selectedImage.title} thumbnail ${idx + 1}`} />
+                        <img src={img} alt={`${selectedImage.title} thumbnail ${idx + 1}`} fetchPriority="high" />
                       </button>
                     ))}
                   </div>

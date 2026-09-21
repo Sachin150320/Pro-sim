@@ -113,6 +113,7 @@ export default function Offerings() {
                   src={service.image}
                   alt={service.title}
                   loading={index < 4 ? "eager" : "lazy"}
+                   fetchPriority="high"
                 />
               </div>
 

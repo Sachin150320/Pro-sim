@@ -245,7 +245,7 @@ export default function HeavyEngineering() {
               <img
                 src={`${IMG}/ind-industrial.jpg`}
                 alt="Heavy engineering equipment and structures"
-                loading="eager"
+               fetchPriority="high"
               />
               <figcaption>Heavy Engineering</figcaption>
             </figure>
@@ -253,7 +253,7 @@ export default function HeavyEngineering() {
               <img
                 src={`${IMG}/detail-indutsries.jpg`}
                 alt="Industrial equipment and fabrication"
-                loading="lazy"
+                fetchPriority="high"
               />
             </figure>
           </ScrollAnimation>
@@ -311,7 +311,7 @@ export default function HeavyEngineering() {
               <ScrollAnimation key={q.title} delay={i * 90}>
                 <a href={q.href} className="nk-ql-card">
                   <div className="nk-ql-img">
-                    <img src={q.image} alt={q.title} loading="lazy" />
+                    <img src={q.image} alt={q.title} fetchPriority="high" />
                   </div>
                   <div className="nk-ql-cap">
                     <span>{q.title}</span>
@@ -362,7 +362,7 @@ export default function HeavyEngineering() {
                 <img
                   src="/assets/images/industries/heavy/1.jpg"
                   alt="Material handling equipment — cranes and hoists"
-                  loading="lazy"
+                 fetchPriority="high"
                 />
                 <figcaption className="sa-ind-badge">EOT &amp; Gantry Cranes</figcaption>
               </figure>
@@ -448,7 +448,7 @@ export default function HeavyEngineering() {
                 <img
                   src={`${IMG}/detail-engg-3.png`}
                   alt="FEA evaluation of crane and hoist structures"
-                  loading="lazy"
+                  fetchPriority="high"
                 />
                 <figcaption className="sa-ind-badge">FEA Evaluation</figcaption>
               </figure>

@@ -1,4 +1,5 @@
 "use client";
+
 import Link from "next/link";
 import React, { useState } from "react";
 import Breadcrumbs from "@/app/Components/Breadcrumbs/Breadcrumbs";
@@ -402,17 +403,21 @@ export default function DetailedEngineering() {
           <div className="sa-hero-media">
             <figure className="sa-hero-media-main">
               <img
-                src="/assets/images/Offerings/Detailed-Engineering/Detailed Engineering Service.png"
+                src="/assets/images/Offerings/Detailed-Engineering/Detailed-Engineering-Service.png"
                 alt="Detailed engineering — 3D plant model and process plant"
-                loading="eager"
+                 loading="eager"
+      fetchPriority="high"
+      decoding="async"
               />
               <figcaption>Detailed Engineering</figcaption>
             </figure>
             <figure className="sa-hero-media-inset">
               <img
-                src="/assets/images/Offerings/Detailed-Engineering/Detailed Engineering Service 1.png"
+                src="/assets/images/Offerings/Detailed-Engineering/Detailed-Engineering-Service-1.png"
                 alt="3D plant and piping model detail"
-                loading="lazy"
+                  loading="eager"
+      fetchPriority="high"
+      decoding="async"
               />
             </figure>
           </div>
@@ -525,8 +530,8 @@ export default function DetailedEngineering() {
                     <div className="sa-gallery-card">
                       <img
                         src="/assets/images/Offerings/Detailed-Engineering/Process engineering.png"
-                        alt="Process plant 3D model developed from PFD / P&amp;ID"
-                      />
+                        alt="Process plant 3D model developed from PFD / P&amp;ID" fetchPriority="high"
+                      /> 
                     </div>
                   </div>
                 )}
@@ -539,7 +544,7 @@ export default function DetailedEngineering() {
                     <div className="sa-gallery-card">
                       <img
                         src="/assets/images/Offerings/Detailed-Engineering/Mechanical design.png"
-                        alt="Process plant 3D model developed from PFD / P&amp;ID"
+                        alt="Process plant 3D model developed from PFD / P&amp;ID" fetchPriority="high"
                       />
                     </div>
                   </div>
@@ -549,7 +554,7 @@ export default function DetailedEngineering() {
                     <div className="sa-gallery-card">
                       <img
                         src="/assets/images/Offerings/Detailed-Engineering/Civil & Structural.png"
-                        alt="3D Plant Modelling"
+                        alt="3D Plant Modelling" fetchPriority="high"
                       />
                     </div>
 
@@ -562,7 +567,7 @@ export default function DetailedEngineering() {
                     <div className="sa-gallery-card">
                       <img
                         src="/assets/images/Offerings/Detailed-Engineering/Electrical, Instrumentation & Control (E&I) Engineering.png"
-                        alt="Electrical Instrumentation"
+                        alt="Electrical Instrumentation" fetchPriority="high"
                       />
                     </div>
                   </div>
@@ -611,8 +616,8 @@ export default function DetailedEngineering() {
               <figure className="sa-ind-photo">
                 <img
                   src="/assets/images/industries/detail-indutsries-2.png"
-                  alt="Oil &amp; gas processing facility at dusk"
-                  loading="lazy"
+                  alt="Oil &amp; gas processing facility at dusk" 
+                 fetchPriority="high"
                 />
               </figure>
             </div>
@@ -672,7 +677,7 @@ export default function DetailedEngineering() {
               <div className="sa-update-card" key={item.title}>
                 <div className="sa-update-image">
                   <span className="sa-update-tag">{item.tag}</span>
-                  <img src={item.image} alt={item.title} />
+                  <img src={item.image} alt={item.title} fetchPriority="high" />
                 </div>
                 <div className="sa-update-content">
                   <span className="sa-update-date">{item.date}</span>
@@ -773,7 +778,7 @@ export default function DetailedEngineering() {
                 aria-hidden={index >= blogPosts.length}
               >
                 <div className="sa-blog-image">
-                  <img src={post.image} alt={post.title} loading="lazy" />
+                  <img src={post.image} alt={post.title} fetchPriority="high" />
 
                 </div>
                 <div className="sa-blog-body">

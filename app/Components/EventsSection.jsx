@@ -96,7 +96,7 @@ export default function EventsSection() {
               <ScrollAnimation key={ev.id} delay={idx * 100}>
                 <div className="event-row-card">
                   <div className="event-row-image">
-                    <img src={ev.image} alt={ev.title} />
+                    <img src={ev.image} alt={ev.title}  fetchPriority="high" />
                     <span className="event-tag">{ev.category}</span>
                   </div>
                   <div className="event-row-content">

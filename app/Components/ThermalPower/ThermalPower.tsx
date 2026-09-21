@@ -193,7 +193,7 @@ export default function ThermalPower() {
               <img
                 src={`${IMG}/6.jpg`}
                 alt="Thermal power plant engineering and analysis"
-                loading="lazy"
+                 fetchPriority="high"
               />
             </ScrollAnimation>
           </div>
@@ -298,7 +298,7 @@ export default function ThermalPower() {
               <img
                 src={`${IMG}/7.jpg`}
                 alt="Asset integrity and remaining-life assessment of thermal power components"
-                loading="lazy"
+                 fetchPriority="high"
               />
             </ScrollAnimation>
 

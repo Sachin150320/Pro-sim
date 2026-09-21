@@ -52,13 +52,10 @@ export default function ContactSection() {
       data.append("serviceDiscipline", formData.serviceDiscipline);
       data.append("technicalScope", formData.technicalScope);
 
-      const response = await fetch(
-        "https://pro-sim.com/send-enquiry.php",
-        {
-          method: "POST",
-          body: data,
-        }
-      );
+      const response = await fetch("/send-enquiry.php", {
+        method: "POST",
+        body: data,
+      });
 
       const result = await response.json();
 
@@ -121,6 +118,7 @@ export default function ContactSection() {
                     src="/assets/images/industries/contact.jpg"
                     alt="ProSIM R&D Center"
                     className="hq-image"
+                    fetchPriority="high"
                   />
                 </div>
               </div>

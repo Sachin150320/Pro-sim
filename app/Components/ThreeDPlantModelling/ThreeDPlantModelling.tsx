@@ -305,7 +305,9 @@ export default function ThreeDPlantModelling() {
               <img
                 src="/assets/images/Offerings/three-D-Plant-Modelling-Services/three-dd-2.png"
                 alt="3D plant model — equipment and structural framework"
-                loading="eager"
+                   loading="eager"
+      fetchPriority="high"
+      decoding="async"
               />
               <figcaption>3D Plant Modelling</figcaption>
             </figure>
@@ -313,7 +315,9 @@ export default function ThreeDPlantModelling() {
               <img
                 src="/assets/images/Offerings/three-D-Plant-Modelling-Services/three-d-1.png"
                 alt="Spec-driven piping routing detail"
-                loading="lazy"
+                  loading="eager"
+      fetchPriority="high"
+      decoding="async"
               />
             </figure>
           </div>
@@ -384,7 +388,7 @@ export default function ThreeDPlantModelling() {
                   >
                     {service.images.map((image) => (
                       <div className="sa-gallery-card" key={image.src}>
-                        <img src={image.src} alt={image.alt} />
+                        <img src={image.src} alt={image.alt}   fetchPriority="high"/>
                       </div>
                     ))}
                   </div>
@@ -406,7 +410,7 @@ export default function ThreeDPlantModelling() {
               <div className="sa-update-card" key={item.title}>
                 <div className="sa-update-image">
                   <span className="sa-update-tag">{item.tag}</span>
-                  <img src={item.image} alt={item.title} />
+                  <img src={item.image} alt={item.title}  fetchPriority="high" />
                 </div>
                 <div className="sa-update-content">
                   <span className="sa-update-date">{item.date}</span>
@@ -501,7 +505,7 @@ export default function ThreeDPlantModelling() {
                 aria-hidden={index >= blogPosts.length}
               >
                 <div className="sa-blog-image">
-                  <img src={post.image} alt={post.title} loading="lazy" />
+                  <img src={post.image} alt={post.title}  fetchPriority="high" />
                 </div>
                 <div className="sa-blog-body">
                   <h3>{post.title}</h3>

@@ -243,7 +243,7 @@ export default function CareersPage() {
               <img
                 src={`${IMG}/2.webp`}
                 alt="Engineering careers at ProSIM"
-                loading="eager"
+                fetchPriority="high"
               />
 
               <figcaption>
@@ -258,7 +258,7 @@ export default function CareersPage() {
               <img
                 src={`${IMG}/6.webp`}
                 alt="ProSIM engineering team"
-                loading="lazy"
+             fetchPriority="high"
               />
 
             </figure>

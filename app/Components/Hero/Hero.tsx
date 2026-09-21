@@ -73,53 +73,53 @@ function Counter({
 export default function Hero() {
   return (
     <section className="hero-section">
-      <video autoPlay muted loop playsInline className="hero-video">
-        <source src="assets/images/sliders/banner-02.mp4" type="video/mp4" />
+      <video autoPlay muted loop playsInline preload="auto" className="hero-video">
+        <source src="/assets/images/sliders/banner-02.mp4" type="video/mp4" />
         Your browser does not support HTML5 video.
       </video>
 
-    
-    
-        <div className="hero-overlay" />
-<div className="hero-container">
-   <ScrollAnimation>
-        <div className="hero-content">
-          {/* <span className="hero-subtitle">
+
+
+      <div className="hero-overlay" />
+      <div className="hero-container">
+        <ScrollAnimation>
+          <div className="hero-content">
+            {/* <span className="hero-subtitle">
             PROSIM / DETAILED ENGINEERING & ANALYSIS
           </span> */}
 
-          <h1>
-            Engineering through
-            <br />
-            <span className="highlight">Delivery Excellence</span>
-          </h1>
+            <h1>
+              Engineering through
+              <br />
+              <span className="highlight">Delivery Excellence</span>
+            </h1>
 
-          <div className="title-underline" />
+            <div className="title-underline" />
 
-          <p className="hero-description">
-            Delivering innovative engineering solutions across energy sectors,
-            helping customers solve their most pressing challenges through
-            delivery excellence.
-          </p>
+            <p className="hero-description">
+              Delivering innovative engineering solutions across energy sectors,
+              helping customers solve their most pressing challenges through
+              delivery excellence.
+            </p>
 
-          <div className="hero-buttons">
-            {/* <Link href="/industries" className="btn-primary">
+            <div className="hero-buttons">
+              {/* <Link href="/industries" className="btn-primary">
               Explore Industries
               <span className="arrow">→</span>
             </Link> */}
 
-            {/* <Link href="#unveiling-prosim" className="btn-secondary">
+              {/* <Link href="#unveiling-prosim" className="btn-secondary">
               <span className="play-icon">▶</span>
               Unveiling ProSIM
             </Link> */}
-          </div>
+            </div>
 
-          {/* <div className="badge-pill">
+            {/* <div className="badge-pill">
             <span className="shield-icon">✦</span>
             Detailed engineering & analysis specialists
           </div> */}
-        </div>
- </ScrollAnimation>
+          </div>
+        </ScrollAnimation>
         <div className="stats-section">
           {stats.map((stat) => (
             <div className="stat-card" key={stat.text}>
@@ -129,8 +129,8 @@ export default function Hero() {
           ))}
         </div>
       </div>
-    
-      
+
+
     </section>
   );
 }

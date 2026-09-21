@@ -156,6 +156,7 @@
 }
 
 .sa-hero-text p {
+      text-align: justify;
   max-width: 520px;
   margin: 0 0 32px;
   color: rgba(255, 255, 255, 0.74);
@@ -329,7 +330,7 @@
   }
 
   .sa-hero-nav {
-    margin-top: 12px;
+    margin-top: 45px;
   }
 }
 
@@ -637,7 +638,7 @@ font-weight: 400;
 
 .sa-gallery {
  
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   gap: 20px;
   margin-top: 40px;
 }

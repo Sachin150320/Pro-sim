@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/app/Components/Header/Header";
 import Footer from "@/app/Components/Footer/Footer";
 
+import ImagePriority from "./Components/ImagePriority";
 import Script from "next/script";
 
 const dmSans = DM_Sans({
@@ -47,7 +48,7 @@ export default function RootLayout({
 
       <body>
         <Header />
-
+ <ImagePriority />
         {children}
 
 

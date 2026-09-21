@@ -114,6 +114,7 @@ export default function LatestEvents() {
           priority={event.id === 1 && !duplicate}
           className="le-event-image"
           sizes="(max-width: 768px) 290px, 350px"
+           fetchPriority="high"
         />
       </div>
 

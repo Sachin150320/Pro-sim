@@ -158,13 +158,10 @@ export default function ContactUs() {
          SEND TO PHP
       --------------------------------------------------- */
 
-      const response = await fetch(
-    "https://pro-sim.com/send-enquiry.php",
-    {
+      const response = await fetch("/send-enquiry.php", {
         method: "POST",
         body: data,
-    }
-);
+      });
 
       /* ---------------------------------------------------
          CHECK RESPONSE
@@ -285,7 +282,7 @@ export default function ContactUs() {
               <img
                 src={`${P}/6.webp`}
                 alt="Engineering collaboration"
-                loading="lazy"
+                fetchPriority="high"
               />
 
             </figure>

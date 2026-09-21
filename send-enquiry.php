@@ -1,9 +1,6 @@
 <?php
 
 header("Content-Type: application/json; charset=UTF-8");
-header("Access-Control-Allow-Origin: https://pro-sim.com");
-header("Access-Control-Allow-Methods: POST, OPTIONS");
-header("Access-Control-Allow-Headers: Content-Type");
 
 if ($_SERVER["REQUEST_METHOD"] === "OPTIONS") {
     http_response_code(200);
@@ -71,7 +68,7 @@ $cc = "emswebdesign22@gmail.com";
 $subject = "New Engineering Partner Enquiry - ProSIM";
 
 /* =========================
-   EMAIL MESSAGE
+   EMAIL BODY
 ========================= */
 
 $message = "
@@ -137,17 +134,14 @@ This enquiry was submitted from the ProSIM website.
 ";
 
 /* =========================
-   EMAIL HEADERS
+   HEADERS
 ========================= */
 
-$headers = "";
-
-$headers .= "MIME-Version: 1.0\r\n";
+$headers  = "MIME-Version: 1.0\r\n";
 $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
 $headers .= "From: ProSIM Website <enquiry@pro-sim.com>\r\n";
 $headers .= "Reply-To: " . $workEmail . "\r\n";
 $headers .= "Cc: " . $cc . "\r\n";
-$headers .= "X-Mailer: PHP/" . phpversion() . "\r\n";
 
 /* =========================
    SEND EMAIL
@@ -157,8 +151,7 @@ $mailSent = mail(
     $to,
     $subject,
     $message,
-    $headers,
-    "-fenquiry@pro-sim.com"
+    $headers
 );
 
 /* =========================
@@ -178,7 +171,7 @@ if ($mailSent) {
 
     echo json_encode([
         "success" => false,
-        "message" => "Unable to send email. Please check server mail configuration."
+        "message" => "Unable to send email. Server mail configuration may be disabled."
     ]);
 }
 

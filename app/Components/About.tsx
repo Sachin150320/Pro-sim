@@ -38,6 +38,7 @@ export default function EngineeringSection() {
                   alt="Industrial Plant Engineering"
                   fill
                   style={{ objectFit: "cover" }}
+                   fetchPriority="high"
                 />
               </div>
              

@@ -381,7 +381,9 @@ export default function FiniteElementAnalysis() {
               <img
                 src={`/assets/images/Offerings/Finite-Element-Analysis-Service/Finite-Element-Analysis-Services-(9).png`}
                 alt="Finite element analysis — stress and multi-physics results"
-                loading="eager"
+                  loading="eager"
+      fetchPriority="high"
+      decoding="async"
               />
               <figcaption>FEA &amp; CAE</figcaption>
             </figure>
@@ -389,7 +391,9 @@ export default function FiniteElementAnalysis() {
               <img
                 src={`/assets/images/Offerings/Finite-Element-Analysis-Service/Finite-Element-Analysis-Services (1).png`}
                 alt="Non-linear FEA model detail"
-                loading="lazy"
+                 loading="eager"
+      fetchPriority="high"
+      decoding="async"
               />
             </figure>
           </div>
@@ -460,7 +464,7 @@ export default function FiniteElementAnalysis() {
                   >
                     {service.images.map((image) => (
                       <div className="sa-gallery-card" key={image.src}>
-                        <img src={image.src} alt={image.alt} />
+                        <img src={image.src} alt={image.alt}  fetchPriority="high"/>
                       </div>
                     ))}
                   </div>
@@ -542,7 +546,7 @@ export default function FiniteElementAnalysis() {
                 <img
                   src={`/assets/images/Offerings/Finite-Element-Analysis-Service/Finite-Element-Analysis-Services-(7).png`}
                   alt="Multi-physics simulation result"
-                  loading="lazy"
+                  fetchPriority="high"
                 />
               </figure>
             </div>
@@ -561,7 +565,7 @@ export default function FiniteElementAnalysis() {
               <div className="sa-update-card" key={item.title}>
                 <div className="sa-update-image">
                   <span className="sa-update-tag">{item.tag}</span>
-                  <img src={item.image} alt={item.title} />
+                  <img src={item.image} alt={item.title}  fetchPriority="high"/>
                 </div>
                 <div className="sa-update-content">
                   <span className="sa-update-date">{item.date}</span>
@@ -649,7 +653,7 @@ export default function FiniteElementAnalysis() {
                 aria-hidden={index >= blogPosts.length}
               >
                 <div className="sa-blog-image">
-                  <img src={post.image} alt={post.title} loading="lazy" />
+                  <img src={post.image} alt={post.title} fetchPriority="high" />
                 </div>
                 <div className="sa-blog-body">
                   <h3>{post.title}</h3>

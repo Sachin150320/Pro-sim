@@ -324,7 +324,9 @@ export default function EngineeringAutomationDigitalTwin() {
               <img
                 src={`/assets/images/Offerings/Engineering-Automation-and-Digital-Twin/Engineering Automation and Digital Twin.png`}
                 alt="Digital twin — real-time virtual counterpart of industrial equipment"
-                loading="eager"
+                 loading="eager"
+      fetchPriority="high"
+      decoding="async"
               />
               <figcaption>Digital Twin</figcaption>
             </figure>
@@ -332,7 +334,9 @@ export default function EngineeringAutomationDigitalTwin() {
               <img
                 src={`/assets/images/Offerings/Engineering-Automation-and-Digital-Twin/AIML & IIOT.png`}
                 alt="Predictive AI and IIoT dashboard detail"
-                loading="lazy"
+                 loading="eager"
+      fetchPriority="high"
+      decoding="async"
               />
             </figure>
           </div>
@@ -397,7 +401,7 @@ export default function EngineeringAutomationDigitalTwin() {
 
                 <div className="sa-gallery single">
                   <div className="sa-gallery-card">
-                    <img src={service.image} alt={service.imageAlt} loading="lazy" />
+                    <img src={service.image} alt={service.imageAlt} fetchPriority="high" />
                   </div>
                 </div>
               </article>
@@ -443,7 +447,7 @@ export default function EngineeringAutomationDigitalTwin() {
               <div className="sa-update-card" key={item.title}>
                 <div className="sa-update-image">
                   <span className="sa-update-tag">{item.tag}</span>
-                  <img src={item.image} alt={item.title} />
+                  <img src={item.image} alt={item.title}  fetchPriority="high"/>
                 </div>
                 <div className="sa-update-content">
                   <span className="sa-update-date">{item.date}</span>
@@ -531,7 +535,7 @@ export default function EngineeringAutomationDigitalTwin() {
                 aria-hidden={index >= blogPosts.length}
               >
                 <div className="sa-blog-image">
-                  <img src={post.image} alt={post.title} loading="lazy" />
+                  <img src={post.image} alt={post.title} fetchPriority="high" />
                 </div>
                 <div className="sa-blog-body">
                   <h3>{post.title}</h3>

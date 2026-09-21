@@ -156,6 +156,7 @@
 }
 
 .sa-hero-text p {
+  text-align: justify;
   max-width: 520px;
   max-width: 837px;
   color: rgba(255, 255, 255, 0.74);
@@ -2387,7 +2388,7 @@ font-weight: 400;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 34px;
-  padding-top: 22px;
+  padding-top: 30px;
 }
 
 .cr-cols h4 {

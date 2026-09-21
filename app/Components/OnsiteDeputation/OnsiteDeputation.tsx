@@ -173,7 +173,7 @@ export default function OnsiteDeputation() {
               <img
                 src={`${IMG}/image_18.png`}
                 alt="Engineer travelling for an onsite deputation assignment"
-                loading="eager"
+                 fetchPriority="high"
               />
               <figcaption>Onsite Deputation</figcaption>
             </figure>
@@ -181,7 +181,7 @@ export default function OnsiteDeputation() {
               <img
                 src={`${IMG}/image_02.png`}
                 alt="Passport and travel documents for deployment"
-                loading="lazy"
+                 fetchPriority="high"
               />
             </figure>
           </div>
@@ -299,7 +299,7 @@ export default function OnsiteDeputation() {
               <img
                 src={`${IMG}/image_14.png`}
                 alt="Structured engineering deployment process"
-                loading="lazy"
+                 fetchPriority="high"
               />
             </ScrollAnimation>
           </div>
@@ -387,7 +387,7 @@ export default function OnsiteDeputation() {
               <img
                 src={`${IMG}/image_19.png`}
                 alt="Global engineering deployment network"
-                loading="lazy"
+                 fetchPriority="high"
               />
             </div>
           </ScrollAnimation>

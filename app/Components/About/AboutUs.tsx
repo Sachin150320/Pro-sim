@@ -53,7 +53,7 @@ export default function AboutSection() {
                 title="About ProSIM"
                 subtitle="ProSIM R&D delivers simulation-driven engineering — FEA, CFD, pipe stress and structural integrity assessment — for nuclear and non-nuclear industries worldwide."
                 image="/assets/images/about/1.jpeg"
-
+            
                 imageCaption="ProSIM R&D"
             />
 
@@ -68,7 +68,7 @@ export default function AboutSection() {
                         <div className="about-prosim-image">
                             <img
                                 src="/assets/images/about/1.jpeg"
-                                alt="ProSIM Engineering"
+                                alt="ProSIM Engineering" fetchPriority="high"
                             />
 
                             {/* <div className="about-image-badge">

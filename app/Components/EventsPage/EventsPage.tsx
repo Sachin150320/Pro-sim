@@ -1,12 +1,15 @@
+
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Breadcrumbs from "@/app/Components/Breadcrumbs/Breadcrumbs";
 import ScrollAnimation from "@/app/Components/ScrollAnimation";
-import { Download, X, CheckCircle2, CalendarDays, MapPin, Mail } from "lucide-react";
+import { Download, CalendarDays, MapPin, Mail } from "lucide-react";
 import "./EventsPage.css";
 
 const IMG = "/assets/images/Events";
+
+const PDF_FILE = `${IMG}/Nuclear-Power-Generation.pdf`;
 
 const cards = [
   {
@@ -29,39 +32,22 @@ const cards = [
     meta: [
       { icon: CalendarDays, text: "12–13 March 2026" },
       { icon: MapPin, text: "IIT Bombay" },
-      { icon: Mail, text: "30006517@iitb.ac.in · 30005686@iitb.ac.in" },
+      {
+        icon: Mail,
+        text: "30006517@iitb.ac.in · 30005686@iitb.ac.in",
+      },
     ],
   },
 ];
 
-const emptyForm = { name: "", phone: "", email: "", company: "" };
-
 export default function EventsPage() {
-  const [modalOpen, setModalOpen] = useState(false);
-  const [form, setForm] = useState(emptyForm);
-  const [submitted, setSubmitted] = useState(false);
-
-  const openForm = () => {
-    setForm(emptyForm);
-    setSubmitted(false);
-    setModalOpen(true);
-  };
-  const closeForm = () => setModalOpen(false);
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-
-    const body = [
-      `Name: ${form.name}`,
-      `Phone: ${form.phone}`,
-      `Email: ${form.email}`,
-      `Company: ${form.company}`,
-    ].join("\n");
-
-    window.location.href = `mailto:enquiry@pro-sim.com?subject=${encodeURIComponent(
-      "Nuclear Power Generation — Programme Download Request"
-    )}&body=${encodeURIComponent(body)}`;
-
-    setSubmitted(true);
+  const downloadPDF = () => {
+    const link = document.createElement("a");
+    link.href = PDF_FILE;
+    link.download = "#";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
@@ -74,9 +60,8 @@ export default function EventsPage() {
 
         <div className="sa-hero-inner">
           <ScrollAnimation className="sa-hero-text">
-           
             <h1>
-              <span>ProSIM &amp; IIT Bombay</span> — Nuclear Power Generation
+              <span>ProSIM &amp; IIT Bombay</span> Nuclear Power Generation
               Training.
             </h1>
 
@@ -90,11 +75,20 @@ export default function EventsPage() {
 
           <ScrollAnimation className="sa-hero-media" delay={120}>
             <figure className="sa-hero-media-main">
-              <img src={`${IMG}/4.jpeg`} alt="Nuclear power generation training" loading="eager" />
+              <img
+                src={`${IMG}/4.jpeg`}
+                alt="Nuclear power generation training"
+               fetchPriority="high"
+              />
               <figcaption>12–13 March 2026</figcaption>
             </figure>
+
             <figure className="sa-hero-media-inset">
-              <img src={`${IMG}/5.webp`} alt="IIT Bombay" loading="lazy" />
+              <img
+                src={`${IMG}/5.webp`}
+                alt="IIT Bombay"
+                fetchPriority="high"
+              />
             </figure>
           </ScrollAnimation>
         </div>
@@ -105,7 +99,9 @@ export default function EventsPage() {
         <div className="sa-container">
           <ScrollAnimation className="sa-intro">
             <span className="sa-label">Continuing Education</span>
+
             <h2>Nuclear Power Generation — Training Programme</h2>
+
             <p>
               ProSIM is committed to the cause of energy transition and the
               deployment of nuclear energy in India.
@@ -118,17 +114,24 @@ export default function EventsPage() {
                 <article className="ev-card">
                   <div className="ev-card-img">
                     <span className="ev-card-tag">{c.tag}</span>
-                    <img src={c.image} alt={c.title} loading="lazy" />
+
+                    <img
+                      src={c.image}
+                      alt={c.title}
+                      fetchPriority="high"
+                    />
                   </div>
 
                   <div className="ev-card-body">
                     <h3>{c.title}</h3>
+
                     <p>{c.body}</p>
 
                     {c.meta && (
                       <ul className="ev-meta">
                         {c.meta.map((m) => {
                           const Icon = m.icon;
+
                           return (
                             <li key={m.text}>
                               <Icon size={15} strokeWidth={1.9} />
@@ -139,9 +142,14 @@ export default function EventsPage() {
                       </ul>
                     )}
 
-                    <button type="button" className="ev-dl" onClick={openForm}>
+                    {/* DIRECT PDF DOWNLOAD */}
+                    <button
+                      type="button"
+                      className="ev-dl"
+                      onClick={downloadPDF}
+                    >
                       <Download size={16} strokeWidth={1.8} />
-                      Download
+                      Download PDF
                     </button>
                   </div>
                 </article>
@@ -150,98 +158,6 @@ export default function EventsPage() {
           </div>
         </div>
       </section>
-
-      {/* DOWNLOAD REQUEST MODAL */}
-      {modalOpen && (
-        <div
-          className="nk-modal-overlay"
-          role="dialog"
-          aria-modal="true"
-          aria-label="Request download"
-          onClick={closeForm}
-        >
-          <div className="nk-modal" onClick={(e) => e.stopPropagation()}>
-            <button
-              type="button"
-              className="nk-modal-close"
-              aria-label="Close"
-              onClick={closeForm}
-            >
-              <X size={20} strokeWidth={1.8} />
-            </button>
-
-            {submitted ? (
-              <div className="nk-modal-done">
-                <CheckCircle2 size={44} strokeWidth={1.6} />
-                <h3>Thank you</h3>
-                <p>
-                  Your request has been received. We will share the training
-                  programme details with you shortly.
-                </p>
-                <button type="button" className="nk-modal-submit" onClick={closeForm}>
-                  Close
-                </button>
-              </div>
-            ) : (
-              <>
-                <span className="sa-label">Request Download</span>
-                <h3>Nuclear Power Generation — Programme Details</h3>
-                <p className="nk-modal-sub">
-                  Please share your details and we&rsquo;ll send you the
-                  programme brochure.
-                </p>
-
-                <form className="nk-form" onSubmit={handleSubmit}>
-                  <label>
-                    <span>Name</span>
-                    <input
-                      type="text"
-                      required
-                      value={form.name}
-                      onChange={(e) => setForm({ ...form, name: e.target.value })}
-                    />
-                  </label>
-
-                  <label>
-                    <span>Phone Number</span>
-                    <input
-                      type="tel"
-                      required
-                      value={form.phone}
-                      onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                    />
-                  </label>
-
-                  <label>
-                    <span>Email Address</span>
-                    <input
-                      type="email"
-                      required
-                      value={form.email}
-                      onChange={(e) => setForm({ ...form, email: e.target.value })}
-                    />
-                  </label>
-
-                  <label>
-                    <span>Company / Organisation</span>
-                    <input
-                      type="text"
-                      required
-                      value={form.company}
-                      onChange={(e) => setForm({ ...form, company: e.target.value })}
-                    />
-                  </label>
-
-                  <button type="submit" className="nk-modal-submit">
-                    <Download size={16} strokeWidth={1.8} />
-                    Get Download
-                  </button>
-                </form>
-              </>
-            )}
-          </div>
-        </div>
-      )}
     </main>
   );
 }

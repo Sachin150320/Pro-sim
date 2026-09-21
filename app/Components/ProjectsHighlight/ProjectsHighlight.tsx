@@ -59,7 +59,7 @@ export default function ProjectsHighlight() {
               <article className="ph-card">
                 <div className="ph-card-img">
                   <span className="ph-card-tag">{p.tag}</span>
-                  <img src={p.image} alt={p.title} loading="lazy" />
+                  <img src={p.image} alt={p.title}  fetchPriority="high" />
                 </div>
                 <div className="ph-card-body">
                   <span className="ph-card-date">{p.date}</span>

@@ -305,13 +305,10 @@ export default function ApplyPage() {
          SEND TO PHP
       ========================= */
 
-      const response = await fetch(
-        "https://pro-sim.com/demo1/send-career.php",
-        {
-          method: "POST",
-          body: data,
-        }
-      );
+      const response = await fetch("/send-career.php", {
+        method: "POST",
+        body: data,
+      });
 
       const result =
         await response.json();
@@ -323,7 +320,7 @@ export default function ApplyPage() {
       if (!result.success) {
         throw new Error(
           result.message ||
-            "Unable to submit application."
+          "Unable to submit application."
         );
       }
 
@@ -658,9 +655,8 @@ export default function ApplyPage() {
 
               <label
                 htmlFor="ap-resume"
-                className={`ap-upload ${
-                  resume ? "has-file" : ""
-                }`}
+                className={`ap-upload ${resume ? "has-file" : ""
+                  }`}
               >
 
                 <UploadCloud
@@ -706,18 +702,11 @@ export default function ApplyPage() {
               <button
                 type="submit"
                 className="ap-submit"
-                
+                disabled={isSubmitting}
               >
+                {isSubmitting ? "Submitting..." : "Submit Application"}
 
-                
-                    Submit Application
-
-                    <Send
-                      size={17}
-                    />
-               
-                
-
+                {!isSubmitting && <Send size={17} />}
               </button>
 
             </div>

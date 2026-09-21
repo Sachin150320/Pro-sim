@@ -163,11 +163,11 @@ export default function DefenceSystems() {
 
           <ScrollAnimation className="sa-hero-media" delay={120}>
             <figure className="sa-hero-media-main">
-              <img src={`${IMG}/1.jpg`} alt="Defence systems R&D" loading="eager" />
+              <img src={`${IMG}/1.jpg`} alt="Defence systems R&D" fetchPriority="high" />
               <figcaption>Defence R&amp;D</figcaption>
             </figure>
             <figure className="sa-hero-media-inset">
-              <img src={`${IMG}/2.jpg`} alt="Simulation-driven design" loading="lazy" />
+              <img src={`${IMG}/2.jpg`} alt="Simulation-driven design" fetchPriority="high" />
             </figure>
           </ScrollAnimation>
         </div>
@@ -262,7 +262,7 @@ export default function DefenceSystems() {
                 onClick={() => setActiveDomain(i)}
               >
                 <span className="dfn-domain-img">
-                  <img src={d.image} alt={d.title} loading="lazy" />
+                  <img src={d.image} alt={d.title} fetchPriority="high" />
                 </span>
                 <span className="dfn-domain-cap">{d.title}</span>
               </button>
@@ -315,7 +315,7 @@ export default function DefenceSystems() {
                   <img
                     src={`${IMG}/${i + 1}.jpg`}
                     alt={p}
-                    loading="lazy"
+                   fetchPriority="high"
                   />
                 </div>
                 <div className="dfn-proj-body">

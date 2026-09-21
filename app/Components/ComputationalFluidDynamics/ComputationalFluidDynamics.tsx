@@ -359,7 +359,9 @@ export default function ComputationalFluidDynamics() {
               <img
                 src={`/assets/images/Offerings/CFD-Multi-Physics-Simulation-Service/CFD Multi-Physics Simulation Service 1.png`}
                 alt="Computational fluid dynamics simulation result"
-                loading="eager"
+                  loading="eager"
+      fetchPriority="high"
+      decoding="async"
               />
               <figcaption>CFD &amp; Multi-Physics</figcaption>
             </figure>
@@ -367,7 +369,9 @@ export default function ComputationalFluidDynamics() {
               <img
                 src={`/assets/images/Offerings/CFD-Multi-Physics-Simulation-Service/CFD Multi-Physics Simulation Service 2.png`}
                 alt="Multi-physics thermal-structural detail"
-                loading="lazy"
+                 loading="eager"
+      fetchPriority="high"
+      decoding="async"
               />
             </figure>
           </div>
@@ -437,7 +441,7 @@ export default function ComputationalFluidDynamics() {
                   >
                     {service.images.map((image) => (
                       <div className="sa-gallery-card" key={image.src}>
-                        <img src={image.src} alt={image.alt} />
+                        <img src={image.src} alt={image.alt} fetchPriority="high" />
                       </div>
                     ))}
                   </div>
@@ -513,7 +517,7 @@ export default function ComputationalFluidDynamics() {
                 <img
                   src={`/assets/images/Offerings/CFD-Multi-Physics-Simulation-Service/CFD-&-FSI-2.png`}
                   alt="Industrial fluid dynamics application"
-                  loading="lazy"
+                 fetchPriority="high"
                 />
               </figure>
             </div>
@@ -532,7 +536,7 @@ export default function ComputationalFluidDynamics() {
               <div className="sa-update-card" key={item.title}>
                 <div className="sa-update-image">
                   <span className="sa-update-tag">{item.tag}</span>
-                  <img src={item.image} alt={item.title} />
+                  <img src={item.image} alt={item.title}  fetchPriority="high"/>
                 </div>
                 <div className="sa-update-content">
                   <span className="sa-update-date">{item.date}</span>

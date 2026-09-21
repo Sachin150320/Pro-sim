@@ -262,7 +262,7 @@ export default function RenewableGreenEnergy() {
               <img
                 src={`${IMG}/2.webp`}
                 alt="Renewable and green energy engineering"
-                loading="eager"
+                 fetchPriority="high"
               />
               <figcaption>Renewable Energy</figcaption>
             </figure>
@@ -270,7 +270,7 @@ export default function RenewableGreenEnergy() {
               <img
                 src={`${IMG}/7.webp`}
                 alt="Simulation-driven engineering for green energy assets"
-                loading="lazy"
+                 fetchPriority="high"
               />
             </figure>
           </ScrollAnimation>
