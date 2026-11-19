@@ -1,0 +1,379 @@
+
+.nuclear-event-page {
+  --ne-primary: #c2002f;
+  --ne-navy: #07243f;
+  --ne-text: #233247;
+  --ne-muted: #68778a;
+  --ne-light: #f5f7fa;
+  --ne-border: #e4eaf0;
+
+  color: var(--ne-text);
+  overflow: hidden;
+}
+
+.nuclear-event-page *,
+.nuclear-event-page *::before,
+.nuclear-event-page *::after {
+  box-sizing: border-box;
+}
+
+.ne-container {
+  width: min(1240px, calc(100% - 48px));
+  margin-inline: auto;
+}
+
+/* BREADCRUMB AND HERO */
+
+.ne-hero {
+  position: relative;
+  padding: 25px 0 85px;
+  background:
+    radial-gradient(
+      circle at 90% 10%,
+      rgba(194, 0, 47, 0.09),
+      transparent 28%
+    ),
+    linear-gradient(135deg, #f8fafc, #edf2f8);
+}
+
+.ne-breadcrumbs {
+  margin-bottom: 55px;
+}
+
+.ne-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 65px;
+}
+
+.ne-hero-content {
+  min-width: 0;
+}
+
+.ne-eyebrow,
+.ne-section-label {
+  display: inline-block;
+  color: var(--ne-primary);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+}
+
+.ne-eyebrow {
+  padding: 10px 15px;
+  margin-bottom: 22px;
+  border: 1px solid rgba(194, 0, 47, 0.15);
+  border-radius: 30px;
+  background: rgba(194, 0, 47, 0.06);
+}
+
+.ne-hero h1 {
+  margin: 0 0 17px;
+  color: var(--ne-navy);
+  font-size: clamp(36px, 4.2vw, 58px);
+  font-weight: 850;
+  line-height: 1.14;
+  letter-spacing: -1.8px;
+}
+
+.ne-hero h1 span,
+.ne-story-content h2 span {
+  color: var(--ne-primary);
+}
+
+.ne-hero-content h2 {
+  margin: 0 0 18px;
+  color: var(--ne-navy);
+  font-size: 23px;
+}
+
+.ne-hero-content > p,
+.ne-participants-grid > div:first-child > p {
+  margin: 0;
+  color: var(--ne-muted);
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.ne-event-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 27px;
+}
+
+.ne-event-meta > div {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--ne-navy);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.ne-event-meta svg {
+  flex-shrink: 0;
+  color: var(--ne-primary);
+}
+
+.ne-hero-visual {
+  overflow: hidden;
+  border-radius: 16px;
+  background: #e1e7ed;
+  box-shadow: 0 20px 50px rgba(7, 36, 63, 0.13);
+}
+
+.ne-hero-visual img {
+  display: block;
+  width: 100%;
+  height: 440px;
+  object-fit: cover;
+}
+
+/* SIMPLE ALTERNATING CONTENT ROWS */
+
+.ne-stories {
+  padding: 35px 0 70px;
+  background: #fff;
+}
+
+.ne-story-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 65px;
+  padding: 48px 0;
+  border-bottom: 1px solid var(--ne-border);
+}
+
+.ne-story-row:last-child {
+  border-bottom: 0;
+}
+
+.ne-story-reverse .ne-story-image {
+  order: 2;
+}
+
+.ne-story-reverse .ne-story-content {
+  order: 1;
+}
+
+.ne-story-image {
+  overflow: hidden;
+  min-width: 0;
+  border-radius: 14px;
+  background: #e4eaf0;
+}
+
+.ne-story-image img {
+  display: block;
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.ne-story-image:hover img {
+  transform: scale(1.035);
+}
+
+.ne-story-content {
+  min-width: 0;
+}
+
+.ne-story-tag {
+  display: inline-block;
+  padding: 8px 12px;
+  color: var(--ne-primary);
+  background: #fff0f3;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+}
+
+.ne-story-content h2 {
+  margin: 18px 0;
+  color: var(--ne-navy);
+  font-size: clamp(27px, 3vw, 38px);
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+.ne-story-content p {
+  margin: 0;
+  color: var(--ne-muted);
+  font-size: 15px;
+  line-height: 2;
+}
+
+/* PARTICIPANTS */
+
+.ne-participants {
+  padding: 75px 0;
+  background: var(--ne-light);
+}
+
+.ne-participants-grid {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  align-items: start;
+  gap: 65px;
+}
+
+.ne-participants-grid h2 {
+  margin: 15px 0;
+  color: var(--ne-navy);
+  font-size: clamp(28px, 3vw, 39px);
+  line-height: 1.3;
+}
+
+.ne-participant-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.ne-participant {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 17px;
+  background: #fff;
+  border: 1px solid var(--ne-border);
+  border-radius: 9px;
+}
+
+.ne-participant > svg {
+  flex-shrink: 0;
+  color: var(--ne-primary);
+}
+
+.ne-participant h3 {
+  margin: 0 0 6px;
+  color: var(--ne-navy);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.ne-participant p {
+  margin: 0;
+  color: var(--ne-muted);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+  .ne-hero-grid,
+  .ne-story-row,
+  .ne-participants-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .ne-hero-grid {
+    gap: 35px;
+  }
+
+  .ne-hero-visual img {
+    height: 400px;
+  }
+
+  .ne-story-row {
+    padding: 35px 0;
+  }
+
+  .ne-story-reverse .ne-story-image,
+  .ne-story-reverse .ne-story-content {
+    order: initial;
+  }
+
+  .ne-story-image img {
+    height: 360px;
+  }
+
+  .ne-participants-grid {
+    gap: 30px;
+  }
+}
+
+@media (max-width: 600px) {
+  .ne-container {
+    width: calc(100% - 36px);
+  }
+
+  .ne-hero {
+    padding: 20px 0 50px;
+  }
+
+  .ne-breadcrumbs {
+    margin-bottom: 32px;
+  }
+
+  .ne-hero h1 {
+    font-size: 37px;
+    letter-spacing: -1px;
+  }
+
+  .ne-hero-content h2 {
+    font-size: 20px;
+  }
+
+  .ne-hero-content > p {
+    font-size: 14px;
+  }
+
+  .ne-event-meta {
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .ne-hero-visual img {
+    height: 280px;
+  }
+
+  .ne-stories {
+    padding: 15px 0 45px;
+  }
+
+  .ne-story-row {
+    gap: 23px;
+    padding: 28px 0;
+  }
+
+  .ne-story-image img {
+    height: 240px;
+  }
+
+  .ne-story-content h2 {
+    margin: 14px 0;
+    font-size: 27px;
+  }
+
+  .ne-story-content p {
+    font-size: 14px;
+    line-height: 1.85;
+  }
+
+  .ne-participants {
+    padding: 50px 0;
+  }
+
+  .ne-participant-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nuclear-event-page *,
+  .nuclear-event-page *::before,
+  .nuclear-event-page *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}

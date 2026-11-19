@@ -12,7 +12,7 @@ export const searchIndex: SearchItem[] = [
   {
     title: "Home",
     href: "/",
-    excerpt: "ProSIM engineering services for CAE, FEA, piping, seismic analysis and industrial engineering.",
+    excerpt: "Detailed Engineering, CAE, Pipeline, FEA, CFD Simulations & Research and Development-ProSIM",
     category: "General",
   },
 

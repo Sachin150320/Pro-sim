@@ -1,151 +1,26 @@
 
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import Image from "next/image";
 import ScrollAnimation from "@/app/Components/ScrollAnimation";
 
 const eventsData = [
   {
     id: 1,
-    image: "/assets/images/portfolio/modern/1.webp",
-    description:
-      "Get-IIT Bombay training program on simulator for nuclear power plant - 15 to 17 April",
-    title: "SIMULATORS FOR NUCLEAR POWER PLANTS",
-    url: "/events",
-  },
-  {
-    id: 2,
-    image: "/assets/images/portfolio/modern/2.webp",
-    description:
-      "The nuclear energy sector in India is expected to grow multifold.",
+    image: "/assets/images/Events/events-1.webp",
+    description: "8 October 2026 | IIT Madras, Chennai",
     title:
-      "The Role Of ISO 19443 In Supporting India's Expanding Nuclear Energy Program",
-    url: "/events",
-  },
-  {
-    id: 3,
-    image: "/assets/images/portfolio/modern/3.webp",
-    description: "29-30 May 2026, IIT-Bombay, Mumbai",
-    title: "India Nuclear Energy Forum 2026",
-    url: "/events",
+      "Building India’s Nuclear Ecosystem: Policy, Technology & Industry",
+    url: "/prosim-msme-role-india-nuclear-ecosystem-iit-madras",
   },
 ];
 
 export default function LatestEvents() {
-  const sliderRef = useRef<HTMLDivElement>(null);
-  const isPaused = useRef(false);
-
-  /* =========================
-     AUTOMATIC SCROLL
-  ========================= */
-
-  useEffect(() => {
-    const slider = sliderRef.current;
-
-    if (!slider) return;
-
-    const speed = 0.7;
-
-    const autoScroll = () => {
-      if (!isPaused.current) {
-        slider.scrollLeft += speed;
-
-        /*
-         * Width of the first set of cards.
-         * When the first set is finished,
-         * move back to the beginning.
-         */
-        const firstSetWidth = slider.scrollWidth / 2;
-
-        if (slider.scrollLeft >= firstSetWidth) {
-          slider.scrollLeft = 0;
-        }
-      }
-    };
-
-    const interval = setInterval(autoScroll, 20);
-
-    return () => {
-      clearInterval(interval);
-    };
-  }, []);
-
-  /* =========================
-     BUTTON SCROLL
-  ========================= */
-
-  const scroll = (direction: "left" | "right") => {
-    const slider = sliderRef.current;
-
-    if (!slider) return;
-
-    const cardWidth =
-      window.innerWidth <= 768 ? 314 : 374;
-
-    slider.scrollBy({
-      left:
-        direction === "right"
-          ? cardWidth
-          : -cardWidth,
-      behavior: "smooth",
-    });
-  };
-
-  /* =========================
-     EVENT CARD
-  ========================= */
-
-  const renderCard = (
-    event: (typeof eventsData)[number],
-    duplicate = false
-  ) => (
-    <div
-      className="le-card"
-      key={`${duplicate ? "duplicate" : "original"}-${event.id}`}
-    >
-      {/* IMAGE */}
-
-      <div className="le-img-wrapper">
-        <Image
-          src={event.image}
-          alt={event.title}
-          fill
-          priority={event.id === 1 && !duplicate}
-          className="le-event-image"
-          sizes="(max-width: 768px) 290px, 350px"
-           fetchPriority="high"
-        />
-      </div>
-
-      {/* CONTENT */}
-
-      <div className="le-content">
-        <p className="le-desc">
-          {event.description}
-        </p>
-
-        <h3 className="le-card-title">
-          {event.title}
-        </h3>
-
-        <a
-          href={event.url}
-          className="le-link"
-        >
-          Read More <span>→</span>
-        </a>
-      </div>
-    </div>
-  );
-
   return (
-    <section className="le-section">
+    <section className=" events-section ">
       <div className="le-container">
-
-        {/* =========================
-            HEADER
-        ========================= */}
+        {/* HEADER */}
 
         <ScrollAnimation>
           <div className="events-header-center">
@@ -161,63 +36,75 @@ export default function LatestEvents() {
           </div>
         </ScrollAnimation>
 
-        {/* =========================
-            CAROUSEL
-        ========================= */}
+        {/* SINGLE CENTERED EVENT */}
 
-        <div className="le-carousel-container">
+        <div className="le-carousel-container le-single-event-container">
+          {eventsData.map((event) => (
+            <article className="le-card" key={event.id}>
+              {/* IMAGE */}
 
-          {/* LEFT BUTTON */}
+              <div className="le-img-wrapper">
+                <Image
+                  src={event.image}
+                  alt={event.title}
+                  fill
+                  className="le-event-image"
+                  sizes="(max-width: 768px) 100vw, 350px"
+                />
+              </div>
 
-          <button
-            type="button"
-            className="le-nav-arrow le-prev"
-            onClick={() => scroll("left")}
-            aria-label="Previous events"
-          >
-            ‹
-          </button>
+              {/* CONTENT */}
 
-          {/* SLIDER */}
+              <div className="le-content">
+                <p className="le-desc">
+                  {event.description}
+                </p>
 
-          <div
-            ref={sliderRef}
-            className="le-scroll-wrapper"
-            onMouseEnter={() => {
-              isPaused.current = true;
-            }}
-            onMouseLeave={() => {
-              isPaused.current = false;
-            }}
-          >
+                <h3 className="le-card-title">
+                  {event.title}
+                </h3>
 
-            {/* ORIGINAL CARDS */}
-
-            {eventsData.map((event) =>
-              renderCard(event)
-            )}
-
-            {/* DUPLICATE CARDS */}
-
-            {eventsData.map((event) =>
-              renderCard(event, true)
-            )}
-
-          </div>
-
-          {/* RIGHT BUTTON */}
-
-          <button
-            type="button"
-            className="le-nav-arrow le-next"
-            onClick={() => scroll("right")}
-            aria-label="Next events"
-          >
-            ›
-          </button>
-
+                <a
+                  href={event.url}
+                  className="le-link"
+                >
+                  Read More <span>→</span>
+                </a>
+              </div>
+            </article>
+          ))}
         </div>
       </div>
+
+      {/* CENTER THE SINGLE EVENT */}
+
+      <style jsx>{`
+        .le-single-event-container {
+          display: flex;
+          justify-content: center;
+          align-items: stretch;
+          width: 100%;
+          margin: 0 auto;
+        }
+
+        .le-single-event-container :global(.le-card) {
+          flex: 0 1 374px;
+          width: 100%;
+          max-width: 374px;
+          margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+          .le-single-event-container {
+            padding: 0 15px;
+          }
+
+          .le-single-event-container :global(.le-card) {
+            flex-basis: 100%;
+            max-width: 374px;
+          }
+        }
+      `}</style>
     </section>
   );
 }

@@ -9,37 +9,37 @@ const industries = [
     title: "Nuclear Energy",
     type: " NUCLEAR ENERGY",
     href: "/nuclear-power",
-    image: "/assets/images/industries/ind-nuclear.jpg",
+    image: "/assets/images/industries/ind-nuclear.webp",
   },
   {
     title: "Thermal Energy",
     type: "THERMAL ENERGY",
     href: "/thermal-power",
-    image: "/assets/images/industries/ind-thermal.jpg",
+    image: "/assets/images/industries/ind-thermal.webp",
   },
   {
     title: "Oil & Gas",
     type: "OIL & GAS",
     href: "/oil-gas",
-    image: "/assets/images/industries/ind-oil-gas.jpg",
+    image: "/assets/images/industries/ind-oil-gas.webp",
   },
   {
     title: "Petrochemicals & Process Industries",
     type: "Petrochemicals & PROCESS INDUSTRIES",
     href: "/oil-gas",
-    image: "/assets/images/industries/ind-petrochemicals.jpg",
+    image: "/assets/images/industries/ind-petrochemicals.webp",
   },
   {
     title: "Industrial & Heavy Engineering",
     type: "Industrial & HEAVY ENGINEERING",
     href: "/heavy-engineering",
-    image: "/assets/images/industries/ind-industrial.jpg",
+    image: "/assets/images/industries/ind-industrial.webp",
   },
   {
     title: "DEFENCE",
     type: "DEFENCE & AEROSPACE",
     href: "/defence-systems",
-    image: "/assets/images/industries/ind-power-utilities.jpg",
+    image: "/assets/images/industries/ind-power-utilities.webp",
   },
 ];
 

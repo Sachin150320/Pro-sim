@@ -178,24 +178,32 @@
 
 /* ---- submit ---- */
 .ap-submit {
-    background: var(--ap-red);
-    color: #fff;
-    cursor: pointer;
-    border: 0;
-    border-radius: 10px;
-    align-items: center;
-    gap: 9px;
-    margin-top: 2px;
-    padding: 7px 30px;
-    font-family: inherit;
-    font-size: 14px;
-    font-weight: 600;
-    transition: background .2s, transform .2s;
-    display: inline-flex;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 10px;
 }
 
+.ap-submit-button {
+      background-color: #4372b6;
+          color: white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 0;
+  cursor: pointer;
+  padding: 14px 26px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.ap-submit-button:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
 .ap-submit:hover {
-  background: #005a96;
   transform: translateY(-2px);
 }
 
@@ -265,6 +273,8 @@
   border-color: var(--ap-red);
   color: var(--ap-red);
 }
+
+
 
 @media (max-width: 680px) {
   .ap-section {

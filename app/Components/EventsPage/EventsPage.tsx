@@ -1,160 +1,122 @@
-
 "use client";
 
 import React from "react";
 import Breadcrumbs from "@/app/Components/Breadcrumbs/Breadcrumbs";
 import ScrollAnimation from "@/app/Components/ScrollAnimation";
-import { Download, CalendarDays, MapPin, Mail } from "lucide-react";
+import { CalendarDays, MapPin } from "lucide-react";
 import "./EventsPage.css";
 
 const IMG = "/assets/images/Events";
 
-const PDF_FILE = `${IMG}/Nuclear-Power-Generation.pdf`;
+const event = {
 
-const cards = [
-  {
-    image: `${IMG}/1.jpg`,
-    tag: "Announcement",
-    title: "ProSIM × IIT Bombay — Nuclear Power Generation Training",
-    body: "ProSIM is happy to announce its collaboration with IIT Bombay to conduct a 2-day training programme, “Nuclear Power Generation”, on 12–13 March 2026. ProSIM is committed to the cause of energy transition and the deployment of nuclear energy in India.",
-  },
-  {
-    image: `${IMG}/2.webp`,
-    tag: "Programme Overview",
-    title: "A Two-Day Continuing Education Training Programme",
-    body: "ProSIM has been a pioneer in providing R&D, design, engineering, seismic qualification and safety-related services to the nuclear ecosystem in India and abroad. This two-day Continuing Education Training programme, held on 12–13 March 2026 at IIT Bombay, aims to provide fundamental knowledge of the principles and technology involved in nuclear power plants.",
-  },
-  {
-    image: `${IMG}/3.jpg`,
-    tag: "Registration & Contact",
-    title: "Dates, Venue & How to Register",
-    body: "Held on 12–13 March 2026 at IIT Bombay. For details, email Rupali Nayal (30006517@iitb.ac.in) or Shwetali Kumbhar (30005686@iitb.ac.in).",
-    meta: [
-      { icon: CalendarDays, text: "12–13 March 2026" },
-      { icon: MapPin, text: "IIT Bombay" },
-      {
-        icon: Mail,
-        text: "30006517@iitb.ac.in · 30005686@iitb.ac.in",
-      },
-    ],
-  },
-];
+  tag: "Conference",
+  title: "Building India's Nuclear Ecosystem",
+  subtitle: "Policy, Technology & Industry",
+  date: "8 October 2026",
+  location: "IIT Madras, Chennai",
+  body: "Dr. S. Shamasundar, Managing Director of ProSIM and Honorary Director of India Nuclear Forum, participated in the International Conference on “Building India's Nuclear Ecosystem: Policy, Technology & Industry”, organised by the Deccan Center for International Relations and IIT Madras.",
+  discussion:
+    "The conference brought together distinguished professionals from India's nuclear energy sector to discuss strengthening domestic value chains, building industrial capacity, promoting research and development, and accelerating India's nuclear energy mission.",
+};
 
-export default function EventsPage() {
-  const downloadPDF = () => {
-    const link = document.createElement("a");
-    link.href = PDF_FILE;
-    link.download = "#";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
-
+export default function NuclearEcosystemEventPage() {
   return (
     <main className="seismic-page">
       {/* HERO */}
       <section className="sa-hero">
         <div className="sa-hero-crumbs">
           <Breadcrumbs />
+          
         </div>
 
         <div className="sa-hero-inner">
           <ScrollAnimation className="sa-hero-text">
+           
+
             <h1>
-              <span>ProSIM &amp; IIT Bombay</span> Nuclear Power Generation
-              Training.
+             Latest Events
             </h1>
 
-            <p>
-              A 2-day training programme on “Nuclear Power Generation”, 12–13
-              March 2026 at IIT Bombay — organised in collaboration with ProSIM,
-              a pioneer in R&amp;D, design, engineering and seismic qualification
-              for the nuclear sector.
-            </p>
+           
+
+           
           </ScrollAnimation>
 
           <ScrollAnimation className="sa-hero-media" delay={120}>
             <figure className="sa-hero-media-main">
               <img
-                src={`${IMG}/4.jpeg`}
-                alt="Nuclear power generation training"
-               fetchPriority="high"
+                src={`${IMG}/nuclear-conference-panel.webp`}
+                alt="Nuclear ecosystem conference at IIT Madras"
+                fetchPriority="high"
               />
-              <figcaption>12–13 March 2026</figcaption>
+
+              <figcaption>
+                International Conference — 8 October 2026
+              </figcaption>
             </figure>
 
             <figure className="sa-hero-media-inset">
               <img
-                src={`${IMG}/5.webp`}
-                alt="IIT Bombay"
-                fetchPriority="high"
+                src={`${IMG}/nuclear-conference-felicitation.webp`}
+                alt="Dr. S. Shamasundar being felicitated at the conference"
+                loading="lazy"
               />
             </figure>
           </ScrollAnimation>
         </div>
       </section>
 
-      {/* EVENT BOXES */}
+      {/* FEATURED EVENT */}
       <section className="sa-services" id="event">
         <div className="sa-container">
           <ScrollAnimation className="sa-intro">
-            <span className="sa-label">Continuing Education</span>
+            <span className="sa-label">
+              Featured Event
+            </span>
 
-            <h2>Nuclear Power Generation — Training Programme</h2>
-
-            <p>
-              ProSIM is committed to the cause of energy transition and the
-              deployment of nuclear energy in India.
-            </p>
           </ScrollAnimation>
 
-          <div className="ev-grid">
-            {cards.map((c, i) => (
-              <ScrollAnimation key={c.title} delay={i * 90}>
-                <article className="ev-card">
-                  <div className="ev-card-img">
-                    <span className="ev-card-tag">{c.tag}</span>
+          <div className="ev-grid ev-grid-single">
+            <ScrollAnimation>
+              <article className="ev-card">
+                <div className="ev-card-img">
+                  <span className="ev-card-tag">
+                    {event.tag}
+                  </span>
 
-                    <img
-                      src={c.image}
-                      alt={c.title}
-                      fetchPriority="high"
-                    />
+                  <img
+                    src="/assets/images/Events/events-1.png"
+                    alt={event.title}
+                    loading="lazy"
+                  />
+                </div>
+
+                <div className="ev-card-body">
+                  <h3>{event.title}</h3>
+
+                  <p>{event.body}</p>
+
+                  <div className="ev-meta">
+                    <div>
+                      <CalendarDays size={17} />
+                      <span>{event.date}</span>
+                    </div>
+
+                    <div>
+                      <MapPin size={17} />
+                      <span>{event.location}</span>
+                    </div>
                   </div>
-
-                  <div className="ev-card-body">
-                    <h3>{c.title}</h3>
-
-                    <p>{c.body}</p>
-
-                    {c.meta && (
-                      <ul className="ev-meta">
-                        {c.meta.map((m) => {
-                          const Icon = m.icon;
-
-                          return (
-                            <li key={m.text}>
-                              <Icon size={15} strokeWidth={1.9} />
-                              {m.text}
-                            </li>
-                          );
-                        })}
-                      </ul>
-                    )}
-
-                    {/* DIRECT PDF DOWNLOAD */}
-                    {/* <button
-                      type="button"
-                      className="ev-dl"
-                      onClick={downloadPDF}
-                    >
-                      <Download size={16} strokeWidth={1.8} />
-                      Download PDF
-                    </button> */}
-                  </div>
-                </article>
-              </ScrollAnimation>
-            ))}
+                   <a
+                   href="/prosim-msme-role-india-nuclear-ecosystem-iit-madras"
+                  className="le-link"
+                >
+                  Read More <span>→</span>
+                </a>
+                </div>
+              </article>
+            </ScrollAnimation>
           </div>
         </div>
       </section>

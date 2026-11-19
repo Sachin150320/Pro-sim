@@ -13,7 +13,7 @@ export default function EventsSection() {
       date: "Duration · 6 Weeks",
       description:
         "Static and dynamic pipe stress analysis validating a proposed incinerator piping design modification, enabling the customer to approve and proceed with site modifications while improving efficiency.",
-      image: "/assets/images/project/2.jpg",
+      image: "/assets/images/project/2.webp",
       linkText: "Read More →",
     },
     {
@@ -23,7 +23,7 @@ export default function EventsSection() {
       date: "Duration · 5 Weeks",
       description:
         "FEA-based structural validation under transportation, lifting and extreme-wind loads, with optimised lifting arrangement, tie-down configuration and weld design.",
-      image: "/assets/images/project/3.jpg",
+      image: "/assets/images/project/3.webp",
       linkText: "Read More →",
     },
     {
@@ -33,7 +33,7 @@ export default function EventsSection() {
       date: "Duration · 5 Weeks",
       description:
         "Equipment qualification for Operating Basis Earthquake (OBE) loading, enabling the customer to release the motor for manufacturing and supply it to a nuclear power plant site.",
-      image: "/assets/images/project/4.jpg",
+      image: "/assets/images/project/4.webp",
       linkText: "Read More →",
     },
     
@@ -67,7 +67,7 @@ export default function EventsSection() {
             <div className="event-featured-card">
               <div className="event-image-box">
                 <img
-                  src="/assets/images/project/5.jpg"
+                  src="/assets/images/project/5.webp"
                   alt="Fitness-for-Service Assessment of a Pipeline During Lifting Operations"
                 />
                 <div className="event-badge">FEATURED</div>

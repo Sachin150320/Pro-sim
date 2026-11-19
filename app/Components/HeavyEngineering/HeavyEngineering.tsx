@@ -81,7 +81,7 @@ const quickLinks = [
   {
     title: "From design question to engineering answer",
     href: "#approach",
-    image: "assets/images/industries/3D-plant-modelling-services/3.png",
+    image: "/assets/images/industries/nuclear/nuclear-2.jpg",
   },
   {
     title: "FEA-driven evaluation of cranes, hoists & supporting structures",

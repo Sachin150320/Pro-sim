@@ -78,7 +78,7 @@ export default function Footer() {
 
                             {/* EMAIL */}
                             <a
-                                href="mailto:info@prosim.co.in"
+                                href="mailto:enquiry@pro-sim.com"
                                 className="contact-item"
                             >
                                 <div className="contact-icon">
@@ -153,49 +153,49 @@ export default function Footer() {
                                 </div>
                             </div>
                         </div>
-                        
+
                     </div>
-{/* QUICK CONNECT */}
+                    {/* QUICK CONNECT */}
                     <div className="footer-column footer-contact">
                         <h3>Quick Connect</h3>
                         <ul>
-                          
+
 
                             <li>
                                 <Link href="/">
                                     <span className="footer-arrow">→</span>Home </Link>
                             </li>
-                           
-                             <li>
+
+                            <li>
                                 <Link href="/about-us">
                                     <span className="footer-arrow">→</span>   About Us </Link>
                             </li>
-                             <li>
+                            <li>
                                 <Link href="/onsite-deputation">
                                     <span className="footer-arrow">→</span> Onsite Deputation </Link>
                             </li>
-                             <li>
+                            <li>
                                 <Link href="/projects">
                                     <span className="footer-arrow">→</span>Projects </Link>
                             </li>
-                             <li>
+                            <li>
                                 <Link href="https://www.pro-sim.com/blog/">
                                     <span className="footer-arrow">→</span>Blogs</Link>
                             </li>
                             <li>
-                                <Link href="/">
+                                <Link href="/events">
                                     <span className="footer-arrow">→</span>Events</Link>
                             </li>
-                             <li>
+                            <li>
                                 <Link href="/careers">
                                     <span className="footer-arrow">→</span>Careers </Link>
                             </li>
-                             <li>
+                            <li>
                                 <Link href="/contact-us">
                                     <span className="footer-arrow">→</span> Contact Us </Link>
                             </li>
 
-                          
+
 
 
                         </ul>
@@ -231,7 +231,7 @@ export default function Footer() {
 
                         </div>
                     </div>
-                    
+
 
                     {/* INDUSTRIES */}
                     <div className="footer-column">
@@ -281,7 +281,7 @@ export default function Footer() {
                             </li> */}
                         </ul>
                     </div>
-{/* OFFERINGS */}
+                    {/* OFFERINGS */}
                     <div className="footer-column">
                         <h3>Offerings</h3>
 
@@ -350,7 +350,7 @@ export default function Footer() {
                             </li>
                         </ul>
                     </div>
-                    
+
                 </div>
             </div>
 
@@ -440,6 +440,35 @@ export default function Footer() {
                     </span>
                 </a>
 
+            </div>
+            <div className="download-broucher">
+                <a
+                    href="/assets/pdf/ProSIM-Nuclear-Brochure-2026.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="brochure-side-btn"
+                    aria-label="Download Brochure"
+                >
+                    {/* PDF Icon */}
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        aria-hidden="true"
+                    >
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                        <polyline points="14 2 14 8 20 8" />
+                        <path d="M9 15h1.5a2 2 0 0 0 0-4H9v6" />
+                        <path d="M14 11v6" />
+                        <path d="M14 11h1.5a2 2 0 0 1 0 4H14" />
+                    </svg>
+
+                    <span>Download Brochure</span>
+                </a>
             </div>
 
         </footer>

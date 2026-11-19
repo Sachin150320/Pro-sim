@@ -1,11 +1,4 @@
 export const seoData = {
-  home: {
-    title: "Home | CAE, FEA & Engineering Outsourcing Services | ProSIM Bangalore",
-    description:
-      "ProSIM offers ANSYS FEA services, CAE outsourcing, piping engineering, seismic qualification & structural integrity assessment from Bangalore, India. Get a quote today.",
-    keywords:
-      "CAE services, FEA services, FEA services India, FEA services Bangalore, Computer Aided Engineering outsourcing, ANSYS FEA service, Engineering Outsourcing, Onsite engineering placement, engineering design services, CAE offshore service",
-  },
 
   aboutUs: {
     title: "About ProSIM | CAE, FEA & Engineering Outsourcing Company Bangalore",

@@ -173,7 +173,7 @@ if ($fileContent === false) {
 
 $to = "enquiry@pro-sim.com";
 
-$cc = "HR@pro-sim.com, Sandeep.PS@pro-sim.com, ps2@pro-sim.com, emswebdesign22@gmail.com";
+$cc = "Sandeep.PS@pro-sim.com, ps2@pro-sim.com,  hr@pro-sim.com, emswebdesign22@gmail.com";
 
 $subject = "New Career Application - " . $position;
 

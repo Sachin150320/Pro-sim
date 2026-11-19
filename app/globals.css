@@ -5754,7 +5754,7 @@ span.sub-link a {
 ========================= */
 
 .le-content {
-  min-height: 215px;
+  min-height: 160px;
 
   padding: 24px;
 
@@ -6110,4 +6110,97 @@ span.sub-link a {
 .search-no-results {
   padding: 1rem 0;
   color: #888;
+}
+
+/* =========================================================
+   FIXED DOWNLOAD BROCHURE BUTTON
+   ========================================================= */
+
+.download-broucher {
+  position: relative;
+  z-index: 9999;
+}
+
+.brochure-side-btn {
+  position: fixed;
+  top: 50%;
+  right: 30px;
+
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+
+  padding: 13px 17px;
+
+  color: #ffffff;
+  background: #4372b6;
+
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1;
+
+  text-decoration: none;
+  white-space: nowrap;
+
+  border-radius: 8px 8px 0 0;
+
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+
+  transform: rotate(-90deg) translateY(-50%);
+  transform-origin: right top;
+
+  transition:
+    background 0.3s ease,
+    box-shadow 0.3s ease,
+    right 0.3s ease;
+}
+
+/* SVG Icon */
+.brochure-side-btn svg {
+  width: 19px;
+  height: 19px;
+  flex-shrink: 0;
+}
+
+/* Hover */
+.brochure-side-btn:hover {
+  right: 38px;
+
+  color: #ffffff;
+ background: linear-gradient(135deg, #145da0d9, #0d9488d9);
+
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 767px) {
+  .brochure-side-btn {
+    top: auto;
+    right: 2px;
+    bottom: 345px;
+
+    padding: 11px 14px; 
+
+    font-size: 13px;
+
+    border-radius: 7px 7px 0 0;
+
+    transform: rotate(-90deg);
+    transform-origin: right bottom;
+  }
+
+  .brochure-side-btn svg {
+    width: 17px;
+    height: 17px;
+  }
+
+  .brochure-side-btn:hover {
+    right: -40px;
+  }
 }

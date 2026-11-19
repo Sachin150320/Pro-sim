@@ -115,7 +115,7 @@ export default function ContactSection() {
               <div className="hq-image-section">
                 <div className="hq-image-section">
                   <img
-                    src="/assets/images/industries/contact.jpg"
+                    src="/assets/images/industries/contact.webp"
                     alt="ProSIM R&D Center"
                     className="hq-image"
                     fetchPriority="high"
@@ -133,18 +133,16 @@ export default function ContactSection() {
                 <h3 className="rfp-title">Get In Touch</h3>
 
                 <p className="rfp-subtitle">
-                  Fill in the project scope below to receive a deliverables
-                  and cost assessment.
+                 Fill in the project scope below, and our experts will contact you shortly to understand your requirements and discuss the next steps.
                 </p>
               </div>
 
               {submitted ? (
                 <div className="rfp-success-box">
-                  <h3>Assessment Request Submitted</h3>
+                  <h3> Request Submitted Successfully</h3>
 
                   <p>
-                    Our simulation experts are reviewing your scope
-                    specifications. We will contact your work email shortly.
+                   Thank you for your submission. Our experts will review your requirements and get in touch with you shortly.
                   </p>
                 </div>
               ) : (
